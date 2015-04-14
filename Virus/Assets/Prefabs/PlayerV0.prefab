@@ -239,11 +239,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4311498f0cba847bc8f7be3becdc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 15
-  rotationSpeed: 10
-  missile: {fileID: 198854, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-  missileSpeed: 1500
-  missileLifetime: 10
+  movement:
+    movementSpeed: 15
+    rotationSpeed: 10
+  shooting:
+    basicAttack:
+      missile: {fileID: 198854, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      missileSpeed: 1500
+      missileLifetime: 10
 --- !u!136 &13666808
 CapsuleCollider:
   m_ObjectHideFlags: 1

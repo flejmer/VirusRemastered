@@ -1,14 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+[System.Serializable]
+public class Movement
 {
     public float movementSpeed = 15;
     public float rotationSpeed = 10;
+}
 
+[System.Serializable]
+public class Shooting
+{
+    public BasicAttack basicAttack;
+}
+
+[System.Serializable]
+public class BasicAttack
+{
     public GameObject missile;
     public float missileSpeed = 1500;
     public float missileLifetime = 10;
+}
+
+public class PlayerController : MonoBehaviour
+{
+    public Movement movement;
+    public Shooting shooting;
 
     private Rigidbody rbody;
     private GameObject missileSpawn;
@@ -41,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 targetPoint = ray.GetPoint(hitdist);
             Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-            rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, movement.rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -53,7 +70,7 @@ public class PlayerController : MonoBehaviour
         if (vertical != 0 || horizontal != 0)
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
-            rbody.MovePosition(transform.position + movement * movementSpeed * Time.deltaTime);
+            rbody.MovePosition(transform.position + movement * this.movement.movementSpeed * Time.deltaTime);
         }
     }
 
@@ -63,9 +80,9 @@ public class PlayerController : MonoBehaviour
 
         if (fireInput)
         {
-            GameObject instance = GameObject.Instantiate(missile, missileSpawn.transform.position, missileSpawn.transform.rotation) as GameObject;
-            instance.GetComponent<Rigidbody>().AddForce(missileSpawn.transform.forward * missileSpeed);
-            Destroy(instance, missileLifetime);
+            GameObject instance = GameObject.Instantiate(shooting.basicAttack.missile, missileSpawn.transform.position, missileSpawn.transform.rotation) as GameObject;
+            instance.GetComponent<Rigidbody>().AddForce(missileSpawn.transform.forward * shooting.basicAttack.missileSpeed);
+            Destroy(instance, shooting.basicAttack.missileLifetime);
         }
     }
 }
