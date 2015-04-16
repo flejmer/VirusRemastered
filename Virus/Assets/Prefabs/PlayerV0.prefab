@@ -244,8 +244,7 @@ MonoBehaviour:
     rotationSpeed: 10
   shooting:
     basicAttack:
-      missile: {fileID: 198854, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      missileSpeed: 1500
+      missile: {fileID: 155564, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
       missileLifetime: 10
 --- !u!136 &13666808
 CapsuleCollider:
