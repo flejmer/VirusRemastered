@@ -18,7 +18,6 @@ public class Shooting
 public class BasicAttack
 {
     public GameObject missile;
-    public float missileSpeed = 1500;
     public float missileLifetime = 10;
 }
 
@@ -81,7 +80,6 @@ public class PlayerController : MonoBehaviour
         if (fireInput)
         {
             GameObject instance = GameObject.Instantiate(shooting.basicAttack.missile, missileSpawn.transform.position, missileSpawn.transform.rotation) as GameObject;
-            instance.GetComponent<Rigidbody>().AddForce(missileSpawn.transform.forward * shooting.basicAttack.missileSpeed);
             Destroy(instance, shooting.basicAttack.missileLifetime);
         }
     }
