@@ -30,6 +30,7 @@ GameObject:
   - 65: {fileID: 6586614}
   - 122: {fileID: 12235836}
   - 108: {fileID: 10822352}
+  - 54: {fileID: 5485592}
   m_Layer: 0
   m_Name: SimpleLaser
   m_TagString: Lightning
@@ -55,13 +56,28 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: -3.6099999, y: 1.91999996, z: 3.02999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!54 &5485592
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155564}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6586614
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -118,6 +134,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missileSpeed: 25
+  missile: {fileID: 155564}
+  bouncy: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  skinWidth: .100000001
 --- !u!120 &12015246
 LineRenderer:
   m_ObjectHideFlags: 1
