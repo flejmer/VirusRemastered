@@ -53,13 +53,9 @@ public class SimpleMissileController : MonoBehaviour
     void OnTriggerEnter()
     {
         if (movementSqrMagnitude > sqrMinimumExtent)
-        {
             backupObstacleHit();
-        }
         else
-        {
             obstacleHit();
-        }
     }
 
     void FixedUpdate()
@@ -79,6 +75,7 @@ public class SimpleMissileController : MonoBehaviour
 
     void obstacleHit()
     {
+
         Vector3 movementThisStep = transform.TransformDirection(Vector3.forward);
         float movementMagnitude = movementThisStep.magnitude;
 
@@ -93,7 +90,7 @@ public class SimpleMissileController : MonoBehaviour
                 Debug.DrawRay(hitInfo.point, reflected * 2, Color.cyan, 2);
 
                 Quaternion lookAt = Quaternion.LookRotation(reflected);
-                rbody.rotation = lookAt;
+                transform.rotation = lookAt;
 
                 bouncesCount++;
             }
@@ -119,7 +116,7 @@ public class SimpleMissileController : MonoBehaviour
                 Debug.DrawRay(hitInfo.point, -reflected * 2, Color.cyan, 2);
 
                 Quaternion lookAt = Quaternion.LookRotation(-reflected);
-                rbody.rotation = lookAt;
+                transform.rotation = lookAt;
 
                 bouncesCount++;
             }
@@ -133,16 +130,10 @@ public class SimpleMissileController : MonoBehaviour
     void stopProjectile()
     {
         moveDir = Vector3.zero;
-
-        if (cld)
-            cld.enabled = false;
-        if (pSys)
-            pSys.emissionRate = 0;
-        if (hlo)
-            hlo.GetType().GetProperty("enabled").SetValue(hlo, false, null);
-        if (lineR)
-            lineR.enabled = false;
-        if (lght)
-            lght.enabled = false;
+        cld.enabled = false;
+        pSys.emissionRate = 0;
+        hlo.GetType().GetProperty("enabled").SetValue(hlo, false, null);
+        lineR.enabled = false;
+        lght.enabled = false;
     }
 }
