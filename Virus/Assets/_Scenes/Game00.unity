@@ -280,6 +280,10 @@ Prefab:
       propertyPath: missileSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11483826, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: maxBounces
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
   m_IsPrefabParent: 0

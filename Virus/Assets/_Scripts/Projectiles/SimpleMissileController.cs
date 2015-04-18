@@ -5,7 +5,11 @@ public class SimpleMissileController : MonoBehaviour
 {
     public float missileSpeed = 20;
     public GameObject missile;
+
     public bool bouncy = false;
+    public int maxBounces = 5;
+
+    private int bouncesCount = 0;
 
     private float minimumExtent;
     private float partialExtent;
@@ -82,17 +86,16 @@ public class SimpleMissileController : MonoBehaviour
 
         if (Physics.Raycast(transform.position, movementThisStep, out hitInfo, movementMagnitude))
         {
-            if (bouncy)
+            if (bouncy && bouncesCount <= maxBounces)
             {
                 Debug.DrawRay(transform.position, movementThisStep * movementMagnitude, Color.cyan, 2);
                 Vector3 reflected = Vector3.Reflect((hitInfo.point - transform.position).normalized, hitInfo.normal);
                 Debug.DrawRay(hitInfo.point, reflected * 2, Color.cyan, 2);
 
                 Quaternion lookAt = Quaternion.LookRotation(reflected);
-                GameObject instance = GameObject.Instantiate(missile, hitInfo.point, lookAt) as GameObject;
-                Destroy(instance, 5);
+                rbody.rotation = lookAt;
 
-                stopProjectile();
+                bouncesCount++;
             }
             else
             {
@@ -109,17 +112,16 @@ public class SimpleMissileController : MonoBehaviour
 
         if (Physics.Raycast(previousPosition, movementThisStep, out hitInfo, movementMagnitude))
         {
-            if (bouncy)
+            if (bouncy && bouncesCount <= maxBounces)
             {
                 Debug.DrawRay(previousPosition, movementThisStep * movementMagnitude, Color.cyan, 2);
                 Vector3 reflected = Vector3.Reflect((hitInfo.point - transform.position).normalized, hitInfo.normal);
                 Debug.DrawRay(hitInfo.point, -reflected * 2, Color.cyan, 2);
 
                 Quaternion lookAt = Quaternion.LookRotation(-reflected);
-                GameObject instance = GameObject.Instantiate(missile, hitInfo.point, lookAt) as GameObject;
-                Destroy(instance, 5);
+                rbody.rotation = lookAt;
 
-                stopProjectile();
+                bouncesCount++;
             }
             else
             {
@@ -131,10 +133,16 @@ public class SimpleMissileController : MonoBehaviour
     void stopProjectile()
     {
         moveDir = Vector3.zero;
-        cld.enabled = false;
-        pSys.emissionRate = 0;
-        hlo.GetType().GetProperty("enabled").SetValue(hlo, false, null);
-        lineR.enabled = false;
-        lght.enabled = false;
+
+        if (cld)
+            cld.enabled = false;
+        if (pSys)
+            pSys.emissionRate = 0;
+        if (hlo)
+            hlo.GetType().GetProperty("enabled").SetValue(hlo, false, null);
+        if (lineR)
+            lineR.enabled = false;
+        if (lght)
+            lght.enabled = false;
     }
 }
