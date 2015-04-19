@@ -29,15 +29,33 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rbody;
     private GameObject missileSpawn;
 
+    private Collider missileSpawnCollider;
+    private Collider wallBounds;
+    private bool spawnInTheWall = false;
+
+
+
+
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
         missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
+        missileSpawnCollider = missileSpawn.GetComponent<Collider>();
+
+        StartCoroutine("missileSpawnBoundsCheck");
     }
 
     void Update()
     {
         Shooting();
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (missileSpawnCollider.bounds.Intersects(other.bounds))
+        {
+            wallBounds = other;
+        }
     }
 
     void FixedUpdate()
@@ -79,8 +97,30 @@ public class PlayerController : MonoBehaviour
 
         if (fireInput)
         {
-            GameObject instance = GameObject.Instantiate(shooting.basicAttack.missile, missileSpawn.transform.position, missileSpawn.transform.rotation) as GameObject;
-            Destroy(instance, shooting.basicAttack.missileLifetime);
+            if (!spawnInTheWall)
+            {
+                GameObject instance = GameObject.Instantiate(shooting.basicAttack.missile, missileSpawn.transform.position, missileSpawn.transform.rotation) as GameObject;
+                Destroy(instance, shooting.basicAttack.missileLifetime);
+            }
+        }
+    }
+
+    IEnumerator missileSpawnBoundsCheck()
+    {
+        for (; ; )
+        {
+            if (wallBounds)
+            {
+                if (missileSpawnCollider.bounds.Intersects(wallBounds.bounds))
+                {
+                    spawnInTheWall = true;
+                }
+                else
+                {
+                    spawnInTheWall = false;
+                }
+            }
+            yield return new WaitForSeconds(0.01f);
         }
     }
 }

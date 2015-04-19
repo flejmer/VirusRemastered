@@ -5,6 +5,7 @@ public class SimpleMissileController : MonoBehaviour
 {
     public float missileSpeed = 20;
     public GameObject missile;
+    public LayerMask layerMask;
 
     public bool bouncy = false;
     public int maxBounces = 5;
@@ -31,6 +32,8 @@ public class SimpleMissileController : MonoBehaviour
 
     void Awake()
     {
+        DebugDraw.DrawSphere(transform.position, .0f, Color.cyan);
+
         rbody = GetComponent<Rigidbody>();
         myRigidbody = rbody;
         previousPosition = myRigidbody.position;
@@ -81,7 +84,7 @@ public class SimpleMissileController : MonoBehaviour
 
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(transform.position, movementThisStep, out hitInfo, movementMagnitude))
+        if (Physics.Raycast(transform.position, movementThisStep, out hitInfo, movementMagnitude, layerMask))
         {
             if (bouncy && bouncesCount <= maxBounces)
             {
@@ -107,13 +110,15 @@ public class SimpleMissileController : MonoBehaviour
         float movementMagnitude = movementThisStep.magnitude;
         RaycastHit hitInfo;
 
-        if (Physics.Raycast(previousPosition, movementThisStep, out hitInfo, movementMagnitude))
+        if (Physics.Raycast(previousPosition, movementThisStep, out hitInfo, movementMagnitude, layerMask))
         {
             if (bouncy && bouncesCount <= maxBounces)
             {
                 Debug.DrawRay(previousPosition, movementThisStep * movementMagnitude, Color.cyan, 2);
                 Vector3 reflected = Vector3.Reflect((hitInfo.point - transform.position).normalized, hitInfo.normal);
                 Debug.DrawRay(hitInfo.point, -reflected * 2, Color.cyan, 2);
+
+                //DebugDraw.DrawSphere(transform.position,2,Color.cyan);
 
                 Quaternion lookAt = Quaternion.LookRotation(-reflected);
                 transform.rotation = lookAt;
