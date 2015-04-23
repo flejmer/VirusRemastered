@@ -1,0 +1,1840 @@
+fileFormatVersion: 2
+guid: 106060eb0e2b83b458cede0b47217d4f
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Armature
+    100002: body
+    100004: Cube
+    100006: head
+    100008: Hemi
+    100010: hip1left
+    100012: hip1right
+    100014: hips
+    100016: l_fingers2
+    100018: l_fingers_1
+    100020: l_fuck_f
+    100022: l_indes_f
+    100024: l_indes_f_001
+    100026: l_pam
+    100028: l_pinky_f
+    100030: l_pinky_f_001
+    100032: l_thumb_1
+    100034: l_thumb_2
+    100036: left_arm
+    100038: left_foot_1
+    100040: left_foot_2
+    100042: left_forearm
+    100044: left_heel
+    100046: left_leg2
+    100048: left_leg_1
+    100050: left_shoulder
+    100052: //RootNode
+    100054: r__palm
+    100056: r_palm_fingers
+    100058: r_thumb_1
+    100060: r_thumb_2
+    100062: right_arm
+    100064: right_foot1
+    100066: right_foot2
+    100068: right_forearm
+    100070: right_heel
+    100072: right_leg1
+    100074: right_leg2
+    100076: right_shoulder
+    100078: right_shoulder_001
+    100080: root
+    400000: Armature
+    400002: body
+    400004: Cube
+    400006: head
+    400008: Hemi
+    400010: hip1left
+    400012: hip1right
+    400014: hips
+    400016: l_fingers2
+    400018: l_fingers_1
+    400020: l_fuck_f
+    400022: l_indes_f
+    400024: l_indes_f_001
+    400026: l_pam
+    400028: l_pinky_f
+    400030: l_pinky_f_001
+    400032: l_thumb_1
+    400034: l_thumb_2
+    400036: left_arm
+    400038: left_foot_1
+    400040: left_foot_2
+    400042: left_forearm
+    400044: left_heel
+    400046: left_leg2
+    400048: left_leg_1
+    400050: left_shoulder
+    400052: //RootNode
+    400054: r__palm
+    400056: r_palm_fingers
+    400058: r_thumb_1
+    400060: r_thumb_2
+    400062: right_arm
+    400064: right_foot1
+    400066: right_foot2
+    400068: right_forearm
+    400070: right_heel
+    400072: right_leg1
+    400074: right_leg2
+    400076: right_shoulder
+    400078: right_shoulder_001
+    400080: root
+    4300000: Cube
+    7400000: Default Take
+    7400002: AIM
+    7400004: death
+    7400006: hack_002
+    7400008: idle
+    7400010: RUNNING_back
+    7400012: RUNNING_forw
+    7400014: RUNNING_left_001
+    7400016: RUNNING_right
+    7400018: shoot_001
+    7400020: zjebane_nie_to
+    7400022: zle_olej
+    9500000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AIM
+      takeName: AIM
+      firstFrame: 0
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: death
+      takeName: death
+      firstFrame: 17
+      lastFrame: 53
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: hack_002
+      takeName: hack_002
+      firstFrame: 9
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: idle
+      firstFrame: 0
+      lastFrame: 179
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RUNNING_back
+      takeName: RUNNING_back
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RUNNING_forw
+      takeName: RUNNING_forw
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RUNNING_left_001
+      takeName: RUNNING_left_001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: RUNNING_right
+      takeName: RUNNING_right
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: shoot_001
+      takeName: shoot_001
+      firstFrame: 0
+      lastFrame: 7
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: zjebane_nie_to
+      takeName: zjebane_nie_to
+      firstFrame: -1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: zle_olej
+      takeName: zle_olej
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: root
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_leg_1
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_leg1
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_leg2
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_leg2
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_foot_1
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_foot1
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hips
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: body
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_shoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_arm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_arm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: l_pam
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: r_thumb_1
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: left_foot_2
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: right_foot2
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: l_indes_f
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: l_indes_f_001
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: l_pinky_f
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: l_pinky_f_001
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: nowy chuck(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Armature
+      position: {x: -.00609016372, y: .920539796, z: -1.19018698}
+      rotation: {x: -.707106888, y: 0, z: -0, w: .707106769}
+      scale: {x: .303455979, y: .303455979, z: .303455979}
+      transformModified: 1
+    - name: root
+      position: {x: 0, y: -4.57867384, z: 1.00568724}
+      rotation: {x: .5, y: .5, z: -.5, w: .5}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: hip1left
+      position: {x: -.5, y: 3.77489471e-08, z: 6.74498679e-08}
+      rotation: {x: -.296702504, y: -.516766608, z: .614712954, w: .516766787}
+      scale: {x: .999999881, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: left_leg_1
+      position: {x: -.992531061, y: 2.16830173e-07, z: -1.08249623e-07}
+      rotation: {x: .75459075, y: .448759407, z: .246684492, w: -.410310298}
+      scale: {x: .999999702, y: .999999821, z: .999999821}
+      transformModified: 1
+    - name: left_leg2
+      position: {x: -1.69163084, y: 8.58347846e-08, z: 3.42038682e-08}
+      rotation: {x: .974159539, y: -.0697792321, z: -.189906105, w: -.100397877}
+      scale: {x: .999999464, y: .999999821, z: .999999821}
+      transformModified: 1
+    - name: left_heel
+      position: {x: -2.03438091, y: 1.93126198e-07, z: 5.46370877e-08}
+      rotation: {x: .996241927, y: .0303271133, z: -.0762639046, w: -.0276797879}
+      scale: {x: .999999821, y: .99999994, z: .999999821}
+      transformModified: 1
+    - name: left_foot_1
+      position: {x: -.500851214, y: -1.43263208e-07, z: -1.81247017e-07}
+      rotation: {x: .0186101254, y: -.718563616, z: -.00675890176, w: .695179284}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: left_foot_2
+      position: {x: -.874036551, y: 3.09283088e-08, z: -7.5137784e-08}
+      rotation: {x: -1.8044935e-10, y: -.00857821666, z: 4.01015592e-12, w: .999963224}
+      scale: {x: .999999881, y: 1, z: .999999881}
+      transformModified: 1
+    - name: hip1right
+      position: {x: -.5, y: 3.77489471e-08, z: 6.74498679e-08}
+      rotation: {x: .337154299, y: -.435163498, z: -.659942508, w: .511307716}
+      scale: {x: .99999994, y: .99999994, z: .999999881}
+      transformModified: 1
+    - name: right_leg1
+      position: {x: -.964132309, y: 8.64940759e-08, z: -6.95685145e-08}
+      rotation: {x: -.301961333, y: -.330269098, z: -.366151035, w: .81588912}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: right_leg2
+      position: {x: -1.73811591, y: 2.7203194e-07, z: -6.59888499e-08}
+      rotation: {x: .965015471, y: -.116091751, z: .141020894, w: .188098371}
+      scale: {x: 1, y: 1, z: .999999821}
+      transformModified: 1
+    - name: right_heel
+      position: {x: -2.04081774, y: 1.94218117e-08, z: 3.32026872e-07}
+      rotation: {x: .997926533, y: .0165392887, z: .0604380928, w: .0147070559}
+      scale: {x: 1.00000012, y: .999999702, z: 1}
+      transformModified: 1
+    - name: right_foot1
+      position: {x: -.489642322, y: 1.08870523e-07, z: -2.83019006e-07}
+      rotation: {x: -.697793901, y: -.00443994114, z: .716038048, w: -.0188016351}
+      scale: {x: .999999583, y: 1.00000024, z: 1}
+      transformModified: 1
+    - name: right_foot2
+      position: {x: -.874033034, y: 9.80865025e-08, z: -2.63094933e-07}
+      rotation: {x: 1.3752063e-07, y: -.0162093248, z: -2.09887041e-09, w: .999868631}
+      scale: {x: .999999881, y: 1, z: .999999881}
+      transformModified: 1
+    - name: hips
+      position: {x: -.5, y: 3.77489471e-08, z: 6.74498679e-08}
+      rotation: {x: -4.29370228e-09, y: -.0568718202, z: -2.47652899e-16, w: .998381495}
+      scale: {x: .999999821, y: 1, z: .999999821}
+      transformModified: 1
+    - name: body
+      position: {x: -.952884018, y: 7.19407467e-08, z: -1.40607398e-07}
+      rotation: {x: 8.79255424e-09, y: .116460927, z: -1.10540277e-15, w: .993195295}
+      scale: {x: .999999821, y: 1, z: .999999821}
+      transformModified: 1
+    - name: head
+      position: {x: -3.96818399, y: 2.99589544e-07, z: 1.13276464e-07}
+      rotation: {x: 8.04042699e-08, y: -.0303769112, z: 2.51326271e-09, w: .999538541}
+      scale: {x: .999999821, y: 1, z: .999999821}
+      transformModified: 1
+    - name: left_shoulder
+      position: {x: -3.96818399, y: 2.99589544e-07, z: 1.13276464e-07}
+      rotation: {x: .479951352, y: .546000779, z: .550935268, w: .409878403}
+      scale: {x: .99999994, y: .999999821, z: 1}
+      transformModified: 1
+    - name: left_arm
+      position: {x: -2.18343663, y: 2.06792919e-07, z: -2.4682717e-07}
+      rotation: {x: .63017118, y: -.0781950504, z: .0475455597, w: .771044254}
+      scale: {x: .99999994, y: .999999821, z: 1}
+      transformModified: 1
+    - name: left_forearm
+      position: {x: -2.84297967, y: 3.90441897e-07, z: -3.22736469e-07}
+      rotation: {x: .0259364415, y: -.0287968386, z: -.00336155342, w: .999243081}
+      scale: {x: .99999994, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: l_pam
+      position: {x: -1.82296014, y: 1.70884263e-07, z: 1.36720729e-07}
+      rotation: {x: .0381313004, y: .111917533, z: .05431021, w: .991499305}
+      scale: {x: 1, y: .99999994, z: 1.00000012}
+      transformModified: 1
+    - name: l_fingers2
+      position: {x: -.60300529, y: 2.53287652e-07, z: 3.8603622e-07}
+      rotation: {x: .117911465, y: .516578555, z: .0407914855, w: .847100675}
+      scale: {x: .999999821, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: l_pinky_f
+      position: {x: -.224515334, y: 3.63145148e-07, z: -3.57189379e-07}
+      rotation: {x: -.0662155673, y: -.582853317, z: -.135239303, w: .798503518}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: l_pinky_f_001
+      position: {x: -.26931411, y: 4.56245637e-08, z: -2.8769955e-07}
+      rotation: {x: -4.75691678e-07, y: 4.86618523e-09, z: 5.31334254e-10, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: l_fingers_1
+      position: {x: -.60300529, y: 2.53287652e-07, z: 3.8603622e-07}
+      rotation: {x: -.00124808564, y: -.612130761, z: -.137096331, w: .77878046}
+      scale: {x: .99999994, y: 1, z: .999999881}
+      transformModified: 1
+    - name: l_indes_f
+      position: {x: -.352648467, y: 3.63044492e-08, z: -1.19802124e-08}
+      rotation: {x: -.0683182627, y: .560338795, z: .0537954494, w: .823686302}
+      scale: {x: .999999881, y: .999999881, z: 1}
+      transformModified: 1
+    - name: l_indes_f_001
+      position: {x: -.238315716, y: -1.36810257e-07, z: -1.52691698e-07}
+      rotation: {x: 4.11759693e-08, y: 3.64303987e-09, z: -3.82303966e-09, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: l_fuck_f
+      position: {x: -.60300529, y: 2.53287652e-07, z: 3.8603622e-07}
+      rotation: {x: -.000759230577, y: -.0843939111, z: -.165923849, w: .982520461}
+      scale: {x: .99999994, y: .99999994, z: 1}
+      transformModified: 1
+    - name: l_thumb_1
+      position: {x: -1.82296014, y: 1.70884263e-07, z: 1.36720729e-07}
+      rotation: {x: .0239367411, y: -.484480053, z: -.0800905675, w: .870799422}
+      scale: {x: .99999994, y: .999999881, z: 1}
+      transformModified: 1
+    - name: l_thumb_2
+      position: {x: -.538803697, y: 2.48523747e-07, z: -7.14611232e-08}
+      rotation: {x: -.0728745162, y: .357301116, z: -.10867551, w: .924778283}
+      scale: {x: .999999881, y: .999999821, z: .999999821}
+      transformModified: 1
+    - name: right_shoulder
+      position: {x: -3.96818399, y: 2.99589544e-07, z: 1.13276464e-07}
+      rotation: {x: -.495044768, y: .552116811, z: -.532414019, w: .408207089}
+      scale: {x: 1.00000012, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: right_shoulder_001
+      position: {x: -1.1821326, y: 1.77460194e-07, z: 8.90563854e-08}
+      rotation: {x: 2.23245237e-07, y: .057880789, z: .0138568087, w: .998227358}
+      scale: {x: .999999881, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: right_arm
+      position: {x: -1.21507704, y: -9.70551639e-08, z: 1.9857606e-07}
+      rotation: {x: .802818835, y: -.0533517078, z: .140241414, w: .577033699}
+      scale: {x: 1, y: 1, z: .999999881}
+      transformModified: 1
+    - name: right_forearm
+      position: {x: -2.70870256, y: 3.54125717e-07, z: 8.01047975e-08}
+      rotation: {x: .998717904, y: -.00781346578, z: -.0298482329, w: .0401327647}
+      scale: {x: 1, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: r__palm
+      position: {x: -1.76281667, y: 1.39920346e-07, z: 2.94708599e-07}
+      rotation: {x: -.0197091885, y: .0415967144, z: -.0185815822, w: .998767257}
+      scale: {x: 1, y: 1, z: .99999994}
+      transformModified: 1
+    - name: r_palm_fingers
+      position: {x: -.761768103, y: 1.31202953e-07, z: 5.90768821e-07}
+      rotation: {x: -.0204357374, y: -.0895161554, z: .301718682, w: .948965311}
+      scale: {x: .999999881, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: r_thumb_1
+      position: {x: -1.76281667, y: 1.39920346e-07, z: 2.94708599e-07}
+      rotation: {x: -.11000178, y: -.489880115, z: -.000176232163, w: .86482203}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: r_thumb_2
+      position: {x: -.549975693, y: 1.70294101e-07, z: -1.25123137e-07}
+      rotation: {x: .0893749297, y: .323010415, z: .0914140418, w: .937720597}
+      scale: {x: .999999821, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: Cube
+      position: {x: .0200693458, y: -3.9221077, z: .963325143}
+      rotation: {x: 1.9967867e-20, y: 1.41307702e-10, z: -1.41307702e-10, w: 1}
+      scale: {x: 3.29537082, y: 3.29537082, z: 3.29537082}
+      transformModified: 1
+    - name: Hemi
+      position: {x: -1.2795651, y: 3.55240655, z: 3.44963551}
+      rotation: {x: -1.04928368e-07, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  additionalBone: 0
+  userData: 

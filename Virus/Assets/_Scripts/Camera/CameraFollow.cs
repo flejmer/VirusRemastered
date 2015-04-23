@@ -3,31 +3,23 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform targetToFollow;
-    public bool cameraSmoothness = true;
-    public float smoothnessStrength = 20;
+    public Transform TargetToFollow;
+    public bool CameraSmoothness = true;
+    public float SmoothnessStrength = 20;
 
-    private Vector3 offset;
+    private Vector3 _offset;
 
     void Start()
     {
-        offset = transform.position - targetToFollow.transform.position;
+        _offset = transform.position - TargetToFollow.transform.position;
     }
 
     void LateUpdate()
     {
-        if (targetToFollow)
+        if (TargetToFollow)
         {
-            Vector3 destination = targetToFollow.position + offset;
-
-            if (cameraSmoothness)
-            {
-                transform.position = Vector3.Lerp(transform.position, destination, smoothnessStrength * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = destination;
-            }
+            var destination = TargetToFollow.position + _offset;
+            transform.position = CameraSmoothness ? Vector3.Lerp(transform.position, destination, SmoothnessStrength * Time.deltaTime) : destination;
         }
         else
         {

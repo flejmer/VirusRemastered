@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 430090}
   - 198: {fileID: 19835398}
   - 199: {fileID: 19911204}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +31,7 @@ GameObject:
   - 122: {fileID: 12235836}
   - 108: {fileID: 10822352}
   - 54: {fileID: 5485592}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: SimpleLaser
   m_TagString: Lightning
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155564}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -3.6099999, y: 1.91999996, z: 3.02999997}
+  m_LocalPosition: {x: -.460000008, y: 1.91999996, z: 3.02999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430090}
@@ -133,13 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97deb239523aeaf40868fbaca64aacc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missileSpeed: 25
-  missile: {fileID: 155564}
-  layerMask:
+  MissileSpeed: 25
+  LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967039
-  bouncy: 1
-  maxBounces: 2
+    m_Bits: 4294966015
+  Bouncy: 1
+  MaxBounces: 5
 --- !u!120 &12015246
 LineRenderer:
   m_ObjectHideFlags: 1

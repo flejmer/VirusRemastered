@@ -13,7 +13,7 @@ GameObject:
   - 33: {fileID: 3341404}
   - 136: {fileID: 13666808}
   - 23: {fileID: 2389004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerV0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461098}
-  m_Layer: 0
+  - 65: {fileID: 6579354}
+  m_Layer: 8
   m_Name: missileSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +46,7 @@ GameObject:
   - 4: {fileID: 490670}
   - 33: {fileID: 3383646}
   - 23: {fileID: 2345612}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +63,7 @@ GameObject:
   - 4: {fileID: 411094}
   - 33: {fileID: 3323248}
   - 23: {fileID: 2392770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +102,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.83000004, y: 1, z: 0}
+  m_LocalPosition: {x: -2.6099999, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490670}
@@ -228,6 +229,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!65 &6579354
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .300000012, y: .300000012, z: .300000012}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11402256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -239,13 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d4311498f0cba847bc8f7be3becdc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    movementSpeed: 15
-    rotationSpeed: 10
-  shooting:
-    basicAttack:
-      missile: {fileID: 155564, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      missileLifetime: 5
+  MovementProperties:
+    MovementSpeed: 15
+    RotationSpeed: 10
+  ProjectilesProperties:
+    BasicAttack:
+      Missile: {fileID: 155564, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      MissileLifetime: 10
 --- !u!136 &13666808
 CapsuleCollider:
   m_ObjectHideFlags: 1
