@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     private GameObject _missileSpawn;
     private Collider _missileSpawnCollider;
 
-    private BoxCollider _wallBounds;
     private bool _spawnInWall;
 
     //debug
@@ -60,16 +59,18 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (IsInvoking("UpdateSpawnInWall"))
-            CancelInvoke("UpdateSpawnInWall");
-
-        if (_missileSpawnCollider.bounds.Intersects(other.bounds))
+        if (other.CompareTag("Computer") || other.CompareTag("Obstacle"))
         {
-            _wallBounds = other.gameObject.GetComponent<BoxCollider>();
-            _spawnInWall = true;
-        }
+            if (_missileSpawnCollider.bounds.Intersects(other.bounds))
+            {
+                if (IsInvoking("UpdateSpawnInWall"))
+                    CancelInvoke("UpdateSpawnInWall");
 
-        Invoke("UpdateSpawnInWall", Time.deltaTime);
+                _spawnInWall = true;
+
+                Invoke("UpdateSpawnInWall", Time.deltaTime);
+            }
+        }
     }
 
     void UpdateSpawnInWall()

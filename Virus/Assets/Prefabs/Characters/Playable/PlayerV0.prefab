@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 473082}
-  - 54: {fileID: 5449410}
   - 114: {fileID: 11402256}
+  - 54: {fileID: 5449410}
   - 33: {fileID: 3341404}
   - 136: {fileID: 13666808}
   - 23: {fileID: 2389004}
@@ -29,7 +29,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 461098}
   - 65: {fileID: 6579354}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: missileSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

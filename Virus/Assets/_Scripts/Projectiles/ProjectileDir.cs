@@ -21,7 +21,7 @@ public class ProjectileDir : MonoBehaviour
 
     protected Vector3 MoveDir
     {
-        get { return _moveDir; }
+        get { return transform.TransformDirection(_moveDir); }
         set { _moveDir = value; }
     }
 
@@ -49,7 +49,9 @@ public class ProjectileDir : MonoBehaviour
 
     protected void ProjectilePhysicsStep()
     {
-        transform.Translate(MoveDir * MissileSpeed * Time.deltaTime, transform);
+        _rBody.MovePosition(_rBody.position + MoveDir * MissileSpeed * Time.deltaTime);
+//        transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
+
         var movementThisStep = _rBody.position - _previousPosition;
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;

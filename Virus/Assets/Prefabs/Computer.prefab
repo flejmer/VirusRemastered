@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2380228}
   m_Layer: 12
   m_Name: Screen
-  m_TagString: Untagged
+  m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ GameObject:
   - 135: {fileID: 13513952}
   - 114: {fileID: 11479774}
   m_Layer: 13
-  m_Name: Range
+  m_Name: BuffRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ GameObject:
   - 54: {fileID: 5458842}
   m_Layer: 0
   m_Name: Computer
-  m_TagString: Untagged
+  m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ GameObject:
   - 23: {fileID: 2332508}
   m_Layer: 12
   m_Name: Keyboard
-  m_TagString: Untagged
+  m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - 23: {fileID: 2324392}
   m_Layer: 12
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ GameObject:
   - 23: {fileID: 2340888}
   m_Layer: 12
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Computer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -59,8 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CompBuffRange.cs" />
     <Compile Include="Assets\CompInterArea.cs" />
-    <Compile Include="Assets\CompRange.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\DebugDraw.cs" />
     <Compile Include="Assets\_Scripts\Environment\CompController.cs" />

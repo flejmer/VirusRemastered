@@ -87,48 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &82566803
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.83999991
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .25999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1.86000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &87301061
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +101,7 @@ GameObject:
   - 54: {fileID: 87301062}
   m_Layer: 12
   m_Name: Cylinder 8
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,6 +177,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 237451480}
   m_RootOrder: 4
+--- !u!1001 &225555044
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.83999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .25999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.86000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 442572, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &237451479
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - 54: {fileID: 413275366}
   m_Layer: 12
   m_Name: Cylinder 6
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - 54: {fileID: 458256186}
   m_Layer: 12
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -492,7 +492,7 @@ GameObject:
   - 54: {fileID: 566634158}
   m_Layer: 12
   m_Name: Cylinder 2
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,7 +582,7 @@ GameObject:
   - 54: {fileID: 699920600}
   m_Layer: 12
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -671,7 +671,7 @@ GameObject:
   - 54: {fileID: 701172302}
   m_Layer: 12
   m_Name: Cylinder 4
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -820,6 +820,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1001 &1277061697
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.6099999
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.677999973
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4d49323c19dae544496b1c150f190905, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1338194498
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,7 +876,7 @@ GameObject:
   - 54: {fileID: 1338194499}
   m_Layer: 12
   m_Name: Cylinder 7
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -923,7 +965,7 @@ GameObject:
   - 23: {fileID: 1410961300}
   m_Layer: 12
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -997,7 +1039,7 @@ GameObject:
   - 54: {fileID: 1550780208}
   m_Layer: 12
   m_Name: Cylinder 3
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1076,7 +1118,7 @@ Transform:
 --- !u!4 &1703489451 stripped
 Transform:
   m_PrefabParentObject: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-  m_PrefabInternal: {fileID: 1868814324}
+  m_PrefabInternal: {fileID: 1277061697}
 --- !u!1 &1782089596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,7 +1133,7 @@ GameObject:
   - 54: {fileID: 1782089597}
   m_Layer: 12
   m_Name: Cylinder 9
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1167,48 +1209,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 237451480}
   m_RootOrder: 9
---- !u!1001 &1868814324
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.6099999
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -.677999973
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 473082, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4d49323c19dae544496b1c150f190905, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2042576919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,7 +1322,7 @@ GameObject:
   - 54: {fileID: 2052798425}
   m_Layer: 12
   m_Name: Cylinder 5
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1472,7 +1472,7 @@ GameObject:
   - 54: {fileID: 2139893461}
   m_Layer: 12
   m_Name: Cylinder 1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

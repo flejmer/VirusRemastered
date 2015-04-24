@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CompRange : MonoBehaviour
+public class CompBuffRange : MonoBehaviour
 {
 
     // Use this for initialization

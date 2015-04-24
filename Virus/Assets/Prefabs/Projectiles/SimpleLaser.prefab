@@ -26,11 +26,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 442572}
   - 114: {fileID: 11483826}
+  - 54: {fileID: 5485592}
   - 120: {fileID: 12015246}
   - 65: {fileID: 6586614}
   - 122: {fileID: 12235836}
   - 108: {fileID: 10822352}
-  - 54: {fileID: 5485592}
   m_Layer: 10
   m_Name: SimpleLaser
   m_TagString: Lightning
