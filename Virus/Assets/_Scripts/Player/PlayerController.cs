@@ -28,11 +28,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rbody;
 
+    private GameObject _gun;
     private GameObject _missileSpawn;
     private Collider _missileSpawnCollider;
 
-    private Collider _wallBounds;
-    private bool _spawnInWall = false;
+    private BoxCollider _wallBounds;
+    private bool _spawnInWall;
 
     //debug
     private const float FireRate = 0.2f;
@@ -41,13 +42,9 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
+        _gun = GameObject.Find("/PlayerV0/Body/Gun");
         _missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
         _missileSpawnCollider = _missileSpawn.GetComponent<Collider>();
-    }
-
-    void Start()
-    {
-        StartCoroutine("MissileSpawnBoundsCheck");
     }
 
     void Update()
@@ -63,8 +60,21 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if (IsInvoking("UpdateSpawnInWall"))
+            CancelInvoke("UpdateSpawnInWall");
+
         if (_missileSpawnCollider.bounds.Intersects(other.bounds))
-            _wallBounds = other;
+        {
+            _wallBounds = other.gameObject.GetComponent<BoxCollider>();
+            _spawnInWall = true;
+        }
+
+        Invoke("UpdateSpawnInWall", Time.deltaTime);
+    }
+
+    void UpdateSpawnInWall()
+    {
+        _spawnInWall = false;
     }
 
     void MouseRotation()
@@ -75,9 +85,12 @@ public class PlayerController : MonoBehaviour
 
         if (playerPlane.Raycast(ray, out hitdist))
         {
-            Vector3 targetPoint = ray.GetPoint(hitdist);
-            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
+            var targetPoint = ray.GetPoint(hitdist);
+            var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
             _rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
+
+            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
+            _gun.transform.LookAt(point);
         }
     }
 
@@ -89,7 +102,7 @@ public class PlayerController : MonoBehaviour
         if (vertical != 0 || horizontal != 0)
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
-            _rbody.MovePosition(transform.position + movement*this.MovementProperties.MovementSpeed*Time.deltaTime);
+            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
         }
     }
 
@@ -97,27 +110,16 @@ public class PlayerController : MonoBehaviour
     {
         bool fireInput = Input.GetButtonDown("Fire1");
 
-        if (!_spawnInWall)
+        if (fireInput)
         {
-            if (fireInput)
+            if (!_spawnInWall)
             {
-                GameObject instance =
+                var instance = (GameObject)
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.transform.position,
-                        _missileSpawn.transform.rotation) as GameObject;
+                        _missileSpawn.transform.rotation);
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
             }
-        }
-    }
-
-    IEnumerator MissileSpawnBoundsCheck()
-    {
-        for (; ; )
-        {
-            if (_wallBounds)
-                _spawnInWall = _missileSpawnCollider.bounds.Intersects(_wallBounds.bounds);
-
-            yield return new WaitForFixedUpdate();
         }
     }
 

@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155564}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -.460000008, y: 1.91999996, z: 3.02999997}
+  m_LocalPosition: {x: -2.83999991, y: .25999999, z: -1.86000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 430090}
@@ -136,7 +136,7 @@ MonoBehaviour:
   MissileSpeed: 25
   LayerMask:
     serializedVersion: 2
-    m_Bits: 4294966015
+    m_Bits: 4294955720
   Bouncy: 1
   MaxBounces: 5
 --- !u!120 &12015246
@@ -443,7 +443,7 @@ ParticleSystem:
     length: 5
     boxX: .100000001
     boxY: .100000001
-    boxZ: 1
+    boxZ: .100000001
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}

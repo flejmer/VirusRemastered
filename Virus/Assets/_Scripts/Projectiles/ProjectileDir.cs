@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 
 public class ProjectileDir : MonoBehaviour
 {
     public float MissileSpeed = 20;
-    public LayerMask LayerMask = ~(1 << 8 | 1 << 10);
+    public LayerMask LayerMask;
 
     public bool Bouncy = false;
     public int MaxBounces = 3;
@@ -29,6 +30,11 @@ public class ProjectileDir : MonoBehaviour
         InitializeProjectile();
     }
 
+    void Start()
+    {
+        SendCollisionRay(transform.TransformDirection(MoveDir));
+    }
+
     void FixedUpdate()
     {
         ProjectilePhysicsStep();
@@ -43,7 +49,7 @@ public class ProjectileDir : MonoBehaviour
 
     protected void ProjectilePhysicsStep()
     {
-        transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
+        transform.Translate(MoveDir * MissileSpeed * Time.deltaTime, transform);
         var movementThisStep = _rBody.position - _previousPosition;
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
@@ -62,7 +68,7 @@ public class ProjectileDir : MonoBehaviour
         }
         else
         {
-            StopProjectile();
+            StopProjectile(hit);
         }
     }
 
@@ -75,13 +81,16 @@ public class ProjectileDir : MonoBehaviour
         transform.rotation = lookAt;
 
         if (_bouncesCount == 0)
-            LayerMask = ~(1 << LayerMask.NameToLayer("Projectiles"));
+            LayerMask = 1 << LayerMask.NameToLayer("Player")
+                | 1 << LayerMask.NameToLayer("Enemies")
+                | 1 << LayerMask.NameToLayer("Obstacles");
 
         _bouncesCount++;
     }
 
-    protected virtual void StopProjectile()
+    protected virtual void StopProjectile(RaycastHit hit)
     {
+        transform.position = hit.point;
         MoveDir = Vector3.zero;
         _collid.enabled = false;
     }
