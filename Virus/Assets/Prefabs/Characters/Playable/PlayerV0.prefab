@@ -259,6 +259,7 @@ MonoBehaviour:
     BasicAttack:
       Missile: {fileID: 155564, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
       MissileLifetime: 10
+      Follower: {fileID: 163254, guid: ba0c4d20cecaf3d4a8e68c8fc4dc89db, type: 2}
 --- !u!136 &13666808
 CapsuleCollider:
   m_ObjectHideFlags: 1

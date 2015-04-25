@@ -108,7 +108,7 @@ public class ProjectileDir : MonoBehaviour
 
         _bouncesCount++;
 
-        SendCollisionRay(MoveDir * 0.5f);
+        SendCollisionRay(MoveDir);
     }
 
     protected virtual void StopProjectile(Vector3 position)

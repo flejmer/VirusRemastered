@@ -19,6 +19,7 @@ public class BasicAttack
 {
     public GameObject Missile;
     public float MissileLifetime = 10;
+    public GameObject Follower;
 }
 
 public class PlayerController : MonoBehaviour
@@ -119,6 +120,13 @@ public class PlayerController : MonoBehaviour
                 var instance = (GameObject)
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.transform.position,
                         _missileSpawn.transform.rotation);
+
+//                var follower =
+//                    (GameObject)
+//                        Instantiate(ProjectilesProperties.BasicAttack.Follower, _missileSpawn.transform.position,
+//                            _missileSpawn.transform.rotation);
+//
+//                follower.GetComponent<FollowPath>().TargetToFollow = instance;
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
             }

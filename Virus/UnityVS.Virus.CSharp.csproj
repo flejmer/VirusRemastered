@@ -65,6 +65,7 @@
     <Compile Include="Assets\_Scripts\Environment\CompController.cs" />
     <Compile Include="Assets\_Scripts\Environment\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\_Scripts\Projectiles\FollowPath.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />
   </ItemGroup>
