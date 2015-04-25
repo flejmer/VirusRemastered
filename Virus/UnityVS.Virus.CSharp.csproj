@@ -59,11 +59,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CompBuffRange.cs" />
-    <Compile Include="Assets\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\DebugDraw.cs" />
+    <Compile Include="Assets\_Scripts\Environment\CompBuffRange.cs" />
     <Compile Include="Assets\_Scripts\Environment\CompController.cs" />
+    <Compile Include="Assets\_Scripts\Environment\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />

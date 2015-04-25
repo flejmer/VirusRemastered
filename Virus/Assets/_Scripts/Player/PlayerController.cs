@@ -103,6 +103,7 @@ public class PlayerController : MonoBehaviour
         if (vertical != 0 || horizontal != 0)
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
+//            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
             _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
         }
     }

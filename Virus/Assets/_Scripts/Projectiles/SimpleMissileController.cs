@@ -21,11 +21,11 @@ public class SimpleMissileController : ProjectileDir
         _cld = GetComponent<BoxCollider>();
     }
 
-    protected override void StopProjectile( RaycastHit hit)
+    protected override void StopProjectile(Vector3 posiotion)
     {
 
         MoveDir = Vector3.zero;
-        transform.position = hit.point;
+        transform.position = posiotion;
         _cld.enabled = false;
         _hlo.GetType().GetProperty("enabled").SetValue(_hlo, false, null);
         _lineR.enabled = false;

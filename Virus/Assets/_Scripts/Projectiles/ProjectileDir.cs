@@ -43,6 +43,15 @@ public class ProjectileDir : MonoBehaviour
         ProjectilePhysicsStep();
     }
 
+
+    //    void OnTriggerStay(Collider other)
+    //    {
+    //        if(other.CompareTag("Obstacle"))
+    //        {
+    //            StopProjectile(transform.position);
+    //        }
+    //    }
+
     protected void InitializeProjectile()
     {
         _rBody = GetComponent<Rigidbody>();
@@ -57,7 +66,7 @@ public class ProjectileDir : MonoBehaviour
         transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
 
         var movementThisStep = _rBody.position - _previousPosition;
-        
+
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
     }
@@ -66,10 +75,10 @@ public class ProjectileDir : MonoBehaviour
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 4);
+        Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 2);
         if (!Physics.Raycast(transform.position, movement, out hit, movement.magnitude, LayerMask)) return;
 
-        DebugDraw.DrawSphere(hit.point, 2, Color.black);
+//        DebugDraw.DrawSphere(hit.point, 2, Color.black);
 
         if (Bouncy && !(_bouncesCount >= MaxBounces))
         {
@@ -78,7 +87,7 @@ public class ProjectileDir : MonoBehaviour
         else
         {
             _rBody.position = hit.point - (movement / movement.magnitude) * _partialExtent;
-            StopProjectile(hit);
+            StopProjectile(hit.point);
         }
     }
 
@@ -87,10 +96,10 @@ public class ProjectileDir : MonoBehaviour
         var reflected = Vector3.Reflect((hit.point - transform.position).normalized, hit.normal);
 
         Quaternion lookAt = !reflected.Equals(Vector3.zero) ? Quaternion.LookRotation(reflected) : Quaternion.Inverse(transform.rotation);
-        
+
         transform.position = hit.point;
         transform.rotation = lookAt;
-        
+
 
         if (_bouncesCount == 0)
             LayerMask = 1 << LayerMask.NameToLayer("Player")
@@ -98,11 +107,13 @@ public class ProjectileDir : MonoBehaviour
                 | 1 << LayerMask.NameToLayer("Obstacles");
 
         _bouncesCount++;
+
+        SendCollisionRay(MoveDir * 0.5f);
     }
 
-    protected virtual void StopProjectile(RaycastHit hit)
+    protected virtual void StopProjectile(Vector3 position)
     {
-        transform.position = hit.point;
+        transform.position = position;
         MoveDir = Vector3.zero;
         _collid.enabled = false;
     }
