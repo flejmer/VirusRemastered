@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     private GameObject _gun;
     private GameObject _missileSpawn;
-    private Collider _missileSpawnCollider;
 
     private bool _spawnInWall;
 
@@ -43,7 +42,6 @@ public class PlayerController : MonoBehaviour
         _rbody = GetComponent<Rigidbody>();
         _gun = GameObject.Find("/PlayerV0/Body/Gun");
         _missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
-        _missileSpawnCollider = _missileSpawn.GetComponent<Collider>();
     }
 
     void Update()
@@ -61,15 +59,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Computer") || other.CompareTag("Obstacle"))
         {
-            if (_missileSpawnCollider.bounds.Intersects(other.bounds))
-            {
-                if (IsInvoking("UpdateSpawnInWall"))
-                    CancelInvoke("UpdateSpawnInWall");
+            if (IsInvoking("UpdateSpawnInWall"))
+                CancelInvoke("UpdateSpawnInWall");
 
-                _spawnInWall = true;
+            _spawnInWall = true;
 
-                Invoke("UpdateSpawnInWall", Time.deltaTime);
-            }
+            Invoke("UpdateSpawnInWall", Time.deltaTime + .05f);
+
         }
     }
 
@@ -90,8 +86,12 @@ public class PlayerController : MonoBehaviour
             var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
             _rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
 
-            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
-            _gun.transform.LookAt(point);
+            //            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
+            //            _gun.transform.LookAt(point);
+
+            targetRotation = Quaternion.LookRotation(targetPoint - _gun.transform.position);
+            targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+            _gun.transform.rotation = Quaternion.Slerp(_gun.transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine.EventSystems;
 
 public class ProjectileDir : MonoBehaviour
@@ -16,6 +17,8 @@ public class ProjectileDir : MonoBehaviour
 
     private Rigidbody _rBody;
     private Collider _collid;
+    private float _minimumExtent;
+    private float _partialExtent;
 
     private Vector3 _previousPosition;
 
@@ -32,7 +35,7 @@ public class ProjectileDir : MonoBehaviour
 
     void Start()
     {
-        SendCollisionRay(transform.TransformDirection(MoveDir));
+        SendCollisionRay(MoveDir);
     }
 
     void FixedUpdate()
@@ -45,14 +48,16 @@ public class ProjectileDir : MonoBehaviour
         _rBody = GetComponent<Rigidbody>();
         _previousPosition = _rBody.position;
         _collid = GetComponent<Collider>();
+        _minimumExtent = Mathf.Min(Mathf.Min(_collid.bounds.extents.x, _collid.bounds.extents.y), _collid.bounds.extents.z);
+        _partialExtent = _minimumExtent * (1.0f - 0.1f);
     }
 
     protected void ProjectilePhysicsStep()
     {
-        _rBody.MovePosition(_rBody.position + MoveDir * MissileSpeed * Time.deltaTime);
-//        transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
+        transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
 
         var movementThisStep = _rBody.position - _previousPosition;
+        
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
     }
@@ -61,8 +66,10 @@ public class ProjectileDir : MonoBehaviour
     {
         RaycastHit hit;
 
+        Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 4);
         if (!Physics.Raycast(transform.position, movement, out hit, movement.magnitude, LayerMask)) return;
-        Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 2);
+
+        DebugDraw.DrawSphere(hit.point, 2, Color.black);
 
         if (Bouncy && !(_bouncesCount >= MaxBounces))
         {
@@ -70,6 +77,7 @@ public class ProjectileDir : MonoBehaviour
         }
         else
         {
+            _rBody.position = hit.point - (movement / movement.magnitude) * _partialExtent;
             StopProjectile(hit);
         }
     }
@@ -77,10 +85,12 @@ public class ProjectileDir : MonoBehaviour
     void BounceOff(RaycastHit hit)
     {
         var reflected = Vector3.Reflect((hit.point - transform.position).normalized, hit.normal);
-        transform.position = hit.point;
 
-        var lookAt = Quaternion.LookRotation(reflected);
+        Quaternion lookAt = !reflected.Equals(Vector3.zero) ? Quaternion.LookRotation(reflected) : Quaternion.Inverse(transform.rotation);
+        
+        transform.position = hit.point;
         transform.rotation = lookAt;
+        
 
         if (_bouncesCount == 0)
             LayerMask = 1 << LayerMask.NameToLayer("Player")

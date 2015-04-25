@@ -23,12 +23,19 @@ public class SimpleMissileController : ProjectileDir
 
     protected override void StopProjectile( RaycastHit hit)
     {
+
         MoveDir = Vector3.zero;
         transform.position = hit.point;
         _cld.enabled = false;
-        _pSys.emissionRate = 0;
         _hlo.GetType().GetProperty("enabled").SetValue(_hlo, false, null);
         _lineR.enabled = false;
         _lght.enabled = false;
+
+        Invoke("StopParticles", 0.3f);
+    }
+
+    void StopParticles()
+    {
+        _pSys.emissionRate = 0;
     }
 }
