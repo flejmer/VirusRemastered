@@ -31,7 +31,7 @@ public class SimpleMissileController : ProjectileDir
         _lineR.enabled = false;
         _lght.enabled = false;
 
-        Invoke("StopParticles", 0.3f);
+        Invoke("StopParticles", 0.1f);
     }
 
     void StopParticles()

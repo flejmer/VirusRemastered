@@ -12,4 +12,11 @@ public class CompController : MonoBehaviour
     {
 
     }
+
+    void DrawConnectionToPlayer()
+    {
+        
+    }
+
+
 }

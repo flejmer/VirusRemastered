@@ -61,9 +61,10 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\DebugDraw.cs" />
-    <Compile Include="Assets\_Scripts\Environment\CompBuffRange.cs" />
-    <Compile Include="Assets\_Scripts\Environment\CompController.cs" />
-    <Compile Include="Assets\_Scripts\Environment\CompInterArea.cs" />
+    <Compile Include="Assets\_Scripts\Environment\Computer\CompBuffRange.cs" />
+    <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
+    <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
+    <Compile Include="Assets\_Scripts\Environment\Computer\DrawLine.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\FollowPath.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />

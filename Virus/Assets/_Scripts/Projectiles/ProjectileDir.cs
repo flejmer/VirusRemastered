@@ -43,15 +43,6 @@ public class ProjectileDir : MonoBehaviour
         ProjectilePhysicsStep();
     }
 
-
-    //    void OnTriggerStay(Collider other)
-    //    {
-    //        if(other.CompareTag("Obstacle"))
-    //        {
-    //            StopProjectile(transform.position);
-    //        }
-    //    }
-
     protected void InitializeProjectile()
     {
         _rBody = GetComponent<Rigidbody>();
@@ -64,13 +55,14 @@ public class ProjectileDir : MonoBehaviour
     protected void ProjectilePhysicsStep()
     {
         transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
-
         var movementThisStep = _rBody.position - _previousPosition;
 
+        //MoveDir * Time.deltaTime * MissileSpeed
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
     }
-
+    
+    //TODO: Time.deltaTime * MissileSpeed;
     void SendCollisionRay(Vector3 movement)
     {
         RaycastHit hit;
@@ -78,7 +70,7 @@ public class ProjectileDir : MonoBehaviour
         Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 2);
         if (!Physics.Raycast(transform.position, movement, out hit, movement.magnitude, LayerMask)) return;
 
-//        DebugDraw.DrawSphere(hit.point, 2, Color.black);
+        //        DebugDraw.DrawSphere(hit.point, 2, Color.black);
 
         if (Bouncy && !(_bouncesCount >= MaxBounces))
         {
@@ -108,7 +100,7 @@ public class ProjectileDir : MonoBehaviour
 
         _bouncesCount++;
 
-        SendCollisionRay(MoveDir);
+        SendCollisionRay(MoveDir * Time.deltaTime * MissileSpeed);
     }
 
     protected virtual void StopProjectile(Vector3 position)
