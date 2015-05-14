@@ -298,7 +298,7 @@ Transform:
   - {fileID: 701172306}
   - {fileID: 1782089601}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &413275365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1433,7 @@ MonoBehaviour:
   Origin: {fileID: 1703489451}
   Destination: {fileID: 1405370864}
   SizeOfLineElementsPos: 5
+  AnimationTime: 10
 --- !u!1 &1550780207
 GameObject:
   m_ObjectHideFlags: 0
