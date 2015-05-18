@@ -6,20 +6,26 @@ public class ConnectionLine : MonoBehaviour
     public Transform Origin;
     public Transform Destination;
     public int SizeOfLineElementsPos = 5;
-    public float AnimationTime = 5;
+    public float AnimationLength = 5;
 
     private LineRenderer _lineRenderer;
     private int _lrSize;
 
+
+    private enum AnimType
+    {
+        FromOriginToDestination,
+        FromDestinationToOrigin
+    }
+
+    private IEnumerator _positionsUpdater;
+    private IEnumerator _animationCoroutine;
+
     private Vector3 _originPos;
     private Vector3 _destinationPos;
 
-    private float _animStartTime;
-    private float _animFinishTime;
-    private bool _animInProgress;
-    private bool _connAnim;
-
-    private IEnumerator _corutime;
+    private bool _animationInProgress;
+    private float _animProgressTime;
 
     void Start()
     {
@@ -27,32 +33,126 @@ public class ConnectionLine : MonoBehaviour
         _lineRenderer.SetVertexCount(SizeOfLineElementsPos);
         _lrSize = SizeOfLineElementsPos;
 
-        StartCoroutine(PositionsCheck());
+        _positionsUpdater = PositionsUpdater();
+        StartCoroutine(_positionsUpdater);
     }
 
     void Update()
     {
-
         DrawLine();
 
-        if (Input.GetKeyDown(KeyCode.F) && !_animInProgress)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            _corutime = ConnectAnimation(AnimationTime, true);
-            StartCoroutine(_corutime);
+            AnimateLine(AnimType.FromOriginToDestination);
         }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (_animInProgress)
-            {
-                _animFinishTime = _animStartTime + ((Time.time - _animStartTime) / AnimationTime) * 2 * AnimationTime;
-//                _animStartTime = -1 + _animStartTime;
-                _connAnim = false;
-            }
+            AnimateLine(AnimType.FromDestinationToOrigin);
         }
     }
 
+    void AnimateLine(AnimType type)
+    {
+        StartCoroutine(type.Equals(AnimType.FromOriginToDestination) ? AnimateFromOriginToDestination() : AnimateFromDestinationToOrigin());
+    }
 
+    void AnimationStart()
+    {
+        StopCoroutine(_positionsUpdater);
+        _animationInProgress = true;
+    }
+
+    void AnimationEnd()
+    {
+        StartCoroutine(_positionsUpdater);
+        _animationInProgress = false;
+    }
+
+    IEnumerator AnimateFromOriginToDestination()
+    {
+        if (!_animationInProgress)
+        {
+            _animationCoroutine = AnimateFromOriginToDestination(0);
+        }
+        else
+        {
+            StopCoroutine(_animationCoroutine);
+            _animationCoroutine = AnimateFromOriginToDestination(_animProgressTime);
+        }
+
+        StartCoroutine(_animationCoroutine);
+
+        yield return null;
+    }
+
+    IEnumerator AnimateFromDestinationToOrigin()
+    {
+        if (!_animationInProgress)
+        {
+            _animationCoroutine = AnimateFromDestinationToOrigin(1);
+        }
+        else
+        {
+            StopCoroutine(_animationCoroutine);
+            _animationCoroutine = AnimateFromDestinationToOrigin(_animProgressTime);
+        }
+
+        StartCoroutine(_animationCoroutine);
+        yield return null;
+    }
+
+    IEnumerator AnimateFromOriginToDestination(float animProgress)
+    {
+        AnimationStart();
+
+        _animProgressTime = animProgress;
+
+        while (_animProgressTime < 1)
+        {
+            StartCoroutine(PositionsCheck());
+            _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
+
+            _animProgressTime += Time.deltaTime / AnimationLength;
+            yield return new WaitForEndOfFrame();
+        }
+
+        AnimationEnd();
+    }
+
+    IEnumerator AnimateFromDestinationToOrigin(float animProgress)
+    {
+        AnimationStart();
+
+        _animProgressTime = animProgress;
+
+        while (_animProgressTime > 0)
+        {
+            StartCoroutine(PositionsCheck());
+            _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
+
+            _animProgressTime -= Time.deltaTime / AnimationLength;
+            yield return new WaitForEndOfFrame();
+        }
+
+        AnimationEnd();
+    }
+
+    IEnumerator PositionsUpdater()
+    {
+        for (; ; )
+        {
+            StartCoroutine(PositionsCheck());
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    IEnumerator PositionsCheck()
+    {
+        _originPos = new Vector3(Origin.position.x, Origin.position.y, Origin.position.z);
+        _destinationPos = new Vector3(Destination.position.x, Destination.position.y, Destination.position.z);
+        yield return null;
+    }
 
     void DrawLine()
     {
@@ -86,53 +186,5 @@ public class ConnectionLine : MonoBehaviour
 
             Destroy(tempTransform.gameObject);
         }
-    }
-
-
-
-    IEnumerator PositionsUpdate()
-    {
-
-        for (; ; )
-        {
-            Debug.Log("unkillable");
-
-            StartCoroutine(PositionsCheck());
-            yield return new WaitForFixedUpdate();
-        }
-    }
-
-    IEnumerator PositionsCheck()
-    {
-        _originPos = new Vector3(Origin.position.x, Origin.position.y, Origin.position.z);
-        _destinationPos = new Vector3(Destination.position.x, Destination.position.y, Destination.position.z);
-        yield return null;
-    }
-
-    IEnumerator ConnectAnimation(float animTime, bool connAnim)
-    {
-        _connAnim = connAnim;
-
-        _animStartTime = Time.time;
-
-        if (!_animInProgress)
-        {
-            _animInProgress = true;
-            _animFinishTime = Time.time + animTime;
-        }
-
-        while (_animFinishTime >= Time.time)
-        {
-
-
-            var animationProgress = _connAnim ? (Time.time - _animStartTime) / animTime : 1 - (Time.time - _animStartTime) / animTime;
-
-            StartCoroutine(PositionsCheck());
-            _destinationPos = Vector3.Lerp(_originPos, Destination.position, animationProgress);
-
-            yield return new WaitForFixedUpdate();
-        }
-
-        _animInProgress = false;
     }
 }
