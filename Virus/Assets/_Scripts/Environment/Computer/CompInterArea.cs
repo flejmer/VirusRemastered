@@ -3,31 +3,29 @@ using System.Collections;
 
 public class CompInterArea : MonoBehaviour
 {
+    private CompController _cc;
+    private PlayerController _player;
 
-    // Use this for initialization
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _cc = GetComponentInParent<CompController>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter inter" + other.name);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //Debug.Log("stay inter" + other.name);
+        _cc.PlayerInInterArea = true;
+        _player.ComputersInInterRange.Add(_cc);
     }
 
     void OnTriggerExit(Collider other)
     {
-        //Debug.Log("exit inter" + other.name);
+        if (!_cc.IsHacked)
+        {
+            _cc.StopHacking();
+        }
+
+        _cc.PlayerInInterArea = false;
+        _player.ComputersInInterRange.Remove(_cc);
     }
 }

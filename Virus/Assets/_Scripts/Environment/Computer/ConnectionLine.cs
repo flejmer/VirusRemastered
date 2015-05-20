@@ -6,17 +6,10 @@ public class ConnectionLine : MonoBehaviour
     public Transform Origin;
     public Transform Destination;
     public int SizeOfLineElementsPos = 5;
-    public float AnimationLength = 5;
+    public float AnimationDuration = 5;
 
     private LineRenderer _lineRenderer;
     private int _lrSize;
-
-
-    private enum AnimType
-    {
-        FromOriginToDestination,
-        FromDestinationToOrigin
-    }
 
     private IEnumerator _positionsUpdater;
     private IEnumerator _animationCoroutine;
@@ -43,18 +36,18 @@ public class ConnectionLine : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            AnimateLine(AnimType.FromOriginToDestination);
+            AnimateLine(Enums.AnimType.FromOriginToDestination);
         }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            AnimateLine(AnimType.FromDestinationToOrigin);
+            AnimateLine(Enums.AnimType.FromDestinationToOrigin);
         }
     }
 
-    void AnimateLine(AnimType type)
+    void AnimateLine(Enums.AnimType type)
     {
-        StartCoroutine(type.Equals(AnimType.FromOriginToDestination) ? AnimateFromOriginToDestination() : AnimateFromDestinationToOrigin());
+        StartCoroutine(type.Equals(Enums.AnimType.FromOriginToDestination) ? AnimateFromOriginToDestination() : AnimateFromDestinationToOrigin());
     }
 
     void AnimationStart()
@@ -113,7 +106,7 @@ public class ConnectionLine : MonoBehaviour
             StartCoroutine(PositionsCheck());
             _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
 
-            _animProgressTime += Time.deltaTime / AnimationLength;
+            _animProgressTime += Time.deltaTime / AnimationDuration;
             yield return new WaitForEndOfFrame();
         }
 
@@ -131,7 +124,7 @@ public class ConnectionLine : MonoBehaviour
             StartCoroutine(PositionsCheck());
             _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
 
-            _animProgressTime -= Time.deltaTime / AnimationLength;
+            _animProgressTime -= Time.deltaTime / AnimationDuration;
             yield return new WaitForEndOfFrame();
         }
 

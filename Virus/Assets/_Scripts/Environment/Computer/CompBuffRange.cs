@@ -3,31 +3,20 @@ using System.Collections;
 
 public class CompBuffRange : MonoBehaviour
 {
+    private CompController _cc;
 
-    // Use this for initialization
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        _cc = GetComponentInParent<CompController>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter range" + other.name);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        //Debug.Log("stay range" + other.name);
+        _cc.PlayerInBuffRange = true;
     }
 
     void OnTriggerExit(Collider other)
     {
-        //Debug.Log("exit range" + other.name);
+        _cc.PlayerInBuffRange = false;
     }
 }

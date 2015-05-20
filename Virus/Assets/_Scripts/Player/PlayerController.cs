@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class MovementProperties
@@ -34,26 +35,41 @@ public class PlayerController : MonoBehaviour
 
     private bool _spawnInWall;
 
-    //debug
-    private const float FireRate = 0.2f;
-    private float _timeCapture;
+    public List<CompController> ComputersInInterRange;
 
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
         _gun = GameObject.Find("/PlayerV0/Body/Gun");
         _missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
+        Debug.Log(ComputersInInterRange.Count);
     }
 
     void Update()
     {
         Shooting();
+        Interaction();
     }
 
     void FixedUpdate()
     {
         MouseRotation();
         Movement();
+    }
+
+    void Interaction ()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && ComputersInInterRange.Count > 0)
+        {
+            foreach (var computer in ComputersInInterRange)
+            {
+                if (!computer.IsHacked)
+                {
+                    computer.StartHacking();
+                }
+                    
+            }
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -66,7 +82,6 @@ public class PlayerController : MonoBehaviour
             _spawnInWall = true;
 
             Invoke("UpdateSpawnInWall", Time.deltaTime + .05f);
-
         }
     }
 
@@ -129,22 +144,6 @@ public class PlayerController : MonoBehaviour
 //                follower.GetComponent<FollowPath>().TargetToFollow = instance;
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
-            }
-        }
-    }
-
-    void DebugShooting()
-    {
-        if (_timeCapture == 0)
-            _timeCapture = Time.time;
-
-        if (!_spawnInWall)
-        {
-            if (Time.time - _timeCapture >= FireRate)
-            {
-                GameObject instance = Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.transform.position, _missileSpawn.transform.rotation) as GameObject;
-                Destroy(instance, 1);
-                _timeCapture = Time.time;
             }
         }
     }
