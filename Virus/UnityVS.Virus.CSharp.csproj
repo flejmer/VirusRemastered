@@ -59,18 +59,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ClockScript.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
-    <Compile Include="Assets\_Scripts\DebugDraw.cs" />
+    <Compile Include="Assets\_Scripts\Debug\DebugDraw.cs" />
     <Compile Include="Assets\_Scripts\Enums.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompBuffRange.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\ConnectionLine.cs" />
+    <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\FollowPath.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />
+    <Compile Include="Assets\_Scripts\TestsNFun\ClockScript.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\DelegateTests.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\SomeScript.cs" />
   </ItemGroup>

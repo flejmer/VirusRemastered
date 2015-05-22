@@ -9,7 +9,7 @@ public class CompController : MonoBehaviour
     public bool PlayerInInterArea { get; set; }
     public bool PlayerInBuffRange { get; set; }
 
-    public bool IsHacked { get; set; }
+    public bool IsHacked { get; private set; }
 
     private bool _hackInProgress;
     private bool _dehackInProgress;
@@ -17,9 +17,14 @@ public class CompController : MonoBehaviour
     private IEnumerator _hackEnumerator;
     private IEnumerator _dehackEnumerator;
 
-    void Start()
+    void OnEnable()
     {
-        StartCoroutine(Writer());
+        GameManager.AddComputer(this);
+    }
+
+    void OnDisable()
+    {
+        GameManager.RemoveComputer(this);
     }
 
     IEnumerator Writer()
@@ -29,10 +34,6 @@ public class CompController : MonoBehaviour
             Debug.Log(_hackProgress);
             yield return new WaitForSeconds(.2f);
         }
-    }
-
-    void Update()
-    {
     }
 
     public void StartHacking()
@@ -59,6 +60,17 @@ public class CompController : MonoBehaviour
         StartDehacking();
     }
 
+    void HackingStarted()
+    {
+        _hackInProgress = true;
+    }
+
+    void HackingFinished()
+    {
+        _hackInProgress = false;
+        IsHacked = true;
+    }
+
     public void StartDehacking()
     {
         if (_dehackInProgress) return;
@@ -77,7 +89,7 @@ public class CompController : MonoBehaviour
 
     IEnumerator Hacking()
     {
-        _hackInProgress = true;
+        HackingStarted();
 
         while (_hackProgress < 1)
         {
@@ -85,7 +97,7 @@ public class CompController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        _hackInProgress = false;
+        HackingFinished();
     }
 
     IEnumerator Dehacking()

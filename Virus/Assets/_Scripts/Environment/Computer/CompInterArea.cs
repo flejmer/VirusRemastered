@@ -15,7 +15,11 @@ public class CompInterArea : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         _cc.PlayerInInterArea = true;
-        _player.ComputersInInterRange.Add(_cc);
+
+        if (!_player.ComputersInInterRange.Contains(_cc))
+        {
+            _player.ComputersInInterRange.Add(_cc);
+        }
     }
 
     void OnTriggerExit(Collider other)

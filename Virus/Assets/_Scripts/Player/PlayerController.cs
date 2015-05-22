@@ -42,7 +42,16 @@ public class PlayerController : MonoBehaviour
         _rbody = GetComponent<Rigidbody>();
         _gun = GameObject.Find("/PlayerV0/Body/Gun");
         _missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
-        Debug.Log(ComputersInInterRange.Count);
+    }
+
+    void OnEnable()
+    {
+        GameManager.SetPlayer(this);
+    }
+
+    void OnDisable()
+    {
+        GameManager.SetPlayer(this);
     }
 
     void Update()
