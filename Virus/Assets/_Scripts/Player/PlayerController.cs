@@ -35,8 +35,6 @@ public class PlayerController : MonoBehaviour
 
     private bool _spawnInWall;
 
-    public List<CompController> ComputersInInterRange;
-
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
@@ -51,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     void OnDisable()
     {
-        GameManager.SetPlayer(this);
+        GameManager.SetPlayer(null);
     }
 
     void Update()
@@ -68,17 +66,17 @@ public class PlayerController : MonoBehaviour
 
     void Interaction ()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && ComputersInInterRange.Count > 0)
-        {
-            foreach (var computer in ComputersInInterRange)
-            {
-                if (!computer.IsHacked)
-                {
-                    computer.StartHacking();
-                }
-                    
-            }
-        }
+//        if (Input.GetKeyDown(KeyCode.Space) && ComputersInInterRange.Count > 0)
+//        {
+//            foreach (var computer in ComputersInInterRange)
+//            {
+//                if (!computer.IsHacked)
+//                {
+//                    computer.StartHacking();
+//                }
+//                    
+//            }
+//        }
     }
 
     void OnTriggerStay(Collider other)

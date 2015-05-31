@@ -4,22 +4,14 @@ using System.Collections;
 public class CompInterArea : MonoBehaviour
 {
     private CompController _cc;
-    private PlayerController _player;
 
     void Start()
     {
         _cc = GetComponentInParent<CompController>();
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        _cc.PlayerInInterArea = true;
-
-        if (!_player.ComputersInInterRange.Contains(_cc))
-        {
-            _player.ComputersInInterRange.Add(_cc);
-        }
     }
 
     void OnTriggerExit(Collider other)
@@ -29,7 +21,5 @@ public class CompInterArea : MonoBehaviour
             _cc.StopHacking();
         }
 
-        _cc.PlayerInInterArea = false;
-        _player.ComputersInInterRange.Remove(_cc);
     }
 }

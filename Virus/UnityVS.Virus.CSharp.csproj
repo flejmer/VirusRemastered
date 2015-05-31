@@ -61,6 +61,9 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Debug\DebugDraw.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\EnemyGuardAI.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\EnemySimpleAI.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\EnemyTechAI.cs" />
     <Compile Include="Assets\_Scripts\Enums.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompBuffRange.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />

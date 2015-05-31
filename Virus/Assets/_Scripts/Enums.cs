@@ -17,6 +17,12 @@ public class Enums : MonoBehaviour
         FromOriginToDestination,
         FromDestinationToOrigin
     }
+
+    public enum EnemyType
+    {
+        Guard,
+        Tech
+    }
 }
 
 
