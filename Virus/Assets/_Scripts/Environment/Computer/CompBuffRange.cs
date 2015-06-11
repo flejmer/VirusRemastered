@@ -12,11 +12,17 @@ public class CompBuffRange : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        _cc.PlayerInBuffRange = true;
+        if (other.CompareTag("Player"))
+        {
+            GameManager.AddComputerInPlayerBuffArea(GameManager.GetPlayer(), _cc);
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        _cc.PlayerInBuffRange = false;
+        if (other.CompareTag("Player"))
+        {
+            GameManager.RemoveComputerInPlayerBuffArea(GameManager.GetPlayer(), _cc);
+        }
     }
 }

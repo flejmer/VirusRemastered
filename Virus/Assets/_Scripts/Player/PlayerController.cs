@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 [System.Serializable]
 public class MovementProperties
@@ -66,17 +67,13 @@ public class PlayerController : MonoBehaviour
 
     void Interaction ()
     {
-//        if (Input.GetKeyDown(KeyCode.Space) && ComputersInInterRange.Count > 0)
-//        {
-//            foreach (var computer in ComputersInInterRange)
-//            {
-//                if (!computer.IsHacked)
-//                {
-//                    computer.StartHacking();
-//                }
-//                    
-//            }
-//        }
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
+        {
+            foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
+            {
+                computer.StartHacking();
+            }
+        }
     }
 
     void OnTriggerStay(Collider other)

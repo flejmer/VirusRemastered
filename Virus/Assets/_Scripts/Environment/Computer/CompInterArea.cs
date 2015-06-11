@@ -4,19 +4,17 @@ using System.Collections;
 public class CompInterArea : MonoBehaviour
 {
     private CompController _cc;
-    private PlayerController _player;
 
     void Start()
     {
         _cc = GetComponentInParent<CompController>();
-        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.AddComputerInPlayerInterRange(_player, _cc);
+            GameManager.AddComputerInPlayerInterRange(GameManager.GetPlayer(), _cc);
         }
         else if (other.CompareTag("Enemy"))
         {
@@ -35,7 +33,7 @@ public class CompInterArea : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            GameManager.RemoveComputerInPlayerInterRange(_player, _cc);
+            GameManager.RemoveComputerInPlayerInterRange(GameManager.GetPlayer(), _cc);
         }
         else if (other.CompareTag("Enemy"))
         {

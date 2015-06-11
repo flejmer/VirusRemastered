@@ -10,7 +10,6 @@ public class EnemySimpleAI : MonoBehaviour
         GameManager.AddEnemy(this);
     }
 
-    // Update is called once per frame
     void Disable()
     {
         GameManager.RemoveEnemy(this);

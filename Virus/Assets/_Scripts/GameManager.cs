@@ -5,7 +5,7 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    private static GameManager Instance;
 
     private PlayerController _player;
     private readonly List<EnemySimpleAI> _enemiesList = new List<EnemySimpleAI>();
@@ -29,7 +29,45 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        Debug.Log("level loaded");
+        Debug.Log("level loaded " + level);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("computers = " + _computersList.Count);
+
+
+            if (_player == null)
+            {
+                Debug.Log("player = null");
+            }
+            else
+            {
+                Debug.Log("player = " + _player.name);
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (_player != null)
+            {
+
+                Debug.Log("Comps in range = " + GetComputersInPlayerInterRange(_player).Count + " Comps in buff = " + GetComputersInPlayerBuffArea(_player).Count);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Application.LoadLevel("TestingScene");
+        }
+    }
+
+    public static bool IsInstanceNull()
+    {
+        return Instance == null;
     }
 
     public static void SetPlayer(PlayerController player)
@@ -39,6 +77,8 @@ public class GameManager : MonoBehaviour
             if (Instance._player == null)
             {
                 Instance._player = player;
+                Instance._computersInPlayerBuffArea.Add(player, new List<CompController>());
+                Instance._computersInPlayerInterRange.Add(player, new List<CompController>());
             }
             else
             {
@@ -80,6 +120,11 @@ public class GameManager : MonoBehaviour
 
             Instance._player = null;
         }
+    }
+
+    public static PlayerController GetPlayer()
+    {
+        return Instance._player;
     }
 
     public static void AddEnemy(EnemySimpleAI enemy)
@@ -127,7 +172,7 @@ public class GameManager : MonoBehaviour
 
         if (compsInInterRangeForPlayer == null)
         {
-            var startList = new List<CompController> {comp};
+            var startList = new List<CompController> { comp };
             Instance._computersInPlayerInterRange.Add(player, startList);
         }
         else if (!compsInInterRangeForPlayer.Contains(comp))
@@ -167,7 +212,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void RemoveAllComputersInPlayerInterRange(PlayerController player)
+    static void RemoveAllComputersInPlayerInterRange(PlayerController player)
     {
         if (player == null) return;
 
@@ -180,6 +225,14 @@ public class GameManager : MonoBehaviour
         }
 
         Instance._computersInPlayerInterRange.Remove(player);
+    }
+
+    public static List<CompController> GetComputersInPlayerInterRange(PlayerController player)
+    {
+        List<CompController> compsInInterRangeForPlayer;
+        Instance._computersInPlayerInterRange.TryGetValue(player, out compsInInterRangeForPlayer);
+
+        return compsInInterRangeForPlayer != null ? new List<CompController>(compsInInterRangeForPlayer) : null;
     }
 
     public static void AddComputerInPlayerBuffArea(PlayerController player, CompController comp)
@@ -209,7 +262,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (var keyPair in Instance._computersInPlayerBuffArea)
             {
-                if(keyPair.Value == null) continue;
+                if (keyPair.Value == null) continue;
 
                 if (keyPair.Value.Contains(comp))
                 {
@@ -229,7 +282,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void RemoveAllComputersInPlayerBuffArea(PlayerController player)
+    static void RemoveAllComputersInPlayerBuffArea(PlayerController player)
     {
         if (player == null) return;
 
@@ -242,6 +295,14 @@ public class GameManager : MonoBehaviour
         }
 
         Instance._computersInPlayerInterRange.Remove(player);
+    }
+
+    private static List<CompController> GetComputersInPlayerBuffArea(PlayerController player)
+    {
+        List<CompController> compsInBuffAreaForPlayer;
+        Instance._computersInPlayerBuffArea.TryGetValue(player, out compsInBuffAreaForPlayer);
+
+        return compsInBuffAreaForPlayer != null ? new List<CompController>(compsInBuffAreaForPlayer) : null;
     }
 
     public static void AddComputerInEnemyInterRange(EnemySimpleAI enemy, CompController comp)
@@ -291,7 +352,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void RemoveAllComputersInEnemyInterRange(EnemySimpleAI enemy)
+    static void RemoveAllComputersInEnemyInterRange(EnemySimpleAI enemy)
     {
         if (enemy == null) return;
 
@@ -323,38 +384,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public static bool IsComputerHacked(CompController comp)
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("computers = " + _computersList.Count);
-
-
-            if (_player == null)
-            {
-                Debug.Log("player = null");
-            }
-            else
-            {
-                Debug.Log("player = " + _player.name);
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (_player != null)
-            {
-                List<CompController> compControllers;
-                Instance._computersInPlayerInterRange.TryGetValue(_player, out compControllers);
-                
-                Debug.Log("Comus in range = " + compControllers.Count);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Application.LoadLevel("TestingScene");
-        }
+        return Instance._hackedComputersList.Contains(comp);
     }
 }

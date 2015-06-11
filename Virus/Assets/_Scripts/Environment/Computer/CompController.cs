@@ -6,10 +6,10 @@ public class CompController : MonoBehaviour
     public Enums.BuffType TypeOfBuff = Enums.BuffType.None;
     public float HackingDuration = 3;
 
-    public bool PlayerInInterArea { get; set; }
-    public bool PlayerInBuffRange { get; set; }
-
-    public bool IsHacked { get; private set; }
+    public bool IsHacked
+    {
+        get { return GameManager.IsComputerHacked(this); }
+    }
 
     private bool _hackInProgress;
     private bool _dehackInProgress;
@@ -36,6 +36,28 @@ public class CompController : MonoBehaviour
         }
     }
 
+    void HackingStarted()
+    {
+        _hackInProgress = true;
+    }
+
+    void HackingFinished()
+    {
+        _hackInProgress = false;
+        GameManager.AddHackedComputer(this);
+    }
+
+    void DehackingStarted()
+    {
+        _dehackInProgress = true;
+    }
+
+    void DehackingFinished()
+    {
+        GameManager.RemoveHackedComputer(this);
+        _dehackInProgress = false;
+    }
+
     public void StartHacking()
     {
         if (_hackInProgress) return;
@@ -58,17 +80,6 @@ public class CompController : MonoBehaviour
         }
 
         StartDehacking();
-    }
-
-    void HackingStarted()
-    {
-        _hackInProgress = true;
-    }
-
-    void HackingFinished()
-    {
-        _hackInProgress = false;
-        IsHacked = true;
     }
 
     public void StartDehacking()
@@ -112,7 +123,7 @@ public class CompController : MonoBehaviour
 
     IEnumerator Dehacking(float duration)
     {
-        _dehackInProgress = true;
+        DehackingStarted();
 
         while (_hackProgress > 0)
         {
@@ -120,6 +131,6 @@ public class CompController : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        _dehackInProgress = false;
+        DehackingFinished();
     }
 }
