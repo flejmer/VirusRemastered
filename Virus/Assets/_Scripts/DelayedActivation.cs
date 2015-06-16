@@ -14,6 +14,7 @@ public class DelayedActivation : MonoBehaviour
     private IEnumerator _deactivationEnumerator;
 
     protected delegate void ActivationAction();
+
     protected event ActivationAction OnActivationStarted;
     protected event ActivationAction OnActivationUpdate;
     protected event ActivationAction OnActivationFinished;

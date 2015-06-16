@@ -1,24 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class ConnectionLine : DelayedActivation
 {
     public Transform Origin;
     public Transform Destination;
     public int SizeOfLineElementsPos = 5;
-    public float AnimationDuration = 5;
+    public float AnimationDuration = 1;
 
     private LineRenderer _lineRenderer;
     private int _lrSize;
 
     private IEnumerator _positionsUpdater;
-    private IEnumerator _animationCoroutine;
 
     private Vector3 _originPos;
     private Vector3 _destinationPos;
-
-    private bool _animationInProgress;
-    private float _animProgressTime;
 
     void Start()
     {
@@ -28,6 +26,32 @@ public class ConnectionLine : DelayedActivation
 
         _positionsUpdater = PositionsUpdater();
         StartCoroutine(_positionsUpdater);
+    }
+
+    void OnEnable()
+    {
+        SetActivationDuration(AnimationDuration);
+
+        OnActivationStarted += AnimationStart;
+        OnActivationUpdate += AnimationUpdate;
+        OnActivationFinished += AnimationEnd;
+
+        OnDeactivationStarted += AnimationStart;
+        OnDeactivationUpdate += AnimationUpdate;
+        OnDeactivationFinished += AnimationEnd;
+    }
+
+    void OnDisable()
+    {
+        OnActivationStarted -= AnimationStart;
+        OnActivationUpdate -= AnimationUpdate;
+        OnActivationFinished -= AnimationEnd;
+
+        OnDeactivationStarted -= AnimationStart;
+        OnDeactivationUpdate -= AnimationUpdate;
+        OnDeactivationFinished -= AnimationEnd;
+
+        ResetActivator();
     }
 
     void Update()
@@ -47,88 +71,30 @@ public class ConnectionLine : DelayedActivation
 
     void AnimateLine(Enums.AnimType type)
     {
-        StartCoroutine(type.Equals(Enums.AnimType.FromOriginToDestination) ? AnimateFromOriginToDestination() : AnimateFromDestinationToOrigin());
+        if (type.Equals(Enums.AnimType.FromOriginToDestination))
+        {
+            StartActivation();
+        }
+        else
+        {
+            StartDeactivation();
+        }
     }
 
     void AnimationStart()
     {
         StopCoroutine(_positionsUpdater);
-        _animationInProgress = true;
+    }
+
+    void AnimationUpdate()
+    {
+        StartCoroutine(PositionsCheck());
+        _destinationPos = Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
     }
 
     void AnimationEnd()
     {
         StartCoroutine(_positionsUpdater);
-        _animationInProgress = false;
-    }
-
-    IEnumerator AnimateFromOriginToDestination()
-    {
-        if (!_animationInProgress)
-        {
-            _animationCoroutine = AnimateFromOriginToDestination(0);
-        }
-        else
-        {
-            StopCoroutine(_animationCoroutine);
-            _animationCoroutine = AnimateFromOriginToDestination(_animProgressTime);
-        }
-
-        StartCoroutine(_animationCoroutine);
-
-        yield return null;
-    }
-
-    IEnumerator AnimateFromDestinationToOrigin()
-    {
-        if (!_animationInProgress)
-        {
-            _animationCoroutine = AnimateFromDestinationToOrigin(1);
-        }
-        else
-        {
-            StopCoroutine(_animationCoroutine);
-            _animationCoroutine = AnimateFromDestinationToOrigin(_animProgressTime);
-        }
-
-        StartCoroutine(_animationCoroutine);
-        yield return null;
-    }
-
-    IEnumerator AnimateFromOriginToDestination(float animProgress)
-    {
-        AnimationStart();
-
-        _animProgressTime = animProgress;
-
-        while (_animProgressTime < 1)
-        {
-            StartCoroutine(PositionsCheck());
-            _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
-
-            _animProgressTime += Time.deltaTime / AnimationDuration;
-            yield return new WaitForEndOfFrame();
-        }
-
-        AnimationEnd();
-    }
-
-    IEnumerator AnimateFromDestinationToOrigin(float animProgress)
-    {
-        AnimationStart();
-
-        _animProgressTime = animProgress;
-
-        while (_animProgressTime > 0)
-        {
-            StartCoroutine(PositionsCheck());
-            _destinationPos = Vector3.Lerp(_originPos, _destinationPos, _animProgressTime);
-
-            _animProgressTime -= Time.deltaTime / AnimationDuration;
-            yield return new WaitForEndOfFrame();
-        }
-
-        AnimationEnd();
     }
 
     IEnumerator PositionsUpdater()
@@ -144,6 +110,9 @@ public class ConnectionLine : DelayedActivation
     {
         _originPos = new Vector3(Origin.position.x, Origin.position.y, Origin.position.z);
         _destinationPos = new Vector3(Destination.position.x, Destination.position.y, Destination.position.z);
+
+        _destinationPos = Math.Abs(GetActivationProgress()) < 0.05f ? new Vector3(_originPos.x, _originPos.y, _originPos.z) : Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
+
         yield return null;
     }
 
@@ -160,13 +129,24 @@ public class ConnectionLine : DelayedActivation
         _lineRenderer.SetPosition(0, _originPos);
 
         var distance = _destinationPos - _originPos;
+
         var dir = distance / (SizeOfLineElementsPos - 1);
 
         for (var i = 1; i < SizeOfLineElementsPos; i++)
         {
             var tempTransform = new GameObject().transform;
             tempTransform.position = new Vector3(_originPos.x, _originPos.y, _originPos.z);
-            tempTransform.rotation = dir.Equals(Vector3.zero) ? Quaternion.identity : Quaternion.LookRotation(dir);
+
+            if (dir.Equals(Vector3.zero) || _destinationPos.Equals(_originPos))
+            {
+                tempTransform.rotation = Quaternion.identity;
+            }
+            else
+            {
+                tempTransform.rotation = Quaternion.LookRotation(dir);
+            }
+
+
             tempTransform.position += i * dir;
 
             if (i < SizeOfLineElementsPos - 1)
