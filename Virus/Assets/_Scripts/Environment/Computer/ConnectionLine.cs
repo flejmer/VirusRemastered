@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ConnectionLine : MonoBehaviour
+public class ConnectionLine : DelayedActivation
 {
     public Transform Origin;
     public Transform Destination;
