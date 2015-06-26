@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class DebugDraw
 {
-    static Material material = new Material(
-    @"Shader ""Custom/DebugDraw"" {
-        Properties {
-            _Color (""Main Color"", Color) = (1,1,1,1)
-        }
-        SubShader {
-            Pass {
-                Color [_Color]
-            }
-        }
-    }");
+    static Material material = new Material(Shader.Find("Legacy Shaders/Bumped Diffuse"));
+
     static MeshCreator creator = new MeshCreator();
     static Mesh solidSphere;
     static Mesh solidCube;

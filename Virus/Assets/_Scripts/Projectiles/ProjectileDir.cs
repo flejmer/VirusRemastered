@@ -70,7 +70,7 @@ public class ProjectileDir : MonoBehaviour
         Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 2);
         if (!Physics.Raycast(transform.position, movement, out hit, movement.magnitude, LayerMask)) return;
 
-        //        DebugDraw.DrawSphere(hit.point, 2, Color.black);
+        // DebugDraw.DrawSphere(hit.point, 2, Color.black);
 
         if (Bouncy && !(_bouncesCount >= MaxBounces))
         {
