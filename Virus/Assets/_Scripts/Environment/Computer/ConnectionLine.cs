@@ -5,10 +5,11 @@ using Random = UnityEngine.Random;
 
 public class ConnectionLine : DelayedActivation
 {
-    public Transform Origin;
-    public Transform Destination;
-    public int SizeOfLineElementsPos = 5;
-    public float AnimationDuration = 1;
+    [SerializeField]
+    private int _sizeOfLineElementsPos = 5;
+
+    private Transform _origin;
+    private Transform _destination;
 
     private LineRenderer _lineRenderer;
     private int _lrSize;
@@ -18,19 +19,25 @@ public class ConnectionLine : DelayedActivation
     private Vector3 _originPos;
     private Vector3 _destinationPos;
 
+    void Awake()
+    {
+        _origin = transform;
+        _destination = transform;
+
+        _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.SetVertexCount(_sizeOfLineElementsPos);
+        _lrSize = _sizeOfLineElementsPos;
+    }
+
     void Start()
     {
-        _lineRenderer = GetComponent<LineRenderer>();
-        _lineRenderer.SetVertexCount(SizeOfLineElementsPos);
-        _lrSize = SizeOfLineElementsPos;
-
         _positionsUpdater = PositionsUpdater();
         StartCoroutine(_positionsUpdater);
     }
 
     void OnEnable()
     {
-        SetActivationDuration(AnimationDuration);
+        StartCoroutine(PositionsCheck());
 
         OnActivationStarted += AnimationStart;
         OnActivationUpdate += AnimationUpdate;
@@ -52,32 +59,38 @@ public class ConnectionLine : DelayedActivation
         OnDeactivationFinished -= AnimationEnd;
 
         ResetActivator();
+        _destination = transform;
+    }
+
+    public void SetDestination(Transform destination)
+    {
+        if (!destination.gameObject.CompareTag("Player"))
+        {
+            Destroy(destination.gameObject, 10);
+        }
+
+        _destination = destination;
     }
 
     void Update()
     {
         DrawLine();
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            AnimateLine(Enums.AnimType.FromOriginToDestination);
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            AnimateLine(Enums.AnimType.FromDestinationToOrigin);
-        }
     }
 
-    void AnimateLine(Enums.AnimType type)
+    public void AnimateLine(Enums.AnimType type)
+    {
+        AnimateLine(type, _defaultDuration);
+    }
+
+    public void AnimateLine(Enums.AnimType type, float duration)
     {
         if (type.Equals(Enums.AnimType.FromOriginToDestination))
         {
-            StartActivation();
+            StartActivation(duration);
         }
         else
         {
-            StartDeactivation();
+            StartDeactivation(duration);
         }
     }
 
@@ -92,9 +105,19 @@ public class ConnectionLine : DelayedActivation
         _destinationPos = Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
     }
 
+    //TODO: Check destroy calling
     void AnimationEnd()
     {
         StartCoroutine(_positionsUpdater);
+
+        if (Math.Abs(GetActivationProgress()) < 0.05f)
+        {
+            var temp = _destination;
+            _destination = transform;
+
+            if(!temp.gameObject.CompareTag("Player"))
+                Destroy(temp.gameObject);
+        }
     }
 
     IEnumerator PositionsUpdater()
@@ -104,12 +127,13 @@ public class ConnectionLine : DelayedActivation
             StartCoroutine(PositionsCheck());
             yield return new WaitForEndOfFrame();
         }
+        // ReSharper disable once FunctionNeverReturns
     }
 
     IEnumerator PositionsCheck()
     {
-        _originPos = new Vector3(Origin.position.x, Origin.position.y, Origin.position.z);
-        _destinationPos = new Vector3(Destination.position.x, Destination.position.y, Destination.position.z);
+        _originPos = new Vector3(_origin.position.x, _origin.position.y, _origin.position.z);
+        _destinationPos = new Vector3(_destination.position.x, _destination.position.y, _destination.position.z);
 
         _destinationPos = Math.Abs(GetActivationProgress()) < 0.05f ? new Vector3(_originPos.x, _originPos.y, _originPos.z) : Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
 
@@ -118,21 +142,21 @@ public class ConnectionLine : DelayedActivation
 
     void DrawLine()
     {
-        if (SizeOfLineElementsPos != _lrSize)
+        if (_sizeOfLineElementsPos != _lrSize)
         {
-            _lineRenderer.SetVertexCount(SizeOfLineElementsPos);
-            _lrSize = SizeOfLineElementsPos;
+            _lineRenderer.SetVertexCount(_sizeOfLineElementsPos);
+            _lrSize = _sizeOfLineElementsPos;
         }
 
-        if (Origin == null || Destination == null) return;
+        if (_origin == null || _destination == null) return;
 
-        _lineRenderer.SetPosition(0, _originPos);
+        _lineRenderer.SetPosition(0, _originPos - transform.position);
 
         var distance = _destinationPos - _originPos;
 
-        var dir = distance / (SizeOfLineElementsPos - 1);
+        var dir = distance / (_sizeOfLineElementsPos - 1);
 
-        for (var i = 1; i < SizeOfLineElementsPos; i++)
+        for (var i = 1; i < _sizeOfLineElementsPos; i++)
         {
             var tempTransform = new GameObject().transform;
             tempTransform.position = new Vector3(_originPos.x, _originPos.y, _originPos.z);
@@ -146,15 +170,15 @@ public class ConnectionLine : DelayedActivation
                 tempTransform.rotation = Quaternion.LookRotation(dir);
             }
 
-
             tempTransform.position += i * dir;
 
-            if (i < SizeOfLineElementsPos - 1)
+            if (i < _sizeOfLineElementsPos - 1)
             {
-                tempTransform.Translate(Vector3.left * Random.Range(-0.4f, 0.4f));
+                tempTransform.Translate(Vector3.left * Random.Range(-0.25f, 0.25f));
             }
 
             var pointpointAlongLine = new Vector3(tempTransform.position.x, tempTransform.position.y, tempTransform.position.z);
+            pointpointAlongLine = pointpointAlongLine - transform.position;
             _lineRenderer.SetPosition(i, pointpointAlongLine);
 
             Destroy(tempTransform.gameObject);

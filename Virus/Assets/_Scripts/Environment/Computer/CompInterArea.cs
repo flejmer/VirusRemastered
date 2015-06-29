@@ -37,10 +37,14 @@ public class CompInterArea : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+        //TODO: do it better?
         if (!_cc.IsHacked)
         {
-            _cc.StopHacking();
-            _cc.StartDehacking();
+            if (_cc.IsHackInProgress)
+            {
+                _cc.StopHacking();
+                _cc.StartDehacking();
+            }
         }
 
         if (other.CompareTag("Player"))

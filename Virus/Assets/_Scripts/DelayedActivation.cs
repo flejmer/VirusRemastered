@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DelayedActivation : MonoBehaviour
 {
-    private float _defaultDuration = 3;
+    protected float _defaultDuration = 1;
 
     private bool _activationInProgress;
     private bool _deactivationInProgress;
@@ -72,12 +72,12 @@ public class DelayedActivation : MonoBehaviour
         _progressionFloat = 0;
     }
 
-    protected void StartActivation()
+    public void StartActivation()
     {
         StartActivation(_defaultDuration);
     }
 
-    protected void StartActivation(float duration)
+    public void StartActivation(float duration)
     {
         OnActivationStarted += ActivationStarted;
         OnActivationFinished += ActivationFinished;
@@ -101,12 +101,12 @@ public class DelayedActivation : MonoBehaviour
         _activationInProgress = false;
     }
 
-    protected void StartDeactivation()
+    public void StartDeactivation()
     {
         StartDeactivation(_defaultDuration);
     }
 
-    protected void StartDeactivation(float duration)
+    public void StartDeactivation(float duration)
     {
         OnDeactivationStarted += DeactivationStarted;
         OnDeactivationFinished += DeactivationFinished;

@@ -11,6 +11,20 @@ public class CompController : DelayedActivation
         get { return GameManager.IsComputerHacked(this); }
     }
 
+    private bool _hackInProgress;
+
+    public bool IsHackInProgress
+    {
+        get { return _hackInProgress; }
+    }
+
+    private ConnectionLine _line;
+
+    void Awake()
+    {
+        _line = GetComponent<ConnectionLine>();
+    }
+
     void OnEnable()
     {
         SetActivationDuration(HackingDuration);
@@ -39,28 +53,19 @@ public class CompController : DelayedActivation
         }
     }
 
-    void HackingFinished()
+    public void StartHacking(PlayerController player)
     {
-        GameManager.AddHackedComputer(this);
-        // keep on drawing line
+        StartHacking(player, HackingDuration);
     }
 
-    void DehackingFinished()
+    public void StartHacking(PlayerController player, float duration)
     {
-        GameManager.RemoveHackedComputer(this);
-        // if player in buff area > quick line break
-    }
+        _hackInProgress = true;
 
-    public void StartHacking()
-    {
-        StartActivation();
-        // start drawing line
-    }
-
-    public void StartHacking(float duration)
-    {
         StartActivation(duration);
-        // start drawing line
+
+        _line.SetDestination(player.transform);
+        _line.AnimateLine(Enums.AnimType.FromOriginToDestination, duration);
     }
 
     public void StopHacking()
@@ -68,20 +73,30 @@ public class CompController : DelayedActivation
         StopActivation();
     }
 
+    void HackingFinished()
+    {
+        _hackInProgress = false;
+        GameManager.AddHackedComputer(this);
+    }
+
     public void StartDehacking()
     {
-        StartDeactivation();
-        // if player in buff area > slowly break line
+        StartDehacking(HackingDuration);
     }
 
     public void StartDehacking(float duration)
     {
         StartDeactivation(duration);
-        // if player in buff area > slowly break line
+        _line.AnimateLine(Enums.AnimType.FromDestinationToOrigin, duration);
     }
 
     public void StopDehacking()
     {
         StopActivation();
+    }
+
+    void DehackingFinished()
+    {
+        GameManager.RemoveHackedComputer(this);
     }
 }
