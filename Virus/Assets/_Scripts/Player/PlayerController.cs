@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,11 +37,14 @@ public class PlayerController : MonoBehaviour
 
     private bool _spawnInWall;
 
+    private Animator _anim;
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
-        _gun = GameObject.Find("/PlayerV0/Body/Gun");
-        _missileSpawn = GameObject.Find("/PlayerV0/Body/Gun/missileSpawn");
+        _gun = GameObject.Find("Body/Gun");
+        _missileSpawn = GameObject.Find("Body/Gun/missileSpawn");
+        _anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -62,8 +66,14 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        var vertical = Input.GetAxis("Vertical");
+        var horizontal = Input.GetAxis("Horizontal");
+
         MouseRotation();
-        Movement();
+        Movement(vertical, horizontal);
+
+        if(_anim != null)
+            Animations(vertical, horizontal);
     }
 
     void Interaction ()
@@ -116,16 +126,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Movement()
+    void Movement(float vertical, float horizontal)
     {
-        var vertical = Input.GetAxis("Vertical");
-        var horizontal = Input.GetAxis("Horizontal");
-
         if (vertical != 0 || horizontal != 0)
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
 //            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
             _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
+        }
+    }
+
+    void Animations(float vertical, float horizontal)
+    {
+        
+
+        if (Math.Abs(vertical) < 0.05f && Math.Abs(horizontal) < 0.05f)
+        {
+            _anim.SetBool("NotMoving", true);
+        }
+        else
+        {
+            _anim.SetBool("NotMoving", false);
+            _anim.SetFloat("Vertical", vertical);
+            _anim.SetFloat("Horizontal", horizontal);
         }
     }
 

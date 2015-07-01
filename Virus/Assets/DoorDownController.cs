@@ -23,7 +23,7 @@ public class DoorDownController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("teas");
+            _animator.SetBool("DoorsOpen", true);
         }
     }
 
