@@ -136,7 +136,7 @@ MonoBehaviour:
   MissileSpeed: 25
   LayerMask:
     serializedVersion: 2
-    m_Bits: 4294955720
+    m_Bits: 20992
   Bouncy: 1
   MaxBounces: 4
 --- !u!120 &12015246

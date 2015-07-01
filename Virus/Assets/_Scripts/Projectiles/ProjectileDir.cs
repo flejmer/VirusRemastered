@@ -61,7 +61,7 @@ public class ProjectileDir : MonoBehaviour
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
     }
-    
+
     //TODO: Time.deltaTime * MissileSpeed;
     void SendCollisionRay(Vector3 movement)
     {
@@ -95,8 +95,9 @@ public class ProjectileDir : MonoBehaviour
 
         if (_bouncesCount == 0)
             LayerMask = 1 << LayerMask.NameToLayer("Player")
-                | 1 << LayerMask.NameToLayer("Enemies")
-                | 1 << LayerMask.NameToLayer("Obstacles");
+                        | 1 << LayerMask.NameToLayer("Enemies")
+                        | 1 << LayerMask.NameToLayer("Obstacles")
+                        | 1 << LayerMask.NameToLayer("Doors");
 
         _bouncesCount++;
 

@@ -11,7 +11,6 @@ public class SimpleMissileController : ProjectileDir
 
     void Awake()
     {
-        DebugDraw.DrawSphere(transform.position, .0f, Color.cyan);
         InitializeProjectile();
 
         _pSys = GetComponentInChildren<ParticleSystem>();

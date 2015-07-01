@@ -23,6 +23,14 @@ public class Enums : MonoBehaviour
         Guard,
         Tech
     }
+
+    public enum DoorLockType
+    {
+        Locked,
+        EnemyLock,
+        Unlocked,
+        OpenForever
+    }
 }
 
 

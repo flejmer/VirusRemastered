@@ -60,17 +60,12 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DoorDownController.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Debug\DebugDraw.cs" />
     <Compile Include="Assets\_Scripts\DelayedActivation.cs" />
@@ -91,6 +86,7 @@
     <Compile Include="Assets\_Scripts\TestsNFun\ClockScript.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\DelegateTests.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\SomeScript.cs" />
+    <Compile Include="Assets\sss.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Graphics\Shaders\DebugDraw.shader" />
