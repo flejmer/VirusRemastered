@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody _rbody;
 
-    private GameObject _gun;
-    private GameObject _missileSpawn;
+    private Transform _gun;
+    private Transform _missileSpawn;
 
     private bool _spawnInWall;
 
@@ -42,8 +42,8 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
-        _gun = GameObject.Find("Body/Gun");
-        _missileSpawn = GameObject.Find("Body/Gun/missileSpawn");
+        _gun = transform.Find("Body/Gun");
+        _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _anim = GetComponentInChildren<Animator>();
     }
 
@@ -76,11 +76,11 @@ public class PlayerController : MonoBehaviour
         horizontal = dirLocal.x;
         vertical = dirLocal.z;
 
-        if(_anim != null)
+        if (_anim != null)
             Animations(vertical, horizontal);
     }
 
-    void Interaction ()
+    void Interaction()
     {
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
         {
@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Computer") || other.CompareTag("Obstacle"))
         {
+            Debug.Log("dsadas");
+
             if (IsInvoking("UpdateSpawnInWall"))
                 CancelInvoke("UpdateSpawnInWall");
 
@@ -124,9 +126,9 @@ public class PlayerController : MonoBehaviour
             //            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
             //            _gun.transform.LookAt(point);
 
-            targetRotation = Quaternion.LookRotation(targetPoint - _gun.transform.position);
+            targetRotation = Quaternion.LookRotation(targetPoint - _gun.position);
             targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
-            _gun.transform.rotation = Quaternion.Slerp(_gun.transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
+            _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
         }
     }
 
@@ -137,7 +139,7 @@ public class PlayerController : MonoBehaviour
             Vector3 movement = new Vector3(horizontal, 0, vertical);
 
             transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
-//            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
+            //            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
 
             Vector3 movRelative = transform.InverseTransformDirection(movement);
 
@@ -173,23 +175,32 @@ public class PlayerController : MonoBehaviour
 
             if (!_spawnInWall)
             {
-                CancelInvoke("Aiming");
 
-                _anim.SetBool("Aiming", true);
-                _anim.SetTrigger("FireGun");
+
+                if (_anim != null)
+                {
+                    if (IsInvoking("Aiming"))
+                        CancelInvoke("Aiming");
+
+                    _anim.SetBool("Aiming", true);
+                    _anim.SetTrigger("FireGun");
+
+                    Invoke("Aiming", 1.5f);
+                }
+
 
                 var instance = (GameObject)
-                    Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.transform.position,
-                        _missileSpawn.transform.rotation);
+                    Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.position,
+                        _missileSpawn.rotation);
 
-//                var follower =
-//                    (GameObject)
-//                        Instantiate(ProjectilesProperties.BasicAttack.Follower, _missileSpawn.transform.position,
-//                            _missileSpawn.transform.rotation);
-//
-//                follower.GetComponent<FollowPath>().TargetToFollow = instance;
+                //                var follower =
+                //                    (GameObject)
+                //                        Instantiate(ProjectilesProperties.BasicAttack.Follower, _missileSpawn.transform.position,
+                //                            _missileSpawn.transform.rotation);
+                //
+                //                follower.GetComponent<FollowPath>().TargetToFollow = instance;
 
-                Invoke("Aiming", 1.5f);
+
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
             }
