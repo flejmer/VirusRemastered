@@ -70,7 +70,11 @@ public class PlayerController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal");
 
         MouseRotation();
-        Movement(vertical, horizontal);
+
+        var dirLocal = Movement(vertical, horizontal);
+
+        horizontal = dirLocal.x;
+        vertical = dirLocal.z;
 
         if(_anim != null)
             Animations(vertical, horizontal);
@@ -126,20 +130,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Movement(float vertical, float horizontal)
+    Vector3 Movement(float vertical, float horizontal)
     {
-        if (vertical != 0 || horizontal != 0)
+        if (Math.Abs(vertical) > 0.05f || Math.Abs(horizontal) > 0.05f)
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
-//            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
-            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
+
+            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
+//            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
+
+            Vector3 movRelative = transform.InverseTransformDirection(movement);
+
+            return movRelative;
         }
+
+        return Vector3.zero;
     }
 
     void Animations(float vertical, float horizontal)
     {
-        
-
+        //Math.Abs(vertical) < 0.05f && Math.Abs(horizontal) < 0.05f
         if (Math.Abs(vertical) < 0.05f && Math.Abs(horizontal) < 0.05f)
         {
             _anim.SetBool("NotMoving", true);
@@ -154,12 +164,20 @@ public class PlayerController : MonoBehaviour
 
     void Shooting()
     {
+
         bool fireInput = Input.GetButtonDown("Fire1");
 
         if (fireInput)
         {
+
+
             if (!_spawnInWall)
             {
+                CancelInvoke("Aiming");
+
+                _anim.SetBool("Aiming", true);
+                _anim.SetTrigger("FireGun");
+
                 var instance = (GameObject)
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.transform.position,
                         _missileSpawn.transform.rotation);
@@ -171,8 +189,15 @@ public class PlayerController : MonoBehaviour
 //
 //                follower.GetComponent<FollowPath>().TargetToFollow = instance;
 
+                Invoke("Aiming", 1.5f);
+
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
             }
         }
+    }
+
+    void Aiming()
+    {
+        _anim.SetBool("Aiming", false);
     }
 }

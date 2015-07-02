@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 106060eb0e2b83b458cede0b47217d4f
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: Armature
     100002: body
@@ -98,6 +98,9 @@ ModelImporter:
     7400018: shoot_001
     7400020: zjebane_nie_to
     7400022: zle_olej
+    7400024: AIMING
+    7400026: AIM1
+    7400028: Standing
     9500000: //RootNode
     13700000: Cube
   materials:
@@ -108,6 +111,246 @@ ModelImporter:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 'MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/left_shoulder''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hips/body/right_shoulder/right_shoulder_001''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1left/left_leg_1/left_leg2/left_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right'' is between
+      humanoid transforms and has rotation animation. This might lower retargeting
+      quality.
+
+
+      MuscleClip ''Chuck'' conversion warning: ''Armature/root/hip1right/right_leg1/right_leg2/right_heel''
+      is between humanoid transforms and has rotation animation. This might lower
+      retargeting quality.
+
+
+'
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
@@ -1411,6 +1654,222 @@ ModelImporter:
         weight: 0
       maskType: 0
       maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: AIMING
+      takeName: AIM
+      firstFrame: 4
+      lastFrame: 5
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Standing
+      takeName: AIM
+      firstFrame: 0
+      lastFrame: .25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/hip1left
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+        weight: 1
+      - path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+        weight: 1
+      - path: Armature/root/hip1right
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+        weight: 1
+      - path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+        weight: 1
+      - path: Armature/root/hips
+        weight: 1
+      - path: Armature/root/hips/body
+        weight: 1
+      - path: Armature/root/hips/body/head
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+        weight: 1
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+        weight: 0
+      - path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+        weight: 0
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+        weight: 1
+      - path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+        weight: 0
+      - path: Cube
+        weight: 0
+      - path: Hemi
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -1422,11 +1881,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -1838,3 +2299,5 @@ ModelImporter:
   animationType: 3
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
