@@ -250,6 +250,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: NotMoving
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: FireGun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110253170}
   m_Solo: 0
@@ -706,6 +709,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: NotMoving
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: FireGun
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110253170}
   m_Solo: 0
@@ -959,7 +965,7 @@ AnimatorStateMachine:
     m_Position: {x: -540, y: -96, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110266828}
-    m_Position: {x: -816, y: 36, z: 0}
+    m_Position: {x: -828, y: 36, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110253494}
     m_Position: {x: -540, y: 36, z: 0}

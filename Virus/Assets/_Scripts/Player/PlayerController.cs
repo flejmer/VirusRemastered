@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
 
-//            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
+            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
             //            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
 
             Vector3 movRelative = transform.InverseTransformDirection(movement);

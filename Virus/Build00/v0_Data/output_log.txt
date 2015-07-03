@@ -16,7 +16,7 @@ Platform assembly: M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\
 Loading M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.050 seconds
+- Completed reload, in  0.084 seconds
 desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,5 +24,5 @@ desktop: 1920x1080 59Hz; virtual: 1920x1080 at 0,0
 Platform assembly: M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: M:\work\Unity\Projects\VirusRemastered\Virus\Build00\v0_Data\Managed\System.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1ae4 -> priority: 1 
-  Thread -> id: 2364 -> priority: 1 
+  Thread -> id: 1bf0 -> priority: 1 
+  Thread -> id: 1f38 -> priority: 1 
