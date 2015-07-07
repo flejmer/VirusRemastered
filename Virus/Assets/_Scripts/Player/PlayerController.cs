@@ -82,6 +82,12 @@ public class PlayerController : MonoBehaviour
 
     void Interaction()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            _anim.SetBool("Hacking", true);
+            Invoke("StopIt", 3f);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
         {
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
@@ -89,6 +95,11 @@ public class PlayerController : MonoBehaviour
                 computer.StartHacking(this);
             }
         }
+    }
+
+    void StopIt()
+    {
+        _anim.SetBool("Hacking", false);
     }
 
     void OnTriggerStay(Collider other)

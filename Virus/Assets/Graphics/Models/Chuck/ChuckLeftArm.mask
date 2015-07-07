@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ChuckLeftArm
+  m_Mask: 01000000000000000000000000000000000000000100000000000000010000000000000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/root
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left/left_leg_1
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left/left_leg_1/left_leg2
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1
+    m_Weight: 1
+  - m_Path: Armature/root/hip1left/left_leg_1/left_leg2/left_heel/left_foot_1/left_foot_2
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right/right_leg1
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right/right_leg1/right_leg2
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right/right_leg1/right_leg2/right_heel
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1
+    m_Weight: 1
+  - m_Path: Armature/root/hip1right/right_leg1/right_leg2/right_heel/right_foot1/right_foot2
+    m_Weight: 1
+  - m_Path: Armature/root/hips
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/head
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers2/l_pinky_f/l_pinky_f_001
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fingers_1/l_indes_f/l_indes_f_001
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_pam/l_fuck_f
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/left_shoulder/left_arm/left_forearm/l_thumb_1/l_thumb_2
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r__palm/r_palm_fingers
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1
+    m_Weight: 1
+  - m_Path: Armature/root/hips/body/right_shoulder/right_shoulder_001/right_arm/right_forearm/r_thumb_1/r_thumb_2
+    m_Weight: 1
+  - m_Path: Cube
+    m_Weight: 1
+  - m_Path: Hemi
+    m_Weight: 1
