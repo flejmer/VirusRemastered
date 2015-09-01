@@ -7,27 +7,13 @@ public class EnemySimpleAI : MonoBehaviour
     public Transform Target;
     public Camera cam;
 
-    private NavMeshAgent _agent;
+    protected NavMeshAgent Agent;
+
+    private bool _stopped;
 
     void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
-    }
-
-    void Update()
-    {
-        _agent.SetDestination(Target.position);
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            RaycastHit hit;
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                Target.position = hit.point;
-            }
-        }
+        Agent = GetComponent<NavMeshAgent>();
     }
 
     void Enable()
