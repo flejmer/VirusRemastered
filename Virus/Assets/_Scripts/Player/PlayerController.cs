@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 
 [System.Serializable]
 public class MovementProperties
@@ -137,9 +138,18 @@ public class PlayerController : MonoBehaviour
             //            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
             //            _gun.transform.LookAt(point);
 
+            
+
             targetRotation = Quaternion.LookRotation(targetPoint - _gun.position);
             targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+            var gunRotCopy = _gun.rotation;
             _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
+
+            var dot = Vector3.Dot(transform.forward, _gun.forward);
+
+            if (dot < .95f)
+                _gun.rotation = gunRotCopy;
         }
     }
 
