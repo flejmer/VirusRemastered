@@ -1,0 +1,698 @@
+fileFormatVersion: 2
+guid: f8f1dfdde851d06479f68c6296c6d708
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: Armature
+    100002: biceps_left
+    100004: biceps_right
+    100006: cialo
+    100008: Cube_001
+    100010: dlon_left
+    100012: dlon_right
+    100014: glowa
+    100016: kciuk1R
+    100018: kciuk2R
+    100020: kciuk3L
+    100022: kciuk3R
+    100024: kciuk_1L
+    100026: kciuk_2L
+    100028: klawiatura
+    100030: ludka_left
+    100032: lydka_right
+    100034: miednica_center
+    100036: miednica_right
+    100038: miednicaleft
+    100040: palceL
+    100042: palceR
+    100044: ramie_left_
+    100046: ramie_right
+    100048: reka_left
+    100050: root
+    100052: root_004
+    100054: root_005
+    100056: root_009
+    100058: root_010
+    100060: root_024
+    100062: //RootNode
+    100064: udo_left
+    100066: udo_right
+    400000: Armature
+    400002: biceps_left
+    400004: biceps_right
+    400006: cialo
+    400008: Cube_001
+    400010: dlon_left
+    400012: dlon_right
+    400014: glowa
+    400016: kciuk1R
+    400018: kciuk2R
+    400020: kciuk3L
+    400022: kciuk3R
+    400024: kciuk_1L
+    400026: kciuk_2L
+    400028: klawiatura
+    400030: ludka_left
+    400032: lydka_right
+    400034: miednica_center
+    400036: miednica_right
+    400038: miednicaleft
+    400040: palceL
+    400042: palceR
+    400044: ramie_left_
+    400046: ramie_right
+    400048: reka_left
+    400050: root
+    400052: root_004
+    400054: root_005
+    400056: root_009
+    400058: root_010
+    400060: root_024
+    400062: //RootNode
+    400064: udo_left
+    400066: udo_right
+    4300000: Cube_001
+    7400000: Default Take
+    7400002: ArmatureAction
+    7400004: codeposition
+    7400006: coding
+    7400008: idle
+    7400010: IT_run
+    9500000: //RootNode
+    13700000: Cube_001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 43
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ArmatureAction
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: codeposition
+      takeName: codeposition
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: coding
+      takeName: coding
+      firstFrame: 0
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: idle
+      firstFrame: 0
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: IT_run
+      takeName: IT_run
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/root
+        weight: 1
+      - path: Armature/root/klawiatura
+        weight: 1
+      - path: Armature/root/miednica_center
+        weight: 1
+      - path: Armature/root/miednica_center/cialo
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/glowa
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+        weight: 1
+      - path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+        weight: 1
+      - path: Armature/root/miednica_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+        weight: 1
+      - path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+        weight: 1
+      - path: Armature/root/miednicaleft
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+        weight: 1
+      - path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+        weight: 1
+      - path: Cube_001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .600000024
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: root
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  userData: 
