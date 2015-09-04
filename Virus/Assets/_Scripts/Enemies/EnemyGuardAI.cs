@@ -12,6 +12,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private Transform _missileSpawn;
     private Transform _gun;
+    private Transform _body;
 
     private Transform _target;
     private Animator _anim;
@@ -20,6 +21,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private bool _canFire;
 
+    private bool _targetClose;
+
     void Start()
     {
         EnemyType = Enums.EnemyType.Guard;
@@ -27,6 +30,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _gun = transform.Find("Body/Gun");
+        _body = transform.Find("Body");
     }
 
     void Update()
@@ -39,20 +43,21 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         if (other.CompareTag("Player"))
         {
+            _targetClose = true;
+
             if (_target == null)
                 _target = other.transform;
 
             RaycastHit hit;
 
-            var direction = (_target.position - transform.position).normalized;
+            var direction = (_target.position - _gun.position).normalized;
 
-            if (Physics.Raycast(transform.position, direction, out hit, 15.0f, SeekerMask))
+            if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask))
             {
                 if (hit.transform.tag.Equals("Player"))
                 {
                     _enemyState = Enums.EnemyGuardStates.Shooting;
                     Invoke("CanFireAgain", RateOfFire / 2);
-                    Debug.Log("enter " + _enemyState);
                 }
             }
         }
@@ -64,18 +69,18 @@ public class EnemyGuardAI : EnemySimpleAI
 
         if (other.CompareTag("Player"))
         {
-            RaycastHit hit;
-            var direction = (_target.position - transform.position).normalized;
+            _targetClose = true;
 
-            if (Physics.Raycast(transform.position, direction, out hit, 15.0f, SeekerMask))
+            RaycastHit hit;
+            var direction = (_target.position - _gun.position).normalized;
+
+            if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask))
             {
                 if (_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
                 {
                     if (!hit.transform.tag.Equals("Player"))
                     {
                         _enemyState = Enums.EnemyGuardStates.Chase;
-
-                        Debug.Log("here " + hit.transform.tag);
 
                         _canFire = false;
                         CancelInvoke("CanFireAgain");
@@ -85,7 +90,6 @@ public class EnemyGuardAI : EnemySimpleAI
                 {
                     if (hit.transform.tag.Equals("Player"))
                     {
-                        Debug.Log("stay " + _enemyState);
                         _enemyState = Enums.EnemyGuardStates.Shooting;
                         Invoke("CanFireAgain", RateOfFire / 2);
                         
@@ -99,6 +103,8 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         if (other.CompareTag("Player"))
         {
+            _targetClose = false;
+
             _enemyState = Enums.EnemyGuardStates.Chase;
 
             _canFire = false;
@@ -140,7 +146,6 @@ public class EnemyGuardAI : EnemySimpleAI
 
                 _canFire = false;
                 Invoke("CanFireAgain", RateOfFire);
-                Debug.Log("ai " + _enemyState);
             }
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
@@ -157,20 +162,21 @@ public class EnemyGuardAI : EnemySimpleAI
         }
     }
 
-    void Movement()
+    private void Movement()
     {
+
         // Rotation towards target after its reached
-        if (_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
+
+        if ((_target != null && _targetClose) || _enemyState.Equals(Enums.EnemyGuardStates.Shooting))
         {
             Vector3 direction = (_target.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
-
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime*RotationSpeed);
 
             var targetRotation = Quaternion.LookRotation(_target.position - _gun.position);
             targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
-            _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, 15 * Time.deltaTime);
+            _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, 15*Time.deltaTime);
         }
     }
 }
