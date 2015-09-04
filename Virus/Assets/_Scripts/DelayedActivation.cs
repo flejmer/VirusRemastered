@@ -13,16 +13,16 @@ public class DelayedActivation : MonoBehaviour
     private IEnumerator _activationEnumerator;
     private IEnumerator _deactivationEnumerator;
 
-    protected delegate void ActivationAction();
+    public delegate void ActivationAction();
 
-    protected event ActivationAction OnActivationStarted;
-    protected event ActivationAction OnActivationUpdate;
-    protected event ActivationAction OnActivationFinished;
-    protected event ActivationAction OnDeactivationStarted;
-    protected event ActivationAction OnDeactivationUpdate;
-    protected event ActivationAction OnDeactivationFinished;
+    public event ActivationAction OnActivationStarted;
+    public event ActivationAction OnActivationUpdate;
+    public event ActivationAction OnActivationFinished;
+    public event ActivationAction OnDeactivationStarted;
+    public event ActivationAction OnDeactivationUpdate;
+    public event ActivationAction OnDeactivationFinished;
 
-    protected void SetActivationDuration(float duration)
+    public void SetActivationDuration(float duration)
     {
         if (duration >= 0)
             _defaultDuration = duration;

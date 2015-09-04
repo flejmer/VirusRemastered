@@ -45,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 2.18700004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 495104}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108596}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 1.25, y: -378.5, z: 104.800003}
+  m_LocalPosition: {x: 4.2480197, y: 1.07299995, z: 2.34911847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 429392}
@@ -99,7 +99,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .215686277, g: 0, b: .192156866, a: 1}
+  m_Color: {r: .46274513, g: 0, b: 0, a: 1}
   m_Intensity: 2.9000001
   m_Range: 6.64883614
   m_SpotAngle: 30
@@ -173,10 +173,10 @@ LineRenderer:
     endWidth: .5
     m_StartColor:
       serializedVersion: 2
-      rgba: 4293067007
+      rgba: 4278190335
     m_EndColor:
       serializedVersion: 2
-      rgba: 4293067007
+      rgba: 4278190335
   m_UseWorldSpace: 0
 --- !u!122 &12270596
 Halo:
@@ -187,7 +187,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4281401399
+    rgba: 4278190198
   m_Size: 1
 --- !u!198 &19859322
 ParticleSystem:
@@ -363,7 +363,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4294967295
+        rgba: 4278190335
       minMaxState: 0
     startSize:
       scalar: .0700000003
@@ -559,7 +559,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 2497183999
+          rgba: 2483028223
         key1:
           serializedVersion: 2
           rgba: 0
@@ -589,7 +589,7 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 21588
+        atime0: 43562
         atime1: 65535
         atime2: 52043
         atime3: 44718
