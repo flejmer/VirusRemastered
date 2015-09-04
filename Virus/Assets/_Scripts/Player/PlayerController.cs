@@ -107,8 +107,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Computer") || other.CompareTag("Obstacle"))
         {
-            Debug.Log("dsadas");
-
             if (IsInvoking("UpdateSpawnInWall"))
                 CancelInvoke("UpdateSpawnInWall");
 

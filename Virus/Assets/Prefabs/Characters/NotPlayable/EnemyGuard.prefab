@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 491376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 475428}
   - 95: {fileID: 9549444}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: guardRUS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 424698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 414202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417608}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 427040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 438800}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,8 +204,24 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 430762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_palm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &138696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 448580}
+  - 135: {fileID: 13587418}
+  m_Layer: 15
+  m_Name: Awareness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +235,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 405692}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +250,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +265,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413690}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +280,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +295,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 409558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -294,7 +310,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +325,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445912}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +340,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 450124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +355,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496806}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +370,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +385,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 496686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,9 +406,9 @@ GameObject:
   - 33: {fileID: 3326792}
   - 136: {fileID: 13668622}
   - 23: {fileID: 2348726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnemyGuard
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,7 +421,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +436,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489210}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +451,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489834}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +466,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +482,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 425092}
   - 137: {fileID: 13713552}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,10 +536,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 48.3100014, y: 1, z: 22.8999996}
+  m_LocalRotation: {x: 0, y: -.992673516, z: 0, w: .120827466}
+  m_LocalPosition: {x: 9.39000034, y: 1, z: 11.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 448580}
   - {fileID: 475428}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -694,6 +711,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 419814}
   m_RootOrder: 0
+--- !u!4 &448580
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 406442}
+  m_RootOrder: 0
 --- !u!4 &448814
 Transform:
   m_ObjectHideFlags: 1
@@ -760,7 +789,7 @@ Transform:
   - {fileID: 424698}
   - {fileID: 425092}
   m_Father: {fileID: 406442}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &475716
 Transform:
   m_ObjectHideFlags: 1
@@ -950,8 +979,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyType: 0
-  Target: {fileID: 0}
-  cam: {fileID: 0}
+  RotationSpeed: 10
+--- !u!135 &13587418
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13668622
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -964,7 +1004,7 @@ CapsuleCollider:
   m_Radius: .5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -.100000001, z: 0}
 --- !u!137 &13713552
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

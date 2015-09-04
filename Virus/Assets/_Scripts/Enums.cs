@@ -4,6 +4,26 @@ using System.Collections;
 
 public class Enums : MonoBehaviour
 {
+    public enum EnemyGuardStates
+    {
+        Idle,
+        Chase,
+        Shooting,
+        RunAway,
+        Healing,
+        Dead
+    }
+
+    public enum EnemyITStates
+    {
+        Idle,
+        RunToComputer,
+        RunForYourLife,
+        Healing,
+        Hack,
+        Dead
+    }
+
     public enum BuffType
     {
         None,
