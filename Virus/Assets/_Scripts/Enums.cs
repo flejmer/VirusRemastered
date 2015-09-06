@@ -14,7 +14,7 @@ public class Enums : MonoBehaviour
         Dead
     }
 
-    public enum EnemyITStates
+    public enum EnemyTechStates
     {
         Idle,
         RunToComputer,

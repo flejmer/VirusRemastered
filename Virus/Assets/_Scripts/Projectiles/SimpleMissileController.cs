@@ -20,6 +20,17 @@ public class SimpleMissileController : ProjectileDir
         _cld = GetComponent<BoxCollider>();
     }
 
+    protected override void InteractionOnHit(RaycastHit hit)
+    {
+        var hitObj = hit.transform.gameObject;
+
+        if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
+        {
+            hitObj.GetComponent<EnemySimpleAI>().RemoveHp(20);
+            Bouncy = !Bouncy;
+        }
+    }
+
     protected override void StopProjectile(Vector3 posiotion)
     {
 

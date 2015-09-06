@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private readonly List<EnemySimpleAI> _enemiesList = new List<EnemySimpleAI>();
     private readonly List<CompController> _computersList = new List<CompController>();
 
+    private readonly List<HealingCenter> _healingCentersList = new List<HealingCenter>();
+
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerInterRange = new Dictionary<PlayerController, List<CompController>>();
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerBuffArea = new Dictionary<PlayerController, List<CompController>>();
     private readonly Dictionary<EnemySimpleAI, List<CompController>> _computersInEnemyInterRange = new Dictionary<EnemySimpleAI, List<CompController>>();
@@ -163,6 +165,21 @@ public class GameManager : MonoBehaviour
         RemoveComputerInPlayerBuffArea(comp);
         RemoveComputerInPlayerInterRange(comp);
         RemoveComputerInEnemyInterRange(comp);
+    }
+
+    public static void AddHealingCenter(HealingCenter center)
+    {
+        if (!Instance._healingCentersList.Contains(center))
+        {
+            Instance._healingCentersList.Add(center);
+        }
+    }
+
+    public static void RemoveHealingCenter(HealingCenter center)
+    {
+        if (!Instance._healingCentersList.Contains(center)) return;
+
+        Instance._healingCentersList.Remove(center);
     }
 
     public static void AddComputerInPlayerInterRange(PlayerController player, CompController comp)

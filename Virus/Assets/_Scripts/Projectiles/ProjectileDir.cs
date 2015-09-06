@@ -4,7 +4,7 @@ using System.Collections;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine.EventSystems;
 
-public class ProjectileDir : MonoBehaviour
+public abstract class ProjectileDir : MonoBehaviour
 {
     public float MissileSpeed = 20;
     public LayerMask LayerMask;
@@ -62,6 +62,8 @@ public class ProjectileDir : MonoBehaviour
         _previousPosition = _rBody.position;
     }
 
+    protected abstract void InteractionOnHit(RaycastHit hit);
+
     //TODO: Time.deltaTime * MissileSpeed;
     void SendCollisionRay(Vector3 movement)
     {
@@ -70,7 +72,7 @@ public class ProjectileDir : MonoBehaviour
         Debug.DrawRay(transform.position, movement * movement.magnitude, Color.cyan, 2);
         if (!Physics.Raycast(transform.position, movement, out hit, movement.magnitude, LayerMask)) return;
 
-        // DebugDraw.DrawSphere(hit.point, 2, Color.black);
+        InteractionOnHit(hit);
 
         if (Bouncy && !(_bouncesCount >= MaxBounces))
         {
@@ -81,6 +83,7 @@ public class ProjectileDir : MonoBehaviour
             _rBody.position = hit.point - (movement / movement.magnitude) * _partialExtent;
             StopProjectile(hit.point);
         }
+
     }
 
     void BounceOff(RaycastHit hit)

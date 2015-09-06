@@ -27,7 +27,8 @@ public class CompInterArea : MonoBehaviour
             }
 
         }
-        else if (other.CompareTag("Enemy"))
+        //TODO: IT interaction
+        else if (other.CompareTag("EnemyTech"))
         {
             var enemy = other.gameObject.GetComponent<EnemySimpleAI>();
             GameManager.AddComputerInEnemyInterRange(enemy, _cc);
@@ -56,7 +57,8 @@ public class CompInterArea : MonoBehaviour
                 mrender.material.color = _originalColor;
             }
         }
-        else if (other.CompareTag("Enemy"))
+        //TODO: IT interaction
+        else if (other.CompareTag("EnemyTech"))
         {
             var enemy = other.gameObject.GetComponent<EnemySimpleAI>();
             GameManager.RemoveComputerInEnemyInterRange(enemy, _cc);

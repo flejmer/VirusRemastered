@@ -48,6 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\DoorDownController.cs" />
      <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
+     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
+     <Compile Include="Assets\_Scripts\Cyperspace\CyberPlayer.cs" />
+     <Compile Include="Assets\_Scripts\Cyperspace\InteractionNode.cs" />
+     <Compile Include="Assets\_Scripts\Cyperspace\Node.cs" />
      <Compile Include="Assets\_Scripts\Debug\DebugDraw.cs" />
      <Compile Include="Assets\_Scripts\DelayedActivation.cs" />
      <Compile Include="Assets\_Scripts\Enemies\EnemyGuardAI.cs" />
@@ -58,6 +63,7 @@
      <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
      <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
      <Compile Include="Assets\_Scripts\Environment\Computer\ConnectionLine.cs" />
+     <Compile Include="Assets\_Scripts\Environment\HealingCenter\HealingCenter.cs" />
      <Compile Include="Assets\_Scripts\GameManager.cs" />
      <Compile Include="Assets\_Scripts\Loader.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />

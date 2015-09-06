@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     private Transform _missileSpawn;
 
     private bool _spawnInWall;
+    private bool _hacking;
 
     private Animator _anim;
 
@@ -62,6 +63,14 @@ public class PlayerController : MonoBehaviour
     {
         Shooting();
         Interaction();
+
+        if (!_hacking) return;
+        if (GameManager.GetComputersInPlayerInterRange(this).Count <= 0) return;
+
+        var count = GameManager.GetComputersInPlayerInterRange(this).Count(computer => computer.IsHackInProgress);
+
+        if (count == 0)
+            _anim.SetBool("Hacking", false);
     }
 
     void FixedUpdate()
@@ -88,11 +97,18 @@ public class PlayerController : MonoBehaviour
             Invoke("StopIt", 3f);
         }
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            _anim.SetBool("Hacking", true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
         {
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
             {
                 computer.StartHacking(this);
+                _hacking = true;
+                _anim.SetBool("Hacking", true);
             }
         }
     }
@@ -135,7 +151,7 @@ public class PlayerController : MonoBehaviour
             //            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
             //            _gun.transform.LookAt(point);
 
-            
+
 
             targetRotation = Quaternion.LookRotation(targetPoint - _gun.position);
             targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);

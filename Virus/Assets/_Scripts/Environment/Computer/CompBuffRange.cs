@@ -38,6 +38,8 @@ public class CompBuffRange : MonoBehaviour
 
             if (GameManager.IsComputerHacked(_cc))
             {
+
+
                 var trs = new GameObject().transform;
                 trs.position = new Vector3(GameManager.GetPlayer().transform.position.x, GameManager.GetPlayer().transform.position.y, GameManager.GetPlayer().transform.position.z);
 

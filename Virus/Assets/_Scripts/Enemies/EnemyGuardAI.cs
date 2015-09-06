@@ -7,30 +7,28 @@ public class EnemyGuardAI : EnemySimpleAI
     public float RateOfFire = 1;
 
     public GameObject Missile;
-
     public LayerMask SeekerMask;
-
-    private Transform _missileSpawn;
-    private Transform _gun;
-    private Transform _body;
 
     private Transform _target;
     private Animator _anim;
 
     private Enums.EnemyGuardStates _enemyState = Enums.EnemyGuardStates.Idle;
+    private CapsuleCollider _collider;
+
+    private Transform _missileSpawn;
+    private Transform _gun;
 
     private bool _canFire;
-
     private bool _targetClose;
+    private bool _canFadeAway;
 
     void Start()
     {
-        EnemyType = Enums.EnemyType.Guard;
         _anim = GetComponentInChildren<Animator>();
+        _collider = GetComponent<CapsuleCollider>();
 
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _gun = transform.Find("Body/Gun");
-        _body = transform.Find("Body");
     }
 
     void Update()
@@ -41,7 +39,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
         {
             _targetClose = true;
 
@@ -67,7 +65,7 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         if (_enemyState.Equals(Enums.EnemyGuardStates.RunAway)) return;
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
         {
             _targetClose = true;
 
@@ -101,7 +99,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
         {
             _targetClose = false;
 
@@ -158,16 +156,55 @@ public class EnemyGuardAI : EnemySimpleAI
         }
         else
         {
+            if (Agent.enabled)
+            {
+                Agent.Stop();
+                
+            }
 
+            _anim.SetBool("Dead", true);
+            _collider.enabled = false;
+
+            Destroy(gameObject, 8);
         }
+
+        if (HealthPoints <= 0)
+            _enemyState = Enums.EnemyGuardStates.Dead;
+    }
+
+    void EnableFade()
+    {
+        _canFadeAway = true;
     }
 
     private void Movement()
     {
+        if (_enemyState.Equals(Enums.EnemyGuardStates.Dead))
+        {
+            Agent.enabled = false;
 
+            Vector3 newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
+            float fadeTime;
+
+            if (_canFadeAway)
+            {
+                newPosition = new Vector3(transform.position.x, -1f, transform.position.z);
+                fadeTime = .15f;
+            }
+            else
+            {
+                newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
+                fadeTime = 5;
+            }
+            transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime * Time.deltaTime);
+
+            if(!_canFadeAway)
+                Invoke("EnableFade", 3);
+
+        }
         // Rotation towards target after its reached
 
-        if ((_target != null && _targetClose) || _enemyState.Equals(Enums.EnemyGuardStates.Shooting))
+        else if ((_target != null && _targetClose) || _enemyState.Equals(Enums.EnemyGuardStates.Shooting))
         {
             Vector3 direction = (_target.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -179,4 +216,6 @@ public class EnemyGuardAI : EnemySimpleAI
             _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, 15*Time.deltaTime);
         }
     }
+
+
 }

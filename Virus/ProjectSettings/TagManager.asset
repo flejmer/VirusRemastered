@@ -7,7 +7,8 @@ TagManager:
   - Computer
   - Obstacle
   - Lightning
-  - Enemy
+  - EnemyGuard
+  - EnemyTech
   layers:
   - Default
   - TransparentFX

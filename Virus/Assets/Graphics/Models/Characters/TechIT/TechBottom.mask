@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TechBottom
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Armature
+    m_Weight: 1
+  - m_Path: Armature/root
+    m_Weight: 1
+  - m_Path: Armature/root/klawiatura
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/glowa
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/dlon_left/palceL
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_left_/biceps_left/reka_left/kciuk_1L/kciuk_2L/kciuk3L
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/dlon_right/palceR
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_center/cialo/ramie_right/biceps_right/root_024/kciuk1R/kciuk2R/kciuk3R
+    m_Weight: 0
+  - m_Path: Armature/root/miednica_right
+    m_Weight: 1
+  - m_Path: Armature/root/miednica_right/udo_right
+    m_Weight: 1
+  - m_Path: Armature/root/miednica_right/udo_right/lydka_right
+    m_Weight: 1
+  - m_Path: Armature/root/miednica_right/udo_right/lydka_right/root_009
+    m_Weight: 1
+  - m_Path: Armature/root/miednica_right/udo_right/lydka_right/root_009/root_010
+    m_Weight: 1
+  - m_Path: Armature/root/miednicaleft
+    m_Weight: 1
+  - m_Path: Armature/root/miednicaleft/udo_left
+    m_Weight: 1
+  - m_Path: Armature/root/miednicaleft/udo_left/ludka_left
+    m_Weight: 1
+  - m_Path: Armature/root/miednicaleft/udo_left/ludka_left/root_004
+    m_Weight: 1
+  - m_Path: Armature/root/miednicaleft/udo_left/ludka_left/root_004/root_005
+    m_Weight: 1
+  - m_Path: Cube_001
+    m_Weight: 1

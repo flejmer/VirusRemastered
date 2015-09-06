@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class CompController : DelayedActivation
 {
     public Enums.BuffType TypeOfBuff = Enums.BuffType.None;
     public float HackingDuration = 3;
+
+    private List<Light> _lights = new List<Light>();
+    private List<Component> _halos = new List<Component>();
 
     public bool IsHacked
     {
@@ -23,6 +27,36 @@ public class CompController : DelayedActivation
     void Awake()
     {
         _line = GetComponent<ConnectionLine>();
+
+        foreach (var item in gameObject.GetComponentsInChildren<Light>())
+        {
+            _lights.Add(item);
+        }
+
+        foreach (var item in _lights)
+        {
+            _halos.Add(item.gameObject.GetComponent("Halo"));
+        }
+
+        for (int i = 0; i < _lights.Count; i++)
+        {
+            _lights[i].enabled = false;
+            _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], false, null);
+        }
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log(_lights.Count + " " + _halos.Count);
+
+            for (int i = 0; i < _lights.Count; i++)
+            {
+                _lights[i].enabled = true;
+                _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
+            }
+        }
     }
 
     void OnEnable()

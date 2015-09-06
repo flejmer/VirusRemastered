@@ -458,7 +458,7 @@ GameObject:
   - 23: {fileID: 2348726}
   m_Layer: 9
   m_Name: EnemyGuard
-  m_TagString: Enemy
+  m_TagString: EnemyGuard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,7 +587,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179026}
   m_LocalRotation: {x: 0, y: -.992673516, z: 0, w: .120827466}
-  m_LocalPosition: {x: 8.84000015, y: 1, z: 2.66000009}
+  m_LocalPosition: {x: 23.6399994, y: 1, z: 5.28000021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 448580}
@@ -782,7 +782,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 406442}
@@ -1141,13 +1141,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e693686a122d1a54989f256db5fe736a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyType: 0
+  _hpPoints: 60
+  _maxHpPoints: 100
   RotationSpeed: 10
   RateOfFire: 1
   Missile: {fileID: 108596, guid: dfecf4586a2dba74d99ddc23e414247f, type: 2}
   SeekerMask:
     serializedVersion: 2
-    m_Bits: 12544
+    m_Bits: 4352
 --- !u!135 &13587418
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1158,7 +1159,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &13668622
 CapsuleCollider:
