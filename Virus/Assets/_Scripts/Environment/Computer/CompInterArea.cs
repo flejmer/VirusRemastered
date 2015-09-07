@@ -23,7 +23,7 @@ public class CompInterArea : MonoBehaviour
 
             foreach (var mrender in _ccMesh)
             {
-                mrender.material.color = _originalColor + Color.blue/4;
+                mrender.material.color = _originalColor + Color.white/4;
             }
 
         }

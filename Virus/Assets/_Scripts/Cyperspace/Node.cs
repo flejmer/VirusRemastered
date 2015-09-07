@@ -8,6 +8,8 @@ public class Node : MonoBehaviour
     public Node LeftNode;
     public Node RightNode;
 
+    public bool Active;
+
     void Start()
     {
 
