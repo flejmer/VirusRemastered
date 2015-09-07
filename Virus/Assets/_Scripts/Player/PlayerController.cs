@@ -64,13 +64,24 @@ public class PlayerController : MonoBehaviour
         Shooting();
         Interaction();
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _rbody.velocity = _rbody.velocity + Vector3.up * 10;
+        }
+
         if (!_hacking) return;
-        if (GameManager.GetComputersInPlayerInterRange(this).Count <= 0) return;
 
-        var count = GameManager.GetComputersInPlayerInterRange(this).Count(computer => computer.IsHackInProgress);
+        if (GameManager.GetComputersInPlayerInterRange(this).Count > 0)
+        {
+            var count = GameManager.GetComputersInPlayerInterRange(this).Count(computer => computer.IsHackInProgress);
 
-        if (count == 0)
+            if (count == 0)
+                _anim.SetBool("Hacking", false);
+        }
+        else
+        {
             _anim.SetBool("Hacking", false);
+        }
     }
 
     void FixedUpdate()
@@ -87,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
         if (_anim != null)
             Animations(vertical, horizontal);
+
     }
 
     void Interaction()
@@ -106,7 +118,20 @@ public class PlayerController : MonoBehaviour
         {
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
             {
+                if (computer.IsDehackInProgress) continue;
+
                 computer.StartHacking(this);
+                _hacking = true;
+                _anim.SetBool("Hacking", true);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.J) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
+        {
+            foreach (var computer in GameManager.GetComputersInPlayerInterRange(this))
+            {
+                computer.StopHacking();
+                computer.StartDehacking();
                 _hacking = true;
                 _anim.SetBool("Hacking", true);
             }

@@ -16,10 +16,16 @@ public class CompController : DelayedActivation
     }
 
     private bool _hackInProgress;
+    private bool _dehackInProgress;
 
     public bool IsHackInProgress
     {
         get { return _hackInProgress; }
+    }
+
+    public bool IsDehackInProgress
+    {
+        get { return _dehackInProgress; }
     }
 
     private ConnectionLine _line;
@@ -47,6 +53,26 @@ public class CompController : DelayedActivation
 
     void Update()
     {
+        if (_hackInProgress || _dehackInProgress)
+        {
+            int light = (int) (GetActivationProgress()*10/2);
+
+            for (int i = 0; i < _lights.Count; i++)
+            {
+                if (light > 0)
+                {
+                    _lights[i].enabled = true;
+                    _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
+                }
+                else
+                {
+                    _lights[i].enabled = false;
+                    _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], false, null);
+                }
+                light--;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             Debug.Log(_lights.Count + " " + _halos.Count);
@@ -105,6 +131,7 @@ public class CompController : DelayedActivation
     public void StopHacking()
     {
         StopActivation();
+        _hackInProgress = false;
     }
 
     void HackingFinished()
@@ -120,6 +147,9 @@ public class CompController : DelayedActivation
 
     public void StartDehacking(float duration)
     {
+        if(GetActivationProgress() <= 0) return;
+
+        _dehackInProgress = true;
         StartDeactivation(duration);
         _line.AnimateLine(Enums.AnimType.FromDestinationToOrigin, duration);
     }
@@ -127,10 +157,12 @@ public class CompController : DelayedActivation
     public void StopDehacking()
     {
         StopActivation();
+        _dehackInProgress = false;
     }
 
     void DehackingFinished()
     {
+        _dehackInProgress = false;
         GameManager.RemoveHackedComputer(this);
     }
 }

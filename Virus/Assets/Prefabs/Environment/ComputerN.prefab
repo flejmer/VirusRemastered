@@ -370,7 +370,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .282758594, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
   m_Range: .639999986
   m_SpotAngle: 30
@@ -402,7 +402,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .282758594, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
   m_Range: .639999986
   m_SpotAngle: 30
@@ -434,7 +434,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .282758594, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
   m_Range: .639999986
   m_SpotAngle: 30
@@ -466,7 +466,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .282758594, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
   m_Range: .639999986
   m_SpotAngle: 30
@@ -498,7 +498,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .282758594, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
   m_Range: .639999986
   m_SpotAngle: 30
@@ -614,7 +614,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255432
+    rgba: 4278190335
   m_Size: .200000003
 --- !u!122 &12239806
 Halo:
@@ -625,7 +625,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255432
+    rgba: 4278190335
   m_Size: .200000003
 --- !u!122 &12244776
 Halo:
@@ -636,7 +636,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255432
+    rgba: 4278190335
   m_Size: .200000003
 --- !u!122 &12256592
 Halo:
@@ -647,7 +647,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255432
+    rgba: 4278190335
   m_Size: .200000003
 --- !u!122 &12279918
 Halo:
@@ -658,7 +658,7 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4278255432
+    rgba: 4278190335
   m_Size: .200000003
 --- !u!135 &13505202
 SphereCollider:
