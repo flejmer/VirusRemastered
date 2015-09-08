@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CyberBack
-  m_Shader: {fileID: 4800000, guid: d170a3c966ebb474cbc75a3b5118e80d, type: 3}
+  m_Name: AbilityNode
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 35deb9f3118c06a4aac1e4d2f6ea7e0f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -78,13 +78,6 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Texture
-        second:
-          m_Texture: {fileID: 2800000, guid: 36d4f31de1f80484192506bce1941716, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -134,26 +127,6 @@ Material:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: _Inside
-        second: 0
-      data:
-        first:
-          name: _Rim
-        second: 0
-      data:
-        first:
-          name: _Speed
-        second: .5
-      data:
-        first:
-          name: _Tile
-        second: 5
-      data:
-        first:
-          name: _Strength
-        second: .75
     m_Colors:
       data:
         first:

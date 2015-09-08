@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class CyberPlayer : MonoBehaviour
-{ 
+{
     public float Speed = 3f;
     private bool _reachedDestination = true;
 
     [SerializeField]
     private Node _currentNode;
     private Node _targetNode;
+    private Node _nextNode;
 
     void FixedUpdate()
     {
@@ -17,13 +18,22 @@ public class CyberPlayer : MonoBehaviour
 
         if (_reachedDestination)
         {
-            if (vertical > 0 || vertical < 0)
+            if (_nextNode == null || _nextNode.Equals(_currentNode))
             {
-                _targetNode = vertical > 0 ? _currentNode.UpNode : _currentNode.DownNode;
+                _nextNode = null;
+
+                if (vertical > 0 || vertical < 0)
+                {
+                    _targetNode = vertical > 0 ? _currentNode.UpNode : _currentNode.DownNode;
+                }
+                else if (horizontal > 0 || horizontal < 0)
+                {
+                    _targetNode = horizontal > 0 ? _currentNode.RightNode : _currentNode.LeftNode;
+                }
             }
-            else if (horizontal > 0 || horizontal < 0)
+            else
             {
-                _targetNode = horizontal > 0 ? _currentNode.RightNode : _currentNode.LeftNode;
+                _targetNode = _nextNode;
             }
 
             if (_targetNode != null && !_targetNode.Equals(_currentNode))
@@ -32,8 +42,28 @@ public class CyberPlayer : MonoBehaviour
         else
         {
             Move();
+
+            var direction = _targetNode.transform.position - transform.position;
+            var distance = direction.magnitude;
+
+            if (distance < 3f)
+            {
+                if (vertical > 0 || vertical < 0)
+                {
+                    _nextNode = vertical > 0 ? _targetNode.UpNode : _targetNode.DownNode;
+                }
+                else if (horizontal > 0 || horizontal < 0)
+                {
+                    _nextNode = horizontal > 0 ? _targetNode.RightNode : _targetNode.LeftNode;
+                }
+            }
         }
 
+
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            Debug.Log(_targetNode.name);
+        }
     }
 
     void OnTriggerEnter(Collider c)
@@ -42,6 +72,7 @@ public class CyberPlayer : MonoBehaviour
 
         _targetNode = _currentNode;
         _reachedDestination = false;
+        _nextNode = null;
     }
 
     private void Move()

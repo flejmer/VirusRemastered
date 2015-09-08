@@ -51,6 +51,22 @@ public class Enums : MonoBehaviour
         Unlocked,
         OpenForever
     }
+
+    public enum Abilities
+    {
+        Laser,
+        MindControl,
+        Blast,
+        Hologram,
+    }
+
+    public enum InteractionNodes
+    {
+        Door,
+        Extinguisher,
+        Turret,
+        Data
+    }
 }
 
 

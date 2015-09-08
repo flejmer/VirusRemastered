@@ -1,15 +1,35 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ComputerNode : MonoBehaviour {
+public class ComputerNode : Node
+{
+    public bool Overload;
+    public bool CanBeOverloaded;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    [SerializeField]
+    private Texture _computerNormal;
+    [SerializeField]
+    private Texture _computerOverloaded;
+
+    private Material _mat;
+
+    void Awake()
+    {
+        _mat = GetComponent<MeshRenderer>().material;
+    }
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+    {
+	    if (Overload)
+	    {
+            if(!_mat.mainTexture.Equals(_computerOverloaded))
+                _mat.mainTexture = _computerOverloaded;
+	    }
+	    else
+	    {
+            if (!_mat.mainTexture.Equals(_computerNormal))
+                _mat.mainTexture = _computerNormal;
+        }
 	}
 }
