@@ -12,9 +12,9 @@ GameObject:
   - 64: {fileID: 6438924}
   - 23: {fileID: 2317492}
   - 114: {fileID: 11471600}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ComputerNode
-  m_TagString: Untagged
+  m_TagString: ComputerNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138532}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 7.5, y: 0, z: -2.5}
+  m_LocalPosition: {x: 7.5, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: ComputerNode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138532}

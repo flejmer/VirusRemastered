@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class NodeTextures
@@ -17,12 +18,47 @@ public class NodeTextures
     public Texture TurretUnlocked;
 }
 
+[System.Serializable]
+public class DataNode
+{
+
+}
+
+[System.Serializable]
+public class DoorNode
+{
+    public DoorDownController Doors;
+}
+
+[System.Serializable]
+public class ExtinguisherNode
+{
+    public List<GameObject> FirewallsList = new List<GameObject>();
+}
+
+[System.Serializable]
+public class TurretNode
+{
+    public Transform Turret;
+}
+
+[System.Serializable]
+public class NodeFuncionality
+{
+    public DataNode DataNode;
+    public DoorNode DoorNode;
+    public ExtinguisherNode ExtinguisherNode;
+    public TurretNode TurretNode;
+
+}
+
 public class InteractionNode : Node
 {
     public NodeTextures Textures;
+    public NodeFuncionality Funcionality;
     public Enums.InteractionNodes Type = Enums.InteractionNodes.Data;
 
-    public bool Unlocked;
+    private bool _unlocked;
 
     private Material _mat;
 
@@ -38,22 +74,46 @@ public class InteractionNode : Node
 
         if (Type.Equals(Enums.InteractionNodes.Data))
         {
-            tex = Unlocked ? Textures.DataUnlocked : Textures.DataLocked;
+            tex = _unlocked ? Textures.DataUnlocked : Textures.DataLocked;
         }
         else if (Type.Equals(Enums.InteractionNodes.Door))
         {
-            tex = Unlocked ? Textures.DoorUnlocked : Textures.DoorLocked;
+            tex = _unlocked ? Textures.DoorUnlocked : Textures.DoorLocked;
         }
         else if (Type.Equals(Enums.InteractionNodes.Extinguisher))
         {
-            tex = Unlocked ? Textures.ExtinguisherUnlocked : Textures.ExtinguisherLocked;
+            tex = _unlocked ? Textures.ExtinguisherUnlocked : Textures.ExtinguisherLocked;
         }
         else
         {
-            tex = Unlocked ? Textures.TurretUnlocked : Textures.TurretLocked;
+            tex = _unlocked ? Textures.TurretUnlocked : Textures.TurretLocked;
         }
 
         if (!_mat.mainTexture.Equals(tex))
             _mat.mainTexture = tex;
     }
+
+    public void UnlockNode()
+    {
+        _unlocked = true;
+
+        if (Type.Equals(Enums.InteractionNodes.Data))
+        {
+            
+        }
+        else if (Type.Equals(Enums.InteractionNodes.Door))
+        {
+            Funcionality.DoorNode.Doors.SetLockType(Enums.DoorLockType.Unlocked);
+        }
+        else if (Type.Equals(Enums.InteractionNodes.Extinguisher))
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+
+
 }

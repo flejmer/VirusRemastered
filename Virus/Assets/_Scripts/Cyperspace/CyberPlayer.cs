@@ -11,6 +11,11 @@ public class CyberPlayer : MonoBehaviour
     private Node _targetNode;
     private Node _nextNode;
 
+    void Update()
+    {
+        PlayerInteraction();
+    }
+
     void FixedUpdate()
     {
         var vertical = Input.GetAxisRaw("Vertical");
@@ -18,10 +23,8 @@ public class CyberPlayer : MonoBehaviour
 
         if (_reachedDestination)
         {
-            if (_nextNode == null || _nextNode.Equals(_currentNode))
+            if (_nextNode == null)
             {
-                _nextNode = null;
-
                 if (vertical > 0 || vertical < 0)
                 {
                     _targetNode = vertical > 0 ? _currentNode.UpNode : _currentNode.DownNode;
@@ -46,7 +49,7 @@ public class CyberPlayer : MonoBehaviour
             var direction = _targetNode.transform.position - transform.position;
             var distance = direction.magnitude;
 
-            if (distance < 3f)
+            if (distance < 2.5f)
             {
                 if (vertical > 0 || vertical < 0)
                 {
@@ -58,11 +61,29 @@ public class CyberPlayer : MonoBehaviour
                 }
             }
         }
+    }
 
-
-        if (Input.GetKeyDown(KeyCode.V))
+    void PlayerInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(_targetNode.name);
+            if (!_reachedDestination) return;
+
+            if (_currentNode.CompareTag("InteractionNode"))
+            {
+                var node = _currentNode.GetComponent<InteractionNode>();
+                node.UnlockNode();
+            }
+            else if (_currentNode.CompareTag("ComputerNode"))
+            {
+                var node = _currentNode.GetComponent<ComputerNode>();
+                node.Overload = true;
+            }
+            else if (_currentNode.CompareTag("AbilityNode"))
+            {
+                var node = _currentNode.GetComponent<AbilityNode>();
+                node.Unlocked = true;
+            }
         }
     }
 
@@ -92,8 +113,22 @@ public class CyberPlayer : MonoBehaviour
 
         if (_targetNode.transform.position != transform.position) return;
 
-        _reachedDestination = true;
         _currentNode = _targetNode;
+
+        if (_nextNode != null)
+        {
+            if (_currentNode.Equals(_nextNode))
+            {
+                _reachedDestination = true;
+                _nextNode = null;
+            }
+            else
+                _targetNode = _nextNode;
+
+            return;
+        }
+
+        _reachedDestination = true;
     }
 
 

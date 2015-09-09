@@ -9,6 +9,11 @@ TagManager:
   - Lightning
   - EnemyGuard
   - EnemyTech
+  - Firewall
+  - AbilityNode
+  - ComputerNode
+  - InteractionNode
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -26,7 +31,7 @@ TagManager:
   - Interaction
   - Doors
   - EnemyAwareness
-  - Firewall
+  - Cyberspace
   - 
   - 
   - 
