@@ -3,9 +3,11 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform TargetToFollow;
+    public PlayerController TargetToFollow;
     public bool CameraSmoothness = true;
-    public float SmoothnessStrength = 20;
+    public float SmoothnessStrength = 200;
+
+    public bool MouseDependency = false;
 
     private Vector3 _offset;
 
@@ -18,8 +20,23 @@ public class CameraFollow : MonoBehaviour
     {
         if (TargetToFollow)
         {
-            var destination = TargetToFollow.position + _offset;
+            var destination = TargetToFollow.transform.position + _offset;
+
+            if (MouseDependency)
+            {
+                    var mousePos = Input.mousePosition;
+                    mousePos.z = 1;
+
+                    var cursorPosition = Camera.main.ScreenToWorldPoint(mousePos);
+                    destination =
+                        new Vector3((TargetToFollow.transform.position.x + cursorPosition.x)/2,
+                            TargetToFollow.transform.position.y,
+                            (TargetToFollow.transform.position.z + cursorPosition.z)/2) + _offset;
+            }
+
+
             transform.position = CameraSmoothness ? Vector3.Lerp(transform.position, destination, SmoothnessStrength * Time.deltaTime) : destination;
+
         }
         else
         {

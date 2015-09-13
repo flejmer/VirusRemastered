@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     private Animator _anim;
 
+    public bool IsMoving = false;
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
@@ -88,6 +90,15 @@ public class PlayerController : MonoBehaviour
     {
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
+
+        if (vertical > 0 || horizontal > 0 || vertical < 0 || horizontal < 0)
+        {
+            IsMoving = true;
+        }
+        else
+        {
+            IsMoving = false;
+        }
 
         MouseRotation();
 
