@@ -87,10 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 23800000, guid: 9d381dc0eb2fd5c4888274bc21299292, type: 2}
---- !u!4 &3621225 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 432472, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
-  m_PrefabInternal: {fileID: 1618748317}
 --- !u!1 &5263562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1326,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1498257062}
   m_RootOrder: 4
+--- !u!4 &219589452 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 432472, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+  m_PrefabInternal: {fileID: 1618748317}
 --- !u!1 &219795985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,6 +2005,7 @@ GameObject:
   - 124: {fileID: 352807504}
   - 92: {fileID: 352807503}
   - 81: {fileID: 352807502}
+  - 114: {fileID: 352807506}
   m_Layer: 16
   m_Name: Camera
   m_TagString: Untagged
@@ -2066,7 +2067,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 9.39999962
-  m_Depth: -2
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -2079,6 +2080,21 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
   m_StereoMirrorMode: 0
+--- !u!114 &352807506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352807500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8608dec60b6544ca5800247176b070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetToFollow: {fileID: 431708071}
+  CameraSmoothness: 0
+  SmoothnessStrength: 200
+  MouseDependency: 0
 --- !u!1 &356666251
 GameObject:
   m_ObjectHideFlags: 0
@@ -9418,6 +9434,10 @@ Prefab:
       propertyPath: _currentNode
       value: 
       objectReference: {fileID: 351730635}
+    - target: {fileID: 169786, guid: 81c8aa89dbf3d8a4d80da8f862b88137, type: 2}
+      propertyPath: m_TagString
+      value: CyberPlayer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 81c8aa89dbf3d8a4d80da8f862b88137, type: 2}
   m_IsPrefabParent: 0
@@ -12799,9 +12819,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b8608dec60b6544ca5800247176b070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetToFollow: {fileID: 3621225}
+  TargetToFollow: {fileID: 219589452}
   CameraSmoothness: 1
   SmoothnessStrength: 200
+  MouseDependency: 0
 --- !u!114 &2042576926
 MonoBehaviour:
   m_ObjectHideFlags: 0

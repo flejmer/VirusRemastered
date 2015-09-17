@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public PlayerController TargetToFollow;
+    public Transform TargetToFollow;
     public bool CameraSmoothness = true;
     public float SmoothnessStrength = 200;
 
@@ -14,6 +14,11 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         _offset = transform.position - TargetToFollow.transform.position;
+
+        if (!TargetToFollow.CompareTag("CyberPlayer")) return;
+
+        _offset.x = 0;
+        _offset.z = 0;
     }
 
     void LateUpdate()
