@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\DoorDownController.cs" />
      <Compile Include="Assets\LogoEnter.cs" />
+     <Compile Include="Assets\MenuController.cs" />
      <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
      <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
      <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -75,7 +76,9 @@
      <Compile Include="Assets\_Scripts\TestsNFun\DelegateTests.cs" />
      <Compile Include="Assets\_Scripts\TestsNFun\SomeScript.cs" />
      <Compile Include="Assets\sss.cs" />
+     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
+     <None Include="Assets\Graphics\UI - Textures and Sprites\SF UI\Background\LICENSE.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
