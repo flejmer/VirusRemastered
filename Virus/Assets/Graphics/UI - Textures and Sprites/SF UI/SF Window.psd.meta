@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: 6858abb4516aae344881bf286b3aac33
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: SF Window
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -19,6 +21,9 @@ TextureImporter:
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 4096
@@ -29,7 +34,9 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -54,3 +61,5 @@ TextureImporter:
       border: {x: 170, y: 90, z: 170, w: 100}
   spritePackingTag: SF
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
