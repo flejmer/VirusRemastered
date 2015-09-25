@@ -83,7 +83,7 @@ Material:
           name: _Texture
         second:
           m_Texture: {fileID: 2800000, guid: 36d4f31de1f80484192506bce1941716, type: 3}
-          m_Scale: {x: 1, y: 1.5}
+          m_Scale: {x: 2, y: 2}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
@@ -149,7 +149,7 @@ Material:
       data:
         first:
           name: _Tile
-        second: 3.8499999
+        second: 10
       data:
         first:
           name: _Strength
