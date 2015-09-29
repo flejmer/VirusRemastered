@@ -5,6 +5,7 @@ public class Loader : MonoBehaviour
 {
     public GameObject gameManager;			//GameManager prefab to instantiate.
 //    public GameObject soundManager;			//SoundManager prefab to instantiate.
+    public GameObject laser;
 
 
     void Awake()
@@ -13,10 +14,15 @@ public class Loader : MonoBehaviour
         {
             Instantiate(gameManager);
         }
-        
-//        if (SoundManager.Instance == null)
-//        {
-//            Instantiate(soundManager);
-//        }
+
+        //        if (SoundManager.Instance == null)
+        //        {
+        //            Instantiate(soundManager);
+        //        }
+
+        if (LaserPreAlloc.IsInstanceNull())
+        {
+            Instantiate(laser);
+        }
     }
 }

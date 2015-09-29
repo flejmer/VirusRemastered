@@ -15,14 +15,24 @@ public class MovementProperties
 public class ProjectilesProperties
 {
     public BasicAttack BasicAttack;
+    public LaserAttack LaserAttack;
 }
 
 [System.Serializable]
 public class BasicAttack
 {
+    public int Damage = 20;
     public GameObject Missile;
     public float MissileLifetime = 10;
     public GameObject Follower;
+}
+
+[System.Serializable]
+public class LaserAttack
+{
+    public int Damage = 100;
+    public GameObject Missile;
+    public float MissileLifetime = 1;
 }
 
 public class PlayerController : MonoBehaviour
@@ -35,7 +45,8 @@ public class PlayerController : MonoBehaviour
     private Transform _gun;
     private Transform _missileSpawn;
 
-    private bool _spawnInWall;
+    public bool SpawnInWall { get; set; }
+
     private bool _hacking;
 
     private Animator _anim;
@@ -114,17 +125,6 @@ public class PlayerController : MonoBehaviour
 
     void Interaction()
     {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _anim.SetBool("Hacking", true);
-            Invoke("StopIt", 3f);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            _anim.SetBool("Hacking", true);
-        }
-
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
         {
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
@@ -147,29 +147,6 @@ public class PlayerController : MonoBehaviour
                 _anim.SetBool("Hacking", true);
             }
         }
-    }
-
-    void StopIt()
-    {
-        _anim.SetBool("Hacking", false);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Computer") || other.CompareTag("Obstacle"))
-        {
-            if (IsInvoking("UpdateSpawnInWall"))
-                CancelInvoke("UpdateSpawnInWall");
-
-            _spawnInWall = true;
-
-            Invoke("UpdateSpawnInWall", Time.deltaTime + .05f);
-        }
-    }
-
-    void UpdateSpawnInWall()
-    {
-        _spawnInWall = false;
     }
 
     void MouseRotation()
@@ -237,27 +214,26 @@ public class PlayerController : MonoBehaviour
     void Shooting()
     {
 
-        bool fireInput = Input.GetButtonDown("Fire1");
+        bool fireInput1 = Input.GetButtonDown("Fire1");
+        bool fireInput2 = Input.GetButtonDown("Fire2");
 
-        if (fireInput)
+        if (SpawnInWall) return;
+
+        if (fireInput1 || fireInput2)
         {
-
-
-            if (!_spawnInWall)
+            if (_anim != null)
             {
+                if (IsInvoking("Aiming"))
+                    CancelInvoke("Aiming");
 
+                _anim.SetBool("Aiming", true);
+                _anim.SetTrigger("FireGun");
 
-                if (_anim != null)
-                {
-                    if (IsInvoking("Aiming"))
-                        CancelInvoke("Aiming");
+                Invoke("Aiming", 1.5f);
+            }
 
-                    _anim.SetBool("Aiming", true);
-                    _anim.SetTrigger("FireGun");
-
-                    Invoke("Aiming", 1.5f);
-                }
-
+            if (fireInput1)
+            {
 
                 var instance = (GameObject)
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.position,
@@ -273,6 +249,19 @@ public class PlayerController : MonoBehaviour
 
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
+            }
+
+            if (fireInput2)
+            {
+                var instance = (GameObject) Instantiate(ProjectilesProperties.LaserAttack.Missile, _missileSpawn.position, _missileSpawn.rotation);
+
+                var script = instance.GetComponent<Laser>();
+                script.MissleSpawnPoint = _missileSpawn;
+
+                script.LifeTime = ProjectilesProperties.LaserAttack.MissileLifetime;
+                script.FireLaser();
+
+                Destroy(instance, ProjectilesProperties.LaserAttack.MissileLifetime);
             }
         }
     }

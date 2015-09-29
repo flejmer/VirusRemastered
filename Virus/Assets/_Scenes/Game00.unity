@@ -2022,7 +2022,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 697491283}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!81 &352807502
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2065,7 +2065,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 9.39999962
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3217,7 +3217,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 460148, guid: 0e492478d19e3d6499ef769ed8812953, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11403220, guid: 0e492478d19e3d6499ef769ed8812953, type: 2}
       propertyPath: UpNode
@@ -4264,7 +4264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 10844658, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_Color.r
@@ -4424,9 +4424,9 @@ GameObject:
   - 33: {fileID: 668761442}
   - 136: {fileID: 668761441}
   - 23: {fileID: 668761440}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4585,9 +4585,9 @@ Transform:
   m_LocalPosition: {x: 5.80000019, y: 4.38999987, z: -36.3800011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 352807501}
   - {fileID: 252678326}
   - {fileID: 514163351}
-  - {fileID: 352807501}
   - {fileID: 1251285795}
   - {fileID: 351730634}
   - {fileID: 140024495}
@@ -8828,7 +8828,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406442, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -.992673516
+      value: .546394348
       objectReference: {fileID: 0}
     - target: {fileID: 406442, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
       propertyPath: m_LocalRotation.z
@@ -8836,7 +8836,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406442, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .120827466
+      value: .83752805
       objectReference: {fileID: 0}
     - target: {fileID: 406442, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
       propertyPath: m_RootOrder
@@ -9549,7 +9549,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 10844658, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_Color.r
@@ -10384,15 +10384,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 432472, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 2315086, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2340806, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 11498922, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: ProjectilesProperties.LaserAttack.MissileLifetime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
@@ -11009,7 +11005,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 417858, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
@@ -12806,6 +12802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 194012, guid: 4b5a2fd6bddf5cc4598c4b85dff16fb6, type: 2}
+  laser: {fileID: 153024, guid: 95ce0b078002a3142a7f99b0e14b028a, type: 2}
 --- !u!1 &2044653536
 GameObject:
   m_ObjectHideFlags: 0

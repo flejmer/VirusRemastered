@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -81,8 +75,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DoorDownController.cs" />
+    <Compile Include="Assets\Laser.cs" />
+    <Compile Include="Assets\LaserPreAlloc.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
     <Compile Include="Assets\MenuController.cs" />
+    <Compile Include="Assets\RayHitObj.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -103,6 +100,8 @@
     <Compile Include="Assets\_Scripts\GameManager.cs" />
     <Compile Include="Assets\_Scripts\Loader.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\_Scripts\Player\ShieldController.cs" />
+    <Compile Include="Assets\_Scripts\Player\SpawnInWallCheker.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\FollowPath.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />

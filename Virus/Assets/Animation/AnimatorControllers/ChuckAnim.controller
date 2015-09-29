@@ -74,7 +74,8 @@ AnimatorController:
     m_StateMachine: {fileID: 110778220}
     m_Mask: {fileID: 101100000, guid: a9191f363f100084991907383e373d6d, type: 2}
     m_Motions:
-    - m_State: {fileID: 0}
+    - serializedVersion: 2
+      m_State: {fileID: 0}
       m_Motion: {fileID: 7400006, guid: 106060eb0e2b83b458cede0b47217d4f, type: 3}
     m_Behaviours: []
     m_BlendingMode: 0
@@ -552,7 +553,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .0512979031
+  m_TransitionDuration: .0500000007
   m_TransitionOffset: .101133846
   m_ExitTime: .707937002
   m_HasExitTime: 0

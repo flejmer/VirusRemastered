@@ -15,6 +15,7 @@ TagManager:
   - InteractionNode
   - Node
   - CyberPlayer
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Doors
   - EnemyAwareness
   - Cyberspace
-  - 
+  - Shield
   - 
   - 
   - 

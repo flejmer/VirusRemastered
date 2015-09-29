@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+
 public class GameManager : MonoBehaviour
 {
     private static GameManager Instance;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     private readonly Dictionary<EnemySimpleAI, List<CompController>> _computersInEnemyInterRange = new Dictionary<EnemySimpleAI, List<CompController>>();
     private readonly List<CompController> _hackedComputersList = new List<CompController>();
 
+
     void Awake()
     {
         if (Instance == null)
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
 
         if (Instance != this)
             Destroy(gameObject);
+
+
 
         DontDestroyOnLoad(gameObject);
     }
