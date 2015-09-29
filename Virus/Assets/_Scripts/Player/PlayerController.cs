@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
     public bool IsMoving = false;
 
+
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();

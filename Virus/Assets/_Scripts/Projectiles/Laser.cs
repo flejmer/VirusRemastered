@@ -31,10 +31,7 @@ public class Laser : MonoBehaviour
         var pos2 = MissleSpawnPoint.TransformPoint(2, 0, 0);
         var pos3 = MissleSpawnPoint.TransformPoint(-2, 0, 0);
 
-//        DebugDraw.DrawSphere(pos1, 2, Color.black);
-//        DebugDraw.DrawSphere(pos2, 2, Color.black);
-//        DebugDraw.DrawSphere(pos3, 2, Color.black);
-//
+
 //        Debug.DrawRay(pos1, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
 //        Debug.DrawRay(pos2, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
 //        Debug.DrawRay(pos3, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
@@ -42,7 +39,6 @@ public class Laser : MonoBehaviour
         RaycastHit[] hits1 = Physics.RaycastAll(pos1, MissleSpawnPoint.forward, _rayRange, Mask);
         RaycastHit[] hits2 = Physics.RaycastAll(pos2, MissleSpawnPoint.forward, _rayRange, Mask);
         RaycastHit[] hits3 = Physics.RaycastAll(pos3, MissleSpawnPoint.forward, _rayRange, Mask);
-
 
 
         Vector3 endPoint = new Vector3();
@@ -106,7 +102,8 @@ public class Laser : MonoBehaviour
             endPoint = pos1 + MissleSpawnPoint.forward * _rayRange;
         }
 
-        DebugDraw.DrawSphere(endPoint, 2, Color.black);
+
+        hitList.Clear();
 
         StartCoroutine(DrawAnimation(endPoint, direction));
     }
@@ -183,6 +180,9 @@ public class Laser : MonoBehaviour
 
             yield return null;
         }
+
+        _lineRend.SetPosition(0, Vector3.zero);
+        _lineRend.SetPosition(1, Vector3.zero);
     }
 
 }

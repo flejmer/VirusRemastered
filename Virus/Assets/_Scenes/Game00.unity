@@ -10390,6 +10390,14 @@ Prefab:
       propertyPath: ProjectilesProperties.LaserAttack.MissileLifetime
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 456858, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 492174, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
   m_IsPrefabParent: 0
@@ -12802,7 +12810,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 194012, guid: 4b5a2fd6bddf5cc4598c4b85dff16fb6, type: 2}
-  laser: {fileID: 153024, guid: 95ce0b078002a3142a7f99b0e14b028a, type: 2}
 --- !u!1 &2044653536
 GameObject:
   m_ObjectHideFlags: 0
