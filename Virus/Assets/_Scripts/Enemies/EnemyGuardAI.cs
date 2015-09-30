@@ -9,6 +9,8 @@ public class EnemyGuardAI : EnemySimpleAI
     public GameObject Missile;
     public LayerMask SeekerMask;
 
+    public GameObject _burst;
+
     private Transform _target;
     private Animator _anim;
 
@@ -168,8 +170,16 @@ public class EnemyGuardAI : EnemySimpleAI
             Destroy(gameObject, 8);
         }
 
-        if (HealthPoints <= 0)
+        if (HealthPoints <= 0 && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
+        {
             _enemyState = Enums.EnemyGuardStates.Dead;
+
+            var instance = (GameObject) Instantiate(_burst, transform.position, Quaternion.Euler(new Vector3(90,0,0)));
+            var script = instance.GetComponent<SuicideController>();
+            script.Burst();
+
+            Destroy(instance, 3);
+        }
     }
 
     void EnableFade()

@@ -8842,6 +8842,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11431934, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
+      propertyPath: _burst
+      value: 
+      objectReference: {fileID: 196780, guid: ee557bb371ebe1f40a4405cf9bf3c8b8, type: 2}
+    - target: {fileID: 2348726, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a2b3eb79d625ff841a0522348685cd77, type: 2}
   m_IsPrefabParent: 0
@@ -10392,11 +10400,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 456858, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 492174, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446160, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: AnimationTime
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 184142, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498922, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}
+      propertyPath: ProjectilesProperties.MindControl.RayMask.m_Bits
+      value: 20992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddbbe8cacc3600e4498358883e2ad0ae, type: 2}

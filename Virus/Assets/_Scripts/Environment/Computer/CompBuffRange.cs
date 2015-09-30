@@ -9,9 +9,10 @@ public class CompBuffRange : MonoBehaviour
     void Start()
     {
         _cc = GetComponentInParent<CompController>();
-        _line = GetComponentInParent<ConnectionLine>();
-    }
+        _line = _cc.transform.FindChild("Line").gameObject.GetComponent<ConnectionLine>();
 
+        
+    }
 
 
     void OnTriggerEnter(Collider other)

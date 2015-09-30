@@ -11,7 +11,8 @@ public class Enums : MonoBehaviour
         Shooting,
         RunAway,
         Healing,
-        Dead
+        Dead,
+        PlayerControlled
     }
 
     public enum EnemyTechStates
@@ -21,7 +22,8 @@ public class Enums : MonoBehaviour
         RunForYourLife,
         Healing,
         Hack,
-        Dead
+        Dead,
+        PlayerControlled
     }
 
     public enum BuffType

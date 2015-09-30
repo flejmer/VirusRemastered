@@ -32,7 +32,7 @@ public class CompController : DelayedActivation
 
     void Awake()
     {
-        _line = GetComponent<ConnectionLine>();
+        _line = GetComponentInChildren<ConnectionLine>();
 
         foreach (var item in gameObject.GetComponentsInChildren<Light>())
         {

@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 
 [System.Serializable]
 public class MovementProperties
@@ -16,6 +17,7 @@ public class ProjectilesProperties
 {
     public BasicAttack BasicAttack;
     public LaserAttack LaserAttack;
+    public MindControl MindControl;
 }
 
 [System.Serializable]
@@ -35,25 +37,30 @@ public class LaserAttack
     public float MissileLifetime = 1;
 }
 
+[System.Serializable]
+public class MindControl
+{
+    public LayerMask RayMask;
+    public float RayLength = 20;
+}
+
 public class PlayerController : MonoBehaviour
 {
     public MovementProperties MovementProperties;
     public ProjectilesProperties ProjectilesProperties;
+
+    public bool SpawnInWall { get; set; }
+    public bool IsMoving;
 
     private Rigidbody _rbody;
 
     private Transform _gun;
     private Transform _missileSpawn;
 
-    public bool SpawnInWall { get; set; }
+    private Animator _anim;
+    private ShieldController _shield;
 
     private bool _hacking;
-
-    private Animator _anim;
-
-    public bool IsMoving = false;
-
-
 
     void Awake()
     {
@@ -61,6 +68,7 @@ public class PlayerController : MonoBehaviour
         _gun = transform.Find("Body/Gun");
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _anim = GetComponentInChildren<Animator>();
+        _shield = GetComponentInChildren<ShieldController>();
     }
 
 
@@ -129,6 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && GameManager.GetComputersInPlayerInterRange(this).Count > 0)
         {
+
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
             {
                 if (computer.IsDehackInProgress) continue;
@@ -215,6 +224,19 @@ public class PlayerController : MonoBehaviour
 
     void Shooting()
     {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        EnemySimpleAI enemy;
+
+        if (Physics.Raycast(ray, out hit, 20, ProjectilesProperties.MindControl.RayMask))
+        {
+            if (hit.transform.CompareTag("EnemyGuard") || hit.transform.CompareTag("EnemyTech"))
+            {
+                enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
+                enemy.Highlight();
+            }
+        }
+
 
         bool fireInput1 = Input.GetButtonDown("Fire1");
         bool fireInput2 = Input.GetButtonDown("Fire2");
@@ -266,6 +288,17 @@ public class PlayerController : MonoBehaviour
                 Destroy(instance, ProjectilesProperties.LaserAttack.MissileLifetime);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            _shield.ActivateShield();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+        }
+
     }
 
     void Aiming()
