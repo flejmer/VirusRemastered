@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EnemySimpleAI : MonoBehaviour
+public abstract class EnemySimpleAI : MonoBehaviour
 {
     [SerializeField]
     private float _hpPoints = 100;
@@ -65,4 +65,6 @@ public class EnemySimpleAI : MonoBehaviour
     {
         GameManager.RemoveEnemy(this);
     }
+
+    public abstract void TakeOver();
 }

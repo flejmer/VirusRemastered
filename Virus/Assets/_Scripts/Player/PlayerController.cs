@@ -234,12 +234,17 @@ public class PlayerController : MonoBehaviour
             {
                 enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
                 enemy.Highlight();
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    enemy.TakeOver();
+                }
             }
         }
 
 
-        bool fireInput1 = Input.GetButtonDown("Fire1");
-        bool fireInput2 = Input.GetButtonDown("Fire2");
+        var fireInput1 = Input.GetButtonDown("Fire1");
+        var fireInput2 = Input.GetButtonDown("Fire2");
 
         if (SpawnInWall) return;
 
@@ -292,11 +297,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             _shield.ActivateShield();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
         }
 
     }

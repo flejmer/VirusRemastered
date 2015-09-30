@@ -65,4 +65,8 @@ public class EnemyTechAI : EnemySimpleAI
     }
 
 
+    public override void TakeOver()
+    {
+        throw new System.NotImplementedException();
+    }
 }
