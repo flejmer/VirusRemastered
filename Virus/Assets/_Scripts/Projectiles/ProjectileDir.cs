@@ -22,6 +22,8 @@ public abstract class ProjectileDir : MonoBehaviour
 
     private Vector3 _previousPosition;
 
+    public GameObject WhoFired;
+
     protected Vector3 MoveDir
     {
         get { return transform.TransformDirection(_moveDir); }

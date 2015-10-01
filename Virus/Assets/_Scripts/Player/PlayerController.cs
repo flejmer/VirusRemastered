@@ -268,6 +268,9 @@ public class PlayerController : MonoBehaviour
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.position,
                         _missileSpawn.rotation);
 
+                instance.GetComponent<ProjectileDir>().WhoFired = gameObject;
+
+
                 //                var follower =
                 //                    (GameObject)
                 //                        Instantiate(ProjectilesProperties.BasicAttack.Follower, _missileSpawn.transform.position,

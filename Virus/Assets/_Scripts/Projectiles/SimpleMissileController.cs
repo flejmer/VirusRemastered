@@ -26,8 +26,25 @@ public class SimpleMissileController : ProjectileDir
 
         if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
         {
-            hitObj.GetComponent<EnemySimpleAI>().RemoveHp(20);
-            Bouncy = !Bouncy;
+            if (WhoFired.CompareTag("Player"))
+            {
+                hitObj.GetComponent<EnemySimpleAI>().RemoveHp(20);
+                Bouncy = !Bouncy;
+            }
+            else
+            {
+                var guardFired = WhoFired.GetComponent<EnemyGuardAI>();
+                var guardShot = hitObj.GetComponent<EnemyGuardAI>();
+
+                if ((guardFired.PlayerControlled && !guardShot.PlayerControlled) || (!guardFired.PlayerControlled && guardShot.PlayerControlled))
+                {
+                    guardShot.GetComponent<EnemySimpleAI>().RemoveHp(20);
+                    guardShot.Target = WhoFired;
+                    Bouncy = !Bouncy;
+                }
+            }
+
+
         }
     }
 

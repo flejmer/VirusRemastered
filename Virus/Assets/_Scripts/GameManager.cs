@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     private readonly Dictionary<EnemySimpleAI, List<CompController>> _computersInEnemyInterRange = new Dictionary<EnemySimpleAI, List<CompController>>();
     private readonly List<CompController> _hackedComputersList = new List<CompController>();
 
-
     void Awake()
     {
         if (Instance == null)
@@ -184,6 +183,24 @@ public class GameManager : MonoBehaviour
         if (!Instance._healingCentersList.Contains(center)) return;
 
         Instance._healingCentersList.Remove(center);
+    }
+
+    public static HealingCenter GetClosestHealingCenter(GameObject obj)
+    {
+        HealingCenter hc = Instance._healingCentersList[0];
+
+        foreach (var center in Instance._healingCentersList)
+        {
+            var dist1 = (hc.transform.position - obj.transform.position).sqrMagnitude;
+            var dist2 = (center.transform.position - obj.transform.position).sqrMagnitude;
+
+            if (dist1 > dist2)
+            {
+                hc = center;
+            }
+        }
+
+        return hc;
     }
 
     public static void AddComputerInPlayerInterRange(PlayerController player, CompController comp)

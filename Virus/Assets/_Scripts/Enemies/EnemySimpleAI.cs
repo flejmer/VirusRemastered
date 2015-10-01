@@ -7,7 +7,7 @@ public abstract class EnemySimpleAI : MonoBehaviour
     [SerializeField]
     private float _hpPoints = 100;
     [SerializeField]
-    private float _maxHpPoints = 100;
+    protected float MaxHpPoints = 100;
 
     public float HealthPoints{ get { return _hpPoints; }}
 
@@ -27,7 +27,7 @@ public abstract class EnemySimpleAI : MonoBehaviour
     public void AddHp(float count)
     {
         var hpAfterHeal = _hpPoints + count;
-        _hpPoints = hpAfterHeal > _maxHpPoints ? _maxHpPoints : hpAfterHeal;
+        _hpPoints = hpAfterHeal > MaxHpPoints ? MaxHpPoints : hpAfterHeal;
     }
 
     public void RemoveHp(float count)
