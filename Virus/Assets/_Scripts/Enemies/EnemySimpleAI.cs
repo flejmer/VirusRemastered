@@ -36,6 +36,8 @@ public abstract class EnemySimpleAI : MonoBehaviour
         _hpPoints = hpAfterDamage < 0 ? 0 : hpAfterDamage;
     }
 
+    public abstract void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask);
+
     public void Highlight()
     {
         CancelInvoke("Dehighlight");

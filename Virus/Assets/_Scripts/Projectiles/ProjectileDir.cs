@@ -24,7 +24,7 @@ public abstract class ProjectileDir : MonoBehaviour
 
     public GameObject WhoFired;
 
-    protected Vector3 MoveDir
+    public Vector3 MoveDir
     {
         get { return transform.TransformDirection(_moveDir); }
         set { _moveDir = value; }

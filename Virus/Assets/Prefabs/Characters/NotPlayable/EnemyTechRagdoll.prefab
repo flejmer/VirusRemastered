@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk1R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 54: {fileID: 5484910}
   - 144: {fileID: 14417656}
   - 136: {fileID: 13650950}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: lydka_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: palceR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 54: {fileID: 5490582}
   - 144: {fileID: 14454126}
   - 136: {fileID: 13692826}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root_024
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - 54: {fileID: 5453958}
   - 144: {fileID: 14417592}
   - 136: {fileID: 13699696}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: reka_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404046}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk_2L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 4: {fileID: 461900}
   - 54: {fileID: 5412068}
   - 65: {fileID: 6539072}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: klawiatura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ramie_left_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   - 54: {fileID: 5428020}
   - 144: {fileID: 14468054}
   - 136: {fileID: 13630854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: biceps_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dlon_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - 54: {fileID: 5414344}
   - 144: {fileID: 14411274}
   - 136: {fileID: 13633746}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: udo_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 457598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk_1L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - 4: {fileID: 419368}
   - 54: {fileID: 5472846}
   - 65: {fileID: 6553048}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: miednica_center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - 54: {fileID: 5426718}
   - 144: {fileID: 14464454}
   - 65: {fileID: 6569098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cialo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 498634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: palceL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 498202}
   - 137: {fileID: 13744078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - 54: {fileID: 5404350}
   - 136: {fileID: 13620298}
   - 144: {fileID: 14451310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: udo_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - 54: {fileID: 5427828}
   - 144: {fileID: 14491926}
   - 136: {fileID: 13642860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: biceps_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487506}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk3R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk2R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   - 54: {fileID: 5474296}
   - 144: {fileID: 14495854}
   - 136: {fileID: 13667060}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ludka_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -437,7 +437,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410958}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ramie_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   - 54: {fileID: 5464078}
   - 144: {fileID: 14455294}
   - 135: {fileID: 13526770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: glowa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - 4: {fileID: 487984}
   - 95: {fileID: 9574910}
   - 114: {fileID: 11471946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rus_IT-Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   - 54: {fileID: 5430770}
   - 144: {fileID: 14406478}
   - 65: {fileID: 6565486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: miednicaleft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dlon_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - 54: {fileID: 5498118}
   - 144: {fileID: 14440198}
   - 65: {fileID: 6593790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: miednica_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 465484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root_010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: kciuk3L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

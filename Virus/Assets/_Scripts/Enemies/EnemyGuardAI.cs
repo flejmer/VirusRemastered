@@ -295,7 +295,7 @@ public class EnemyGuardAI : EnemySimpleAI
                         Agent.Stop();
                     }
 
-                    if (_ragdoll)
+                    if (!_ragdoll.RagdollActivated)
                     {
                         _ragdoll.ActivateRagdoll();
                     }
@@ -325,7 +325,7 @@ public class EnemyGuardAI : EnemySimpleAI
                     _enemyState = Enums.EnemyGuardStates.Dead;
 
                 }
-                else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled))
+                if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled))
                 {
                     var randInCircle = Random.insideUnitCircle * 3;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
@@ -367,6 +367,28 @@ public class EnemyGuardAI : EnemySimpleAI
         targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
         _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, 15 * Time.deltaTime);
+    }
+
+    public override void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask)
+    {
+        if (HealthPoints <= 0)
+        {
+            _enemyState = Enums.EnemyGuardStates.Dead;
+
+            if (_ragdoll)
+            {
+                _collider.enabled = false;
+                _ragdoll.ActivateRagdoll();
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(pos - dir, dir, out hit, 3, mask))
+                {
+                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 5000);
+                }
+
+            }
+        }
     }
 
     public override void TakeOver()

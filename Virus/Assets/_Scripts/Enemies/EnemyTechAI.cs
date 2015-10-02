@@ -47,7 +47,7 @@ public class EnemyTechAI : EnemySimpleAI
 
     private void AI()
     {
-        if (HealthPoints <= (MaxHpPoints*.2f))
+        if (HealthPoints <= (MaxHpPoints * .2f))
         {
             if (!_enemyState.Equals(Enums.EnemyTechStates.Dead))
             {
@@ -59,7 +59,7 @@ public class EnemyTechAI : EnemySimpleAI
                 else if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) &&
                          !_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled))
                 {
-                    var randInCircle = Random.insideUnitCircle*3;
+                    var randInCircle = Random.insideUnitCircle * 3;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position +
                                    new Vector3(randInCircle.x, 0, randInCircle.y);
 
@@ -90,6 +90,7 @@ public class EnemyTechAI : EnemySimpleAI
 
             if (Agent.remainingDistance <= 0)
             {
+//                Debug.Log("dsad");
                 _enemyState = Enums.EnemyTechStates.Hack;
             }
         }
@@ -131,7 +132,7 @@ public class EnemyTechAI : EnemySimpleAI
                     Agent.Stop();
                 }
 
-                if (_ragdoll)
+                if (!_ragdoll.RagdollActivated)
                 {
                     _ragdoll.ActivateRagdoll();
                 }
@@ -145,7 +146,7 @@ public class EnemyTechAI : EnemySimpleAI
             {
                 var newPosition = new Vector3(transform.position.x, -1, transform.position.z);
 
-                transform.position = Vector3.Lerp(transform.position, newPosition, .15f*Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, newPosition, .15f * Time.deltaTime);
                 Agent.enabled = false;
             }
 
@@ -165,6 +166,27 @@ public class EnemyTechAI : EnemySimpleAI
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * RotationSpeed);
     }
 
+
+    public override void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask)
+    {
+        if (!(HealthPoints <= 0)) return;
+
+        _enemyState = Enums.EnemyTechStates.Dead;
+
+        if (_ragdoll)
+        {
+            _collider.enabled = false;
+            _ragdoll.ActivateRagdoll();
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(pos - dir, dir, out hit, 3, mask))
+            {
+                hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 2500);
+            }
+
+        }
+    }
 
     public override void TakeOver()
     {

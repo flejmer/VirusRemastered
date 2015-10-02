@@ -16,6 +16,8 @@ public class Laser : MonoBehaviour
 
     private float _rayRange = 20;
 
+    public Vector3 MoveDir { get; private set; }
+
     void Awake()
     {
         _lineRend = GetComponent<LineRenderer>();
@@ -25,6 +27,9 @@ public class Laser : MonoBehaviour
     public void FireLaser()
     {
         var direction = MissleSpawnPoint.forward.normalized;
+
+        MoveDir = direction;
+
         direction = new Vector3(direction.x, direction.y, direction.z);
 
         var pos1 = MissleSpawnPoint.position;
@@ -53,7 +58,6 @@ public class Laser : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("EnemyGuard") || hit.transform.gameObject.CompareTag("EnemyTech"))
                 {
-//                    Debug.Log("right " + hit.transform.tag);
                     hitList.Add(new RayhitObj(hit.transform.gameObject, (hit.point - pos2).sqrMagnitude, hit.point));
                 }
             }
@@ -62,7 +66,6 @@ public class Laser : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("EnemyGuard") || hit.transform.gameObject.CompareTag("EnemyTech"))
                 {
-//                    Debug.Log("left " + hit.transform.tag);
                     hitList.Add(new RayhitObj(hit.transform.gameObject, (hit.point - pos3).sqrMagnitude, hit.point));
                 }
             }
@@ -79,12 +82,15 @@ public class Laser : MonoBehaviour
                 if (obj.CompareTag("EnemyGuard"))
                 {
                     var enemy = obj.GetComponent<EnemySimpleAI>();
+
                     enemy.RemoveHp(100);
+                    enemy.HitPoint(hitList[i].GObject.transform.position, MoveDir, 100, Mask);
                 }
                 else if (obj.CompareTag("EnemyTech"))
                 {
                     var enemy = obj.GetComponent<EnemySimpleAI>();
                     enemy.RemoveHp(100);
+                    enemy.HitPoint(hitList[i].GObject.transform.position, MoveDir, 100, Mask);
                 }
                 else if (obj.CompareTag("Obstacle") || obj.CompareTag("Untagged") || obj.CompareTag("Computer"))
                 {

@@ -11,6 +11,8 @@ public class RagdollController : MonoBehaviour
     private List<Rigidbody> _rbodies = new List<Rigidbody>();
     private List<Collider> _colliders = new List<Collider>();
 
+    public bool RagdollActivated { get; private set; }
+
     void Start()
     {
         _anim = GetComponent<Animator>();
@@ -50,6 +52,8 @@ public class RagdollController : MonoBehaviour
         {
             coll.enabled = true;
         }
+
+        RagdollActivated = true;
 
         Invoke("DeactivateEverything", ActiveDuration);
     }

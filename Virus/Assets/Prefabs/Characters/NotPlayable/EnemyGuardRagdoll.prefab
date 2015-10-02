@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 475616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   - 4: {fileID: 406304}
   - 54: {fileID: 5412932}
   - 65: {fileID: 6567890}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - 4: {fileID: 417684}
   - 95: {fileID: 9555528}
   - 114: {fileID: 11473070}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: guardRUS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 54: {fileID: 5454194}
   - 144: {fileID: 14439162}
   - 136: {fileID: 13696792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 54: {fileID: 5460428}
   - 144: {fileID: 14467370}
   - 65: {fileID: 6572876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - 54: {fileID: 5428232}
   - 144: {fileID: 14480774}
   - 135: {fileID: 13517064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495040}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - 54: {fileID: 5453184}
   - 144: {fileID: 14464654}
   - 136: {fileID: 13652024}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - 54: {fileID: 5411424}
   - 144: {fileID: 14428354}
   - 136: {fileID: 13673850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_foot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   - 54: {fileID: 5484546}
   - 144: {fileID: 14430710}
   - 136: {fileID: 13672360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 421774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thumb1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 453320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 422736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thumb2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - 54: {fileID: 5486194}
   - 144: {fileID: 14474972}
   - 136: {fileID: 13638112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 459174}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 490314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   - 54: {fileID: 5443410}
   - 144: {fileID: 14453922}
   - 136: {fileID: 13642000}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - 54: {fileID: 5490548}
   - 144: {fileID: 14423986}
   - 136: {fileID: 13654116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415502}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: left_thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434990}
   - 137: {fileID: 13754442}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - 54: {fileID: 5432744}
   - 144: {fileID: 14456148}
   - 136: {fileID: 13663390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_shin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +532,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 444106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: right_thight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152868}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 5.55999994, y: 1, z: 2.91000009}
+  m_LocalPosition: {x: 9.51000023, y: 1, z: 2.91000009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 456112}
@@ -1601,7 +1601,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.66655624, y: 0, z: 1.78813934e-07}
+  m_ConnectedAnchor: {x: -1.6665566, y: 1.57952309e-06, z: 2.98023224e-07}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1769,7 +1769,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.78756011, y: 1.01327896e-06, z: 1.49011612e-07}
+  m_ConnectedAnchor: {x: -1.78756046, y: -5.96046448e-07, z: 4.17232513e-07}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -1853,7 +1853,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -2.80812693, y: 1.21708989, z: 2.50314599e-07}
+  m_ConnectedAnchor: {x: -2.80812693, y: 1.21709168, z: 2.50314542e-07}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:

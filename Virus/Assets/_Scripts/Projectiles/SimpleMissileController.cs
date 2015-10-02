@@ -28,7 +28,10 @@ public class SimpleMissileController : ProjectileDir
         {
             if (WhoFired.CompareTag("Player"))
             {
-                hitObj.GetComponent<EnemySimpleAI>().RemoveHp(20);
+                var enemy = hitObj.GetComponent<EnemySimpleAI>();
+                enemy.RemoveHp(20);
+                enemy.HitPoint(hit.point, MoveDir, 100, LayerMask);
+
                 Bouncy = !Bouncy;
             }
             else
@@ -38,7 +41,8 @@ public class SimpleMissileController : ProjectileDir
 
                 if ((guardFired.PlayerControlled && !guardShot.PlayerControlled) || (!guardFired.PlayerControlled && guardShot.PlayerControlled))
                 {
-                    guardShot.GetComponent<EnemySimpleAI>().RemoveHp(20);
+                    guardShot.RemoveHp(20);
+                    guardShot.HitPoint(hit.point, MoveDir, 100, LayerMask);
                     guardShot.Target = WhoFired;
                     Bouncy = !Bouncy;
                 }
