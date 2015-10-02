@@ -44,7 +44,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log(_enemyState);
+            Debug.Log(_enemyState + " " + gameObject.name + " ");
         }
     }
 
@@ -53,8 +53,6 @@ public class EnemyGuardAI : EnemySimpleAI
         if ((other.CompareTag("Player") || other.gameObject.Equals(Target)) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
             if (_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")) return;
-
-            Debug.Log(_enemyState);
 
             if (Target == null)
                 Target = other.gameObject;
@@ -68,7 +66,6 @@ public class EnemyGuardAI : EnemySimpleAI
                 if (hit.transform.gameObject.Equals(Target))
                 {
                     _enemyState = Enums.EnemyGuardStates.Shooting;
-                    Debug.Log("here");
                     Invoke("CanFireAgain", RateOfFire / 2);
                 }
             }
@@ -83,8 +80,6 @@ public class EnemyGuardAI : EnemySimpleAI
         if (other.gameObject.Equals(Target) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
         {
             if (_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && Target.CompareTag("Player") && _enemyState.Equals(Enums.EnemyGuardStates.RunAway)) return;
-
-            Debug.Log("hereor");
 
             _targetClose = true;
 
@@ -141,6 +136,9 @@ public class EnemyGuardAI : EnemySimpleAI
         if (_enemyState.Equals(Enums.EnemyGuardStates.Idle))
         {
             _anim.SetBool("Aiming", false);
+
+            if (Target != null)
+                _enemyState = Enums.EnemyGuardStates.Chase;
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Chase))
         {
@@ -162,7 +160,8 @@ public class EnemyGuardAI : EnemySimpleAI
                 if (ai.HealthPoints <= 0)
                 {
                     Target = null;
-                    _enemyState = Enums.EnemyGuardStates.PlayerControlled;
+
+                    _enemyState = PlayerControlled ? Enums.EnemyGuardStates.PlayerControlled : Enums.EnemyGuardStates.Idle;
 
                     Agent.SetDestination(transform.position);
                     Agent.Resume();
@@ -215,7 +214,7 @@ public class EnemyGuardAI : EnemySimpleAI
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, 20, RayMask))
+                if (Physics.Raycast(ray, out hit, 30, RayMask))
                 {
                     if (leftClick)
                     {
@@ -273,13 +272,13 @@ public class EnemyGuardAI : EnemySimpleAI
                     _enemyState = Enums.EnemyGuardStates.Dead;
 
                 }
-                else if(!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
+                else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled))
                 {
-                                var randInCircle = Random.insideUnitCircle * 3;
-                                var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
-                    
-                                Agent.SetDestination(position);
-                                _enemyState = Enums.EnemyGuardStates.RunAway;
+                    var randInCircle = Random.insideUnitCircle * 3;
+                    var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
+
+                    Agent.SetDestination(position);
+                    _enemyState = Enums.EnemyGuardStates.RunAway;
                 }
             }
         }
@@ -344,6 +343,13 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         Debug.Log("taken");
         PlayerControlled = true;
+        Target = null;
+
+        _anim.SetBool("Aiming", false);
+        Agent.Resume();
+        Agent.SetDestination(transform.position);
+
+        CancelInvoke("CanFireAgain");
         _enemyState = Enums.EnemyGuardStates.PlayerControlled;
     }
 

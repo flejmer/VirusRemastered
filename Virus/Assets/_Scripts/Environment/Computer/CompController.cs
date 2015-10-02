@@ -18,6 +18,8 @@ public class CompController : DelayedActivation
     private bool _hackInProgress;
     private bool _dehackInProgress;
 
+    private Transform _dropHackZone;
+
     public bool IsHackInProgress
     {
         get { return _hackInProgress; }
@@ -33,6 +35,7 @@ public class CompController : DelayedActivation
     void Awake()
     {
         _line = GetComponentInChildren<ConnectionLine>();
+        _dropHackZone = transform.FindChild("DropHack");
 
         foreach (var item in gameObject.GetComponentsInChildren<Light>())
         {
@@ -73,16 +76,21 @@ public class CompController : DelayedActivation
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Debug.Log(_lights.Count + " " + _halos.Count);
+//        if (Input.GetKeyDown(KeyCode.P))
+//        {
+//            Debug.Log(_lights.Count + " " + _halos.Count);
+//
+//            for (int i = 0; i < _lights.Count; i++)
+//            {
+//                _lights[i].enabled = true;
+//                _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
+//            }
+//        }
+    }
 
-            for (int i = 0; i < _lights.Count; i++)
-            {
-                _lights[i].enabled = true;
-                _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
-            }
-        }
+    public Vector3 GetHackPosition()
+    {
+        return _dropHackZone.position;
     }
 
     void OnEnable()

@@ -13,15 +13,15 @@ public abstract class EnemySimpleAI : MonoBehaviour
 
     protected NavMeshAgent Agent;
 
-    private List<SkinnedMeshRenderer> _Mesh;
+    private List<SkinnedMeshRenderer> _mesh;
     private Color _originalColor;
 
     void Awake()
     {
         Agent = GetComponent<NavMeshAgent>();
 
-        _Mesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>());
-        _originalColor = _Mesh[0].material.color;
+        _mesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>());
+        _originalColor = _mesh[0].material.color;
     }
 
     public void AddHp(float count)
@@ -40,7 +40,7 @@ public abstract class EnemySimpleAI : MonoBehaviour
     {
         CancelInvoke("Dehighlight");
 
-        foreach (var mrender in _Mesh)
+        foreach (var mrender in _mesh)
         {
             mrender.material.color = _originalColor + Color.red / 2;
         }
@@ -50,7 +50,7 @@ public abstract class EnemySimpleAI : MonoBehaviour
 
     void Dehighlight()
     {
-        foreach (var mrender in _Mesh)
+        foreach (var mrender in _mesh)
         {
             mrender.material.color = _originalColor;
         }

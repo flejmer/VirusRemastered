@@ -32,9 +32,9 @@ public class Laser : MonoBehaviour
         var pos3 = MissleSpawnPoint.TransformPoint(-2, 0, 0);
 
 
-//        Debug.DrawRay(pos1, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
-//        Debug.DrawRay(pos2, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
-//        Debug.DrawRay(pos3, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
+        Debug.DrawRay(pos1, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
+        Debug.DrawRay(pos2, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
+        Debug.DrawRay(pos3, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
 
         RaycastHit[] hits1 = Physics.RaycastAll(pos1, MissleSpawnPoint.forward, _rayRange, Mask);
         RaycastHit[] hits2 = Physics.RaycastAll(pos2, MissleSpawnPoint.forward, _rayRange, Mask);
@@ -45,7 +45,7 @@ public class Laser : MonoBehaviour
 
         var hitList = new List<RayhitObj>();
 
-        if (hits1.Length > 0)
+        if (hits1.Length > 0 || hits2.Length > 0 || hits3.Length > 0)
         {
             hitList.AddRange(hits1.Select(hit => new RayhitObj(hit.transform.gameObject, (hit.point - pos1).sqrMagnitude, hit.point)));
 
@@ -53,6 +53,7 @@ public class Laser : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("EnemyGuard") || hit.transform.gameObject.CompareTag("EnemyTech"))
                 {
+//                    Debug.Log("right " + hit.transform.tag);
                     hitList.Add(new RayhitObj(hit.transform.gameObject, (hit.point - pos2).sqrMagnitude, hit.point));
                 }
             }
@@ -61,6 +62,7 @@ public class Laser : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("EnemyGuard") || hit.transform.gameObject.CompareTag("EnemyTech"))
                 {
+//                    Debug.Log("left " + hit.transform.tag);
                     hitList.Add(new RayhitObj(hit.transform.gameObject, (hit.point - pos3).sqrMagnitude, hit.point));
                 }
             }

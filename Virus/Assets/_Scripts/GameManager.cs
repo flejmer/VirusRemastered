@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerInterRange = new Dictionary<PlayerController, List<CompController>>();
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerBuffArea = new Dictionary<PlayerController, List<CompController>>();
     private readonly Dictionary<EnemySimpleAI, List<CompController>> _computersInEnemyInterRange = new Dictionary<EnemySimpleAI, List<CompController>>();
+
     private readonly List<CompController> _hackedComputersList = new List<CompController>();
+    private Stack<CompController> _hackedComputersStack = new Stack<CompController>();
 
     void Awake()
     {
@@ -26,8 +28,6 @@ public class GameManager : MonoBehaviour
 
         if (Instance != this)
             Destroy(gameObject);
-
-
 
         DontDestroyOnLoad(gameObject);
     }
@@ -411,6 +411,7 @@ public class GameManager : MonoBehaviour
         if (!Instance._hackedComputersList.Contains(comp))
         {
             Instance._hackedComputersList.Add(comp);
+            Instance._hackedComputersStack.Push(comp);
         }
     }
 
@@ -419,7 +420,24 @@ public class GameManager : MonoBehaviour
         if (Instance._hackedComputersList.Contains(comp))
         {
             Instance._hackedComputersList.Remove(comp);
+
+            if (Instance._hackedComputersStack.Peek().Equals(comp))
+            {
+                Instance._hackedComputersStack.Pop();
+            }
+            else
+            {
+                var tempList = Instance._hackedComputersStack.ToList();
+                tempList.Remove(comp);
+
+                Instance._hackedComputersStack = new Stack<CompController>(tempList);
+            }
         }
+    }
+
+    public static CompController GetLastHackedComputer()
+    {
+        return Instance._hackedComputersStack.Count > 0 ? Instance._hackedComputersStack.Peek() : null;
     }
 
     public static bool IsComputerHacked(CompController comp)
