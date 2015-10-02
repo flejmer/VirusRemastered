@@ -28,6 +28,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
     public bool PlayerControlled { get; private set; }
 
+    private RagdollController _ragdoll;
+
     void Start()
     {
         _anim = GetComponentInChildren<Animator>();
@@ -35,6 +37,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _gun = transform.Find("Body/Gun");
+
+        _ragdoll = GetComponentInChildren<RagdollController>();
     }
 
     void Update()
@@ -250,16 +254,65 @@ public class EnemyGuardAI : EnemySimpleAI
         }
         else
         {
-            if (Agent.enabled)
+            if (_ragdoll == null)
             {
-                Agent.Stop();
+                if (Agent.enabled)
+                {
+                    Agent.Stop();
+
+                }
+
+                _anim.SetBool("Dead", true);
+                _collider.enabled = false;
+
+                Destroy(gameObject, 8);
+
+                Vector3 newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
+                float fadeTime;
+
+                if (_canFadeAway)
+                {
+                    newPosition = new Vector3(transform.position.x, -1f, transform.position.z);
+                    fadeTime = .15f;
+                }
+                else
+                {
+                    newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
+                    fadeTime = 5;
+                }
+                transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime * Time.deltaTime);
+
+                if (!_canFadeAway)
+                    Invoke("EnableFade", 3);
 
             }
+            else if (_ragdoll != null)
+            {
+                if (!_canFadeAway)
+                {
+                    if (Agent.enabled)
+                    {
+                        Agent.Stop();
+                    }
 
-            _anim.SetBool("Dead", true);
-            _collider.enabled = false;
+                    if (_ragdoll)
+                    {
+                        _ragdoll.ActivateRagdoll();
+                    }
 
-            Destroy(gameObject, 8);
+                    _collider.enabled = false;
+                    Destroy(gameObject, 8);
+
+                    Invoke("EnableFade", _ragdoll.ActiveDuration + .1f);
+                }
+                else
+                {
+                    var newPosition = new Vector3(transform.position.x, -1, transform.position.z);
+
+                    transform.position = Vector3.Lerp(transform.position, newPosition, .15f * Time.deltaTime);
+                    Agent.enabled = false;
+                }
+            }
         }
 
 
@@ -292,32 +345,9 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private void Movement()
     {
-        if (_enemyState.Equals(Enums.EnemyGuardStates.Dead))
-        {
-            Agent.enabled = false;
-
-            Vector3 newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
-            float fadeTime;
-
-            if (_canFadeAway)
-            {
-                newPosition = new Vector3(transform.position.x, -1f, transform.position.z);
-                fadeTime = .15f;
-            }
-            else
-            {
-                newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
-                fadeTime = 5;
-            }
-            transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime * Time.deltaTime);
-
-            if (!_canFadeAway)
-                Invoke("EnableFade", 3);
-
-        }
         // Rotation towards target after its reached
 
-        else if (!_enemyState.Equals(Enums.EnemyGuardStates.Idle) && Target != null && _targetClose)
+        if (!_enemyState.Equals(Enums.EnemyGuardStates.Idle) && Target != null && _targetClose)
         {
             if (_enemyState.Equals(Enums.EnemyGuardStates.Shooting) ||
                 _enemyState.Equals(Enums.EnemyGuardStates.Chase))
