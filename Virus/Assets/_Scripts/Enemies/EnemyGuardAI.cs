@@ -10,9 +10,6 @@ public class EnemyGuardAI : EnemySimpleAI
     public GameObject Missile;
     public LayerMask SeekerMask;
 
-    public GameObject Burst;
-    public LayerMask RayMask;
-
     public GameObject Target;
     private Animator _anim;
 
@@ -67,6 +64,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask) && !_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
             {
+
                 if (hit.transform.gameObject.Equals(Target))
                 {
                     _enemyState = Enums.EnemyGuardStates.Shooting;
@@ -92,24 +90,24 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask))
             {
-                if (_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
-                {
-                    if (!hit.transform.gameObject.Equals(Target))
-                    {
-                        _enemyState = Enums.EnemyGuardStates.Chase;
+                //                Debug.DrawRay(_gun.position, direction * 15, Color.black, 2);
 
-                        _canFire = false;
-                        CancelInvoke("CanFireAgain");
-                    }
+
+                if (!_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
+                {
+                    if (!hit.transform.gameObject.Equals(Target)) return;
+
+                    _enemyState = Enums.EnemyGuardStates.Shooting;
+                    Invoke("CanFireAgain", RateOfFire / 2);
                 }
                 else
                 {
-                    if (hit.transform.gameObject.Equals(Target) && !_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
-                    {
-                        _enemyState = Enums.EnemyGuardStates.Shooting;
-                        Invoke("CanFireAgain", RateOfFire / 2);
+                    if (hit.transform.gameObject.Equals(Target)) return;
 
-                    }
+                    _enemyState = Enums.EnemyGuardStates.Chase;
+
+                    _canFire = false;
+                    CancelInvoke("CanFireAgain");
                 }
             }
         }
@@ -141,8 +139,8 @@ public class EnemyGuardAI : EnemySimpleAI
         {
             _anim.SetBool("Aiming", false);
 
-            if (Target != null)
-                _enemyState = Enums.EnemyGuardStates.Chase;
+//            if (Target != null)
+//                _enemyState = Enums.EnemyGuardStates.Chase;
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Chase))
         {
@@ -325,7 +323,7 @@ public class EnemyGuardAI : EnemySimpleAI
                     _enemyState = Enums.EnemyGuardStates.Dead;
 
                 }
-                if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled))
+                else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
                     var randInCircle = Random.insideUnitCircle * 3;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
@@ -393,7 +391,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     public override void TakeOver()
     {
-        Debug.Log("taken");
+        Debug.Log("guard taken");
         PlayerControlled = true;
         Target = null;
 

@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11442558}
   m_Layer: 13
   m_Name: InteractiveArea
-  m_TagString: Untagged
+  m_TagString: ComputerInteraction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

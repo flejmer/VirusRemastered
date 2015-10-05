@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public abstract class EnemySimpleAI : MonoBehaviour
 {
+    public LayerMask RayMask;
+    public GameObject Burst;
+
     [SerializeField]
     private float _hpPoints = 100;
     [SerializeField]

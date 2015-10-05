@@ -16,6 +16,7 @@ TagManager:
   - Node
   - CyberPlayer
   - Shield
+  - ComputerInteraction
   layers:
   - Default
   - TransparentFX

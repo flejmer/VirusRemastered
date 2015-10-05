@@ -37,12 +37,12 @@ public class EnemyTechAI : EnemySimpleAI
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (_targetComputer == null) return;
-        if (!other.gameObject.Equals(_targetComputer.gameObject)) return;
+        if (!other.CompareTag("ComputerInteraction")) return;
 
-        RotateTowards(_targetComputer.transform.position);
+        RotateTowards(new Vector3(_targetComputer.transform.position.x, transform.position.y, _targetComputer.transform.position.z));
     }
 
     private void AI()
@@ -56,12 +56,10 @@ public class EnemyTechAI : EnemySimpleAI
                     _enemyState = Enums.EnemyTechStates.Dead;
 
                 }
-                else if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) &&
-                         !_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled))
+                else if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
                     var randInCircle = Random.insideUnitCircle * 3;
-                    var position = GameManager.GetClosestHealingCenter(gameObject).transform.position +
-                                   new Vector3(randInCircle.x, 0, randInCircle.y);
+                    var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
 
                     Agent.SetDestination(position);
                     _enemyState = Enums.EnemyTechStates.RunForYourLife;
@@ -88,15 +86,23 @@ public class EnemyTechAI : EnemySimpleAI
 
             _anim.SetBool("Running", true);
 
-            if (Agent.remainingDistance <= 0)
+            if (Agent.remainingDistance <= 0 && !float.IsPositiveInfinity(Agent.remainingDistance))
             {
-//                Debug.Log("dsad");
                 _enemyState = Enums.EnemyTechStates.Hack;
             }
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.Hack))
         {
+            if (float.IsPositiveInfinity(Agent.remainingDistance) || Agent.remainingDistance > 0)
+            {
+                _enemyState = Enums.EnemyTechStates.RunToComputer;
+                return;
+            }
+
+            //            transform.position = Agent.destination + new Vector3(0, 1f, 0);
+
             _anim.SetBool("Running", false);
+            Agent.Stop();
 
             _targetComputer.StopHacking();
             _targetComputer.StartDehacking();
@@ -104,6 +110,7 @@ public class EnemyTechAI : EnemySimpleAI
         else if (_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife))
         {
             _anim.SetBool("Running", true);
+            //            Debug.Log(Agent.remainingDistance);
 
             if (Agent.remainingDistance <= 0)
             {
@@ -121,7 +128,43 @@ public class EnemyTechAI : EnemySimpleAI
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled))
         {
+            var leftClick = Input.GetMouseButtonDown(0);
+            var rightClick = Input.GetMouseButtonDown(1);
 
+            var space = Input.GetKeyDown(KeyCode.Space);
+
+            _anim.SetBool("Running", !(Agent.remainingDistance <= 0));
+
+            if (leftClick || rightClick)
+            {
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, 30, RayMask))
+                {
+                    if (leftClick)
+                    {
+
+                    }
+
+                    if (rightClick)
+                    {
+                        Agent.Resume();
+                        Agent.SetDestination(hit.point);
+                    }
+                }
+            }
+
+            if (space)
+            {
+                RemoveHp(1000);
+
+                var instance = (GameObject)Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
+                var script = instance.GetComponent<SuicideController>();
+
+                script.Burst();
+                Destroy(instance, 3);
+            }
         }
         else
         {
@@ -190,6 +233,13 @@ public class EnemyTechAI : EnemySimpleAI
 
     public override void TakeOver()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("tech taken");
+        _targetComputer = null;
+
+        _anim.SetBool("Running", false);
+        Agent.Resume();
+        Agent.SetDestination(transform.position);
+
+        _enemyState = Enums.EnemyTechStates.PlayerControlled;
     }
 }
