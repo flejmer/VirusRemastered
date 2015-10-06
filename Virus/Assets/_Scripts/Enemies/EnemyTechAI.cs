@@ -42,6 +42,7 @@ public class EnemyTechAI : EnemySimpleAI
         if (_targetComputer == null) return;
         if (!other.CompareTag("ComputerInteraction")) return;
 
+        if(!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife))
         RotateTowards(new Vector3(_targetComputer.transform.position.x, transform.position.y, _targetComputer.transform.position.z));
     }
 
@@ -78,6 +79,25 @@ public class EnemyTechAI : EnemySimpleAI
                 _targetComputer = GameManager.GetLastHackedComputer();
                 _enemyState = Enums.EnemyTechStates.RunToComputer;
             }
+            else
+            {
+                if (!(Agent.remainingDistance <= 0))
+                {
+                    Agent.Resume();
+                    Agent.SetDestination(_startPosition);
+                    _anim.SetBool("Running", true);
+                }
+                else
+                {
+                    Agent.Stop();
+                    _anim.SetBool("Running", false);
+
+                    if (!transform.rotation.Equals(_startRotation))
+                    {
+                        transform.rotation = Quaternion.Lerp(transform.rotation, _startRotation, RotationSpeed * Time.deltaTime);
+                    }
+                }
+            }
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.RunToComputer))
         {
@@ -104,11 +124,22 @@ public class EnemyTechAI : EnemySimpleAI
             _anim.SetBool("Running", false);
             Agent.Stop();
 
-            _targetComputer.StopHacking();
-            _targetComputer.StartDehacking();
+            if (!_targetComputer.IsDehackInProgress)
+            {
+                _targetComputer.StopHacking();
+                _targetComputer.StartDehacking();
+            }
+
+            if (!_targetComputer.IsHacked)
+            {
+                _enemyState = Enums.EnemyTechStates.Idle;
+                _targetComputer = null;
+                Agent.SetDestination(_startPosition);
+            }
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife))
         {
+            Agent.Resume();
             _anim.SetBool("Running", true);
             //            Debug.Log(Agent.remainingDistance);
 
@@ -119,11 +150,14 @@ public class EnemyTechAI : EnemySimpleAI
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.Healing))
         {
+            Agent.Stop();
             _anim.SetBool("Running", false);
 
             if (HealthPoints >= MaxHpPoints)
             {
                 _enemyState = Enums.EnemyTechStates.Idle;
+                Agent.Resume();
+                Agent.SetDestination(_startPosition);
             }
         }
         else if (_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled))
