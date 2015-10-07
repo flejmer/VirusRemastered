@@ -10,16 +10,21 @@ public class GameManager : MonoBehaviour
     private static GameManager Instance;
 
     private PlayerController _player;
+
     private readonly List<EnemySimpleAI> _enemiesList = new List<EnemySimpleAI>();
+
     private readonly List<CompController> _computersList = new List<CompController>();
 
     private readonly List<HealingCenter> _healingCentersList = new List<HealingCenter>();
 
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerInterRange = new Dictionary<PlayerController, List<CompController>>();
+
     private readonly Dictionary<PlayerController, List<CompController>> _computersInPlayerBuffArea = new Dictionary<PlayerController, List<CompController>>();
+
     private readonly Dictionary<EnemySimpleAI, List<CompController>> _computersInEnemyInterRange = new Dictionary<EnemySimpleAI, List<CompController>>();
 
     private readonly List<CompController> _hackedComputersList = new List<CompController>();
+
     private Stack<CompController> _hackedComputersStack = new Stack<CompController>();
 
     void Awake()
@@ -102,6 +107,11 @@ public class GameManager : MonoBehaviour
     public static PlayerController GetPlayer()
     {
         return Instance._player;
+    }
+
+    public static void DamagePlayerFromDirection(GameObject hitObj, int i, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)
+    {
+
     }
 
     public static void AddEnemy(EnemySimpleAI enemy)

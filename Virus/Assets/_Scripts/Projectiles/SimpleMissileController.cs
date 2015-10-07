@@ -24,7 +24,22 @@ public class SimpleMissileController : ProjectileDir
     {
         var hitObj = hit.transform.gameObject;
 
-        if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
+//        Debug.Log(hitObj.tag);
+
+        if (hitObj.CompareTag("Player"))
+        {
+            if (GameManager.GetPlayer().ShieldActivated)
+            {
+                WhoFired = GameManager.GetPlayer().gameObject;
+            }
+            else
+            {
+                Bouncy = !Bouncy;
+                GameManager.DamagePlayerFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);
+            }
+            
+        }
+        else if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
         {
 
             GameManager.DamageEnemyFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);

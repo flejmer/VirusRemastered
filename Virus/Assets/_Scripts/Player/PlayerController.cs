@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     public ProjectilesProperties ProjectilesProperties;
 
     public bool SpawnInWall { get; set; }
+    public bool ShieldActivated { get { return _shield.ShieldActivated; }  }
     public bool IsMoving;
 
     private Rigidbody _rbody;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            _rbody.velocity = _rbody.velocity + Vector3.up * 10;
+//            _rbody.velocity = _rbody.velocity + Vector3.up * 10;
         }
 
         if (!_hacking) return;
@@ -301,7 +302,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            _shield.ActivateShield();
+            if (_shield.ShieldActivated)
+            {
+                _shield.DeactivateShield();
+            }
+            else
+            {
+                _shield.ActivateShield();
+            }
+            
         }
 
     }

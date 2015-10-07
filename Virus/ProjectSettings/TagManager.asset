@@ -15,7 +15,6 @@ TagManager:
   - InteractionNode
   - Node
   - CyberPlayer
-  - Shield
   - ComputerInteraction
   layers:
   - Default

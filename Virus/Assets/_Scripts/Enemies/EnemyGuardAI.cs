@@ -23,6 +23,8 @@ public class EnemyGuardAI : EnemySimpleAI
     private bool _targetClose;
     private bool _canFadeAway;
 
+    public bool SpawnInWall { get; set; }
+
 
 
     private RagdollController _ragdoll;
@@ -60,9 +62,9 @@ public class EnemyGuardAI : EnemySimpleAI
 
             RaycastHit hit;
 
-            var direction = (Target.transform.position - _gun.position).normalized;
+            var direction = (Target.transform.position - transform.position).normalized;
 
-            if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask) && !_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
+            if (Physics.Raycast(transform.position, direction, out hit, 15.0f, SeekerMask) && !_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
             {
 
                 if (hit.transform.gameObject.Equals(Target))
@@ -85,13 +87,34 @@ public class EnemyGuardAI : EnemySimpleAI
 
             _targetClose = true;
 
-            RaycastHit hit;
-            var direction = (Target.transform.position - _gun.position).normalized;
+            Vector3 position;
+            Vector3 direction;
 
-            if (Physics.Raycast(_gun.position, direction, out hit, 15.0f, SeekerMask))
+            if (_enemyState.Equals(Enums.EnemyGuardStates.Chase) || _enemyState.Equals(Enums.EnemyGuardStates.Shooting))
             {
-                //                Debug.DrawRay(_gun.position, direction * 15, Color.black, 2);
+                position = _gun.position;
+                direction = (Target.transform.position - _gun.position).normalized;
+            }
+            else
+            {
+                position = transform.position;
+                direction = (Target.transform.position - transform.position).normalized;
+            }
 
+            RaycastHit hit;
+
+            if (SpawnInWall)
+            {
+                _enemyState = Enums.EnemyGuardStates.Chase;
+
+                _canFire = false;
+                CancelInvoke("CanFireAgain");
+
+                return;
+            }
+
+            if (Physics.Raycast(position, direction, out hit, 15.0f, SeekerMask))
+            {
 
                 if (!_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
                 {
@@ -213,10 +236,16 @@ public class EnemyGuardAI : EnemySimpleAI
         else if (_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
             Agent.Resume();
-            _anim.SetBool("Running", !(Agent.remainingDistance <= 0));
 
-            if (Agent.remainingDistance <= 0)
+            if (!(Agent.remainingDistance <= 0))
             {
+                _anim.SetBool("Aiming", false);
+                _anim.SetBool("Running", true);
+            }
+            else
+            {
+                Agent.Stop();
+                _anim.SetBool("Running", false);
                 _enemyState = Enums.EnemyGuardStates.Healing;
             }
         }
@@ -241,7 +270,7 @@ public class EnemyGuardAI : EnemySimpleAI
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, 30, RayMask))
+                if (Physics.Raycast(ray, out hit, 30, MindControlRayMask))
                 {
                     if (leftClick)
                     {
@@ -409,7 +438,8 @@ public class EnemyGuardAI : EnemySimpleAI
         }
         else
         {
-            
+            if(PlayerControlled) return;
+
             if (Target.Equals(null))
             {
                 Target = shooter;

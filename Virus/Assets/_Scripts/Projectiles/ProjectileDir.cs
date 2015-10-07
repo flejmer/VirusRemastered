@@ -102,7 +102,8 @@ public abstract class ProjectileDir : MonoBehaviour
             LayerMask = 1 << LayerMask.NameToLayer("Player")
                         | 1 << LayerMask.NameToLayer("Enemies")
                         | 1 << LayerMask.NameToLayer("Obstacles")
-                        | 1 << LayerMask.NameToLayer("Doors");
+                        | 1 << LayerMask.NameToLayer("Doors")
+                        | 1 << LayerMask.NameToLayer("Shield");
 
         _bouncesCount++;
 

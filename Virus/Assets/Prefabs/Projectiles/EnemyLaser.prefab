@@ -136,9 +136,10 @@ MonoBehaviour:
   MissileSpeed: 45
   LayerMask:
     serializedVersion: 2
-    m_Bits: 20992
+    m_Bits: 152320
   Bouncy: 1
   MaxBounces: 4
+  WhoFired: {fileID: 0}
 --- !u!120 &12004300
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -1278,6 +1279,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: MissileSpeed
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: LayerMask.m_Bits
+      value: 152320
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

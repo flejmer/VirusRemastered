@@ -900,8 +900,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414600}
-  - {fileID: 492174}
   - {fileID: 456858}
+  - {fileID: 492174}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &432614
@@ -1097,7 +1097,7 @@ Transform:
   m_Children:
   - {fileID: 423434}
   m_Father: {fileID: 432472}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &457194
 Transform:
   m_ObjectHideFlags: 1
@@ -1292,7 +1292,7 @@ Transform:
   - {fileID: 488366}
   - {fileID: 498784}
   m_Father: {fileID: 432472}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &498784
 Transform:
   m_ObjectHideFlags: 1
@@ -1499,6 +1499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f0199b4fdf2ce541b57efb9f35ccf8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationTime: .5
 --- !u!114 &11453478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1533,7 +1534,12 @@ MonoBehaviour:
     LaserAttack:
       Damage: 100
       Missile: {fileID: 138298, guid: ed27394749916934192158bc500664b9, type: 2}
-      MissileLifetime: 1
+      MissileLifetime: 5
+    MindControl:
+      RayMask:
+        serializedVersion: 2
+        m_Bits: 20992
+      RayLength: 20
   IsMoving: 0
 --- !u!136 &13617540
 CapsuleCollider:

@@ -4,10 +4,12 @@ using System.Collections;
 public class SpawnInWallCheker : MonoBehaviour
 {
     private PlayerController _pc;
+    private EnemyGuardAI _guard;
 
     void Start()
     {
         _pc = GetComponentInParent<PlayerController>();
+        _guard = GetComponentInParent<EnemyGuardAI>();
     }
 
     void OnTriggerStay(Collider other)
@@ -17,7 +19,10 @@ public class SpawnInWallCheker : MonoBehaviour
             if (IsInvoking("UpdateSpawnInWall"))
                 CancelInvoke("UpdateSpawnInWall");
 
-            _pc.SpawnInWall = true;
+            if (_pc)
+                _pc.SpawnInWall = true;
+            else
+                _guard.SpawnInWall = true;
 
             Invoke("UpdateSpawnInWall", Time.deltaTime + .05f);
         }
@@ -25,6 +30,9 @@ public class SpawnInWallCheker : MonoBehaviour
 
     void UpdateSpawnInWall()
     {
-        _pc.SpawnInWall = false;
+        if (_pc)
+            _pc.SpawnInWall = false;
+        else
+            _guard.SpawnInWall = false;
     }
 }

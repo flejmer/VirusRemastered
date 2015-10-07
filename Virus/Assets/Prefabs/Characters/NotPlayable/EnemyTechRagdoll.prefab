@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b862a1a5d370bb74baf82cdcb5e0e08f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RayMask:
+  MindControlRayMask:
     serializedVersion: 2
     m_Bits: 2048
   Burst: {fileID: 196780, guid: ee557bb371ebe1f40a4405cf9bf3c8b8, type: 2}

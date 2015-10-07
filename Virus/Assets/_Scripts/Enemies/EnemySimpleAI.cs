@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class EnemySimpleAI : MonoBehaviour
 {
-    public LayerMask RayMask;
+    public LayerMask MindControlRayMask;
     public GameObject Burst;
 
     [SerializeField]

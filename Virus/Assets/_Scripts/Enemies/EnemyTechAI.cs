@@ -174,7 +174,7 @@ public class EnemyTechAI : EnemySimpleAI
                 var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit, 30, RayMask))
+                if (Physics.Raycast(ray, out hit, 30, MindControlRayMask))
                 {
                     if (leftClick)
                     {
