@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
 
     private bool _hacking;
 
+    private HealthEnergyManager _heManager;
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
         _anim = GetComponentInChildren<Animator>();
         _shield = GetComponentInChildren<ShieldController>();
+        _heManager = GetComponent<HealthEnergyManager>();
     }
 
 
@@ -86,6 +89,12 @@ public class PlayerController : MonoBehaviour
     {
         Shooting();
         Interaction();
+
+        if (_heManager.GetHealth() <= 0)
+        {
+            Debug.Log("PlayerDead");
+
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -131,6 +140,11 @@ public class PlayerController : MonoBehaviour
         if (_anim != null)
             Animations(vertical, horizontal);
 
+    }
+
+    public void RemoveHealth(float amount)
+    {
+        _heManager.RemoveHp(amount);
     }
 
     void Interaction()

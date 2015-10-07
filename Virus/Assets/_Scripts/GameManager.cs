@@ -109,9 +109,9 @@ public class GameManager : MonoBehaviour
         return Instance._player;
     }
 
-    public static void DamagePlayerFromDirection(GameObject hitObj, int i, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)
+    public static void DamagePlayerFromDirection(GameObject hitObj, float amount, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)
     {
-
+        GetPlayer().RemoveHealth(20);
     }
 
     public static void AddEnemy(EnemySimpleAI enemy)

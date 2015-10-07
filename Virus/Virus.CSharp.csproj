@@ -74,7 +74,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DoorDownController.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
     <Compile Include="Assets\_Scenes\SuicideController.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
@@ -94,8 +93,10 @@
     <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\ConnectionLine.cs" />
+    <Compile Include="Assets\_Scripts\Environment\DoorDownController.cs" />
     <Compile Include="Assets\_Scripts\Environment\HealingCenter\HealingCenter.cs" />
     <Compile Include="Assets\_Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\HealthEnergyManager.cs" />
     <Compile Include="Assets\_Scripts\Loader.cs" />
     <Compile Include="Assets\_Scripts\MenuController.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
