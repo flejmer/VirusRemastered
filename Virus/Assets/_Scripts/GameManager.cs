@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 
 
 public class GameManager : MonoBehaviour
@@ -39,35 +40,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("computers = " + _computersList.Count);
-
-
-            if (_player == null)
-            {
-                Debug.Log("player = null");
-            }
-            else
-            {
-                Debug.Log("player = " + _player.name);
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (_player != null)
-            {
-
-                Debug.Log("Comps in range = " + GetComputersInPlayerInterRange(_player).Count + " Comps in buff = " + GetComputersInPlayerBuffArea(_player).Count);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Application.LoadLevel("TestingScene");
-        }
     }
 
     public static bool IsInstanceNull()
@@ -147,6 +119,39 @@ public class GameManager : MonoBehaviour
             Instance._enemiesList.Remove(enemy);
 
             RemoveAllComputersInEnemyInterRange(enemy);
+        }
+    }
+
+    public static void DamageEnemy(GameObject enemyGo, float amount)
+    {
+        DamageEnemyFromDirection(enemyGo, amount, Vector3.forward, Vector3.forward, new LayerMask(), null);
+    }
+
+    public static void DamageEnemyFromDirection(GameObject enemyHit, float amount, Vector3 point, Vector3 dir, LayerMask layer, GameObject whoFired)
+    {
+        foreach (var enemy in Instance._enemiesList)
+        {
+            if (!enemy.gameObject.Equals(enemyHit)) continue;
+            if (enemy.gameObject.Equals(whoFired)) return;
+
+
+            if (whoFired.CompareTag("EnemyGuard"))
+            {
+                var guardWhoFired = whoFired.GetComponent<EnemySimpleAI>();
+
+                if (((enemy.PlayerControlled && !guardWhoFired.PlayerControlled) && (!enemy.PlayerControlled && guardWhoFired.PlayerControlled)))
+                {
+                    return;
+                }
+
+
+            }
+
+            enemy.RemoveHp(amount);
+            enemy.HitPoint(point, dir, 1000, layer);
+            enemy.GotHitBy(whoFired);
+
+            return;
         }
     }
 

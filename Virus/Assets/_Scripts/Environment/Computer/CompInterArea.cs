@@ -23,7 +23,7 @@ public class CompInterArea : MonoBehaviour
 
             foreach (var mrender in _ccMesh)
             {
-                mrender.material.color = _originalColor + Color.white/4;
+                mrender.material.color = _originalColor + Color.white / 4;
             }
 
         }
@@ -33,23 +33,22 @@ public class CompInterArea : MonoBehaviour
             var enemy = other.gameObject.GetComponent<EnemySimpleAI>();
             GameManager.AddComputerInEnemyInterRange(enemy, _cc);
         }
-        
+
     }
 
     void OnTriggerExit(Collider other)
     {
-        //TODO: do it better?
-        if (!_cc.IsHacked)
-        {
-            if (_cc.IsHackInProgress)
-            {
-                _cc.StopHacking();
-                _cc.StartDehacking();
-            }
-        }
-
         if (other.CompareTag("Player"))
         {
+            if (!_cc.IsHacked)
+            {
+                if (_cc.IsHackInProgress)
+                {
+                    _cc.StopHacking();
+                    _cc.StartDehacking();
+                }
+            }
+
             GameManager.RemoveComputerInPlayerInterRange(GameManager.GetPlayer(), _cc);
 
             foreach (var mrender in _ccMesh)

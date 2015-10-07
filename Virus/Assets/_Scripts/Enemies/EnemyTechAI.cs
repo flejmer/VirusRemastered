@@ -124,7 +124,7 @@ public class EnemyTechAI : EnemySimpleAI
             _anim.SetBool("Running", false);
             Agent.Stop();
 
-            if (!_targetComputer.IsDehackInProgress)
+            if (!_targetComputer.IsDehackInProgress && _targetComputer.IsHacked)
             {
                 _targetComputer.StopHacking();
                 _targetComputer.StartDehacking();
@@ -269,11 +269,17 @@ public class EnemyTechAI : EnemySimpleAI
     {
         Debug.Log("tech taken");
         _targetComputer = null;
+        PlayerControlled = true;
 
         _anim.SetBool("Running", false);
         Agent.Resume();
         Agent.SetDestination(transform.position);
 
         _enemyState = Enums.EnemyTechStates.PlayerControlled;
+    }
+
+    public override void GotHitBy(GameObject shooter)
+    {
+        //nothing
     }
 }

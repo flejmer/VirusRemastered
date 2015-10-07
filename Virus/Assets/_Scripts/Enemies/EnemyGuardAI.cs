@@ -23,7 +23,7 @@ public class EnemyGuardAI : EnemySimpleAI
     private bool _targetClose;
     private bool _canFadeAway;
 
-    public bool PlayerControlled { get; private set; }
+
 
     private RagdollController _ragdoll;
 
@@ -133,14 +133,37 @@ public class EnemyGuardAI : EnemySimpleAI
         _canFire = true;
     }
 
-    void AI()
+    private void AI()
     {
+        if (HealthPoints <= (MaxHpPoints*.2f))
+        {
+            if (!_enemyState.Equals(Enums.EnemyGuardStates.Dead))
+            {
+                if (HealthPoints <= 0)
+                {
+                    _enemyState = Enums.EnemyGuardStates.Dead;
+
+                }
+                else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) &&
+                         !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) &&
+                         !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
+                {
+                    var randInCircle = Random.insideUnitCircle*3;
+                    var position = GameManager.GetClosestHealingCenter(gameObject).transform.position +
+                                   new Vector3(randInCircle.x, 0, randInCircle.y);
+
+                    Agent.SetDestination(position);
+                    _enemyState = Enums.EnemyGuardStates.RunAway;
+                }
+            }
+        }
+
         if (_enemyState.Equals(Enums.EnemyGuardStates.Idle))
         {
             _anim.SetBool("Aiming", false);
 
-//            if (Target != null)
-//                _enemyState = Enums.EnemyGuardStates.Chase;
+            //            if (Target != null)
+            //                _enemyState = Enums.EnemyGuardStates.Chase;
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Chase))
         {
@@ -163,7 +186,9 @@ public class EnemyGuardAI : EnemySimpleAI
                 {
                     Target = null;
 
-                    _enemyState = PlayerControlled ? Enums.EnemyGuardStates.PlayerControlled : Enums.EnemyGuardStates.Idle;
+                    _enemyState = PlayerControlled
+                        ? Enums.EnemyGuardStates.PlayerControlled
+                        : Enums.EnemyGuardStates.Idle;
 
                     Agent.SetDestination(transform.position);
                     Agent.Resume();
@@ -174,7 +199,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (_canFire)
             {
-                var instance = (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
+                var instance = (GameObject) Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
                 instance.GetComponent<ProjectileDir>().WhoFired = gameObject;
 
                 Destroy(instance, 5);
@@ -243,8 +268,15 @@ public class EnemyGuardAI : EnemySimpleAI
             {
                 RemoveHp(1000);
 
-                var instance = (GameObject)Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
+                var instance =
+                    (GameObject) Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
                 var script = instance.GetComponent<SuicideController>();
+
+                if (!_ragdoll.RagdollActivated)
+                {
+                    _collider.enabled = false;
+                    _ragdoll.ActivateRagdoll();
+                }
 
                 script.Burst();
                 Destroy(instance, 3);
@@ -278,7 +310,7 @@ public class EnemyGuardAI : EnemySimpleAI
                     newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
                     fadeTime = 5;
                 }
-                transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime*Time.deltaTime);
 
                 if (!_canFadeAway)
                     Invoke("EnableFade", 3);
@@ -307,29 +339,8 @@ public class EnemyGuardAI : EnemySimpleAI
                 {
                     var newPosition = new Vector3(transform.position.x, -1, transform.position.z);
 
-                    transform.position = Vector3.Lerp(transform.position, newPosition, .15f * Time.deltaTime);
+                    transform.position = Vector3.Lerp(transform.position, newPosition, .15f*Time.deltaTime);
                     Agent.enabled = false;
-                }
-            }
-        }
-
-
-        if (HealthPoints <= (MaxHpPoints * .2f))
-        {
-            if (!_enemyState.Equals(Enums.EnemyGuardStates.Dead))
-            {
-                if (HealthPoints <= 0)
-                {
-                    _enemyState = Enums.EnemyGuardStates.Dead;
-
-                }
-                else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) && !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
-                {
-                    var randInCircle = Random.insideUnitCircle * 3;
-                    var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
-
-                    Agent.SetDestination(position);
-                    _enemyState = Enums.EnemyGuardStates.RunAway;
                 }
             }
         }
@@ -387,6 +398,26 @@ public class EnemyGuardAI : EnemySimpleAI
 
             }
         }
+    }
+
+    public override void GotHitBy(GameObject shooter)
+    {
+        if (shooter.CompareTag("EnemyGuard"))
+        {
+            Target = shooter;
+            _enemyState = Enums.EnemyGuardStates.Chase;
+        }
+        else
+        {
+            
+            if (Target.Equals(null))
+            {
+                Target = shooter;
+                _enemyState = Enums.EnemyGuardStates.Chase;
+            }
+
+        }
+
     }
 
     public override void TakeOver()

@@ -139,7 +139,10 @@ public class PlayerController : MonoBehaviour
 
             foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => !computer.IsHacked))
             {
-                if (computer.IsDehackInProgress) continue;
+                if (computer.IsDehackInProgress)
+                {
+                    continue;
+                }
 
                 computer.StartHacking(this);
                 _hacking = true;

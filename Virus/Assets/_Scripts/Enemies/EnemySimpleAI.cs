@@ -14,6 +14,8 @@ public abstract class EnemySimpleAI : MonoBehaviour
 
     public float HealthPoints{ get { return _hpPoints; }}
 
+    public bool PlayerControlled { get; protected set; }
+
     protected NavMeshAgent Agent;
 
     private List<SkinnedMeshRenderer> _mesh;
@@ -72,4 +74,5 @@ public abstract class EnemySimpleAI : MonoBehaviour
     }
 
     public abstract void TakeOver();
+    public abstract void GotHitBy(GameObject shooter);
 }

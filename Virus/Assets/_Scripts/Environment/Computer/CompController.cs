@@ -58,11 +58,17 @@ public class CompController : DelayedActivation
     {
         if (_hackInProgress || _dehackInProgress)
         {
-            int light = (int) (GetActivationProgress()*10/2);
+            var light1 = (int) (GetActivationProgress()*10/2);
+            var i = 0;
 
-            for (int i = 0; i < _lights.Count; i++)
+            if (_dehackInProgress && !(GetActivationProgress() <= 0))
             {
-                if (light > 0)
+                light1++;
+            }
+
+            while (i < _lights.Count)
+            {
+                if (light1 > 0)
                 {
                     _lights[i].enabled = true;
                     _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
@@ -72,7 +78,9 @@ public class CompController : DelayedActivation
                     _lights[i].enabled = false;
                     _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], false, null);
                 }
-                light--;
+
+                i++;
+                light1--;
             }
         }
 
