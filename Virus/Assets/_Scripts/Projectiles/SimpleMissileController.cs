@@ -24,7 +24,7 @@ public class SimpleMissileController : ProjectileDir
     {
         var hitObj = hit.transform.gameObject;
 
-//        Debug.Log(hitObj.tag);
+        //        Debug.Log(hitObj.tag);
 
         if (hitObj.CompareTag("Player"))
         {
@@ -34,16 +34,18 @@ public class SimpleMissileController : ProjectileDir
             }
             else
             {
-                Bouncy = !Bouncy;
+                if (Bouncy)
+                    Bouncy = !Bouncy;
                 GameManager.DamagePlayerFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);
             }
-            
+
         }
         else if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
         {
 
             GameManager.DamageEnemyFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);
-            Bouncy = !Bouncy;
+            if (Bouncy)
+                Bouncy = !Bouncy;
         }
     }
 

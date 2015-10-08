@@ -137,7 +137,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 152064
-  Bouncy: 1
+  Bouncy: 0
   MaxBounces: 4
   WhoFired: {fileID: 0}
 --- !u!120 &12015246
@@ -1243,7 +1243,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: bbe34cd53e9d5df499355f27fffebc9f, type: 2}
+  - {fileID: 2100000, guid: c50d77affeb31e14c9c062c282f13fc8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1284,6 +1284,14 @@ Prefab:
       propertyPath: LayerMask.m_Bits
       value: 152064
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Bouncy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c50d77affeb31e14c9c062c282f13fc8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155564}

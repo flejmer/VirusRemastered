@@ -137,7 +137,7 @@ MonoBehaviour:
   LayerMask:
     serializedVersion: 2
     m_Bits: 152320
-  Bouncy: 1
+  Bouncy: 0
   MaxBounces: 4
   WhoFired: {fileID: 0}
 --- !u!120 &12004300
@@ -1283,6 +1283,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: LayerMask.m_Bits
       value: 152320
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Bouncy
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

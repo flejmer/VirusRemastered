@@ -58,7 +58,7 @@ public class CompController : DelayedActivation
     {
         if (_hackInProgress || _dehackInProgress)
         {
-            var light1 = (int) (GetActivationProgress()*10/2);
+            var light1 = (int)(GetActivationProgress() * 10 / 2);
             var i = 0;
 
             if (_dehackInProgress && !(GetActivationProgress() <= 0))
@@ -83,17 +83,6 @@ public class CompController : DelayedActivation
                 light1--;
             }
         }
-
-//        if (Input.GetKeyDown(KeyCode.P))
-//        {
-//            Debug.Log(_lights.Count + " " + _halos.Count);
-//
-//            for (int i = 0; i < _lights.Count; i++)
-//            {
-//                _lights[i].enabled = true;
-//                _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], true, null);
-//            }
-//        }
     }
 
     public Vector3 GetHackPosition()
@@ -141,7 +130,14 @@ public class CompController : DelayedActivation
         StartActivation(duration);
 
         _line.SetDestination(player.transform);
-        _line.AnimateLine(Enums.AnimType.FromOriginToDestination, duration);
+
+        duration = duration * (1 - GetActivationProgress());
+
+        if (GameManager.IsPlayerInComputerBuffArea(this))
+        {
+            _line.AnimateLine(Enums.AnimType.FromOriginToDestination, duration);
+        }
+        
     }
 
     public void StopHacking()
@@ -163,7 +159,7 @@ public class CompController : DelayedActivation
 
     public void StartDehacking(float duration)
     {
-        if(GetActivationProgress() <= 0) return;
+        if (GetActivationProgress() <= 0) return;
 
         _dehackInProgress = true;
         StartDeactivation(duration);

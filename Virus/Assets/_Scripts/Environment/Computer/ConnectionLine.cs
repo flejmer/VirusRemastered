@@ -79,7 +79,7 @@ public class ConnectionLine : DelayedActivation
 
     public void AnimateLine(Enums.AnimType type)
     {
-        AnimateLine(type, _defaultDuration);
+        AnimateLine(type, DefaultDuration);
     }
 
     public void AnimateLine(Enums.AnimType type, float duration)

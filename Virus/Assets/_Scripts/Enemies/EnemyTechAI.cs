@@ -56,6 +56,12 @@ public class EnemyTechAI : EnemySimpleAI
                 {
                     _enemyState = Enums.EnemyTechStates.Dead;
 
+                    if (_targetComputer != null && _targetComputer.IsDehackInProgress)
+                    {
+                        _targetComputer.StopDehacking();
+                        _targetComputer.StartHacking(GameManager.GetPlayer());
+                    }
+
                 }
                 else if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
@@ -249,6 +255,12 @@ public class EnemyTechAI : EnemySimpleAI
         if (!(HealthPoints <= 0)) return;
 
         _enemyState = Enums.EnemyTechStates.Dead;
+
+        if (_targetComputer != null && _targetComputer.IsDehackInProgress)
+        {
+            _targetComputer.StopDehacking();
+            _targetComputer.StartHacking(GameManager.GetPlayer());
+        }
 
         if (_ragdoll)
         {

@@ -26,28 +26,18 @@ public class Laser : MonoBehaviour
 
     public void FireLaser()
     {
-        var direction = MissleSpawnPoint.forward.normalized;
-
+        var direction = MissleSpawnPoint.forward;
         MoveDir = direction;
-
-        direction = new Vector3(direction.x, direction.y, direction.z);
 
         var pos1 = MissleSpawnPoint.position;
         var pos2 = MissleSpawnPoint.TransformPoint(2, 0, 0);
         var pos3 = MissleSpawnPoint.TransformPoint(-2, 0, 0);
 
+        var hits1 = Physics.RaycastAll(pos1, MissleSpawnPoint.forward, _rayRange, Mask);
+        var hits2 = Physics.RaycastAll(pos2, MissleSpawnPoint.forward, _rayRange, Mask);
+        var hits3 = Physics.RaycastAll(pos3, MissleSpawnPoint.forward, _rayRange, Mask);
 
-        Debug.DrawRay(pos1, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
-        Debug.DrawRay(pos2, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
-        Debug.DrawRay(pos3, MissleSpawnPoint.forward * _rayRange, Color.black, 1);
-
-        RaycastHit[] hits1 = Physics.RaycastAll(pos1, MissleSpawnPoint.forward, _rayRange, Mask);
-        RaycastHit[] hits2 = Physics.RaycastAll(pos2, MissleSpawnPoint.forward, _rayRange, Mask);
-        RaycastHit[] hits3 = Physics.RaycastAll(pos3, MissleSpawnPoint.forward, _rayRange, Mask);
-
-
-        Vector3 endPoint = new Vector3();
-
+        var endPoint = new Vector3();
         var hitList = new List<RayhitObj>();
 
         if (hits1.Length > 0 || hits2.Length > 0 || hits3.Length > 0)
@@ -181,7 +171,7 @@ public class Laser : MonoBehaviour
 
     IEnumerator WidthFade()
     {
-        while (_lineRendWidth != 0)
+        while (_lineRendWidth >= 0)
         {
             _lineRendWidth = Mathf.Lerp(_lineRendWidth, 0, Time.deltaTime * DrawSpeed / 10);
             _lineRend.SetWidth(_lineRendWidth, _lineRendWidth);

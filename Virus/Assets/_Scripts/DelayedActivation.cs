@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DelayedActivation : MonoBehaviour
 {
-    protected float _defaultDuration = 1;
+    protected float DefaultDuration = 1;
 
     private bool _activationInProgress;
     private bool _deactivationInProgress;
@@ -25,7 +25,7 @@ public class DelayedActivation : MonoBehaviour
     public void SetActivationDuration(float duration)
     {
         if (duration >= 0)
-            _defaultDuration = duration;
+            DefaultDuration = duration;
     }
 
     protected float GetActivationProgress()
@@ -52,29 +52,9 @@ public class DelayedActivation : MonoBehaviour
             OnDeactivationFinished -= DeactivationFinished;
     }
 
-    protected void ActivationStarted()
-    {
-        _activationInProgress = true;
-    }
-
-    protected void ActivationFinished()
-    {
-        _progressionFloat = 1;
-    }
-
-    protected void DeactivationStarted()
-    {
-        _deactivationInProgress = true;
-    }
-
-    protected void DeactivationFinished()
-    {
-        _progressionFloat = 0;
-    }
-
     public void StartActivation()
     {
-        StartActivation(_defaultDuration);
+        StartActivation(DefaultDuration);
     }
 
     public void StartActivation(float duration)
@@ -103,7 +83,7 @@ public class DelayedActivation : MonoBehaviour
 
     public void StartDeactivation()
     {
-        StartDeactivation(_defaultDuration);
+        StartDeactivation(DefaultDuration);
     }
 
     public void StartDeactivation(float duration)
@@ -164,5 +144,25 @@ public class DelayedActivation : MonoBehaviour
 
         if (OnDeactivationFinished != null)
             OnDeactivationFinished();
+    }
+
+    protected void ActivationStarted()
+    {
+        _activationInProgress = true;
+    }
+
+    protected void ActivationFinished()
+    {
+        _progressionFloat = 1;
+    }
+
+    protected void DeactivationStarted()
+    {
+        _deactivationInProgress = true;
+    }
+
+    protected void DeactivationFinished()
+    {
+        _progressionFloat = 0;
     }
 }

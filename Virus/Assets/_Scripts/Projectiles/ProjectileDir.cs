@@ -11,8 +11,10 @@ public abstract class ProjectileDir : MonoBehaviour
 
     public bool Bouncy = false;
     public int MaxBounces = 3;
-    private int _bouncesCount;
 
+    public GameObject WhoFired;
+
+    private int _bouncesCount;
     private Vector3 _moveDir = Vector3.forward;
 
     private Rigidbody _rBody;
@@ -21,8 +23,6 @@ public abstract class ProjectileDir : MonoBehaviour
     private float _partialExtent;
 
     private Vector3 _previousPosition;
-
-    public GameObject WhoFired;
 
     public Vector3 MoveDir
     {
@@ -45,6 +45,8 @@ public abstract class ProjectileDir : MonoBehaviour
         ProjectilePhysicsStep();
     }
 
+    protected abstract void InteractionOnHit(RaycastHit hit);
+
     protected void InitializeProjectile()
     {
         _rBody = GetComponent<Rigidbody>();
@@ -59,14 +61,17 @@ public abstract class ProjectileDir : MonoBehaviour
         transform.Translate(_moveDir * MissileSpeed * Time.deltaTime, transform);
         var movementThisStep = _rBody.position - _previousPosition;
 
-        //MoveDir * Time.deltaTime * MissileSpeed
         SendCollisionRay(movementThisStep);
         _previousPosition = _rBody.position;
     }
 
-    protected abstract void InteractionOnHit(RaycastHit hit);
+    protected virtual void StopProjectile(Vector3 position)
+    {
+        transform.position = position;
+        MoveDir = Vector3.zero;
+        _collid.enabled = false;
+    }
 
-    //TODO: Time.deltaTime * MissileSpeed;
     void SendCollisionRay(Vector3 movement)
     {
         RaycastHit hit;
@@ -91,8 +96,7 @@ public abstract class ProjectileDir : MonoBehaviour
     void BounceOff(RaycastHit hit)
     {
         var reflected = Vector3.Reflect((hit.point - transform.position).normalized, hit.normal);
-
-        Quaternion lookAt = !reflected.Equals(Vector3.zero) ? Quaternion.LookRotation(reflected) : Quaternion.Inverse(transform.rotation);
+        var lookAt = !reflected.Equals(Vector3.zero) ? Quaternion.LookRotation(reflected) : Quaternion.Inverse(transform.rotation);
 
         transform.position = hit.point;
         transform.rotation = lookAt;
@@ -108,12 +112,5 @@ public abstract class ProjectileDir : MonoBehaviour
         _bouncesCount++;
 
         SendCollisionRay(MoveDir * Time.deltaTime * MissileSpeed);
-    }
-
-    protected virtual void StopProjectile(Vector3 position)
-    {
-        transform.position = position;
-        MoveDir = Vector3.zero;
-        _collid.enabled = false;
     }
 }

@@ -309,6 +309,14 @@ public class GameManager : MonoBehaviour
         RemoveComputerInPlayerBuffArea(null, comp);
     }
 
+    public static bool IsPlayerInComputerBuffArea(CompController comp)
+    {
+        List<CompController> compsInBuffAreaForPlayer;
+        Instance._computersInPlayerBuffArea.TryGetValue(GetPlayer(), out compsInBuffAreaForPlayer);
+
+        return compsInBuffAreaForPlayer != null && compsInBuffAreaForPlayer.Contains(comp);
+    }
+
     public static void RemoveComputerInPlayerBuffArea(PlayerController player, CompController comp)
     {
         if (player == null)
