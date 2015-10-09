@@ -75,7 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\LogoEnter.cs" />
-    <Compile Include="Assets\_Scenes\SuicideController.cs" />
+    <Compile Include="Assets\SkillsPanelController.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -83,22 +83,30 @@
     <Compile Include="Assets\_Scripts\Cyperspace\InteractionNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\Node.cs" />
     <Compile Include="Assets\_Scripts\Debug\DebugDraw.cs" />
-    <Compile Include="Assets\_Scripts\DelayedActivation.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyGuardAI.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemySimpleAI.cs" />
     <Compile Include="Assets\_Scripts\Enemies\EnemyTechAI.cs" />
     <Compile Include="Assets\_Scripts\Enemies\RagdollController.cs" />
-    <Compile Include="Assets\_Scripts\Enums.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompBuffRange.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\ConnectionLine.cs" />
     <Compile Include="Assets\_Scripts\Environment\DoorDownController.cs" />
     <Compile Include="Assets\_Scripts\Environment\HealingCenter\HealingCenter.cs" />
-    <Compile Include="Assets\_Scripts\GameManager.cs" />
-    <Compile Include="Assets\_Scripts\HealthEnergyManager.cs" />
-    <Compile Include="Assets\_Scripts\Loader.cs" />
-    <Compile Include="Assets\_Scripts\MenuController.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\DelayedActivation.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\Enums.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\GameManager.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\HealthEnergyManager.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\Loader.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\MenuController.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\RayHitObj.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\SuicideController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GUIController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\EnergyBarActivator.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\GameUI.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\HealthBarActivator.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\MStatusElement.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\TutElement.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Player\ShieldController.cs" />
     <Compile Include="Assets\_Scripts\Player\SpawnInWallCheker.cs" />
@@ -106,7 +114,6 @@
     <Compile Include="Assets\_Scripts\Projectiles\Laser.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />
-    <Compile Include="Assets\_Scripts\RayHitObj.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\ClockScript.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\DelegateTests.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\SomeScript.cs" />

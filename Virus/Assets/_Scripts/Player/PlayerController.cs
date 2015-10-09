@@ -49,6 +49,13 @@ public class PlayerController : MonoBehaviour
     public ProjectilesProperties ProjectilesProperties;
 
     public bool SpawnInWall { get; set; }
+
+    public bool LaserUnlocked { get; private set; }
+    public bool MindControlUnlocked { get; private set; }
+    public bool ShieldUnlocked { get; private set; }
+    public bool SlowMotionUnlocked { get; private set; }
+    public bool HologramUnlocked { get; private set; }
+
     public bool ShieldActivated { get { return _shield.ShieldActivated; }  }
     public bool IsMoving;
 
@@ -89,12 +96,6 @@ public class PlayerController : MonoBehaviour
     {
         Shooting();
         Interaction();
-
-        if (_heManager.GetHealth() <= 0)
-        {
-            Debug.Log("PlayerDead");
-
-        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -140,6 +141,31 @@ public class PlayerController : MonoBehaviour
         if (_anim != null)
             Animations(vertical, horizontal);
 
+    }
+
+    public void UnlockLaser()
+    {
+        LaserUnlocked = true;
+    }
+
+    public void UnlockMindControl()
+    {
+        MindControlUnlocked = true;
+    }
+
+    public void UnlockShield()
+    {
+        ShieldUnlocked = true;
+    }
+
+    public void UnlockSlowMotion()
+    {
+        SlowMotionUnlocked = true;
+    }
+
+    public void UnlockHologram()
+    {
+        HologramUnlocked = true;
     }
 
     public void RemoveHealth(float amount)
@@ -332,5 +358,15 @@ public class PlayerController : MonoBehaviour
     void Aiming()
     {
         _anim.SetBool("Aiming", false);
+    }
+
+    public float GetHealth()
+    {
+        return _heManager.GetHealth();
+    }
+
+    public float GetEnergy()
+    {
+        return _heManager.GetEnergy();
     }
 }
