@@ -29,8 +29,6 @@ public class GameUI : MonoBehaviour
         {
             tutorialElement.gameObject.SetActive(false);
         }
-
-        _skillsPanelController.UpdateAll();
     }
 
     void Update()
@@ -40,7 +38,7 @@ public class GameUI : MonoBehaviour
         UpdateHealth();
         UpdateEnergy();
 
-
+        _skillsPanelController.UpdateAll();
     }
 
     public void ActivateTutorial()

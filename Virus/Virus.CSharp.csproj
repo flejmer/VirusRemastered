@@ -75,7 +75,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\LogoEnter.cs" />
-    <Compile Include="Assets\SkillsPanelController.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -106,6 +105,7 @@
     <Compile Include="Assets\_Scripts\Gui\GameUI\GameUI.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\HealthBarActivator.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\MStatusElement.cs" />
+    <Compile Include="Assets\_Scripts\Gui\GameUI\SkillsPanelController.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\TutElement.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Player\ShieldController.cs" />
