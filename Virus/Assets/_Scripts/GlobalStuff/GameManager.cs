@@ -7,7 +7,9 @@ using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager Instance;
+    public Enums.GameStates GameState = Enums.GameStates.MainMenu;
+
+    public static GameManager Instance { get; private set; }
 
     private PlayerController _player;
 
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
-        Debug.Log("level loaded " + level);
+        GUIController.StartGame();
     }
 
     void Update()

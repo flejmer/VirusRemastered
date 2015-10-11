@@ -97,8 +97,8 @@
     <Compile Include="Assets\_Scripts\GlobalStuff\GameManager.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\HealthEnergyManager.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\Loader.cs" />
-    <Compile Include="Assets\_Scripts\GlobalStuff\MenuController.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\RayHitObj.cs" />
+    <Compile Include="Assets\_Scripts\GlobalStuff\SoundManager.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\SuicideController.cs" />
     <Compile Include="Assets\_Scripts\Gui\GUIController.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\EnergyBarActivator.cs" />
@@ -107,6 +107,13 @@
     <Compile Include="Assets\_Scripts\Gui\GameUI\MStatusElement.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\SkillsPanelController.cs" />
     <Compile Include="Assets\_Scripts\Gui\GameUI\TutElement.cs" />
+    <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseMenuController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseScreen.cs" />
+    <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseSettingsController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\StartScreen\MenuController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\StartScreen\SettingsController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\StartScreen\StartScreen.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Player\ShieldController.cs" />
     <Compile Include="Assets\_Scripts\Player\SpawnInWallCheker.cs" />

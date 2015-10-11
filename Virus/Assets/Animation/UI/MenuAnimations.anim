@@ -255,16 +255,16 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 700
-        inSlope: -933.333313
-        outSlope: -933.333313
+        value: 800
+        inSlope: -1066.66663
+        outSlope: -1066.66663
         tangentMode: 10
       - time: .75
         value: 0
-        inSlope: -933.333313
+        inSlope: -1066.66663
         outSlope: -471.773468
         tangentMode: 5
-      - time: 1.25
+      - time: 1
         value: 0
         inSlope: -25.9614468
         outSlope: -25.9614468
@@ -279,11 +279,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1.25
         value: 0
         inSlope: 0
         outSlope: 0
@@ -324,7 +319,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -343,16 +338,16 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 700
-        inSlope: -933.333313
-        outSlope: -933.333313
+        value: 800
+        inSlope: -1066.66663
+        outSlope: -1066.66663
         tangentMode: 10
       - time: .75
         value: 0
-        inSlope: -933.333313
+        inSlope: -1066.66663
         outSlope: -471.773468
         tangentMode: 5
-      - time: 1.25
+      - time: 1
         value: 0
         inSlope: -25.9614468
         outSlope: -25.9614468
@@ -360,25 +355,6 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_AnchoredPosition.x
-    path: 
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1.25
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_SizeDelta.x
     path: 
     classID: 224
     script: {fileID: 0}
@@ -1335,6 +1311,20 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalRotation.w
+    path: 
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_SizeDelta.x
     path: 
     classID: 224
     script: {fileID: 0}

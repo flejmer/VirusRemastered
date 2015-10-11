@@ -4,6 +4,21 @@ using System.Collections;
 
 public class Enums : MonoBehaviour
 {
+    public enum PlayerStates
+    {
+        RealWorld,
+        Cyberspace,
+        MindControlling
+    }
+
+    public enum GameStates
+    {
+        MainMenu,
+        GamePlay,
+        Popup,
+        Pause
+    }
+
     public enum EnemyGuardStates
     {
         Idle,
