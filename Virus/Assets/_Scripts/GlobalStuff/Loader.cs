@@ -4,20 +4,25 @@ using System.Collections.Generic;
 
 public class Loader : MonoBehaviour
 {
-    public GameObject gameManager;			//GameManager prefab to instantiate.
-//    public GameObject soundManager;			//SoundManager prefab to instantiate.
-
+    public GameObject GameMan;
+    public GameManager SoundMan;
+    public GameObject GuiMan;
 
     void Awake()
     {
         if (GameManager.IsInstanceNull())
         {
-            Instantiate(gameManager);
+            Instantiate(GameMan);
         }
 
-        //        if (SoundManager.Instance == null)
-        //        {
-        //            Instantiate(soundManager);
-        //        }
+        if (GUIController.IsInstanceNull())
+        {
+            Instantiate(GuiMan);
+        }
+
+        if (SoundManager.Instance == null)
+        {
+//            Instantiate(SoundMan);
+        }
     }
 }

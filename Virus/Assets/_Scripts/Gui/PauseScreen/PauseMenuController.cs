@@ -3,16 +3,17 @@ using System.Collections;
 
 public class PauseMenuController : MonoBehaviour
 {
-
-    // Use this for initialization
-    void Start()
+    public void ResumeGame()
     {
-
+        GUIController.PauseScreenDeactivate();
+        Time.timeScale = 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ExitToMenu()
     {
+        GUIController.PauseScreenDeactivate();
+        Time.timeScale = 1;
 
+        Application.LoadLevel("Menu");
     }
 }

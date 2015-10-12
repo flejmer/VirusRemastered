@@ -14,9 +14,15 @@ public class Enums : MonoBehaviour
     public enum GameStates
     {
         MainMenu,
-        GamePlay,
-        Popup,
-        Pause
+        GamePlay
+    }
+
+    public enum InGameStates
+    {
+        Normal,
+        InitTutorial,
+        Pause,
+        Popup
     }
 
     public enum EnemyGuardStates

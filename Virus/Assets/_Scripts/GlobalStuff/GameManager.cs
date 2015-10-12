@@ -7,7 +7,11 @@ using JetBrains.Annotations;
 
 public class GameManager : MonoBehaviour
 {
-    public Enums.GameStates GameState = Enums.GameStates.MainMenu;
+    public Enums.GameStates GameState;
+
+    public Enums.InGameStates InGameState;
+
+    public bool TutorialActive { get; private set; }
 
     public static GameManager Instance { get; private set; }
 
@@ -40,13 +44,43 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        OnLevelWasLoaded(Application.loadedLevel);
+    }
+
     void OnLevelWasLoaded(int level)
     {
-        GUIController.StartGame();
+        if (level == 0)
+        {
+            GUIController.MenuScreen();
+            GameState = Enums.GameStates.MainMenu;
+        }
+        else
+        {
+            GUIController.Game();
+            GameState = Enums.GameStates.GamePlay;
+            InGameState = Enums.InGameStates.Normal;
+        }
     }
 
     void Update()
     {
+        if(!GameState.Equals(Enums.GameStates.GamePlay)) return;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!InGameState.Equals(Enums.InGameStates.Pause))
+            {
+                GUIController.PauseScreenActivate();
+                Time.timeScale = 0;
+            }
+            else
+            {
+                GUIController.PauseScreenDeactivate();
+                Time.timeScale = 1;
+            }
+        }
     }
 
     public static bool IsInstanceNull()

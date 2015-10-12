@@ -14,7 +14,6 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         Application.LoadLevel("Game01");
-//        GUIController.StartGame();
     }
 
     public void ExitGame()
