@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -116,7 +110,14 @@
     <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseMenuController.cs" />
     <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseScreen.cs" />
     <Compile Include="Assets\_Scripts\Gui\PauseScreen\PauseSettingsController.cs" />
-    <Compile Include="Assets\_Scripts\Gui\Popup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\HackingInfoPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\HologramUnlockedPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\LaserUnlockedPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\MindControlUnlockedPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\Popup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\ShieldUnlockedPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\SlowMotionUnlockedPopup.cs" />
+    <Compile Include="Assets\_Scripts\Gui\Popup\TextPopup.cs" />
     <Compile Include="Assets\_Scripts\Gui\StartScreen\MenuController.cs" />
     <Compile Include="Assets\_Scripts\Gui\StartScreen\SettingsController.cs" />
     <Compile Include="Assets\_Scripts\Gui\StartScreen\StartScreen.cs" />

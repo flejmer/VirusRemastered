@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Popup : MonoBehaviour
+public class HologramUnlockedPopup : MonoBehaviour
 {
 
     // Use this for initialization

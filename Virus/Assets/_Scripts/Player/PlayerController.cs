@@ -95,6 +95,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
+        if(GUIController.IsPopupActivated()) return;
 
         Shooting();
         Interaction();

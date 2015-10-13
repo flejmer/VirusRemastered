@@ -4,6 +4,17 @@ using System.Collections;
 
 public class Enums : MonoBehaviour
 {
+    public enum Popusp
+    {
+        Text,
+        HackingInfo,
+        LaserUnlocked,
+        MindControlUnlocked,
+        HologramUnlocked,
+        SlowMotionUnlocked,
+        ShieldUnlocked
+    }
+
     public enum PlayerStates
     {
         RealWorld,
@@ -22,7 +33,6 @@ public class Enums : MonoBehaviour
         Normal,
         InitTutorial,
         Pause,
-        Popup
     }
 
     public enum EnemyGuardStates

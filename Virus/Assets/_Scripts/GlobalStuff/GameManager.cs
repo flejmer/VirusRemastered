@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
             else
             {
                 GUIController.PauseScreenDeactivate();
+
+                if(GUIController.IsPopupActivated()) return;
+
                 Time.timeScale = 1;
             }
         }
