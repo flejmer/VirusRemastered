@@ -41,6 +41,7 @@ public class MindControl
 {
     public LayerMask RayMask;
     public float RayLength = 20;
+    public GameObject Missile;
 }
 
 public class PlayerController : MonoBehaviour
@@ -71,6 +72,8 @@ public class PlayerController : MonoBehaviour
 
     private HealthEnergyManager _heManager;
 
+    public Enums.PlayerStates PlayerState = Enums.PlayerStates.RealWorld;
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
@@ -96,14 +99,11 @@ public class PlayerController : MonoBehaviour
     {
         if(!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
         if(GUIController.IsPopupActivated()) return;
+        if(PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
+
 
         Shooting();
         Interaction();
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-//            _rbody.velocity = _rbody.velocity + Vector3.up * 10;
-        }
 
         if (!_hacking) return;
 
@@ -122,6 +122,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
+
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
 
@@ -272,18 +274,27 @@ public class PlayerController : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        EnemySimpleAI enemy;
 
         if (Physics.Raycast(ray, out hit, 20, ProjectilesProperties.MindControl.RayMask))
         {
             if (hit.transform.CompareTag("EnemyGuard") || hit.transform.CompareTag("EnemyTech"))
             {
-                enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
+                var enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
                 enemy.Highlight();
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    enemy.TakeOver();
+                    PlayerState = Enums.PlayerStates.MindControlling;
+
+                    var instance = (GameObject) Instantiate(ProjectilesProperties.MindControl.Missile, _missileSpawn.position,
+                        _missileSpawn.rotation);
+
+                    var script = instance.GetComponent<MindControlProjectile>();
+                    script.SetTarget(enemy);
+
+                    var cam = Camera.main.gameObject.GetComponent<CameraFollow>();
+                    cam.ChangeTarget(instance.transform);
+
                 }
             }
         }

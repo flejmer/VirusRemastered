@@ -25,6 +25,8 @@ public class CompBuffRange : MonoBehaviour
             {
                 _line.SetDestination(GameManager.GetPlayer().transform);
 
+                if(_cc.IsDehackInProgress) return;
+
                 //TODO: dynamic line animation times
                 _line.AnimateLine(Enums.AnimType.FromOriginToDestination, .25f);
             }
@@ -37,7 +39,7 @@ public class CompBuffRange : MonoBehaviour
         {
             GameManager.RemoveComputerInPlayerBuffArea(GameManager.GetPlayer(), _cc);
 
-            if (GameManager.IsComputerHacked(_cc))
+            if (GameManager.IsComputerHacked(_cc) && !_cc.IsDehackInProgress)
             {
 
 

@@ -126,6 +126,7 @@
     <Compile Include="Assets\_Scripts\Player\SpawnInWallCheker.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\FollowPath.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\Laser.cs" />
+    <Compile Include="Assets\_Scripts\Projectiles\MindControlProjectile.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\ProjectileDir.cs" />
     <Compile Include="Assets\_Scripts\Projectiles\SimpleMissileController.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\ClockScript.cs" />

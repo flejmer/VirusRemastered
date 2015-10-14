@@ -46,6 +46,16 @@ public class EnemyTechAI : EnemySimpleAI
         RotateTowards(new Vector3(_targetComputer.transform.position.x, transform.position.y, _targetComputer.transform.position.z));
     }
 
+    void BackToPlayer()
+    {
+        if (PlayerControlled)
+        {
+            var cam = Camera.main.gameObject.GetComponent<CameraFollow>();
+            cam.BackToPlayer(3);
+        }
+
+    }
+
     private void AI()
     {
         if (HealthPoints <= (MaxHpPoints * .2f))
@@ -55,6 +65,8 @@ public class EnemyTechAI : EnemySimpleAI
                 if (HealthPoints <= 0)
                 {
                     _enemyState = Enums.EnemyTechStates.Dead;
+
+                    BackToPlayer();
 
                     if (_targetComputer != null && _targetComputer.IsDehackInProgress)
                     {
@@ -255,6 +267,8 @@ public class EnemyTechAI : EnemySimpleAI
         if (!(HealthPoints <= 0)) return;
 
         _enemyState = Enums.EnemyTechStates.Dead;
+
+        BackToPlayer();
 
         if (_targetComputer != null && _targetComputer.IsDehackInProgress)
         {

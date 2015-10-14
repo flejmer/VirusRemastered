@@ -158,7 +158,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private void AI()
     {
-        if (HealthPoints <= (MaxHpPoints*.2f))
+        if (HealthPoints <= (MaxHpPoints * .2f))
         {
             if (!_enemyState.Equals(Enums.EnemyGuardStates.Dead))
             {
@@ -166,12 +166,14 @@ public class EnemyGuardAI : EnemySimpleAI
                 {
                     _enemyState = Enums.EnemyGuardStates.Dead;
 
+                    BackToPlayer();
+
                 }
                 else if (!_enemyState.Equals(Enums.EnemyGuardStates.RunAway) &&
                          !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) &&
                          !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
-                    var randInCircle = Random.insideUnitCircle*3;
+                    var randInCircle = Random.insideUnitCircle * 3;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position +
                                    new Vector3(randInCircle.x, 0, randInCircle.y);
 
@@ -222,7 +224,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (_canFire)
             {
-                var instance = (GameObject) Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
+                var instance = (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
                 instance.GetComponent<ProjectileDir>().WhoFired = gameObject;
 
                 Destroy(instance, 5);
@@ -298,7 +300,7 @@ public class EnemyGuardAI : EnemySimpleAI
                 RemoveHp(1000);
 
                 var instance =
-                    (GameObject) Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
+                    (GameObject)Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
                 var script = instance.GetComponent<SuicideController>();
 
                 if (!_ragdoll.RagdollActivated)
@@ -339,7 +341,7 @@ public class EnemyGuardAI : EnemySimpleAI
                     newPosition = new Vector3(transform.position.x, 0.5f, transform.position.z);
                     fadeTime = 5;
                 }
-                transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime*Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, newPosition, fadeTime * Time.deltaTime);
 
                 if (!_canFadeAway)
                     Invoke("EnableFade", 3);
@@ -368,7 +370,7 @@ public class EnemyGuardAI : EnemySimpleAI
                 {
                     var newPosition = new Vector3(transform.position.x, -1, transform.position.z);
 
-                    transform.position = Vector3.Lerp(transform.position, newPosition, .15f*Time.deltaTime);
+                    transform.position = Vector3.Lerp(transform.position, newPosition, .15f * Time.deltaTime);
                     Agent.enabled = false;
                 }
             }
@@ -407,11 +409,23 @@ public class EnemyGuardAI : EnemySimpleAI
         _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, 15 * Time.deltaTime);
     }
 
+    void BackToPlayer()
+    {
+        if (PlayerControlled)
+        {
+            var cam = Camera.main.gameObject.GetComponent<CameraFollow>();
+            cam.BackToPlayer(3);
+        }
+
+    }
+
     public override void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask)
     {
         if (HealthPoints <= 0)
         {
             _enemyState = Enums.EnemyGuardStates.Dead;
+
+            BackToPlayer();
 
             if (_ragdoll)
             {
@@ -434,11 +448,10 @@ public class EnemyGuardAI : EnemySimpleAI
         if (shooter.CompareTag("EnemyGuard"))
         {
             Target = shooter;
-            _enemyState = Enums.EnemyGuardStates.Chase;
         }
         else
         {
-            if(PlayerControlled) return;
+            if (PlayerControlled) return;
 
             if (Target.Equals(null))
             {
