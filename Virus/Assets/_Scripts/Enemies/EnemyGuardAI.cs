@@ -25,7 +25,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
     public bool SpawnInWall { get; set; }
 
-
+    private IEnumerator _fireRateEnumerator;
+    private bool _enumeratorRunning;
 
     private RagdollController _ragdoll;
 
@@ -38,6 +39,8 @@ public class EnemyGuardAI : EnemySimpleAI
         _gun = transform.Find("Body/Gun");
 
         _ragdoll = GetComponentInChildren<RagdollController>();
+
+        _fireRateEnumerator = CanFireAgain(RateOfFire);
     }
 
     void Update()
@@ -49,6 +52,34 @@ public class EnemyGuardAI : EnemySimpleAI
         {
             Debug.Log(_enemyState + " " + gameObject.name + " ");
         }
+    }
+
+    IEnumerator CanFireAgain(float time)
+    {
+        _enumeratorRunning = true;
+
+        yield return new WaitForSeconds(time);
+
+        _canFire = true;
+
+        _fireRateEnumerator = CanFireAgain(time);
+        _enumeratorRunning = false;
+        //        if(!PlayerControlled)
+        //            Debug.Log("call");
+    }
+
+    void StartFireRateCoroutine()
+    {
+        if (!_enumeratorRunning)
+            StartCoroutine(_fireRateEnumerator);
+    }
+
+    void CancelFireRateCoroutine()
+    {
+        _canFire = false;
+        _enumeratorRunning = false;
+        StopCoroutine(_fireRateEnumerator);
+        _fireRateEnumerator = CanFireAgain(RateOfFire);
     }
 
     void OnTriggerEnter(Collider other)
@@ -70,7 +101,8 @@ public class EnemyGuardAI : EnemySimpleAI
                 if (hit.transform.gameObject.Equals(Target))
                 {
                     _enemyState = Enums.EnemyGuardStates.Shooting;
-                    Invoke("CanFireAgain", RateOfFire / 2);
+
+                    StartFireRateCoroutine();
                 }
             }
 
@@ -107,8 +139,7 @@ public class EnemyGuardAI : EnemySimpleAI
             {
                 _enemyState = Enums.EnemyGuardStates.Chase;
 
-                _canFire = false;
-                CancelInvoke("CanFireAgain");
+                CancelFireRateCoroutine();
 
                 return;
             }
@@ -121,7 +152,8 @@ public class EnemyGuardAI : EnemySimpleAI
                     if (!hit.transform.gameObject.Equals(Target)) return;
 
                     _enemyState = Enums.EnemyGuardStates.Shooting;
-                    Invoke("CanFireAgain", RateOfFire / 2);
+
+                    StartFireRateCoroutine();
                 }
                 else
                 {
@@ -129,8 +161,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
                     _enemyState = Enums.EnemyGuardStates.Chase;
 
-                    _canFire = false;
-                    CancelInvoke("CanFireAgain");
+                    CancelFireRateCoroutine();
                 }
             }
         }
@@ -146,14 +177,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
             _enemyState = Enums.EnemyGuardStates.Chase;
 
-            _canFire = false;
-            CancelInvoke("CanFireAgain");
+            CancelFireRateCoroutine();
         }
-    }
-
-    private void CanFireAgain()
-    {
-        _canFire = true;
     }
 
     private void AI()
@@ -218,7 +243,8 @@ public class EnemyGuardAI : EnemySimpleAI
                     Agent.SetDestination(transform.position);
                     Agent.Resume();
                     _anim.SetBool("Aiming", false);
-                    CancelInvoke("CanFireAgain");
+
+                    CancelFireRateCoroutine();
                 }
             }
 
@@ -232,7 +258,8 @@ public class EnemyGuardAI : EnemySimpleAI
                 _anim.SetTrigger("FireGun");
 
                 _canFire = false;
-                Invoke("CanFireAgain", RateOfFire);
+
+                StartFireRateCoroutine();
             }
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
@@ -473,7 +500,8 @@ public class EnemyGuardAI : EnemySimpleAI
         Agent.Resume();
         Agent.SetDestination(transform.position);
 
-        CancelInvoke("CanFireAgain");
+        CancelFireRateCoroutine();
+
         _enemyState = Enums.EnemyGuardStates.PlayerControlled;
     }
 
