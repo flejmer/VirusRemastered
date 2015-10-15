@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Loader : MonoBehaviour
 {
     public GameObject GameMan;
-    public GameManager SoundMan;
+    public GameObject SoundMan;
     public GameObject GuiMan;
 
     void Awake()
