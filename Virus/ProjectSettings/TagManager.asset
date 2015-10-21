@@ -16,6 +16,9 @@ TagManager:
   - Node
   - CyberPlayer
   - ComputerInteraction
+  - Shield
+  - Floor
+  - Hologram
   layers:
   - Default
   - TransparentFX
@@ -36,7 +39,7 @@ TagManager:
   - Cyberspace
   - Shield
   - Invisible
-  - 
+  - Hologram
   - 
   - 
   - 

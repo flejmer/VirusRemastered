@@ -1705,7 +1705,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 106060eb0e2b83b458cede0b47217d4f, type: 3}
   m_Controller: {fileID: 9100000, guid: c2947498dc670694abc8a6c813e59c16, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -1738,10 +1738,15 @@ MonoBehaviour:
     MindControl:
       RayMask:
         serializedVersion: 2
-        m_Bits: 20992
+        m_Bits: 23040
       RayLength: 20
       Missile: {fileID: 106040, guid: d166d2a782745eb4d95eaef5288dccc7, type: 2}
+    Hologram:
+      Missile: {fileID: 155612, guid: 18af916df33b454459b654e38a91d484, type: 2}
+    SlowMotion:
+      Duration: 5
   IsMoving: 0
+  PlayerState: 0
 --- !u!114 &11475624
 MonoBehaviour:
   m_ObjectHideFlags: 1

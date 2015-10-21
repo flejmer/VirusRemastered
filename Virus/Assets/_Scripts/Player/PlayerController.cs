@@ -17,6 +17,8 @@ public class ProjectilesProperties
     public BasicAttack BasicAttack;
     public LaserAttack LaserAttack;
     public MindControl MindControl;
+    public Holog Hologram;
+    public SlowMotion SlowMotion;
 }
 
 [System.Serializable]
@@ -44,6 +46,18 @@ public class MindControl
     public GameObject Missile;
 }
 
+[System.Serializable]
+public class Holog
+{
+    public GameObject Missile;
+}
+
+[System.Serializable]
+public class SlowMotion
+{
+    public float Duration = 3;
+}
+
 public class PlayerController : MonoBehaviour
 {
     public MovementProperties MovementProperties;
@@ -57,7 +71,7 @@ public class PlayerController : MonoBehaviour
     public bool SlowMotionUnlocked { get; private set; }
     public bool HologramUnlocked { get; private set; }
 
-    public bool ShieldActivated { get { return _shield.ShieldActivated; }  }
+    public bool ShieldActivated { get { return _shield.ShieldActivated; } }
     public bool IsMoving;
 
     private Rigidbody _rbody;
@@ -73,6 +87,10 @@ public class PlayerController : MonoBehaviour
     private HealthEnergyManager _heManager;
 
     public Enums.PlayerStates PlayerState = Enums.PlayerStates.RealWorld;
+
+
+    private float _prevMoveHori;
+    private float _prevMoveVert;
 
     void Awake()
     {
@@ -97,9 +115,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
-        if(GUIController.IsPopupActivated()) return;
-        if(PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
+        if (!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
+        if (GUIController.IsPopupActivated()) return;
+        if (PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
 
 
         Shooting();
@@ -218,7 +236,7 @@ public class PlayerController : MonoBehaviour
         {
             var targetPoint = ray.GetPoint(hitdist);
             var targetRotation = Quaternion.LookRotation(targetPoint - transform.position);
-            _rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
+            _rbody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime / Time.timeScale);
 
             //            var point = new Vector3(targetPoint.x, _missileSpawn.transform.position.y, targetPoint.z);
             //            _gun.transform.LookAt(point);
@@ -229,7 +247,7 @@ public class PlayerController : MonoBehaviour
             targetRotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
 
             var gunRotCopy = _gun.rotation;
-            _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime);
+            _gun.rotation = Quaternion.Slerp(_gun.rotation, targetRotation, MovementProperties.RotationSpeed * Time.deltaTime / Time.timeScale);
 
             var dot = Vector3.Dot(transform.forward, _gun.forward);
 
@@ -244,7 +262,8 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 movement = new Vector3(horizontal, 0, vertical);
 
-            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime, Space.World);
+
+            transform.Translate(movement * MovementProperties.MovementSpeed * Time.deltaTime / Time.timeScale, Space.World);
             //            _rbody.MovePosition(transform.position + movement * MovementProperties.MovementSpeed * Time.deltaTime);
 
             Vector3 movRelative = transform.InverseTransformDirection(movement);
@@ -277,6 +296,17 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 20, ProjectilesProperties.MindControl.RayMask))
         {
+            if (Input.GetKeyDown(KeyCode.G) && !hit.transform.CompareTag("Obstacle"))
+            {
+
+                var instance = (GameObject)Instantiate(ProjectilesProperties.Hologram.Missile, _missileSpawn.position, _missileSpawn.rotation);
+
+                var script = instance.GetComponent<Hologram>();
+                script.SetTarget(new Vector3(hit.point.x, 1, hit.point.z));
+
+
+            }
+
             if (hit.transform.CompareTag("EnemyGuard") || hit.transform.CompareTag("EnemyTech"))
             {
                 var enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
@@ -286,7 +316,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerState = Enums.PlayerStates.MindControlling;
 
-                    var instance = (GameObject) Instantiate(ProjectilesProperties.MindControl.Missile, _missileSpawn.position,
+                    var instance = (GameObject)Instantiate(ProjectilesProperties.MindControl.Missile, _missileSpawn.position,
                         _missileSpawn.rotation);
 
                     var script = instance.GetComponent<MindControlProjectile>();
@@ -342,7 +372,7 @@ public class PlayerController : MonoBehaviour
 
             if (fireInput2)
             {
-                var instance = (GameObject) Instantiate(ProjectilesProperties.LaserAttack.Missile, _missileSpawn.position, _missileSpawn.rotation);
+                var instance = (GameObject)Instantiate(ProjectilesProperties.LaserAttack.Missile, _missileSpawn.position, _missileSpawn.rotation);
 
                 var script = instance.GetComponent<Laser>();
                 script.MissleSpawnPoint = _missileSpawn;
@@ -364,9 +394,12 @@ public class PlayerController : MonoBehaviour
             {
                 _shield.ActivateShield();
             }
-            
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            GameManager.Instance.ActivateSlowMotion(ProjectilesProperties.SlowMotion.Duration);
+        }
     }
 
     void Aiming()

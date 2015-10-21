@@ -8285,7 +8285,7 @@ MonoBehaviour:
     MindControlDeactivated: {fileID: 21300000, guid: 1b139c57b58d5284e8ad34e88d82efb4,
       type: 3}
     ShieldActivated: {fileID: 21300000, guid: 2356af571daa0b64d9fddf416254a251, type: 3}
-    ShieldDeactivated: {fileID: 21300000, guid: 1b139c57b58d5284e8ad34e88d82efb4,
+    ShieldDeactivated: {fileID: 21300000, guid: c75d1e969989182409746cd03dc3af4c,
       type: 3}
     SlowMotionActivated: {fileID: 21300000, guid: 4b17ff6926a4ad54a9beb27eb15d3067,
       type: 3}

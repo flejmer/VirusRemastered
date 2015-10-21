@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform TargetToFollow;
     public bool CameraSmoothness = true;
-    public float SmoothnessStrength = 200;
+    public float SmoothnessStrength = 2000;
 
     public bool MouseDependency = false;
 
@@ -45,7 +45,7 @@ public class CameraFollow : MonoBehaviour
 
             if (Math.Abs((TargetToFollow.position + _offset - transform.position).sqrMagnitude) < 0.1)
             {
-                SmoothnessStrength = 200;
+                SmoothnessStrength = 20000;
             }
         }
         else

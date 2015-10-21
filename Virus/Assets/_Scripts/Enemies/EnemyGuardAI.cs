@@ -84,12 +84,17 @@ public class EnemyGuardAI : EnemySimpleAI
 
     void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Player") || other.gameObject.Equals(Target)) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
+        if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
             if (_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")) return;
 
             if (Target == null)
                 Target = other.gameObject;
+
+            if (other.CompareTag("Hologram"))
+            {
+                Target = other.gameObject;
+            }
 
             RaycastHit hit;
 
@@ -97,7 +102,6 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (Physics.Raycast(transform.position, direction, out hit, 15.0f, SeekerMask) && !_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
             {
-
                 if (hit.transform.gameObject.Equals(Target))
                 {
                     _enemyState = Enums.EnemyGuardStates.Shooting;
@@ -112,6 +116,18 @@ public class EnemyGuardAI : EnemySimpleAI
     private void OnTriggerStay(Collider other)
     {
         if (_enemyState.Equals(Enums.EnemyGuardStates.RunAway)) return;
+
+        if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) &&
+            !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
+        {
+            if (Target == null)
+                Target = other.gameObject;
+
+            if (other.CompareTag("Hologram"))
+            {
+                Target = other.gameObject;
+            }
+        }
 
         if (other.gameObject.Equals(Target) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
         {
@@ -146,7 +162,6 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (Physics.Raycast(position, direction, out hit, 15.0f, SeekerMask))
             {
-
                 if (!_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
                 {
                     if (!hit.transform.gameObject.Equals(Target)) return;
@@ -217,10 +232,20 @@ public class EnemyGuardAI : EnemySimpleAI
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Chase))
         {
-            Agent.Resume();
-            Agent.SetDestination(Target.transform.position);
-            _anim.SetBool("Aiming", false);
-            _anim.SetBool("Running", true);
+            if (Target != null)
+            {
+                Agent.Resume();
+                Agent.SetDestination(Target.transform.position);
+                _anim.SetBool("Aiming", false);
+                _anim.SetBool("Running", true);
+            }
+            else
+            {
+                _enemyState = Enums.EnemyGuardStates.Idle;
+                _anim.SetBool("Aiming", false);
+                _anim.SetBool("Running", false);
+            }
+
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Shooting))
         {
@@ -228,24 +253,27 @@ public class EnemyGuardAI : EnemySimpleAI
             _anim.SetBool("Running", false);
             _anim.SetBool("Aiming", true);
 
-            if (Target.CompareTag("EnemyGuard") || Target.CompareTag("EnemyTech"))
+            if (Target != null)
             {
-                var ai = Target.GetComponent<EnemySimpleAI>();
-
-                if (ai.HealthPoints <= 0)
+                if (Target.CompareTag("EnemyGuard") || Target.CompareTag("EnemyTech"))
                 {
-                    Target = null;
+                    var ai = Target.GetComponent<EnemySimpleAI>();
 
-                    _enemyState = PlayerControlled
-                        ? Enums.EnemyGuardStates.PlayerControlled
-                        : Enums.EnemyGuardStates.Idle;
-
-                    Agent.SetDestination(transform.position);
-                    Agent.Resume();
-                    _anim.SetBool("Aiming", false);
-
-                    CancelFireRateCoroutine();
+                    if (ai.HealthPoints <= 0)
+                    {
+                        Target = null;
+                    }
                 }
+            }
+            else
+            {
+                _enemyState = PlayerControlled ? Enums.EnemyGuardStates.PlayerControlled : Enums.EnemyGuardStates.Idle;
+
+                Agent.SetDestination(transform.position);
+                Agent.Resume();
+                _anim.SetBool("Aiming", false);
+
+                CancelFireRateCoroutine();
             }
 
             if (_canFire)

@@ -17,8 +17,16 @@ public class Popup : MonoBehaviour
                 gameObject.SetActive(false);
                 DisableAllPopups();
 
-                Time.timeScale = 1;
                 GameManager.Instance.InGameState = Enums.InGameStates.Normal;
+
+                if (GameManager.Instance.SlowMotionActivated)
+                {
+                    Time.timeScale = Time.timeScale = 1 * GameManager.Instance.SlowMotionRate;
+                    return;
+                }
+
+                Time.timeScale = 1;
+                
             }
             else
             {

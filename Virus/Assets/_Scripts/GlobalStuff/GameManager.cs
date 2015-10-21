@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance { get; private set; }
 
-    private PlayerController _player;
-
     private readonly List<EnemySimpleAI> _enemiesList = new List<EnemySimpleAI>();
 
     private readonly List<CompController> _computersList = new List<CompController>();
@@ -32,6 +30,12 @@ public class GameManager : MonoBehaviour
     private readonly List<CompController> _hackedComputersList = new List<CompController>();
 
     private Stack<CompController> _hackedComputersStack = new Stack<CompController>();
+
+    private PlayerController _player;
+    public bool SlowMotionActivated { get; private set; }
+    private float _slowMotionRate = .2f;
+    public float SlowMotionRate { get { return _slowMotionRate; } }
+    private IEnumerator _slowMotionEnumerator;
 
     void Awake()
     {
@@ -64,9 +68,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ActivateSlowMotion(float duration)
+    {
+        if (SlowMotionActivated)
+        {
+            StopCoroutine(_slowMotionEnumerator);
+
+            _slowMotionEnumerator = DeactivateSlowMotion(duration * _slowMotionRate);
+
+            StartCoroutine(_slowMotionEnumerator);
+        }
+        else
+        {
+            Time.timeScale = Time.timeScale * _slowMotionRate;
+            Time.fixedDeltaTime = Time.fixedDeltaTime * _slowMotionRate;
+
+            _slowMotionEnumerator = DeactivateSlowMotion(duration * _slowMotionRate);
+
+            StartCoroutine(_slowMotionEnumerator);
+        }
+
+    }
+
+    IEnumerator DeactivateSlowMotion(float waitTime)
+    {
+        SlowMotionActivated = true;
+
+        yield return new WaitForSeconds(waitTime);
+
+        Time.timeScale = Time.timeScale / _slowMotionRate;
+        Time.fixedDeltaTime = Time.fixedDeltaTime / _slowMotionRate;
+
+        SlowMotionActivated = false;
+    }
+
     void Update()
     {
-        if(!GameState.Equals(Enums.GameStates.GamePlay)) return;
+        if (!GameState.Equals(Enums.GameStates.GamePlay)) return;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -79,7 +117,13 @@ public class GameManager : MonoBehaviour
             {
                 GUIController.PauseScreenDeactivate();
 
-                if(GUIController.IsPopupActivated()) return;
+                if (GUIController.IsPopupActivated()) return;
+
+                if (SlowMotionActivated)
+                {
+                    Time.timeScale = 1 * _slowMotionRate;
+                    return;
+                }
 
                 Time.timeScale = 1;
             }
@@ -192,8 +236,6 @@ public class GameManager : MonoBehaviour
                 {
                     return;
                 }
-
-
             }
 
             enemy.RemoveHp(amount);
