@@ -100,6 +100,7 @@ public class GUIController : MonoBehaviour
     public static void ToMenu()
     {
         Instance._popup.DeactivatePopup();
+        GameManager.Instance.AppQuit = true;
         Application.LoadLevel("Menu");
     }
 }

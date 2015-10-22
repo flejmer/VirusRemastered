@@ -24,13 +24,18 @@ public class SimpleMissileController : ProjectileDir
     {
         var hitObj = hit.transform.gameObject;
 
-        //        Debug.Log(hitObj.tag);
+        if (hitObj.CompareTag("Obstacle"))
+        {
+            if (Bouncy)
+                Bouncy = !Bouncy;
+        }
 
         if (hitObj.CompareTag("Player"))
         {
             if (GameManager.GetPlayer().ShieldActivated)
             {
                 WhoFired = GameManager.GetPlayer().gameObject;
+                Bouncy = true;
             }
             else
             {

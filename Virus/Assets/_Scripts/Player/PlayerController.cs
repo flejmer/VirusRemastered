@@ -19,6 +19,7 @@ public class ProjectilesProperties
     public MindControl MindControl;
     public Holog Hologram;
     public SlowMotion SlowMotion;
+    public Shield Shield;
 }
 
 [System.Serializable]
@@ -28,6 +29,7 @@ public class BasicAttack
     public GameObject Missile;
     public float MissileLifetime = 10;
     public GameObject Follower;
+    public float EnergyCost = 0;
 }
 
 [System.Serializable]
@@ -36,6 +38,7 @@ public class LaserAttack
     public int Damage = 100;
     public GameObject Missile;
     public float MissileLifetime = 1;
+    public float EnergyCost = 30;
 }
 
 [System.Serializable]
@@ -44,18 +47,27 @@ public class MindControl
     public LayerMask RayMask;
     public float RayLength = 20;
     public GameObject Missile;
+    public float EnergyCost = 80;
 }
 
 [System.Serializable]
 public class Holog
 {
     public GameObject Missile;
+    public float EnergyCost = 40;
 }
 
 [System.Serializable]
 public class SlowMotion
 {
     public float Duration = 3;
+    public float EnergyCost = 40;
+}
+
+[System.Serializable]
+public class Shield
+{
+    public float EnergyCost = 0;
 }
 
 public class PlayerController : MonoBehaviour
@@ -87,6 +99,8 @@ public class PlayerController : MonoBehaviour
     private HealthEnergyManager _heManager;
 
     public Enums.PlayerStates PlayerState = Enums.PlayerStates.RealWorld;
+
+    public bool GodMode;
 
 
     private float _prevMoveHori;
@@ -123,6 +137,15 @@ public class PlayerController : MonoBehaviour
         Shooting();
         Interaction();
 
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            UnlockLaser();
+            UnlockHologram();
+            UnlockMindControl();
+            UnlockShield();
+            UnlockSlowMotion();
+        }
+
         if (!_hacking) return;
 
         if (GameManager.GetComputersInPlayerInterRange(this).Count > 0)
@@ -136,6 +159,8 @@ public class PlayerController : MonoBehaviour
         {
             _anim.SetBool("Hacking", false);
         }
+
+
     }
 
     void FixedUpdate()
@@ -193,7 +218,14 @@ public class PlayerController : MonoBehaviour
 
     public void RemoveHealth(float amount)
     {
-        _heManager.RemoveHp(amount);
+        if (!GodMode)
+            _heManager.RemoveHp(amount);
+    }
+
+    public void RemoveEnergy(float amount)
+    {
+        if (!GodMode)
+            _heManager.RemoveEnergy(amount);
     }
 
     void Interaction()
@@ -296,7 +328,7 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 20, ProjectilesProperties.MindControl.RayMask))
         {
-            if (Input.GetKeyDown(KeyCode.G) && !hit.transform.CompareTag("Obstacle"))
+            if (Input.GetKeyDown(KeyCode.G) && !hit.transform.CompareTag("Obstacle") && HologramUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.Hologram.EnergyCost)
             {
 
                 var instance = (GameObject)Instantiate(ProjectilesProperties.Hologram.Missile, _missileSpawn.position, _missileSpawn.rotation);
@@ -304,7 +336,7 @@ public class PlayerController : MonoBehaviour
                 var script = instance.GetComponent<Hologram>();
                 script.SetTarget(new Vector3(hit.point.x, 1, hit.point.z));
 
-
+                RemoveEnergy(ProjectilesProperties.Hologram.EnergyCost);
             }
 
             if (hit.transform.CompareTag("EnemyGuard") || hit.transform.CompareTag("EnemyTech"))
@@ -312,7 +344,7 @@ public class PlayerController : MonoBehaviour
                 var enemy = hit.transform.gameObject.GetComponent<EnemySimpleAI>();
                 enemy.Highlight();
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && MindControlUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.MindControl.EnergyCost)
                 {
                     PlayerState = Enums.PlayerStates.MindControlling;
 
@@ -325,6 +357,7 @@ public class PlayerController : MonoBehaviour
                     var cam = Camera.main.gameObject.GetComponent<CameraFollow>();
                     cam.ChangeTarget(instance.transform);
 
+                    RemoveEnergy(ProjectilesProperties.MindControl.EnergyCost);
                 }
             }
         }
@@ -339,16 +372,19 @@ public class PlayerController : MonoBehaviour
         {
             if (_anim != null)
             {
-                if (IsInvoking("Aiming"))
-                    CancelInvoke("Aiming");
+                if ((fireInput2 && LaserUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.LaserAttack.EnergyCost) || fireInput1 && _heManager.GetEnergy() >= ProjectilesProperties.BasicAttack.EnergyCost)
+                {
+                    if (IsInvoking("Aiming"))
+                        CancelInvoke("Aiming");
 
-                _anim.SetBool("Aiming", true);
-                _anim.SetTrigger("FireGun");
+                    _anim.SetBool("Aiming", true);
+                    _anim.SetTrigger("FireGun");
 
-                Invoke("Aiming", 1.5f);
+                    Invoke("Aiming", 1.5f);
+                }
             }
 
-            if (fireInput1)
+            if (fireInput1 && _heManager.GetEnergy() >= ProjectilesProperties.BasicAttack.EnergyCost)
             {
 
                 var instance = (GameObject)
@@ -368,9 +404,10 @@ public class PlayerController : MonoBehaviour
 
 
                 Destroy(instance, ProjectilesProperties.BasicAttack.MissileLifetime);
+                RemoveEnergy(ProjectilesProperties.BasicAttack.EnergyCost);
             }
 
-            if (fireInput2)
+            if (fireInput2 && LaserUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.LaserAttack.EnergyCost)
             {
                 var instance = (GameObject)Instantiate(ProjectilesProperties.LaserAttack.Missile, _missileSpawn.position, _missileSpawn.rotation);
 
@@ -381,24 +418,28 @@ public class PlayerController : MonoBehaviour
                 script.FireLaser();
 
                 Destroy(instance, ProjectilesProperties.LaserAttack.MissileLifetime);
+
+                RemoveEnergy(ProjectilesProperties.LaserAttack.EnergyCost);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && ShieldUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.Shield.EnergyCost)
         {
-            if (_shield.ShieldActivated)
+            if (!_shield.ShieldActivated)
             {
-                _shield.DeactivateShield();
+                _shield.ActivateShield();
+                RemoveEnergy(ProjectilesProperties.Shield.EnergyCost);
             }
             else
             {
-                _shield.ActivateShield();
+                _shield.DeactivateShield();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && SlowMotionUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.SlowMotion.EnergyCost)
         {
             GameManager.Instance.ActivateSlowMotion(ProjectilesProperties.SlowMotion.Duration);
+            RemoveEnergy(ProjectilesProperties.SlowMotion.EnergyCost);
         }
     }
 

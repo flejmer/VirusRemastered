@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public float SlowMotionRate { get { return _slowMotionRate; } }
     private IEnumerator _slowMotionEnumerator;
 
+    public bool AppQuit { get; set; }
+
     void Awake()
     {
         if (Instance == null)
@@ -55,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     void OnLevelWasLoaded(int level)
     {
+        AppQuit = false;
+
         if (level == 0)
         {
             GUIController.MenuScreen();
@@ -66,6 +70,11 @@ public class GameManager : MonoBehaviour
             GameState = Enums.GameStates.GamePlay;
             InGameState = Enums.InGameStates.Normal;
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        AppQuit = true;
     }
 
     public void ActivateSlowMotion(float duration)
@@ -142,8 +151,11 @@ public class GameManager : MonoBehaviour
             if (Instance._player == null)
             {
                 Instance._player = player;
-                Instance._computersInPlayerBuffArea.Add(player, new List<CompController>());
-                Instance._computersInPlayerInterRange.Add(player, new List<CompController>());
+
+                if (!Instance._computersInPlayerBuffArea.ContainsKey(player))
+                    Instance._computersInPlayerBuffArea.Add(player, new List<CompController>());
+                if (!Instance._computersInPlayerInterRange.ContainsKey(player))
+                    Instance._computersInPlayerInterRange.Add(player, new List<CompController>());
             }
             else
             {
@@ -433,6 +445,13 @@ public class GameManager : MonoBehaviour
 
         if (compsInBuffAreaForPlayer != null)
         {
+            if (!Instance.AppQuit)
+                foreach (var comp in compsInBuffAreaForPlayer)
+                {
+                    var buffArea = comp.gameObject.GetComponentInChildren<CompBuffRange>();
+                    buffArea.AnimateDisconnect();
+                }
+
             compsInBuffAreaForPlayer.Clear();
         }
 

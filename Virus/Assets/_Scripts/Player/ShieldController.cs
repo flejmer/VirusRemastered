@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class ShieldController : MonoBehaviour
@@ -12,6 +13,10 @@ public class ShieldController : MonoBehaviour
 
     private IEnumerator _shieldEnumerator;
     private bool _enumeratorDone;
+    private bool _shieldActivation;
+
+    private bool _energyRemoverActivation;
+    private bool _energyRemover;
 
     void Start()
     {
@@ -28,11 +33,47 @@ public class ShieldController : MonoBehaviour
     void Update()
     {
         transform.rotation = Quaternion.identity;
+
+        if (ShieldActivated)
+        {
+            if (_energyRemover)
+            {
+                GameManager.GetPlayer().RemoveEnergy(10);
+                _energyRemover = false;
+
+                if (Math.Abs(GameManager.GetPlayer().GetEnergy()) < 0.5f)
+                {
+                    DeactivateShield();
+                }
+            }
+            else
+            {
+                if (!_energyRemoverActivation)
+                {
+                    Invoke("EnergyRemoverActivator", 2);
+                    _energyRemoverActivation = true;
+                }
+
+            }
+        }
+        else
+        {
+            if (_energyRemover)
+                _energyRemover = false;
+        }
+    }
+
+    void EnergyRemoverActivator()
+    {
+        _energyRemover = true;
+        _energyRemoverActivation = false;
     }
 
     public void ActivateShield()
     {
-        ShieldActivated = true;
+        if (!(GameManager.GetPlayer().GetEnergy() > 0)) return;
+
+        _shieldActivation = true;
 
         if (_enumeratorDone)
         {
@@ -42,7 +83,7 @@ public class ShieldController : MonoBehaviour
 
     public void DeactivateShield()
     {
-        ShieldActivated = false;
+        _shieldActivation = false;
 
         if (_enumeratorDone)
         {
@@ -56,7 +97,7 @@ public class ShieldController : MonoBehaviour
 
         while (!_enumeratorDone)
         {
-            if (ShieldActivated)
+            if (_shieldActivation)
             {
                 _currentStrength += Time.deltaTime / (AnimationTime / 2);
 
@@ -64,6 +105,7 @@ public class ShieldController : MonoBehaviour
                 {
                     _enumeratorDone = true;
                     _col.enabled = true;
+                    ShieldActivated = true;
                 }
             }
             else
@@ -74,6 +116,7 @@ public class ShieldController : MonoBehaviour
                 {
                     _enumeratorDone = true;
                     _col.enabled = false;
+                    ShieldActivated = false;
                 }
             }
 

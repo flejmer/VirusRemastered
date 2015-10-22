@@ -33,7 +33,8 @@ public class EnemyTechAI : EnemySimpleAI
 
     void Update()
     {
-        AI();
+        if (Active)
+            AI();
 
     }
 
@@ -42,8 +43,8 @@ public class EnemyTechAI : EnemySimpleAI
         if (_targetComputer == null) return;
         if (!other.CompareTag("ComputerInteraction")) return;
 
-        if(!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife))
-        RotateTowards(new Vector3(_targetComputer.transform.position.x, transform.position.y, _targetComputer.transform.position.z));
+        if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife))
+            RotateTowards(new Vector3(_targetComputer.transform.position.x, transform.position.y, _targetComputer.transform.position.z));
     }
 
     void BackToPlayer()
@@ -283,7 +284,8 @@ public class EnemyTechAI : EnemySimpleAI
 
             RaycastHit hit;
 
-            if (Physics.Raycast(pos - dir, dir, out hit, 3, mask))
+            //todo: better
+            if (Physics.Raycast(pos - dir, dir, out hit, 1, mask))
             {
                 hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 2500);
             }

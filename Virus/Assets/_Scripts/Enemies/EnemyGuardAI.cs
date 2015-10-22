@@ -52,6 +52,17 @@ public class EnemyGuardAI : EnemySimpleAI
         {
             Debug.Log(_enemyState + " " + gameObject.name + " ");
         }
+
+        if (GameManager.GetPlayer() == null)
+        {
+            if (Target != null)
+            {
+                if (Target.CompareTag("Player"))
+                {
+                    Target = null;
+                }
+            }
+        }
     }
 
     IEnumerator CanFireAgain(float time)
@@ -120,12 +131,16 @@ public class EnemyGuardAI : EnemySimpleAI
         if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) &&
             !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
-            if (Target == null)
-                Target = other.gameObject;
-
-            if (other.CompareTag("Hologram"))
+            if (!(_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")))
             {
-                Target = other.gameObject;
+
+                if (Target == null)
+                    Target = other.gameObject;
+
+                if (other.CompareTag("Hologram"))
+                {
+                    Target = other.gameObject;
+                }
             }
         }
 

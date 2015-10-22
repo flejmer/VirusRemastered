@@ -27,6 +27,7 @@ public class CompInterArea : MonoBehaviour
             }
 
         }
+
         //TODO: IT interaction
         else if (other.CompareTag("EnemyTech"))
         {

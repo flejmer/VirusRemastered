@@ -6,6 +6,8 @@ public class CompBuffRange : MonoBehaviour
     private CompController _cc;
     private ConnectionLine _line;
 
+    private bool _once;
+
     void Start()
     {
         _cc = GetComponentInParent<CompController>();
@@ -13,7 +15,6 @@ public class CompBuffRange : MonoBehaviour
 
         
     }
-
 
     void OnTriggerEnter(Collider other)
     {
@@ -41,16 +42,19 @@ public class CompBuffRange : MonoBehaviour
 
             if (GameManager.IsComputerHacked(_cc) && !_cc.IsDehackInProgress)
             {
-
-
-                var trs = new GameObject().transform;
-                trs.position = new Vector3(GameManager.GetPlayer().transform.position.x, GameManager.GetPlayer().transform.position.y, GameManager.GetPlayer().transform.position.z);
-
-                _line.SetDestination(trs);
-                
-                //TODO: dynamic line animation times
-                _line.AnimateLine(Enums.AnimType.FromDestinationToOrigin, .25f);
+                AnimateDisconnect();
             }
         }
+    }
+
+    public void AnimateDisconnect()
+    {
+        var trs = new GameObject().transform;
+        trs.position = new Vector3(GameManager.GetPlayer().transform.position.x, GameManager.GetPlayer().transform.position.y, GameManager.GetPlayer().transform.position.z);
+
+        _line.SetDestination(trs);
+
+        //TODO: dynamic line animation times
+        _line.AnimateLine(Enums.AnimType.FromDestinationToOrigin, .25f);
     }
 }
