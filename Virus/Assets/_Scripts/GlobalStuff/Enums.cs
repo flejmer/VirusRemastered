@@ -18,7 +18,6 @@ public class Enums : MonoBehaviour
     public enum PlayerStates
     {
         RealWorld,
-        Cyberspace,
         MindControlling
     }
 

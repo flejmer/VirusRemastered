@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class CompController : DelayedActivation
 {
+    public ComputerNode CyberComputer;
+
     public Enums.BuffType TypeOfBuff = Enums.BuffType.None;
     public float HackingDuration = 3;
 

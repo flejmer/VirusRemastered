@@ -1561,6 +1561,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 262484832}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &270777252 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11481368, guid: 721f073a3aa67f243ba778888f184606,
+    type: 2}
+  m_PrefabInternal: {fileID: 1408107568}
+  m_Script: {fileID: 11500000, guid: 5105b09c3a3a6244aa785d9a8f3ba644, type: 3}
 --- !u!1 &272960298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2057,7 @@ GameObject:
   - 81: {fileID: 352807502}
   - 114: {fileID: 352807506}
   m_Layer: 16
-  m_Name: Camera
+  m_Name: CyberCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2111,7 +2117,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 9.39999962
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -8930,6 +8936,10 @@ Prefab:
       propertyPath: LeftNode
       value: 
       objectReference: {fileID: 457465568}
+    - target: {fileID: 11471600, guid: 2aa97cc8a73e92b4eb39594d16164407, type: 2}
+      propertyPath: RealComputer
+      value: 
+      objectReference: {fileID: 1334528224}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2aa97cc8a73e92b4eb39594d16164407, type: 2}
   m_IsPrefabParent: 0
@@ -9076,6 +9086,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1498257062}
   m_RootOrder: 27
+--- !u!114 &1334528224 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11481368, guid: 721f073a3aa67f243ba778888f184606,
+    type: 2}
+  m_PrefabInternal: {fileID: 1661767767}
+  m_Script: {fileID: 11500000, guid: 5105b09c3a3a6244aa785d9a8f3ba644, type: 3}
 --- !u!1 &1338194498
 GameObject:
   m_ObjectHideFlags: 0
@@ -9842,7 +9858,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -11.3299999
+      value: 13.6700001
       objectReference: {fileID: 0}
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_LocalPosition.y
@@ -9850,7 +9866,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 14.6899996
+      value: -2.30999994
       objectReference: {fileID: 0}
     - target: {fileID: 495916, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_LocalRotation.x
@@ -9956,6 +9972,10 @@ Prefab:
       propertyPath: m_Name
       value: ComputerN (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 11481368, guid: 721f073a3aa67f243ba778888f184606, type: 2}
+      propertyPath: CyberComputer
+      value: 
+      objectReference: {fileID: 2028175763}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 721f073a3aa67f243ba778888f184606, type: 2}
   m_IsPrefabParent: 0
@@ -10767,6 +10787,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11481368, guid: 721f073a3aa67f243ba778888f184606, type: 2}
+      propertyPath: CyberComputer
+      value: 
+      objectReference: {fileID: 1316833699}
     - target: {fileID: 169028, guid: 721f073a3aa67f243ba778888f184606, type: 2}
       propertyPath: m_Name
       value: ComputerN (3)
@@ -12408,6 +12432,10 @@ Prefab:
       propertyPath: LeftNode
       value: 
       objectReference: {fileID: 1715916584}
+    - target: {fileID: 11471600, guid: 2aa97cc8a73e92b4eb39594d16164407, type: 2}
+      propertyPath: RealComputer
+      value: 
+      objectReference: {fileID: 270777252}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2aa97cc8a73e92b4eb39594d16164407, type: 2}
   m_IsPrefabParent: 0
@@ -12977,7 +13005,7 @@ GameObject:
   - 114: {fileID: 2042576925}
   - 114: {fileID: 2042576926}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13077,8 +13105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameMan: {fileID: 194012, guid: 4b5a2fd6bddf5cc4598c4b85dff16fb6, type: 2}
-  SoundMan: {fileID: 0}
+  SoundMan: {fileID: 134294, guid: 035aca35a6dde9f4ebe1e693e39ef6a1, type: 2}
   GuiMan: {fileID: 165024, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+  RealCyberMan: {fileID: 127884, guid: aa5d492597bb17343bf821b373272ace, type: 2}
 --- !u!1 &2044653536
 GameObject:
   m_ObjectHideFlags: 0

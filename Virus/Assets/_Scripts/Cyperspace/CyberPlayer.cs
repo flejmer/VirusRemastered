@@ -11,9 +11,24 @@ public class CyberPlayer : MonoBehaviour
     private Node _targetNode;
     private Node _nextNode;
 
+    public Node CurrentNode { get {return _currentNode;} set { _currentNode = value; } }
+
     void Update()
     {
         PlayerInteraction();
+    }
+
+    void OnEnable()
+    {
+        GameManager.SetCyberPlayer(this);
+
+        _targetNode = null;
+        _nextNode = null;
+    }
+
+    void OnDisable()
+    {
+        GameManager.SetCyberPlayer(null);
     }
 
     void FixedUpdate()
@@ -77,7 +92,9 @@ public class CyberPlayer : MonoBehaviour
             else if (_currentNode.CompareTag("ComputerNode"))
             {
                 var node = _currentNode.GetComponent<ComputerNode>();
-                node.Overload = true;
+
+                RealCyberManager.GoToRealWorld(node);
+//                node.Overload = true;
             }
             else if (_currentNode.CompareTag("AbilityNode"))
             {

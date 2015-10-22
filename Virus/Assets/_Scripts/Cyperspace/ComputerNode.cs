@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ComputerNode : Node
 {
+    public CompController RealComputer;
+
     public bool Overload;
     public bool CanBeOverloaded;
 

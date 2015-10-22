@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
     private Stack<CompController> _hackedComputersStack = new Stack<CompController>();
 
     private PlayerController _player;
+    private CyberPlayer _cPlayer;
+
     public bool SlowMotionActivated { get; private set; }
     private float _slowMotionRate = .2f;
     public float SlowMotionRate { get { return _slowMotionRate; } }
@@ -202,6 +204,16 @@ public class GameManager : MonoBehaviour
     public static PlayerController GetPlayer()
     {
         return Instance._player;
+    }
+
+    public static void SetCyberPlayer(CyberPlayer cp)
+    {
+        Instance._cPlayer = cp;
+    }
+
+    public static CyberPlayer GetCyberPlayer()
+    {
+        return Instance._cPlayer;
     }
 
     public static void DamagePlayerFromDirection(GameObject hitObj, float amount, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)

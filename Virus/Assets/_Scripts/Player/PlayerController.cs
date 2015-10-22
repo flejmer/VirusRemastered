@@ -131,11 +131,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
         if (GUIController.IsPopupActivated()) return;
-        if (PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
+        if (PlayerState.Equals(Enums.PlayerStates.MindControlling)) return;
 
 
         Shooting();
         Interaction();
+
+        if (RealCyberManager.Instance.InCyberspace) return;
 
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -165,7 +167,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (PlayerState.Equals(Enums.PlayerStates.MindControlling) || PlayerState.Equals(Enums.PlayerStates.Cyberspace)) return;
+        if (PlayerState.Equals(Enums.PlayerStates.MindControlling)) return;
 
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
@@ -243,6 +245,11 @@ public class PlayerController : MonoBehaviour
                 computer.StartHacking(this);
                 _hacking = true;
                 _anim.SetBool("Hacking", true);
+            }
+
+            foreach (var computer in GameManager.GetComputersInPlayerInterRange(this).Where(computer => computer.IsHacked))
+            {
+                RealCyberManager.GoToCyberspace(computer);
             }
         }
 
