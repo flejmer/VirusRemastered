@@ -213,7 +213,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private void AI()
     {
-        if (HealthPoints <= (MaxHpPoints * .2f))
+        if (HealthPoints <= (MaxHpPoints * 1/3))
         {
             if (!_enemyState.Equals(Enums.EnemyGuardStates.Dead))
             {

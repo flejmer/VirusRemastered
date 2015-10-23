@@ -132,10 +132,15 @@ public class ConnectionLine : DelayedActivation
 
     IEnumerator PositionsCheck()
     {
-        _originPos = new Vector3(_origin.position.x, _origin.position.y, _origin.position.z);
-        _destinationPos = new Vector3(_destination.position.x, _destination.position.y, _destination.position.z);
+        if (_destination != null)
+        {
+            _originPos = new Vector3(_origin.position.x, _origin.position.y, _origin.position.z);
+            _destinationPos = new Vector3(_destination.position.x, _destination.position.y, _destination.position.z);
 
-        _destinationPos = Math.Abs(GetActivationProgress()) < 0.05f ? new Vector3(_originPos.x, _originPos.y, _originPos.z) : Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
+            _destinationPos = Math.Abs(GetActivationProgress()) < 0.05f
+                ? new Vector3(_originPos.x, _originPos.y, _originPos.z)
+                : Vector3.Lerp(_originPos, _destinationPos, GetActivationProgress());
+        }
 
         yield return null;
     }

@@ -31,7 +31,7 @@ GameObject:
   - 54: {fileID: 5478616}
   m_Layer: 16
   m_Name: CyberPlayer
-  m_TagString: Untagged
+  m_TagString: CyberPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

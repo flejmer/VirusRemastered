@@ -1731,22 +1731,30 @@ MonoBehaviour:
       Missile: {fileID: 155564, guid: 7da804aa444c0b14cb8446d3af5d480e, type: 2}
       MissileLifetime: 10
       Follower: {fileID: 163254, guid: ba0c4d20cecaf3d4a8e68c8fc4dc89db, type: 2}
+      EnergyCost: 0
     LaserAttack:
       Damage: 100
       Missile: {fileID: 138298, guid: ed27394749916934192158bc500664b9, type: 2}
       MissileLifetime: 5
+      EnergyCost: 30
     MindControl:
       RayMask:
         serializedVersion: 2
         m_Bits: 23040
       RayLength: 20
       Missile: {fileID: 106040, guid: d166d2a782745eb4d95eaef5288dccc7, type: 2}
+      EnergyCost: 80
     Hologram:
       Missile: {fileID: 155612, guid: 18af916df33b454459b654e38a91d484, type: 2}
+      EnergyCost: 40
     SlowMotion:
       Duration: 5
+      EnergyCost: 40
+    Shield:
+      EnergyCost: 0
   IsMoving: 0
   PlayerState: 0
+  GodMode: 0
 --- !u!114 &11475624
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -848,4 +848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameMan: {fileID: 194012, guid: 4b5a2fd6bddf5cc4598c4b85dff16fb6, type: 2}
+  SoundMan: {fileID: 134294, guid: 035aca35a6dde9f4ebe1e693e39ef6a1, type: 2}
   GuiMan: {fileID: 165024, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+  RealCyberMan: {fileID: 127884, guid: aa5d492597bb17343bf821b373272ace, type: 2}
