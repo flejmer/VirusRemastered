@@ -335,9 +335,9 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 20, ProjectilesProperties.MindControl.RayMask))
         {
+
             if (Input.GetKeyDown(KeyCode.G) && !hit.transform.CompareTag("Obstacle") && HologramUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.Hologram.EnergyCost)
             {
-
                 var instance = (GameObject)Instantiate(ProjectilesProperties.Hologram.Missile, _missileSpawn.position, _missileSpawn.rotation);
 
                 var script = instance.GetComponent<Hologram>();
