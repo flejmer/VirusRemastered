@@ -51,24 +51,14 @@ public class TurretAI : MonoBehaviour
         {
             if (!PlayerControlled)
             {
+                if (GameManager.GetPlayer() == null) return;
+
                 if (ListOfObjectsInAwareness.Contains(GameManager.GetPlayer().gameObject))
                 {
-                    RotateTowards(GameManager.GetPlayer().transform.position);
-
-                    if (_canFire)
-                    {
-                        var instance = (GameObject) Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
-                        var script = instance.GetComponent<SimpleMissileController>();
-                        script.WhoFired = gameObject;
-
-                        Destroy(instance, 5);
-
-                        CancelFireRateCoroutine();
-                    }
-                    else
-                    {
-                        StartFireRateCoroutine();
-                    }
+                    var target = GameManager.GetPlayer().gameObject;
+                    RotateTowards(target.transform.position);
+                    
+                    Fire(target);
                 }
                 else
                 {
@@ -77,7 +67,6 @@ public class TurretAI : MonoBehaviour
                     _gun.rotation = Quaternion.Lerp(_gun.rotation, _initialRotation, Time.deltaTime * 1);
                     CancelFireRateCoroutine();
                 }
-
             }
             else
             {
@@ -87,20 +76,7 @@ public class TurretAI : MonoBehaviour
                 {
                     RotateTowards(target.transform.position);
 
-                    if (_canFire)
-                    {
-                        var instance = (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
-                        var script = instance.GetComponent<SimpleMissileController>();
-                        script.WhoFired = gameObject;
-
-                        Destroy(instance, 5);
-
-                        CancelFireRateCoroutine();
-                    }
-                    else
-                    {
-                        StartFireRateCoroutine();
-                    }
+                    Fire(target);
                 }
             }
         }
@@ -111,6 +87,31 @@ public class TurretAI : MonoBehaviour
                 _gun.rotation = Quaternion.Lerp(_gun.rotation, _initialRotation, Time.deltaTime * 1);
                 CancelFireRateCoroutine();
             }
+        }
+    }
+
+    void Fire(GameObject target)
+    {
+        if (_canFire)
+        {
+            RaycastHit hit;
+            var dir = (target.transform.position - _missileSpawn.position).normalized;
+
+            if (!Physics.Raycast(_missileSpawn.position, dir, out hit, 15)) return;
+            if (hit.transform.CompareTag("Obstacle")) return;
+
+            var instance =
+                (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
+            var script = instance.GetComponent<SimpleMissileController>();
+            script.WhoFired = gameObject;
+
+            Destroy(instance, 5);
+
+            CancelFireRateCoroutine();
+        }
+        else
+        {
+            StartFireRateCoroutine();
         }
     }
 

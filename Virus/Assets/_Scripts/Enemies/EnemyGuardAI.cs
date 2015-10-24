@@ -213,7 +213,7 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private void AI()
     {
-        if (HealthPoints <= (MaxHpPoints * 1/3))
+        if (HealthPoints <= (MaxHpPoints * 1 / 3))
         {
             if (!_enemyState.Equals(Enums.EnemyGuardStates.Dead))
             {
@@ -506,7 +506,10 @@ public class EnemyGuardAI : EnemySimpleAI
 
                 if (Physics.Raycast(pos - dir, dir, out hit, 3, mask))
                 {
-                    hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 5000);
+                    var rig = hit.transform.gameObject.GetComponent<Rigidbody>();
+
+                    if (rig != null)
+                        hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 5000);
                 }
 
             }
@@ -522,14 +525,12 @@ public class EnemyGuardAI : EnemySimpleAI
         else
         {
             if (PlayerControlled) return;
-            if(shooter.CompareTag("Turret")) return;
+            if (shooter.CompareTag("Turret")) return;
 
-            if (Target.Equals(null))
-            {
-                Target = shooter;
-                _enemyState = Enums.EnemyGuardStates.Chase;
-            }
+            if (Target != null) return;
 
+            Target = shooter;
+            _enemyState = Enums.EnemyGuardStates.Chase;
         }
 
     }

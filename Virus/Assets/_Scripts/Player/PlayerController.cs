@@ -220,7 +220,6 @@ public class PlayerController : MonoBehaviour
 
     public void RemoveHealth(float amount)
     {
-        Debug.Log(amount);
         if (!GodMode)
             _heManager.RemoveHp(amount);
     }
