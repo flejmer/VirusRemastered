@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SimpleMissileController : ProjectileDir
 {
+    public float Damage = 20;
+
     private ParticleSystem _pSys;
     private Component _hlo;
     private LineRenderer _lineR;
@@ -41,14 +43,14 @@ public class SimpleMissileController : ProjectileDir
             {
                 if (Bouncy)
                     Bouncy = !Bouncy;
-                GameManager.DamagePlayerFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);
+                GameManager.DamagePlayerFromDirection(hitObj, Damage, hit.point, MoveDir, LayerMask, WhoFired);
             }
 
         }
         else if (hitObj.CompareTag("EnemyGuard") || hitObj.CompareTag("EnemyTech"))
         {
 
-            GameManager.DamageEnemyFromDirection(hitObj, 20, hit.point, MoveDir, LayerMask, WhoFired);
+            GameManager.DamageEnemyFromDirection(hitObj, Damage, hit.point, MoveDir, LayerMask, WhoFired);
             if (Bouncy)
                 Bouncy = !Bouncy;
         }

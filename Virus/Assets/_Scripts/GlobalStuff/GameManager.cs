@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour
 
     public static void DamagePlayerFromDirection(GameObject hitObj, float amount, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)
     {
-        GetPlayer().RemoveHealth(20);
+        GetPlayer().RemoveHealth(amount);
     }
 
     public static void AddEnemy(EnemySimpleAI enemy)
@@ -256,7 +256,8 @@ public class GameManager : MonoBehaviour
             {
                 var guardWhoFired = whoFired.GetComponent<EnemySimpleAI>();
 
-                if (((enemy.PlayerControlled && !guardWhoFired.PlayerControlled) && (!enemy.PlayerControlled && guardWhoFired.PlayerControlled)))
+                if (((enemy.PlayerControlled && !guardWhoFired.PlayerControlled) &&
+                     (!enemy.PlayerControlled && guardWhoFired.PlayerControlled)))
                 {
                     return;
                 }

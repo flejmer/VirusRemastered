@@ -19,6 +19,7 @@ TagManager:
   - Shield
   - Floor
   - Hologram
+  - Turret
   layers:
   - Default
   - TransparentFX

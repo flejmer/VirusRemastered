@@ -51,17 +51,11 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
@@ -93,6 +87,7 @@
     <Compile Include="Assets\_Scripts\Enemies\EnemyTechAI.cs" />
     <Compile Include="Assets\_Scripts\Enemies\RagdollController.cs" />
     <Compile Include="Assets\_Scripts\Enemies\SuicideController.cs" />
+    <Compile Include="Assets\_Scripts\Enemies\TurretAI.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompBuffRange.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompController.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
@@ -140,6 +135,7 @@
     <Compile Include="Assets\_Scripts\TestsNFun\ClockScript.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\DelegateTests.cs" />
     <Compile Include="Assets\_Scripts\TestsNFun\SomeScript.cs" />
+    <Compile Include="Assets\_Scripts\TurretAwareness.cs" />
     <Compile Include="Assets\sss.cs" />
   </ItemGroup>
   <ItemGroup>

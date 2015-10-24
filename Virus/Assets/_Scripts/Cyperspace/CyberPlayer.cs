@@ -64,7 +64,7 @@ public class CyberPlayer : MonoBehaviour
             var direction = _targetNode.transform.position - transform.position;
             var distance = direction.magnitude;
 
-            if (distance < 2.5f)
+            if (distance < 0.5f)
             {
                 if (vertical > 0 || vertical < 0)
                 {

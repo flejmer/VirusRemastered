@@ -522,6 +522,7 @@ public class EnemyGuardAI : EnemySimpleAI
         else
         {
             if (PlayerControlled) return;
+            if(shooter.CompareTag("Turret")) return;
 
             if (Target.Equals(null))
             {
