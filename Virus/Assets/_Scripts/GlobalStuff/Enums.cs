@@ -18,7 +18,8 @@ public class Enums : MonoBehaviour
     public enum PlayerStates
     {
         RealWorld,
-        MindControlling
+        MindControlling,
+        Dead
     }
 
     public enum GameStates

@@ -106,6 +106,10 @@ public class PlayerController : MonoBehaviour
     private float _prevMoveHori;
     private float _prevMoveVert;
 
+    private bool _deadEvent;
+    private RagdollController _ragdoll;
+    private CapsuleCollider _collider;
+
     void Awake()
     {
         _rbody = GetComponent<Rigidbody>();
@@ -114,8 +118,35 @@ public class PlayerController : MonoBehaviour
         _anim = GetComponentInChildren<Animator>();
         _shield = GetComponentInChildren<ShieldController>();
         _heManager = GetComponent<HealthEnergyManager>();
+        _ragdoll = GetComponentInChildren<RagdollController>();
+        _collider = GetComponent<CapsuleCollider>();
     }
 
+    public void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask)
+    {
+        if (_heManager.GetHealth() <= 0)
+        {
+            PlayerState = Enums.PlayerStates.Dead;
+            _rbody.isKinematic = true;
+
+            if (_ragdoll)
+            {
+                _collider.enabled = false;
+                _ragdoll.ActivateRagdoll();
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(pos - dir, dir, out hit, 3, mask))
+                {
+                    var rig = hit.transform.gameObject.GetComponent<Rigidbody>();
+
+                    if (rig != null)
+                        hit.transform.gameObject.GetComponent<Rigidbody>().AddForce(dir * 5000);
+                }
+
+            }
+        }
+    }
 
     void OnEnable()
     {
@@ -132,7 +163,7 @@ public class PlayerController : MonoBehaviour
         if (!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Normal)) return;
         if (GUIController.IsPopupActivated()) return;
         if (PlayerState.Equals(Enums.PlayerStates.MindControlling)) return;
-
+        if (PlayerState.Equals(Enums.PlayerStates.Dead)) return;
 
         Shooting();
         Interaction();
@@ -168,6 +199,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (PlayerState.Equals(Enums.PlayerStates.MindControlling)) return;
+        if (PlayerState.Equals(Enums.PlayerStates.Dead)) return;
 
         var vertical = Input.GetAxis("Vertical");
         var horizontal = Input.GetAxis("Horizontal");
@@ -221,7 +253,15 @@ public class PlayerController : MonoBehaviour
     public void RemoveHealth(float amount)
     {
         if (!GodMode)
+        {
             _heManager.RemoveHp(amount);
+
+            if (!(_heManager.GetHealth() <= 0) || _deadEvent) return;
+
+            _deadEvent = true;
+            GameManager.Instance.PlayerDied();
+            PlayerState = Enums.PlayerStates.Dead;
+        }
     }
 
     public void RemoveEnergy(float amount)
@@ -452,7 +492,8 @@ public class PlayerController : MonoBehaviour
 
     void Aiming()
     {
-        _anim.SetBool("Aiming", false);
+        if (_anim)
+            _anim.SetBool("Aiming", false);
     }
 
     public float GetHealth()

@@ -97,6 +97,8 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
+            if(other.CompareTag("Player") && GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead)) return;
+
             if (_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")) return;
 
             if (Target == null)
@@ -131,6 +133,8 @@ public class EnemyGuardAI : EnemySimpleAI
         if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) &&
             !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
+            if (other.CompareTag("Player") && GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead)) return;
+
             if (!(_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")))
             {
 
@@ -276,6 +280,14 @@ public class EnemyGuardAI : EnemySimpleAI
 
                     if (ai.HealthPoints <= 0)
                     {
+                        Target = null;
+                    }
+                }
+                else
+                {
+                    if (GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
+                    {
+                        Debug.Log("nul");
                         Target = null;
                     }
                 }

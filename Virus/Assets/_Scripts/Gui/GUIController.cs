@@ -7,8 +7,11 @@ public class GUIController : MonoBehaviour
 
     private StartScreen _startScreen;
     private PauseScreen _pauseScreen;
+    private DeadScreen _deadScreen;
     private GameUI _gameUi;
     private Popup _popup;
+
+    private bool _deadScreenActive;
 
     private void Awake()
     {
@@ -24,11 +27,13 @@ public class GUIController : MonoBehaviour
         _pauseScreen = GetComponentInChildren<PauseScreen>();
         _gameUi = GetComponentInChildren<GameUI>();
         _popup = GetComponentInChildren<Popup>();
+        _deadScreen = GetComponentInChildren<DeadScreen>();
 
         _startScreen.gameObject.SetActive(false);
         _pauseScreen.gameObject.SetActive(false);
         _gameUi.gameObject.SetActive(false);
         _popup.gameObject.SetActive(false);
+        _deadScreen.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -61,10 +66,38 @@ public class GUIController : MonoBehaviour
         GameManager.Instance.GameState = Enums.GameStates.GamePlay;
     }
 
+    public static void DeadScreenActivate()
+    {
+        if (!GameManager.Instance.GameState.Equals(Enums.GameStates.GamePlay) ||
+    GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
+            return;
+
+        Instance._deadScreenActive = true;
+        Instance._deadScreen.gameObject.SetActive(true);
+        GameManager.Instance.InGameState = Enums.InGameStates.Pause;
+    }
+
+    public static void DeadScreenDeactivate()
+    {
+        if (!GameManager.Instance.GameState.Equals(Enums.GameStates.GamePlay) ||
+    !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
+            return;
+
+        Instance._deadScreenActive = false;
+        Instance._deadScreen.gameObject.SetActive(false);
+        Instance._deadScreen.GoToMenu();
+        GameManager.Instance.InGameState = Enums.InGameStates.Normal;
+
+        if (!Instance._popup.Active)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
     public static void PauseScreenActivate()
     {
         if (!GameManager.Instance.GameState.Equals(Enums.GameStates.GamePlay) ||
-            GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
+            GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause) || RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
             return;
 
         if (GameManager.Instance.InGameState.Equals(Enums.InGameStates.InitTutorial))
@@ -106,7 +139,6 @@ public class GUIController : MonoBehaviour
 
     public static void Restart()
     {
-        Debug.Log("????");
         Instance._popup.DeactivatePopup();
         GameManager.Instance.AppQuit = true;
         Application.LoadLevel("Game01");

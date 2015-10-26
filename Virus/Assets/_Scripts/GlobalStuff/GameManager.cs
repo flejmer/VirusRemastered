@@ -119,13 +119,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!InGameState.Equals(Enums.InGameStates.Pause))
+            if (!InGameState.Equals(Enums.InGameStates.Pause) && !RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
             {
                 GUIController.PauseScreenActivate();
                 Time.timeScale = 0;
             }
             else
             {
+                if(RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead)) return;
+
                 GUIController.PauseScreenDeactivate();
 
                 if (GUIController.IsPopupActivated()) return;
@@ -139,6 +141,17 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+    }
+
+    public void PlayerDied()
+    {
+        StartCoroutine(DeadWaiter(3));
+    }
+
+    IEnumerator DeadWaiter(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GUIController.DeadScreenActivate();
     }
 
     public static bool IsInstanceNull()
@@ -219,6 +232,7 @@ public class GameManager : MonoBehaviour
     public static void DamagePlayerFromDirection(GameObject hitObj, float amount, Vector3 point, Vector3 moveDir, LayerMask layerMask, GameObject whoFired)
     {
         GetPlayer().RemoveHealth(amount);
+        GetPlayer().HitPoint(point, moveDir, 5000 ,layerMask);
     }
 
     public static void AddEnemy(EnemySimpleAI enemy)

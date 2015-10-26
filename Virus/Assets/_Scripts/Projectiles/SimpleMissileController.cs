@@ -43,6 +43,7 @@ public class SimpleMissileController : ProjectileDir
             {
                 if (Bouncy)
                     Bouncy = !Bouncy;
+
                 GameManager.DamagePlayerFromDirection(hitObj, Damage, hit.point, MoveDir, LayerMask, WhoFired);
             }
 

@@ -74,6 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DeadMenuController.cs" />
+    <Compile Include="Assets\DeadScreen.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
