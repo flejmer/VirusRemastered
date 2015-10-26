@@ -15,6 +15,10 @@ public class CameraFollow : MonoBehaviour
 
     private bool _dragMode;
 
+    private bool _checking;
+    private bool _uncheckingChecking;
+    private Vector3 _positionToCheck;
+
     void Start()
     {
         _offset = transform.position - TargetToFollow.transform.position;
@@ -86,6 +90,14 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    public void CheckThisOut(Vector3 position)
+    {
+        _positionToCheck = position;
+        _checking = true;
+        _uncheckingChecking = false;
+        SmoothnessStrength = 10;
+    }
+
     void CameraMovement()
     {
         var destination = TargetToFollow.transform.position + _offset;
@@ -102,6 +114,16 @@ public class CameraFollow : MonoBehaviour
                     (TargetToFollow.transform.position.z + cursorPosition.z) / 2) + _offset;
         }
 
+        if (_checking)
+        {
+            destination = _positionToCheck + _offset;
+
+            if (!_uncheckingChecking)
+            {
+                _uncheckingChecking = true;
+                Invoke("BackToNormal", 2);
+            }
+        }
 
         transform.position = CameraSmoothness ? Vector3.Lerp(transform.position, destination, SmoothnessStrength * Time.deltaTime) : destination;
 
@@ -109,6 +131,11 @@ public class CameraFollow : MonoBehaviour
         {
             SmoothnessStrength = 20000;
         }
+    }
+
+    void BackToNormal()
+    {
+        _checking = false;
     }
 
     public void ChangeTarget(Transform newTarget)

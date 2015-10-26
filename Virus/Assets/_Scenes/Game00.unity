@@ -2145,6 +2145,7 @@ MonoBehaviour:
   CameraSmoothness: 0
   SmoothnessStrength: 200
   MouseDependency: 0
+  tester: {fileID: 0}
 --- !u!1 &356666251
 GameObject:
   m_ObjectHideFlags: 0
@@ -13415,6 +13416,7 @@ MonoBehaviour:
   CameraSmoothness: 1
   SmoothnessStrength: 200
   MouseDependency: 0
+  tester: {fileID: 761503358}
 --- !u!114 &2042576926
 MonoBehaviour:
   m_ObjectHideFlags: 0

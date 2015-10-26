@@ -298,6 +298,7 @@ public class EnemyTechAI : EnemySimpleAI
         Debug.Log("tech taken");
         _targetComputer = null;
         PlayerControlled = true;
+        Active = true;
 
         _anim.SetBool("Running", false);
         Agent.Resume();

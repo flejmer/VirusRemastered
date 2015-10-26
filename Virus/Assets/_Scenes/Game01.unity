@@ -1589,6 +1589,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2d9c932ff3cbd4fae323d51f517219, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &95317248 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124422, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
+  m_PrefabInternal: {fileID: 185235644}
 --- !u!1 &98917956
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,6 +3087,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.TurretNode.Turret
+      value: 
+      objectReference: {fileID: 1357040100}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
   m_IsPrefabParent: 0
@@ -10506,6 +10514,10 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.TurretNode.Turret
+      value: 
+      objectReference: {fileID: 960668424}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
   m_IsPrefabParent: 0
@@ -18546,6 +18558,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6d6eb95e2352a141a90d0ea5386717f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &960668424 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11427620, guid: a6d6eb95e2352a141a90d0ea5386717f,
+    type: 2}
+  m_PrefabInternal: {fileID: 960668423}
+  m_Script: {fileID: 11500000, guid: 213265e1bd678084184e4c666d9731f4, type: 3}
 --- !u!1 &964576277
 GameObject:
   m_ObjectHideFlags: 0
@@ -19499,6 +19517,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 823312322}
     m_Modifications:
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 461054, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
       propertyPath: m_LocalPosition.x
       value: -76.5
@@ -19555,6 +19577,18 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1148633726}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1015492744}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.data[2]
+      value: 
+      objectReference: {fileID: 1050077598}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
   m_IsPrefabParent: 0
@@ -19977,6 +20011,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7755f60899bde1b438dae3e68bef5af2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1015492744 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124422, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
+  m_PrefabInternal: {fileID: 1633307129}
 --- !u!1 &1020034307
 GameObject:
   m_ObjectHideFlags: 0
@@ -20184,7 +20222,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11403220, guid: 0e492478d19e3d6499ef769ed8812953, type: 2}
       propertyPath: NodeType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0e492478d19e3d6499ef769ed8812953, type: 2}
@@ -20676,6 +20714,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1048880108}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1050077598 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124422, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
+  m_PrefabInternal: {fileID: 948997422}
 --- !u!1 &1052576712
 GameObject:
   m_ObjectHideFlags: 0
@@ -23010,6 +23052,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1128882908}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1133191960 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124422, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
+  m_PrefabInternal: {fileID: 1069298396}
 --- !u!1001 &1135505931
 Prefab:
   m_ObjectHideFlags: 0
@@ -23284,6 +23330,10 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &1148633726 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 124422, guid: 01179ab095bbcf045b832fcb16612f43, type: 2}
+  m_PrefabInternal: {fileID: 852524526}
 --- !u!1 &1151770282
 GameObject:
   m_ObjectHideFlags: 0
@@ -27247,6 +27297,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6d6eb95e2352a141a90d0ea5386717f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1357040100 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11427620, guid: a6d6eb95e2352a141a90d0ea5386717f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1357040099}
+  m_Script: {fileID: 11500000, guid: 213265e1bd678084184e4c666d9731f4, type: 3}
 --- !u!1001 &1357368392
 Prefab:
   m_ObjectHideFlags: 0
@@ -38935,6 +38991,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 823312322}
     m_Modifications:
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 461054, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
       propertyPath: m_LocalPosition.x
       value: 48
@@ -38991,6 +39051,14 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1133191960}
+    - target: {fileID: 11404682, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
+      propertyPath: Funcionality.ExtinguisherNode.FirewallsList.Array.data[1]
+      value: 
+      objectReference: {fileID: 95317248}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac908e1c020f98643b202d4ca0a247ba, type: 2}
   m_IsPrefabParent: 0

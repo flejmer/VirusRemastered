@@ -39,7 +39,7 @@ public class ExtinguisherNode
 [System.Serializable]
 public class TurretNode
 {
-    public Transform Turret;
+    public TurretAI Turret;
 }
 
 [System.Serializable]
@@ -111,7 +111,7 @@ public class InteractionNode : Node
         }
         else
         {
-            
+            Funcionality.TurretNode.Turret.PlayerControlled = true;
         }
     }
 
