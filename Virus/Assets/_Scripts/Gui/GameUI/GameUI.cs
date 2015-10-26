@@ -33,12 +33,14 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
+        _skillsPanelController.UpdateAll();
+
         if (!GameManager.GetPlayer()) return;
 
         UpdateHealth();
         UpdateEnergy();
 
-        _skillsPanelController.UpdateAll();
+        
     }
 
     public void ActivateTutorial()

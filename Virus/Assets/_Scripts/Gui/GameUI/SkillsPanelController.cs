@@ -72,26 +72,26 @@ public class SkillsPanelController : MonoBehaviour
 
     public void UpdateLaserSprite()
     {
-        _laser.sprite = GameManager.GetPlayer().LaserUnlocked ? Sprites.LaserActivated : Sprites.LaserDeactivated;
+        _laser.sprite = RealCyberManager.GetPlayer().LaserUnlocked ? Sprites.LaserActivated : Sprites.LaserDeactivated;
     }
 
     public void UpdateMindControlSprite()
     {
-        _mind.sprite = GameManager.GetPlayer().MindControlUnlocked ? Sprites.MindControlActivated : Sprites.MindControlDeactivated;
+        _mind.sprite = RealCyberManager.GetPlayer().MindControlUnlocked ? Sprites.MindControlActivated : Sprites.MindControlDeactivated;
     }
 
     public void UpdateShieldSprite()
     {
-        _shield.sprite = GameManager.GetPlayer().ShieldUnlocked ? Sprites.ShieldActivated : Sprites.ShieldDeactivated;
+        _shield.sprite = RealCyberManager.GetPlayer().ShieldUnlocked ? Sprites.ShieldActivated : Sprites.ShieldDeactivated;
     }
 
     public void UpdateSlowMotionSprite()
     {
-        _slow.sprite = GameManager.GetPlayer().SlowMotionUnlocked ? Sprites.SlowMotionActivated : Sprites.SlowMotionDeactivated;
+        _slow.sprite = RealCyberManager.GetPlayer().SlowMotionUnlocked ? Sprites.SlowMotionActivated : Sprites.SlowMotionDeactivated;
     }
 
     public void UpdateHologramSprite()
     {
-        _holo.sprite = GameManager.GetPlayer().HologramUnlocked ? Sprites.HologramActivated : Sprites.HologramDeactivated;
+        _holo.sprite = RealCyberManager.GetPlayer().HologramUnlocked ? Sprites.HologramActivated : Sprites.HologramDeactivated;
     }
 }

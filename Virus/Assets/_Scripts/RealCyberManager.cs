@@ -98,4 +98,9 @@ public class RealCyberManager : MonoBehaviour
 
         Instance.InCyberspace = false;
     }
+
+    public static PlayerController GetPlayer()
+    {
+        return Instance._player;
+    }
 }

@@ -88,8 +88,9 @@ public class Enums : MonoBehaviour
     {
         Laser,
         MindControl,
-        Blast,
         Hologram,
+        Shield,
+        SlowMotion
     }
 
     public enum InteractionNodes
