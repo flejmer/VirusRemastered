@@ -53,7 +53,7 @@ public class TurretAI : MonoBehaviour
             {
                 if (GameManager.GetPlayer() == null) return;
 
-                if (ListOfObjectsInAwareness.Contains(GameManager.GetPlayer().gameObject))
+                if (ListOfObjectsInAwareness.Contains(GameManager.GetPlayer().gameObject) && !GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
                 {
                     var target = GameManager.GetPlayer().gameObject;
                     RotateTowards(target.transform.position);

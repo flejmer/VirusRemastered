@@ -516,6 +516,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 64719068}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &76912598 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 178950, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+  m_PrefabInternal: {fileID: 2066866694}
 --- !u!1 &87301061
 GameObject:
   m_ObjectHideFlags: 0
@@ -13395,7 +13399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
 --- !u!114 &2042576925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13935,6 +13939,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11498888, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 467948, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14095,6 +14103,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11498888, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498888, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11498888, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 76912598}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a206626df7d987b44b3d61ad33ba9860, type: 2}
   m_IsPrefabParent: 0

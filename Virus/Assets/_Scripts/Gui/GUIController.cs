@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class GUIController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GUIController : MonoBehaviour
     private GameUI _gameUi;
     private Popup _popup;
 
+    private EventSystem _eSys;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class GUIController : MonoBehaviour
         _gameUi = GetComponentInChildren<GameUI>();
         _popup = GetComponentInChildren<Popup>();
         _deadScreen = GetComponentInChildren<DeadScreen>();
+        _eSys = EventSystem.current;
 
         _startScreen.gameObject.SetActive(false);
         _pauseScreen.gameObject.SetActive(false);
@@ -72,6 +75,7 @@ public class GUIController : MonoBehaviour
             return;
 
         Instance._deadScreen.gameObject.SetActive(true);
+        Instance._deadScreen.ButtonsActivate();
         GameManager.Instance.InGameState = Enums.InGameStates.Pause;
     }
 
@@ -81,6 +85,12 @@ public class GUIController : MonoBehaviour
     !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
             return;
 
+        Instance.Invoke("DeadScreenCloseDelay", 0.1f);
+        Instance._deadScreen.ButtonsDeactivate();
+    }
+
+    void DeadScreenCloseDelay()
+    {
         Instance._deadScreen.gameObject.SetActive(false);
         Instance._deadScreen.GoToMenu();
         GameManager.Instance.InGameState = Enums.InGameStates.Normal;
@@ -103,6 +113,8 @@ public class GUIController : MonoBehaviour
         }
 
         Instance._pauseScreen.gameObject.SetActive(true);
+        Instance._pauseScreen.ButtonsActivate();
+
         GameManager.Instance.InGameState = Enums.InGameStates.Pause;
     }
 
@@ -112,8 +124,30 @@ public class GUIController : MonoBehaviour
             !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
             return;
 
+        Instance._eSys.SetSelectedGameObject(Instance._eSys.gameObject);
+
+        Instance.DelayPauseClose();
+        Instance._pauseScreen.ButtonsDeactivate();
+    }
+
+    void DelayPauseClose()
+    {
+        StartCoroutine(PauseScreenCloseDelay(0.1f));
+    }
+
+    static IEnumerator PauseScreenCloseDelay(float time)
+    {
+        float counter = 0;
+
+        while (counter < time)
+        {
+            yield return new WaitForEndOfFrame();
+            counter += Time.unscaledDeltaTime;
+        }
+
         Instance._pauseScreen.gameObject.SetActive(false);
         Instance._pauseScreen.GoToMenu();
+
         GameManager.Instance.InGameState = Enums.InGameStates.Normal;
 
         if (!Instance._popup.Active)
@@ -121,7 +155,6 @@ public class GUIController : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-
     public static bool IsInstanceNull()
     {
         return Instance == null;

@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
             if (!InGameState.Equals(Enums.InGameStates.Pause) && !RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
             {
                 GUIController.PauseScreenActivate();
-                Time.timeScale = 0;
+                Time.timeScale = 0.0001f;
             }
             else
             {

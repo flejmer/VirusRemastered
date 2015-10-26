@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class DeadScreen : MonoBehaviour
 {
@@ -10,12 +11,33 @@ public class DeadScreen : MonoBehaviour
     private DeadMenuController _menu;
     private PauseSettingsController _settings;
 
-    void Start()
+    private Button[] _buttons;
+
+
+
+    void Awake()
     {
         _menu = GetComponentInChildren<DeadMenuController>();
         _settings = GetComponentInChildren<PauseSettingsController>();
+        _buttons = GetComponentsInChildren<Button>();
 
         _settings.gameObject.SetActive(false);
+    }
+
+    public void ButtonsActivate()
+    {
+        foreach (var button in _buttons)
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void ButtonsDeactivate()
+    {
+        foreach (var button in _buttons)
+        {
+            button.interactable = false;
+        }
     }
 
     public void GoToSettings()
