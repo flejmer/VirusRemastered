@@ -11,7 +11,6 @@ public class GUIController : MonoBehaviour
     private GameUI _gameUi;
     private Popup _popup;
 
-    private bool _deadScreenActive;
 
     private void Awake()
     {
@@ -72,7 +71,6 @@ public class GUIController : MonoBehaviour
     GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
             return;
 
-        Instance._deadScreenActive = true;
         Instance._deadScreen.gameObject.SetActive(true);
         GameManager.Instance.InGameState = Enums.InGameStates.Pause;
     }
@@ -83,7 +81,6 @@ public class GUIController : MonoBehaviour
     !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
             return;
 
-        Instance._deadScreenActive = false;
         Instance._deadScreen.gameObject.SetActive(false);
         Instance._deadScreen.GoToMenu();
         GameManager.Instance.InGameState = Enums.InGameStates.Normal;

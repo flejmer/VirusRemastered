@@ -30,8 +30,12 @@ public class EnemyGuardAI : EnemySimpleAI
 
     private RagdollController _ragdoll;
 
+    private Vector3 _startingPos;
+
     void Start()
     {
+        _startingPos = transform.position;
+
         _anim = GetComponentInChildren<Animator>();
         _collider = GetComponent<CapsuleCollider>();
 
@@ -97,7 +101,7 @@ public class EnemyGuardAI : EnemySimpleAI
     {
         if ((other.CompareTag("Player") || other.CompareTag("Hologram") || other.gameObject.Equals(Target)) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead) && !_enemyState.Equals(Enums.EnemyGuardStates.RunAway))
         {
-            if(other.CompareTag("Player") && GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead)) return;
+            if (other.CompareTag("Player") && GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead)) return;
 
             if (_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) && other.CompareTag("Player")) return;
 
@@ -245,12 +249,26 @@ public class EnemyGuardAI : EnemySimpleAI
         if (_enemyState.Equals(Enums.EnemyGuardStates.Idle))
         {
             _anim.SetBool("Aiming", false);
+            Agent.SetDestination(_startingPos);
 
-            //            if (Target != null)
-            //                _enemyState = Enums.EnemyGuardStates.Chase;
+            if (Agent.velocity.sqrMagnitude > 0)
+            {
+                _anim.SetBool("Running", true);
+            }
+            else
+            {
+                _anim.SetBool("Running", false);
+            }
         }
         else if (_enemyState.Equals(Enums.EnemyGuardStates.Chase))
         {
+            if (Target != null)
+                if (Target.CompareTag("Player") && RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
+                {
+                    Target = null;
+                    Agent.SetDestination(_startingPos);
+                }
+
             if (Target != null)
             {
                 Agent.Resume();
@@ -285,9 +303,9 @@ public class EnemyGuardAI : EnemySimpleAI
                 }
                 else
                 {
-                    if (GameManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
+
+                    if (RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
                     {
-                        Debug.Log("nul");
                         Target = null;
                     }
                 }
