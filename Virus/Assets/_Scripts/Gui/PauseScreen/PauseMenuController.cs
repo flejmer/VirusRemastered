@@ -13,4 +13,10 @@ public class PauseMenuController : MonoBehaviour
         GUIController.PauseScreenDeactivate();
         GUIController.ToMenu();
     }
+
+    public void RestartLevel()
+    {
+        GUIController.PauseScreenDeactivate();
+        GUIController.Restart();
+    }
 }

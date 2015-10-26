@@ -464,4 +464,14 @@ public class PlayerController : MonoBehaviour
     {
         return _heManager.GetEnergy();
     }
+
+    public void AddHealth(float amount)
+    {
+        _heManager.AddHp(amount);
+    }
+
+    public void AddEnergy(float amount)
+    {
+        _heManager.AddEnergy(amount);
+    }
 }

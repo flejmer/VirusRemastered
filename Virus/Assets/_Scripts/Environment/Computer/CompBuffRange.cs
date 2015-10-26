@@ -8,12 +8,19 @@ public class CompBuffRange : MonoBehaviour
 
     private bool _once;
 
+    private bool _heal;
+
     void Start()
     {
         _cc = GetComponentInParent<CompController>();
         _line = _cc.transform.FindChild("Line").gameObject.GetComponent<ConnectionLine>();
 
         
+    }
+
+    void AllowHeal()
+    {
+        _heal = true;
     }
 
     void OnTriggerEnter(Collider other)
@@ -31,7 +38,28 @@ public class CompBuffRange : MonoBehaviour
                 //TODO: dynamic line animation times
                 _line.AnimateLine(Enums.AnimType.FromOriginToDestination, .25f);
             }
+
+            Invoke("AllowHeal", 1);
         }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && GameManager.IsComputerHacked(_cc))
+        {
+            if (_heal)
+            {
+                HealWave();
+            }
+        }
+    }
+
+    void HealWave()
+    {
+        GameManager.GetPlayer().AddHealth(10);
+        GameManager.GetPlayer().AddEnergy(10);
+        _heal = false;
+        Invoke("AllowHeal", 1);
     }
 
     void OnTriggerExit(Collider other)
@@ -44,6 +72,8 @@ public class CompBuffRange : MonoBehaviour
             {
                 AnimateDisconnect();
             }
+
+            CancelInvoke();
         }
     }
 

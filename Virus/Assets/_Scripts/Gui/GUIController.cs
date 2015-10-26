@@ -103,4 +103,12 @@ public class GUIController : MonoBehaviour
         GameManager.Instance.AppQuit = true;
         Application.LoadLevel("Menu");
     }
+
+    public static void Restart()
+    {
+        Debug.Log("????");
+        Instance._popup.DeactivatePopup();
+        GameManager.Instance.AppQuit = true;
+        Application.LoadLevel("Game01");
+    }
 }
