@@ -177,6 +177,8 @@ public class PlayerController : MonoBehaviour
             UnlockMindControl();
             UnlockShield();
             UnlockSlowMotion();
+
+            GodMode = true;
         }
 
         if (!_hacking) return;

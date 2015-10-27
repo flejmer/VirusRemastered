@@ -561,7 +561,9 @@ public class GameManager : MonoBehaviour
         if (!Instance._hackedComputersList.Contains(comp))
         {
             Instance._hackedComputersList.Add(comp);
-            Instance._hackedComputersStack.Push(comp);
+
+            if(!comp.gameObject.CompareTag("FirstPc"))
+                Instance._hackedComputersStack.Push(comp);
         }
     }
 
@@ -570,6 +572,8 @@ public class GameManager : MonoBehaviour
         if (Instance._hackedComputersList.Contains(comp))
         {
             Instance._hackedComputersList.Remove(comp);
+
+            if (Instance._hackedComputersStack.Count <= 0) return;
 
             if (Instance._hackedComputersStack.Peek().Equals(comp))
             {

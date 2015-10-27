@@ -77,6 +77,9 @@
     <Compile Include="Assets\DeadMenuController.cs" />
     <Compile Include="Assets\DeadScreen.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
+    <Compile Include="Assets\SpecialTech.cs" />
+    <Compile Include="Assets\Stucker.cs" />
+    <Compile Include="Assets\Unstucker.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -95,7 +98,9 @@
     <Compile Include="Assets\_Scripts\Environment\Computer\CompInterArea.cs" />
     <Compile Include="Assets\_Scripts\Environment\Computer\ConnectionLine.cs" />
     <Compile Include="Assets\_Scripts\Environment\DoorDownController.cs" />
+    <Compile Include="Assets\_Scripts\Environment\GuardActivator.cs" />
     <Compile Include="Assets\_Scripts\Environment\HealingCenter\HealingCenter.cs" />
+    <Compile Include="Assets\_Scripts\Environment\TechActivator.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\DelayedActivation.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\Enums.cs" />
     <Compile Include="Assets\_Scripts\GlobalStuff\GameManager.cs" />

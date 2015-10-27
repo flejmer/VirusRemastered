@@ -219,6 +219,16 @@ public class EnemyGuardAI : EnemySimpleAI
         }
     }
 
+    public void StartChase()
+    {
+        if (Target == null)
+        {
+            Target = GameManager.GetPlayer().gameObject;
+            _enemyState = Enums.EnemyGuardStates.Chase;
+        }
+        
+    }
+
     private void AI()
     {
         if (HealthPoints <= (MaxHpPoints * 1 / 3))
