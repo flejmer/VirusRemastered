@@ -92,10 +92,10 @@ public class CameraFollow : MonoBehaviour
 
     public void CheckThisOut(Vector3 position)
     {
-        _positionToCheck = position;
+        _positionToCheck = position + _offset;
         _checking = true;
         _uncheckingChecking = false;
-        SmoothnessStrength = 10;
+        SmoothnessStrength = 5;
     }
 
     void CameraMovement()

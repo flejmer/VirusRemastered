@@ -107,7 +107,18 @@ public class InteractionNode : Node
         }
         else if (Type.Equals(Enums.InteractionNodes.Extinguisher))
         {
-            
+            var focusPoint = Vector3.zero;
+
+            foreach (var o in Funcionality.ExtinguisherNode.FirewallsList)
+            {
+                focusPoint.x += o.transform.position.x;
+                focusPoint.z += o.transform.position.z;
+                Destroy(o, 1);
+            }
+
+            focusPoint = focusPoint/Funcionality.ExtinguisherNode.FirewallsList.Count;
+
+            RealCyberManager.ShowPointOfInterest(focusPoint);
         }
         else
         {

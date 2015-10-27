@@ -9,7 +9,9 @@ public class RealCyberManager : MonoBehaviour
     private CyberPlayer _cyberPlayer;
 
     private Camera _realCam;
-    private Camera _cyperCam;
+    private CameraFollow _realCamScript;
+    private Camera _cyberCam;
+    private CameraFollow _cyberCamScript;
 
     public bool InCyberspace { get; private set; }
 
@@ -51,18 +53,29 @@ public class RealCyberManager : MonoBehaviour
             if (camera1.name.Equals("MainCamera"))
             {
                 _realCam = camera1;
+                _realCamScript = _realCam.gameObject.GetComponent<CameraFollow>();
             }
             else if (camera1.name.Equals("CyberCamera"))
             {
-                _cyperCam = camera1;
+                _cyberCam = camera1;
+                _cyberCamScript = _cyberCam.gameObject.GetComponent<CameraFollow>();
             }
         }
 
-        if (_cyperCam != null)
-            _cyperCam.gameObject.SetActive(false);
+        if (_cyberCam != null)
+        {
+            _cyberCam.gameObject.SetActive(false);
+        }
 
-        if(_cyberPlayer != null)
+        if (_cyberPlayer != null)
+        {
             _cyberPlayer.gameObject.SetActive(false);
+        }
+    }
+
+    public static void ShowPointOfInterest(Vector3 point)
+    {
+        Instance._cyberCamScript.CheckThisOut(point);
     }
 
     public static bool IsInstanceNull()
@@ -79,7 +92,7 @@ public class RealCyberManager : MonoBehaviour
         Instance._cyberPlayer.CurrentNode = comp.CyberComputer;
 
         Instance._player.gameObject.SetActive(false);
-        Instance._cyperCam.gameObject.SetActive(true);
+        Instance._cyberCam.gameObject.SetActive(true);
 
         Instance.InCyberspace = true;
     }
@@ -93,7 +106,7 @@ public class RealCyberManager : MonoBehaviour
         var pos = comp.RealComputer.GetHackPosition();
         Instance._player.transform.position = new Vector3(pos.x, Instance._player.transform.position.y, pos.z);
 
-        Instance._cyperCam.gameObject.SetActive(false);
+        Instance._cyberCam.gameObject.SetActive(false);
         Instance._cyberPlayer.gameObject.SetActive(false);
 
         Instance.InCyberspace = false;
