@@ -85,16 +85,23 @@ public class RealCyberManager : MonoBehaviour
 
     public static void GoToCyberspace(CompController comp)
     {
-        Instance._gw = GameWorld.Cyber;
+        if (comp.EnemiesAround)
+        {
+            Debug.Log("enemies are around main frame INFO");
+        }
+        else
+        {
+            Instance._gw = GameWorld.Cyber;
 
-        Instance._cyberPlayer.gameObject.SetActive(true);
-        Instance._cyberPlayer.transform.position = comp.CyberComputer.transform.position;
-        Instance._cyberPlayer.CurrentNode = comp.CyberComputer;
+            Instance._cyberPlayer.gameObject.SetActive(true);
+            Instance._cyberPlayer.transform.position = comp.CyberComputer.transform.position;
+            Instance._cyberPlayer.CurrentNode = comp.CyberComputer;
 
-        Instance._player.gameObject.SetActive(false);
-        Instance._cyberCam.gameObject.SetActive(true);
+            Instance._player.gameObject.SetActive(false);
+            Instance._cyberCam.gameObject.SetActive(true);
 
-        Instance.InCyberspace = true;
+            Instance.InCyberspace = true;
+        }
     }
 
     public static void GoToRealWorld(ComputerNode comp)

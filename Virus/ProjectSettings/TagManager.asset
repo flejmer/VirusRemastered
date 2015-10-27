@@ -21,6 +21,7 @@ TagManager:
   - Hologram
   - Turret
   - FirstPc
+  - MainFrame
   layers:
   - Default
   - TransparentFX

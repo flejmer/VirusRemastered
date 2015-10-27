@@ -562,7 +562,7 @@ public class GameManager : MonoBehaviour
         {
             Instance._hackedComputersList.Add(comp);
 
-            if(!comp.gameObject.CompareTag("FirstPc"))
+            if(!comp.gameObject.CompareTag("FirstPc") && !comp.gameObject.CompareTag("MainFrame"))
                 Instance._hackedComputersStack.Push(comp);
         }
     }

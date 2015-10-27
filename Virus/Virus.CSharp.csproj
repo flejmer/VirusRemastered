@@ -77,6 +77,8 @@
     <Compile Include="Assets\DeadMenuController.cs" />
     <Compile Include="Assets\DeadScreen.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
+    <Compile Include="Assets\MainFrameEnemiesAround.cs" />
+    <Compile Include="Assets\MainFrameGuard.cs" />
     <Compile Include="Assets\SpecialTech.cs" />
     <Compile Include="Assets\Stucker.cs" />
     <Compile Include="Assets\Unstucker.cs" />

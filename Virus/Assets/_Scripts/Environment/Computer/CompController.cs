@@ -34,6 +34,8 @@ public class CompController : DelayedActivation
 
     private ConnectionLine _line;
 
+    public bool EnemiesAround = false;
+
     void Awake()
     {
         _line = GetComponentInChildren<ConnectionLine>();
