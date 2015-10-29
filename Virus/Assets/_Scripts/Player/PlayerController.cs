@@ -110,8 +110,11 @@ public class PlayerController : MonoBehaviour
     private RagdollController _ragdoll;
     private CapsuleCollider _collider;
 
+    private AudioSource _audioSource;
+
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _rbody = GetComponent<Rigidbody>();
         _gun = transform.Find("Body/Gun");
         _missileSpawn = transform.Find("Body/Gun/missileSpawn");
@@ -120,6 +123,16 @@ public class PlayerController : MonoBehaviour
         _heManager = GetComponent<HealthEnergyManager>();
         _ragdoll = GetComponentInChildren<RagdollController>();
         _collider = GetComponent<CapsuleCollider>();
+    }
+
+    public void StopAnimations()
+    {
+        _anim.speed = 0.0001f;
+    }
+
+    public void ResumeAnimations()
+    {
+        _anim.speed = 1;
     }
 
     public void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask)
@@ -261,6 +274,7 @@ public class PlayerController : MonoBehaviour
             if (!(_heManager.GetHealth() <= 0) || _deadEvent) return;
 
             _deadEvent = true;
+            SoundManager.PlayChuckDeathSound(_audioSource);
             GameManager.Instance.PlayerDied();
             PlayerState = Enums.PlayerStates.Dead;
         }
@@ -395,6 +409,8 @@ public class PlayerController : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E) && MindControlUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.MindControl.EnergyCost)
                 {
+                    SoundManager.PlayPlayerMindControlSound(_audioSource);
+
                     PlayerState = Enums.PlayerStates.MindControlling;
 
                     var instance = (GameObject)Instantiate(ProjectilesProperties.MindControl.Missile, _missileSpawn.position,
@@ -435,6 +451,7 @@ public class PlayerController : MonoBehaviour
 
             if (fireInput1 && _heManager.GetEnergy() >= ProjectilesProperties.BasicAttack.EnergyCost)
             {
+                SoundManager.PlayPlayerAttackSound(_audioSource);
 
                 var instance = (GameObject)
                     Instantiate(ProjectilesProperties.BasicAttack.Missile, _missileSpawn.position,
@@ -458,6 +475,8 @@ public class PlayerController : MonoBehaviour
 
             if (fireInput2 && LaserUnlocked && _heManager.GetEnergy() >= ProjectilesProperties.LaserAttack.EnergyCost)
             {
+                SoundManager.PlayPlayerAttack2Sound(_audioSource);
+
                 var instance = (GameObject)Instantiate(ProjectilesProperties.LaserAttack.Missile, _missileSpawn.position, _missileSpawn.rotation);
 
                 var script = instance.GetComponent<Laser>();

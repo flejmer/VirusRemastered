@@ -9,9 +9,11 @@ public class DoorDownController : MonoBehaviour
     private Animator _animator;
     private bool _unlocked;
     private NavMeshObstacle _navObstacle;
+    private AudioSource _audioSource;
 
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _animator = GetComponentInChildren<Animator>();
         _navObstacle = GetComponent<NavMeshObstacle>();
     }
@@ -49,12 +51,24 @@ public class DoorDownController : MonoBehaviour
         if (_lockType.Equals(Enums.DoorLockType.Unlocked))
         {
             if (other.CompareTag("Player") || other.CompareTag("EnemyGuard") || other.CompareTag("EnemyTech"))
-                _unlocked = true;
+            {
+                if (!_unlocked)
+                {
+                    SoundManager.PlayDoorSound(_audioSource);
+                    _unlocked = true;
+                }
+            }
         }
         else if (_lockType.Equals(Enums.DoorLockType.EnemyLock))
         {
             if (other.CompareTag("EnemyGuard") || other.CompareTag("EnemyTech"))
-                _unlocked = true;
+            {
+                if (!_unlocked)
+                {
+                    SoundManager.PlayDoorSound(_audioSource);
+                    _unlocked = true;
+                }
+            }
         }
     }
 
@@ -63,12 +77,24 @@ public class DoorDownController : MonoBehaviour
         if (_lockType.Equals(Enums.DoorLockType.Unlocked))
         {
             if (other.CompareTag("Player") || other.CompareTag("EnemyGuard") || other.CompareTag("EnemyTech"))
-                _unlocked = false;
+            {
+                if (_unlocked)
+                {
+                    SoundManager.PlayDoorSound(_audioSource);
+                    _unlocked = false;
+                }
+            }
         }
         else if (_lockType.Equals(Enums.DoorLockType.EnemyLock))
         {
             if (other.CompareTag("EnemyGuard") || other.CompareTag("EnemyTech"))
-                _unlocked = false;
+            {
+                if (_unlocked)
+                {
+                    SoundManager.PlayDoorSound(_audioSource);
+                    _unlocked = false;
+                }
+            }
         }
     }
 }

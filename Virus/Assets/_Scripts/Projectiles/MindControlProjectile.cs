@@ -52,6 +52,8 @@ public class MindControlProjectile : MonoBehaviour
         var cam = Camera.main.gameObject.GetComponent<CameraFollow>();
         cam.ChangeTarget(_target.transform);
 
+        SoundManager.PlayInfectionSound(_target.GetAudioSource());
+
         Destroy(gameObject, 1);
     }
 }

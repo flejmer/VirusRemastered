@@ -28,7 +28,7 @@ public class Loader : MonoBehaviour
 
         if (SoundManager.Instance == null)
         {
-//            Instantiate(SoundMan);
+            Instantiate(SoundMan);
         }
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 438924}
   - 114: {fileID: 11455138}
+  - 82: {fileID: 8200480}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -28,6 +29,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8200480
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134294}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8aa140d45e9dde74ab700a3cfc248530, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11455138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,13 +110,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e80ce515c88b04b8d6e41bc2fd7add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NodeUnlockSound: {fileID: 8300000, guid: 5469bf5cdc7ef744689be6969c87d7d0, type: 3}
+  ChuckDeathSound: {fileID: 8300000, guid: 9afad4ea97bc7d441affdc4015f101e7, type: 3}
+  EnemyAttackSound: {fileID: 8300000, guid: cdcc764b9fc330141b55eef5fd02c041, type: 3}
+  TurretAttackSound: {fileID: 8300000, guid: 034c1527ce99c904abf819f5ddc33b58, type: 3}
+  PlayerBasicAttackSound: {fileID: 8300000, guid: 034c1527ce99c904abf819f5ddc33b58,
+    type: 3}
+  PlayerSecondaryAttackSound: {fileID: 8300000, guid: baabceae714783d4b8ebf8b8d2725d63,
+    type: 3}
+  PlayerMindControlAttackSound: {fileID: 8300000, guid: 929a7a13740198b45b6e5b9b9fcfaf4f,
+    type: 3}
+  ExplosionSound: {fileID: 8300000, guid: e631e560c3efec044bb8b99de45ef50f, type: 3}
+  TeleportSound: {fileID: 8300000, guid: 25d6364ee9c118644af31b0974a6dbd9, type: 3}
+  InfectionSound: {fileID: 8300000, guid: df8e991c92e142b4594ef31e86a5a2e3, type: 3}
+  ImpactSound: {fileID: 8300000, guid: 7326afcb4625c7040b899928426bfd61, type: 3}
+  DoorSound: {fileID: 8300000, guid: 30e65e554b2c3584badd1ae157b1d1b6, type: 3}
+  ComputerHackedSound: {fileID: 8300000, guid: cabbb9302a21691469ae1f9d92ca2b6f, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 8300000, guid: 034c1527ce99c904abf819f5ddc33b58, type: 3}
+    - target: {fileID: 0}
+      propertyPath: TeleportSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 25d6364ee9c118644af31b0974a6dbd9, type: 3}
+    - target: {fileID: 0}
+      propertyPath: PlayerSecondaryAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: baabceae714783d4b8ebf8b8d2725d63, type: 3}
+    - target: {fileID: 0}
+      propertyPath: InfectionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: df8e991c92e142b4594ef31e86a5a2e3, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ImpactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7326afcb4625c7040b899928426bfd61, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ExplosionSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e631e560c3efec044bb8b99de45ef50f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: PlayerBasicAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 034c1527ce99c904abf819f5ddc33b58, type: 3}
+    - target: {fileID: 0}
+      propertyPath: EnemyAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cdcc764b9fc330141b55eef5fd02c041, type: 3}
+    - target: {fileID: 0}
+      propertyPath: PlayerMindControlAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 929a7a13740198b45b6e5b9b9fcfaf4f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: TurretAttackSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 034c1527ce99c904abf819f5ddc33b58, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ChuckDeathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9afad4ea97bc7d441affdc4015f101e7, type: 3}
+    - target: {fileID: 0}
+      propertyPath: NodeUnlockSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 5469bf5cdc7ef744689be6969c87d7d0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: DoorSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 30e65e554b2c3584badd1ae157b1d1b6, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ComputerHackedSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cabbb9302a21691469ae1f9d92ca2b6f, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8aa140d45e9dde74ab700a3cfc248530, type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134294}

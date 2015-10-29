@@ -78,7 +78,7 @@ public class EnemyTechAI : EnemySimpleAI
                 }
                 else if (!_enemyState.Equals(Enums.EnemyTechStates.RunForYourLife) && !_enemyState.Equals(Enums.EnemyTechStates.PlayerControlled) && !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
-                    var randInCircle = Random.insideUnitCircle * 3;
+                    var randInCircle = Random.insideUnitCircle * 2;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position + new Vector3(randInCircle.x, 0, randInCircle.y);
 
                     Agent.SetDestination(position);
@@ -214,6 +214,8 @@ public class EnemyTechAI : EnemySimpleAI
 
                 var instance = (GameObject)Instantiate(Burst, transform.position, Quaternion.Euler(new Vector3(90, 0, 0)));
                 var script = instance.GetComponent<SuicideController>();
+
+                SoundManager.PlayEnemyBurstSound(GetAudioSource());
 
                 script.Burst();
                 Destroy(instance, 3);

@@ -22,11 +22,13 @@ public class Popup : MonoBehaviour
                 if (GameManager.Instance.SlowMotionActivated)
                 {
                     Time.timeScale = Time.timeScale = 1 * GameManager.Instance.SlowMotionRate;
+                    RealCyberManager.GetPlayer().ResumeAnimations();
                     return;
                 }
 
                 Time.timeScale = 1;
-                
+                RealCyberManager.GetPlayer().ResumeAnimations();
+
             }
             else
             {
@@ -35,6 +37,7 @@ public class Popup : MonoBehaviour
                 if (!GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
                 {
                     Time.timeScale = 0;
+                    RealCyberManager.GetPlayer().StopAnimations();
                 }
             }
         }

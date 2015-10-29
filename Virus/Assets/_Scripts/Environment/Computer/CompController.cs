@@ -12,6 +12,8 @@ public class CompController : DelayedActivation
     private List<Light> _lights = new List<Light>();
     private List<Component> _halos = new List<Component>();
 
+    private AudioSource _audioSource;
+
     public bool IsHacked
     {
         get { return GameManager.IsComputerHacked(this); }
@@ -38,6 +40,7 @@ public class CompController : DelayedActivation
 
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _line = GetComponentInChildren<ConnectionLine>();
         _dropHackZone = transform.FindChild("DropHack");
 
@@ -56,6 +59,11 @@ public class CompController : DelayedActivation
             _lights[i].enabled = false;
             _halos[i].GetType().GetProperty("enabled").SetValue(_halos[i], false, null);
         }
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return _audioSource;
     }
 
     void Update()
@@ -154,6 +162,7 @@ public class CompController : DelayedActivation
     {
         _hackInProgress = false;
         GameManager.AddHackedComputer(this);
+        SoundManager.PlayComputerHackedSound(_audioSource);
     }
 
     public void StartDehacking()

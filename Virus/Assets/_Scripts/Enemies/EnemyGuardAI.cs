@@ -246,7 +246,7 @@ public class EnemyGuardAI : EnemySimpleAI
                          !_enemyState.Equals(Enums.EnemyGuardStates.PlayerControlled) &&
                          !_enemyState.Equals(Enums.EnemyGuardStates.Dead))
                 {
-                    var randInCircle = Random.insideUnitCircle * 3;
+                    var randInCircle = Random.insideUnitCircle * 2;
                     var position = GameManager.GetClosestHealingCenter(gameObject).transform.position +
                                    new Vector3(randInCircle.x, 0, randInCircle.y);
 
@@ -333,6 +333,8 @@ public class EnemyGuardAI : EnemySimpleAI
 
             if (_canFire)
             {
+                SoundManager.PlayEnemyAttackSound(GetAudioSource());
+
                 var instance = (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);
                 instance.GetComponent<ProjectileDir>().WhoFired = gameObject;
 
@@ -420,6 +422,7 @@ public class EnemyGuardAI : EnemySimpleAI
                 }
 
                 script.Burst();
+                SoundManager.PlayEnemyBurstSound(GetAudioSource());
                 Destroy(instance, 3);
             }
         }

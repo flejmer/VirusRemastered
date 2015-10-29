@@ -9,6 +9,7 @@ public class GUIController : MonoBehaviour
     private StartScreen _startScreen;
     private PauseScreen _pauseScreen;
     private DeadScreen _deadScreen;
+    private WinScreen _winScreen;
     private GameUI _gameUi;
     private Popup _popup;
 
@@ -29,6 +30,7 @@ public class GUIController : MonoBehaviour
         _gameUi = GetComponentInChildren<GameUI>();
         _popup = GetComponentInChildren<Popup>();
         _deadScreen = GetComponentInChildren<DeadScreen>();
+        _winScreen = GetComponentInChildren<WinScreen>();
         _eSys = EventSystem.current;
 
         _startScreen.gameObject.SetActive(false);
@@ -36,6 +38,7 @@ public class GUIController : MonoBehaviour
         _gameUi.gameObject.SetActive(false);
         _popup.gameObject.SetActive(false);
         _deadScreen.gameObject.SetActive(false);
+        _winScreen.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -43,7 +46,13 @@ public class GUIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             _popup.ActivateHackingInfo();
+//            _popup.ActivateTextPopup();
         }
+    }
+
+    public static void ActivateTextPopup(string title, string text)
+    {
+        Instance._popup.ActivateTextPopup(title,text);
     }
 
     public static bool IsPopupActivated()
@@ -93,6 +102,39 @@ public class GUIController : MonoBehaviour
     {
         Instance._deadScreen.gameObject.SetActive(false);
         Instance._deadScreen.GoToMenu();
+        GameManager.Instance.InGameState = Enums.InGameStates.Normal;
+
+        if (!Instance._popup.Active)
+        {
+            Time.timeScale = 1;
+        }
+    }
+
+    public static void WinScreenActivate()
+    {
+        if (!GameManager.Instance.GameState.Equals(Enums.GameStates.GamePlay) ||
+    GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
+            return;
+
+        Instance._winScreen.gameObject.SetActive(true);
+        Instance._winScreen.ButtonsActivate();
+        GameManager.Instance.InGameState = Enums.InGameStates.Pause;
+    }
+
+    public static void WinScreenDeactivate()
+    {
+        if (!GameManager.Instance.GameState.Equals(Enums.GameStates.GamePlay) ||
+    !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
+            return;
+
+        Instance.Invoke("DeadScreenCloseDelay", 0.1f);
+        Instance._winScreen.ButtonsDeactivate();
+    }
+
+    void WinScreenCloseDelay()
+    {
+        Instance._winScreen.gameObject.SetActive(false);
+        Instance._winScreen.GoToMenu();
         GameManager.Instance.InGameState = Enums.InGameStates.Normal;
 
         if (!Instance._popup.Active)

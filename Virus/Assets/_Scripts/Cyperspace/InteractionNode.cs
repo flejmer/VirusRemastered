@@ -62,7 +62,6 @@ public class InteractionNode : Node
 
     private Material _mat;
 
-
     void Awake()
     {
         _mat = GetComponent<MeshRenderer>().material;
@@ -95,18 +94,23 @@ public class InteractionNode : Node
 
     public void UnlockNode()
     {
+        if (_unlocked) return;
         _unlocked = true;
+
 
         if (Type.Equals(Enums.InteractionNodes.Data))
         {
-            
+            SoundManager.PlayNodeUnlockSound(AudioSource);
         }
         else if (Type.Equals(Enums.InteractionNodes.Door))
         {
+            SoundManager.PlayNodeUnlockSound(AudioSource);
             Funcionality.DoorNode.Doors.SetLockType(Enums.DoorLockType.Unlocked);
         }
         else if (Type.Equals(Enums.InteractionNodes.Extinguisher))
         {
+            SoundManager.PlayNodeUnlockSound(AudioSource);
+
             var focusPoint = Vector3.zero;
 
             foreach (var o in Funcionality.ExtinguisherNode.FirewallsList)
@@ -116,15 +120,20 @@ public class InteractionNode : Node
                 Destroy(o, 1);
             }
 
-            focusPoint = focusPoint/Funcionality.ExtinguisherNode.FirewallsList.Count;
+            focusPoint = focusPoint / Funcionality.ExtinguisherNode.FirewallsList.Count;
 
             RealCyberManager.ShowPointOfInterest(focusPoint);
         }
         else
         {
+            SoundManager.PlayNodeUnlockSound(AudioSource);
             Funcionality.TurretNode.Turret.PlayerControlled = true;
+
         }
     }
 
-
+    public bool IsUnlocked()
+    {
+        return _unlocked;
+    }
 }

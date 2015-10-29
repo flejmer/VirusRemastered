@@ -21,8 +21,11 @@ public abstract class EnemySimpleAI : MonoBehaviour
     private List<SkinnedMeshRenderer> _mesh;
     private Color _originalColor;
 
+    private AudioSource _audioSource;
+
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         Agent = GetComponent<NavMeshAgent>();
 
         _mesh = new List<SkinnedMeshRenderer>(GetComponentsInChildren<SkinnedMeshRenderer>());
@@ -39,6 +42,11 @@ public abstract class EnemySimpleAI : MonoBehaviour
     {
         var hpAfterDamage = _hpPoints - count;
         _hpPoints = hpAfterDamage < 0 ? 0 : hpAfterDamage;
+    }
+
+    public AudioSource GetAudioSource()
+    {
+        return _audioSource;
     }
 
     public abstract void HitPoint(Vector3 pos, Vector3 dir, float force, LayerMask mask);

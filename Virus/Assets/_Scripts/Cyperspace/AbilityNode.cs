@@ -37,6 +37,8 @@ public class AbilityNode : Node
 
     public void UnlockAbility()
     {
+        SoundManager.PlayNodeUnlockSound(AudioSource);
+
         if (NodeType == Enums.Abilities.Laser)
         {
             RealCyberManager.GetPlayer().UnlockLaser();
@@ -59,6 +61,8 @@ public class AbilityNode : Node
         }
 
         if (!Unlocked)
+        {
             Unlocked = true;
+        }
     }
 }

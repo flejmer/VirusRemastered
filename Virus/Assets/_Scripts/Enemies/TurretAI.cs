@@ -19,10 +19,12 @@ public class TurretAI : MonoBehaviour
     public float RateOfFire = 1;
     public bool PlayerControlled;
 
-
+    private AudioSource _audioSource;
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+
         ListOfObjectsInAwareness = new List<GameObject>();
         
         _fireRateEnumerator = CanFireAgain(RateOfFire);
@@ -99,6 +101,8 @@ public class TurretAI : MonoBehaviour
 
             if (!Physics.Raycast(_missileSpawn.position, dir, out hit, 15)) return;
             if (hit.transform.CompareTag("Obstacle")) return;
+
+            SoundManager.PlayTurretAttackSound(_audioSource);
 
             var instance =
                 (GameObject)Instantiate(Missile, _missileSpawn.position, _missileSpawn.rotation);

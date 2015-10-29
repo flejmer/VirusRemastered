@@ -8,11 +8,13 @@ public class Node : MonoBehaviour
     public Node LeftNode;
     public Node RightNode;
 
+    public AudioSource AudioSource { get; private set; }
+
     public bool Active;
 
     void Start()
     {
-
+        AudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
