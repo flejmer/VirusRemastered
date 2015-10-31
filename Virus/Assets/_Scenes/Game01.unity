@@ -1233,8 +1233,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1, z: 1}
+  m_Center: {x: .0799999982, y: 0, z: 0}
 --- !u!33 &75531891
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5254,6 +5254,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainFrame: {fileID: 1938252168}
+--- !u!1001 &276344550
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -21.9500008
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: BoundDoors
+      value: 
+      objectReference: {fileID: 16082408}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Title
+      value: Doors are locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Text
+      value: I need to find a way to open these doors.NEWLINEMaybe there is a lock
+        in cyberspace.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &278330822
 GameObject:
   m_ObjectHideFlags: 0
@@ -5706,7 +5769,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &305368699
 MeshFilter:
@@ -5871,6 +5934,73 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1505692158}
   m_Script: {fileID: 11500000, guid: e693686a122d1a54989f256db5fe736a, type: 3}
+--- !u!1001 &334619087
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.370000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_RootOrder
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 152110, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_Name
+      value: PopupActivator (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: BoundDoors
+      value: 
+      objectReference: {fileID: 969819926}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Title
+      value: Doors are locked
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Text
+      value: These doors are blocking my way. NEWLINEI should take control over that
+        TECH so I can open them for myself.NEWLINENEWLINEMind control ability required.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &335318130
 Prefab:
   m_ObjectHideFlags: 0
@@ -8661,6 +8791,73 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 443234, guid: ff4aca35820f06e4a91ebced2f59f5d3, type: 2}
   m_PrefabInternal: {fileID: 479815141}
+--- !u!1001 &487236948
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 45.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 152110, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_Name
+      value: PopupActivator (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 436416, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: BoundDoors
+      value: 
+      objectReference: {fileID: 671416590}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Title
+      value: Mainframe room
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472714, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+      propertyPath: Text
+      value: This must be wher they keep their data.NEWLINEI need to find a way to
+        open these doors.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: faa0e9d6218ac2a468982374d5f4b878, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &494097150
 GameObject:
   m_ObjectHideFlags: 0
@@ -10904,7 +11101,7 @@ Transform:
   - {fileID: 1088567789}
   - {fileID: 1107054816}
   m_Father: {fileID: 0}
-  m_RootOrder: 71
+  m_RootOrder: 74
 --- !u!1001 &637406042
 Prefab:
   m_ObjectHideFlags: 0
@@ -16145,7 +16342,7 @@ Transform:
   - {fileID: 1069298397}
   - {fileID: 185235645}
   m_Father: {fileID: 0}
-  m_RootOrder: 76
+  m_RootOrder: 79
 --- !u!114 &834557583 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11442450, guid: 7755f60899bde1b438dae3e68bef5af2,
@@ -18699,7 +18896,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 67
+  m_RootOrder: 70
 --- !u!114 &933300306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19670,6 +19867,10 @@ Prefab:
       propertyPath: m_Radius
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 178748, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
   m_IsPrefabParent: 0
@@ -20295,7 +20496,7 @@ Transform:
   - {fileID: 174779280}
   - {fileID: 107036525}
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 69
 --- !u!1 &985425551
 GameObject:
   m_ObjectHideFlags: 0
@@ -26491,7 +26692,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1255571152
 MeshFilter:
@@ -28594,6 +28795,14 @@ Prefab:
     - target: {fileID: 11410150, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
       propertyPath: _lockType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178748, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 194932, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dcc712db37863d4ca664261fcf5bec4, type: 2}
@@ -32346,7 +32555,7 @@ Transform:
   - {fileID: 757507935}
   - {fileID: 939936954}
   m_Father: {fileID: 0}
-  m_RootOrder: 73
+  m_RootOrder: 76
 --- !u!1 &1530442387
 GameObject:
   m_ObjectHideFlags: 0
@@ -33131,7 +33340,7 @@ Transform:
   - {fileID: 718407965}
   - {fileID: 799361975}
   m_Father: {fileID: 0}
-  m_RootOrder: 72
+  m_RootOrder: 75
 --- !u!1001 &1555145909
 Prefab:
   m_ObjectHideFlags: 0
@@ -36534,7 +36743,7 @@ Transform:
   - {fileID: 1699261612}
   - {fileID: 1585722595}
   m_Father: {fileID: 0}
-  m_RootOrder: 70
+  m_RootOrder: 73
 --- !u!1 &1672477263
 GameObject:
   m_ObjectHideFlags: 0
@@ -41068,7 +41277,7 @@ Transform:
   - {fileID: 1679503434}
   - {fileID: 1177898374}
   m_Father: {fileID: 0}
-  m_RootOrder: 68
+  m_RootOrder: 71
 --- !u!1 &1854617093
 GameObject:
   m_ObjectHideFlags: 0
@@ -41887,7 +42096,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 424638, guid: 1b2d9c932ff3cbd4fae323d51f517219, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 424638, guid: 1b2d9c932ff3cbd4fae323d51f517219, type: 2}
       propertyPath: m_LocalPosition.y
@@ -41915,7 +42124,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424638, guid: 1b2d9c932ff3cbd4fae323d51f517219, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 103436, guid: 1b2d9c932ff3cbd4fae323d51f517219, type: 2}
       propertyPath: m_Name
@@ -42765,7 +42974,7 @@ Transform:
   - {fileID: 1598570034}
   - {fileID: 1274724211}
   m_Father: {fileID: 0}
-  m_RootOrder: 74
+  m_RootOrder: 77
 --- !u!1 &1917238088
 GameObject:
   m_ObjectHideFlags: 0
@@ -43339,7 +43548,7 @@ Transform:
   - {fileID: 1364411148}
   - {fileID: 1975421181}
   m_Father: {fileID: 0}
-  m_RootOrder: 75
+  m_RootOrder: 78
 --- !u!1001 &1949856518
 Prefab:
   m_ObjectHideFlags: 0
@@ -45469,8 +45678,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1, z: 1}
+  m_Center: {x: .0799999982, y: 0, z: 0}
 --- !u!33 &2015438899
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -47836,8 +48045,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.10000002, y: 1, z: 1.5}
+  m_Center: {x: .0299999993, y: 0, z: -.119999997}
 --- !u!33 &2121479265
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48136,7 +48345,7 @@ Transform:
   - {fileID: 494792092}
   - {fileID: 1438178072}
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 72
 --- !u!1001 &2137883568
 Prefab:
   m_ObjectHideFlags: 0

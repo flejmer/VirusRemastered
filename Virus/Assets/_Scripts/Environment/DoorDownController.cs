@@ -41,6 +41,11 @@ public class DoorDownController : MonoBehaviour
         
     }
 
+    public Enums.DoorLockType GetLockType()
+    {
+        return _lockType;
+    }
+
     public void SetLockType(Enums.DoorLockType type)
     {
         _lockType = type;

@@ -133,4 +133,9 @@ public class RealCyberManager : MonoBehaviour
     {
         return Instance._player;
     }
+
+    public static CyberPlayer GetCyberPlayer()
+    {
+        return Instance._cyberPlayer;
+    }
 }

@@ -46,13 +46,43 @@ public class GUIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             _popup.ActivateHackingInfo();
-//            _popup.ActivateTextPopup();
+            //            _popup.ActivateTextPopup();
         }
     }
 
     public static void ActivateTextPopup(string title, string text)
     {
-        Instance._popup.ActivateTextPopup(title,text);
+        Instance._popup.ActivateTextPopup(title, text);
+    }
+
+    public static void ActivateHackingInfo()
+    {
+        Instance._popup.ActivateHackingInfo();
+    }
+
+    public static void ActivateLaserInfo()
+    {
+        Instance._popup.ActivateLaserUnlockedInfo();
+    }
+
+    public static void ActivateHologramInfo()
+    {
+        Instance._popup.ActivateHologramUnlockedInfo();
+    }
+
+    public static void ActivateMindControlInfo()
+    {
+        Instance._popup.ActivateMindControlUnlockedInfo();
+    }
+
+    public static void ActivateShieldInfo()
+    {
+        Instance._popup.ActivateShieldUnlockedInfo();
+    }
+
+    public static void ActivateSlowMotionInfo()
+    {
+        Instance._popup.ActivateSlowMotionUnlockedInfo();
     }
 
     public static bool IsPopupActivated()
@@ -194,7 +224,10 @@ public class GUIController : MonoBehaviour
 
         if (!Instance._popup.Active)
         {
-            Time.timeScale = 1;
+            if (GameManager.Instance.SlowMotionActivated)
+                Time.timeScale = 1 * GameManager.Instance.SlowMotionRate;
+            else
+                Time.timeScale = 1;
         }
     }
     public static bool IsInstanceNull()
@@ -207,6 +240,8 @@ public class GUIController : MonoBehaviour
         Instance._popup.DeactivatePopup();
         GameManager.Instance.AppQuit = true;
         Application.LoadLevel("Menu");
+
+        SoundManager.StopBackgroundMusic();
     }
 
     public static void Restart()
@@ -214,5 +249,7 @@ public class GUIController : MonoBehaviour
         Instance._popup.DeactivatePopup();
         GameManager.Instance.AppQuit = true;
         Application.LoadLevel("Game01");
+
+        SoundManager.StopBackgroundMusic();
     }
 }

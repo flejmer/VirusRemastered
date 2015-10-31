@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour
     public void StartGame()
     {
         Application.LoadLevel("Game01");
+        SoundManager.StopBackgroundMusic();
     }
 
     public void ExitGame()

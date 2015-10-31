@@ -69,6 +69,7 @@ public class Popup : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
         {
             Active = false;
+            RealCyberManager.GetCyberPlayer().NotThisTime = true;
         }
     }
 
@@ -104,7 +105,7 @@ public class Popup : MonoBehaviour
     public void ActivateLaserUnlockedInfo()
     {
         Active = true;
-        _mindControlUnlockedPopup.gameObject.SetActive(true);
+        _laserUnlockedPopup.gameObject.SetActive(true);
     }
 
     public void ActivateMindControlUnlockedInfo()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SoundManager : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class SoundManager : MonoBehaviour
     public AudioClip DoorSound;
     public AudioClip ComputerHackedSound;
 
-    private AudioClip _enterCyberspaceSound;
+    public AudioClip MenuMusic;
+    public AudioClip GameMusic;
+
+    private AudioSource _audioSource;
+    public List<AudioSource> AllSources = new List<AudioSource>();
 
     void Awake()
     {
@@ -30,7 +35,46 @@ public class SoundManager : MonoBehaviour
         if (Instance != this)
             Destroy(gameObject);
 
+        _audioSource = GetComponent<AudioSource>();
+
         DontDestroyOnLoad(gameObject);
+    }
+
+    public static void SetSourcesForThisScene(AudioSource[] sources)
+    {
+        Instance.AllSources = new List<AudioSource>(sources);
+    }
+
+    public static void SetPitch(float pitch)
+    {
+        foreach (var source in Instance.AllSources)
+        {
+            if (!source.gameObject.CompareTag("Computer"))
+            {
+                source.pitch = pitch;
+            }
+        }
+    }
+
+    public static void PlayMenuMusic()
+    {
+        Instance._audioSource.clip = Instance.MenuMusic;
+        Instance._audioSource.timeSamples = 0;
+        Instance._audioSource.loop = true;
+        Instance._audioSource.Play();
+    }
+
+    public static void PlayGameMusic()
+    {
+        Instance._audioSource.clip = Instance.GameMusic;
+        Instance._audioSource.timeSamples = 0;
+        Instance._audioSource.loop = true;
+        Instance._audioSource.Play();
+    }
+
+    public static void StopBackgroundMusic()
+    {
+        Instance._audioSource.Stop();
     }
 
     public static void PlayNodeUnlockSound(AudioSource source)

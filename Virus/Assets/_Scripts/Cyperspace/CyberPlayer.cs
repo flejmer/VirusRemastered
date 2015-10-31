@@ -11,7 +11,9 @@ public class CyberPlayer : MonoBehaviour
     private Node _targetNode;
     private Node _nextNode;
 
-    public Node CurrentNode { get {return _currentNode;} set { _currentNode = value; } }
+    public Node CurrentNode { get { return _currentNode; } set { _currentNode = value; } }
+
+    public bool NotThisTime = false;
 
     void Update()
     {
@@ -80,6 +82,8 @@ public class CyberPlayer : MonoBehaviour
 
     void PlayerInteraction()
     {
+        if(GUIController.IsPopupActivated()) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!_reachedDestination) return;
@@ -94,14 +98,23 @@ public class CyberPlayer : MonoBehaviour
                 var node = _currentNode.GetComponent<ComputerNode>();
 
                 RealCyberManager.GoToRealWorld(node);
-//                node.Overload = true;
+                //                node.Overload = true;
             }
             else if (_currentNode.CompareTag("AbilityNode"))
             {
                 var node = _currentNode.GetComponent<AbilityNode>();
-                node.Unlocked = true;
+
+                if (!node.Unlocked)
+                    node.Unlocked = true;
+                else
+                {
+                    if(!NotThisTime)
+                        node.UnlockAbility();
+                }
             }
         }
+
+        NotThisTime = false;
     }
 
     void OnTriggerEnter(Collider c)

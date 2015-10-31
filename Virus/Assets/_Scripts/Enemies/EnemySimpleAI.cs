@@ -79,6 +79,7 @@ public abstract class EnemySimpleAI : MonoBehaviour
     void OnDisable()
     {
         GameManager.RemoveEnemy(this);
+        SoundManager.Instance.AllSources.Remove(_audioSource);
     }
 
     public abstract void TakeOver();

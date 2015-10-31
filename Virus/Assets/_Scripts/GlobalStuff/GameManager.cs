@@ -61,16 +61,20 @@ public class GameManager : MonoBehaviour
     {
         AppQuit = false;
 
+        SoundManager.SetSourcesForThisScene(FindObjectsOfType<AudioSource>());
+
         if (level == 0)
         {
             GUIController.MenuScreen();
             GameState = Enums.GameStates.MainMenu;
+            SoundManager.PlayMenuMusic();
         }
         else
         {
             GUIController.Game();
             GameState = Enums.GameStates.GamePlay;
             InGameState = Enums.InGameStates.Normal;
+            SoundManager.PlayGameMusic();
         }
     }
 
@@ -92,6 +96,8 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = Time.timeScale * _slowMotionRate;
+            SoundManager.SetPitch(Time.timeScale);
+
             Time.fixedDeltaTime = Time.fixedDeltaTime * _slowMotionRate;
 
             _slowMotionEnumerator = DeactivateSlowMotion(duration * _slowMotionRate);
@@ -108,6 +114,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
 
         Time.timeScale = Time.timeScale / _slowMotionRate;
+        SoundManager.SetPitch(Time.timeScale);
+
         Time.fixedDeltaTime = Time.fixedDeltaTime / _slowMotionRate;
 
         SlowMotionActivated = false;
@@ -122,7 +130,7 @@ public class GameManager : MonoBehaviour
             if (!InGameState.Equals(Enums.InGameStates.Pause) && !RealCyberManager.GetPlayer().PlayerState.Equals(Enums.PlayerStates.Dead))
             {
                 GUIController.PauseScreenActivate();
-                Time.timeScale = 0.0001f;
+                Time.timeScale = 0f;
             }
             else
             {
