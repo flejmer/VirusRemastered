@@ -1807,14 +1807,14 @@ MonoBehaviour:
       Damage: 100
       Missile: {fileID: 138298, guid: ed27394749916934192158bc500664b9, type: 2}
       MissileLifetime: 5
-      EnergyCost: 30
+      EnergyCost: 20
     MindControl:
       RayMask:
         serializedVersion: 2
         m_Bits: 23040
       RayLength: 20
       Missile: {fileID: 106040, guid: d166d2a782745eb4d95eaef5288dccc7, type: 2}
-      EnergyCost: 80
+      EnergyCost: 50
     Hologram:
       Missile: {fileID: 155612, guid: 18af916df33b454459b654e38a91d484, type: 2}
       EnergyCost: 40
