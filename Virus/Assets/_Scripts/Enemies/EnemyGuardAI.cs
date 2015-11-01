@@ -52,11 +52,6 @@ public class EnemyGuardAI : EnemySimpleAI
         AI();
         Movement();
 
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log(_enemyState + " " + gameObject.name + " ");
-        }
-
         if (GameManager.GetPlayer() == null)
         {
             if (Target != null)

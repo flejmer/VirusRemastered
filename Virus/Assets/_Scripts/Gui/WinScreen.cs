@@ -8,14 +8,14 @@ public class WinScreen : MonoBehaviour
 
     private ScreenStates _state = ScreenStates.Menu;
 
-    private DeadMenuController _menu;
+    private WinMenuController _menu;
     private PauseSettingsController _settings;
 
     private Button[] _buttons;
 
     void Awake()
     {
-        _menu = GetComponentInChildren<DeadMenuController>();
+        _menu = GetComponentInChildren<WinMenuController>();
         _settings = GetComponentInChildren<PauseSettingsController>();
         _buttons = GetComponentsInChildren<Button>();
 

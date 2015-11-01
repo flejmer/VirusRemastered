@@ -17,7 +17,7 @@ public class GameUI : MonoBehaviour
     private float _lastHealth = 0;
     private float _lastEnergy = 0;
 
-    void Start()
+    void Awake()
     {
         _mStatusElement = GetComponentInChildren<MStatusElement>();
         _healthBars = GetComponentsInChildren<HealthBarActivator>();

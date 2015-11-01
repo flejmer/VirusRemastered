@@ -74,9 +74,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameFinish.cs" />
     <Compile Include="Assets\LogoEnter.cs" />
-    <Compile Include="Assets\WinScreen.cs" />
+    <Compile Include="Assets\SliderAndText.cs" />
     <Compile Include="Assets\_Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\AbilityNode.cs" />
     <Compile Include="Assets\_Scripts\Cyperspace\ComputerNode.cs" />
@@ -98,10 +97,14 @@
     <Compile Include="Assets\_Scripts\Environment\DoorDownController.cs" />
     <Compile Include="Assets\_Scripts\Environment\GuardActivator.cs" />
     <Compile Include="Assets\_Scripts\Environment\HealingCenter\HealingCenter.cs" />
+    <Compile Include="Assets\_Scripts\Environment\MinimapPlayer.cs" />
+    <Compile Include="Assets\_Scripts\Environment\MissionStatusUpdater.cs" />
+    <Compile Include="Assets\_Scripts\Environment\PopHackActivator.cs" />
     <Compile Include="Assets\_Scripts\Environment\PopupActivator.cs" />
     <Compile Include="Assets\_Scripts\Environment\Stucker.cs" />
     <Compile Include="Assets\_Scripts\Environment\TechActivator.cs" />
     <Compile Include="Assets\_Scripts\Environment\Unstucker.cs" />
+    <Compile Include="Assets\_Scripts\Game01\GameFinish.cs" />
     <Compile Include="Assets\_Scripts\Game01\MainFrameEnemiesAround.cs" />
     <Compile Include="Assets\_Scripts\Game01\MainFrameGuard.cs" />
     <Compile Include="Assets\_Scripts\Game01\SpecialTech.cs" />
@@ -136,6 +139,8 @@
     <Compile Include="Assets\_Scripts\Gui\StartScreen\MenuController.cs" />
     <Compile Include="Assets\_Scripts\Gui\StartScreen\SettingsController.cs" />
     <Compile Include="Assets\_Scripts\Gui\StartScreen\StartScreen.cs" />
+    <Compile Include="Assets\_Scripts\Gui\WinMenuController.cs" />
+    <Compile Include="Assets\_Scripts\Gui\WinScreen.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\_Scripts\Player\ShieldController.cs" />
     <Compile Include="Assets\_Scripts\Player\SpawnInWallCheker.cs" />

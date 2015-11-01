@@ -43,7 +43,7 @@ MonoBehaviour:
   MissleSpawnPoint: {fileID: 0}
   Mask:
     serializedVersion: 2
-    m_Bits: 20992
+    m_Bits: 4215296
   DrawSpeed: 100
   LifeTime: 3
 --- !u!120 &12083624
@@ -96,7 +96,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: Mask.m_Bits
-      value: 20992
+      value: 4215296
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Parameters.startWidth

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GUIController : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class GUIController : MonoBehaviour
     private WinScreen _winScreen;
     private GameUI _gameUi;
     private Popup _popup;
+
+    private SliderAndText[] _slidersAndTexts;
 
     private EventSystem _eSys;
 
@@ -33,6 +37,8 @@ public class GUIController : MonoBehaviour
         _winScreen = GetComponentInChildren<WinScreen>();
         _eSys = EventSystem.current;
 
+        _slidersAndTexts = GetComponentsInChildren<SliderAndText>();
+
         _startScreen.gameObject.SetActive(false);
         _pauseScreen.gameObject.SetActive(false);
         _gameUi.gameObject.SetActive(false);
@@ -41,13 +47,17 @@ public class GUIController : MonoBehaviour
         _winScreen.gameObject.SetActive(false);
     }
 
-    private void Update()
+    public static void UpdateSlidersAndTexts(float value, SliderAndText source)
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        foreach (var st in Instance._slidersAndTexts.Where(st => !st.Equals(source)))
         {
-            _popup.ActivateHackingInfo();
-            //            _popup.ActivateTextPopup();
+            st.UpdateST(value);
         }
+    }
+
+    public static void UpdateMissionStatus(string text)
+    {
+        Instance._gameUi.UpdateMissionStatus(text);
     }
 
     public static void ActivateTextPopup(string title, string text)
@@ -104,6 +114,8 @@ public class GUIController : MonoBehaviour
     {
         Instance._startScreen.gameObject.SetActive(false);
         Instance._gameUi.gameObject.SetActive(true);
+        Instance._gameUi.UpdateMissionStatus("Escape your prison");
+
         GameManager.Instance.GameState = Enums.GameStates.GamePlay;
     }
 
@@ -157,12 +169,13 @@ public class GUIController : MonoBehaviour
     !GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause))
             return;
 
-        Instance.Invoke("DeadScreenCloseDelay", 0.1f);
+        Instance.Invoke("WinScreenCloseDelay", 0.1f);
         Instance._winScreen.ButtonsDeactivate();
     }
 
     void WinScreenCloseDelay()
     {
+
         Instance._winScreen.gameObject.SetActive(false);
         Instance._winScreen.GoToMenu();
         GameManager.Instance.InGameState = Enums.InGameStates.Normal;

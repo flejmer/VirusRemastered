@@ -32,6 +32,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
+        if(GameManager.Instance.InGameState.Equals(Enums.InGameStates.Pause)) return;
+
         if (TargetToFollow)
         {
             if (TargetToFollow.CompareTag("CyberPlayer"))

@@ -21,7 +21,8 @@ public class NodeTextures
 [System.Serializable]
 public class DataNode
 {
-
+    public string Title = "title";
+    public string Text = "text";
 }
 
 [System.Serializable]
@@ -101,6 +102,7 @@ public class InteractionNode : Node
         if (Type.Equals(Enums.InteractionNodes.Data))
         {
             SoundManager.PlayNodeUnlockSound(AudioSource);
+            GUIController.ActivateTextPopup(Funcionality.DataNode.Title, Funcionality.DataNode.Text);
         }
         else if (Type.Equals(Enums.InteractionNodes.Door))
         {

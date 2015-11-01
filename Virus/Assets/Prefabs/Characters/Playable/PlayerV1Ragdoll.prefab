@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 458854}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: r_thumb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489396}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413606}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_shoulder_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 417066}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_foot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426238}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: r_thumb_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - 54: {fileID: 5424702}
   - 144: {fileID: 14490530}
   - 65: {fileID: 6583806}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - 54: {fileID: 5424948}
   - 144: {fileID: 14496942}
   - 136: {fileID: 13667174}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - 54: {fileID: 5473334}
   - 144: {fileID: 14400254}
   - 136: {fileID: 13665202}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - 54: {fileID: 5485086}
   - 144: {fileID: 14479824}
   - 136: {fileID: 13674094}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - 4: {fileID: 494856}
   - 54: {fileID: 5495666}
   - 65: {fileID: 6562862}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - 54: {fileID: 5498538}
   - 144: {fileID: 14426762}
   - 136: {fileID: 13655978}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415148}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   - 54: {fileID: 5430446}
   - 144: {fileID: 14473354}
   - 135: {fileID: 13542014}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 415874}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_fuck_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 476022}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_pinky_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478260}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_pinky_f_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445842}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - 54: {fileID: 5447270}
   - 144: {fileID: 14465686}
   - 136: {fileID: 13679710}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: hip1left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467692}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_thumb_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477258}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404392}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_foot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 492632}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - 4: {fileID: 431122}
   - 95: {fileID: 9520584}
   - 114: {fileID: 11475624}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: ChuckRagdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -455,7 +455,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473180}
   - 137: {fileID: 13703334}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460688}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_foot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495134}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_foot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 419646}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: right_shoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 446716}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_thumb_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435040}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: Hemi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478492}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_fingers2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456526}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_fingers_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - 54: {fileID: 5469566}
   - 144: {fileID: 14403046}
   - 136: {fileID: 13655614}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_forearm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +593,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 497120}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_leg_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425988}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: r_palm_fingers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -643,7 +643,7 @@ GameObject:
   - 54: {fileID: 5435570}
   - 144: {fileID: 14408594}
   - 136: {fileID: 13664338}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: hip1right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -658,7 +658,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440430}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_heel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 402532}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_indes_f_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - 54: {fileID: 5433874}
   - 144: {fileID: 14482484}
   - 136: {fileID: 13624888}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: left_leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -706,7 +706,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 469580}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_indes_f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 433436}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: l_pam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 445678}
-  m_Layer: 8
+  m_Layer: 22
   m_Name: r__palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1776,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: 106060eb0e2b83b458cede0b47217d4f, type: 3}
   m_Controller: {fileID: 9100000, guid: c2947498dc670694abc8a6c813e59c16, type: 2}
   m_CullingMode: 1
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 

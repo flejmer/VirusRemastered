@@ -24,8 +24,7 @@ public class GameFinish : MonoBehaviour
 
         if (counter == NodesToActive.Count)
         {
-            // finish the game here
-            Debug.Log("finish the game here");
+            GameManager.Instance.GameWon();
         }
     }
 }

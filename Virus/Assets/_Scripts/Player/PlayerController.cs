@@ -183,16 +183,16 @@ public class PlayerController : MonoBehaviour
 
         if (RealCyberManager.Instance.InCyberspace) return;
 
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            UnlockLaser();
-            UnlockHologram();
-            UnlockMindControl();
-            UnlockShield();
-            UnlockSlowMotion();
-
-            GodMode = true;
-        }
+//        if (Input.GetKeyDown(KeyCode.N))
+//        {
+//            UnlockLaser();
+//            UnlockHologram();
+//            UnlockMindControl();
+//            UnlockShield();
+//            UnlockSlowMotion();
+//
+//            GodMode = true;
+//        }
 
         if (!_hacking) return;
 

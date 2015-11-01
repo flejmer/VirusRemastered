@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
-    private AudioListener _allsound;
 
     public AudioClip NodeUnlockSound;
     public AudioClip ChuckDeathSound;
@@ -27,6 +26,8 @@ public class SoundManager : MonoBehaviour
     private AudioSource _audioSource;
     public List<AudioSource> AllSources = new List<AudioSource>();
 
+
+
     void Awake()
     {
         if (Instance == null)
@@ -36,8 +37,22 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
 
         _audioSource = GetComponent<AudioSource>();
-
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void MuteBackgroundMusic()
+    {
+        StartCoroutine(VolumeToZero());
+    }
+
+    IEnumerator VolumeToZero()
+    {
+        while (_audioSource.volume > 0)
+        {
+            yield return new WaitForEndOfFrame();
+
+            _audioSource.volume -= Time.deltaTime * 1;
+        }
     }
 
     public static void SetSourcesForThisScene(AudioSource[] sources)

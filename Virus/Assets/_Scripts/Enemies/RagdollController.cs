@@ -30,15 +30,6 @@ public class RagdollController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            ActivateRagdoll();
-        }
-    }
-
     public void ActivateRagdoll()
     {
         _anim.enabled = false;

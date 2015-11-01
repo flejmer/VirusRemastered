@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        AudioListener.volume = 0.5f;
     }
 
     void Start()
@@ -149,6 +150,18 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+    }
+
+    public void GameWon()
+    {
+        _player.PlayerState = Enums.PlayerStates.Dead;
+        StartCoroutine(WonWaiter(3));
+    }
+
+    IEnumerator WonWaiter(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GUIController.WinScreenActivate();
     }
 
     public void PlayerDied()

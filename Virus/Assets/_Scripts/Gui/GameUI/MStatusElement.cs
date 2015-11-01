@@ -6,7 +6,7 @@ public class MStatusElement : MonoBehaviour
 {
     private Text _text;
 
-    void Start()
+    void Awake()
     {
         var texts = GetComponentsInChildren<Text>();
 
@@ -16,6 +16,8 @@ public class MStatusElement : MonoBehaviour
             _text = text;
             return;
         }
+
+        Debug.Log("hello");
     }
 
     public void SetMStatusText(string text)

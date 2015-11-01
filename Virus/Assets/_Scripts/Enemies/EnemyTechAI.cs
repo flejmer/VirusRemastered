@@ -297,7 +297,6 @@ public class EnemyTechAI : EnemySimpleAI
 
     public override void TakeOver()
     {
-        Debug.Log("tech taken");
         _targetComputer = null;
         PlayerControlled = true;
         Active = true;
