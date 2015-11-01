@@ -76,6 +76,7 @@ public class SoundManager : MonoBehaviour
         Instance._audioSource.clip = Instance.MenuMusic;
         Instance._audioSource.timeSamples = 0;
         Instance._audioSource.loop = true;
+        Instance._audioSource.volume = .3f;
         Instance._audioSource.Play();
     }
 
@@ -84,6 +85,7 @@ public class SoundManager : MonoBehaviour
         Instance._audioSource.clip = Instance.GameMusic;
         Instance._audioSource.timeSamples = 0;
         Instance._audioSource.loop = true;
+        Instance._audioSource.volume = .3f;
         Instance._audioSource.Play();
     }
 
@@ -94,42 +96,42 @@ public class SoundManager : MonoBehaviour
 
     public static void PlayNodeUnlockSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.NodeUnlockSound, 1);
+        source.PlayOneShot(Instance.NodeUnlockSound, .5f);
     }
 
     public static void PlayChuckDeathSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.ChuckDeathSound, 1);
+        source.PlayOneShot(Instance.ChuckDeathSound, .5f);
     }
 
     public static void PlayEnemyAttackSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.EnemyAttackSound, 1);
+        source.PlayOneShot(Instance.EnemyAttackSound, .5f);
     }
 
     public static void PlayTurretAttackSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.TurretAttackSound, 1);
+        source.PlayOneShot(Instance.TurretAttackSound, .5f);
     }
 
     public static void PlayPlayerAttackSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.PlayerBasicAttackSound, 1);
+        source.PlayOneShot(Instance.PlayerBasicAttackSound, .5f);
     }
 
     public static void PlayPlayerAttack2Sound(AudioSource source)
     {
-        source.PlayOneShot(Instance.PlayerSecondaryAttackSound, 1);
+        source.PlayOneShot(Instance.PlayerSecondaryAttackSound, .5f);
     }
 
     public static void PlayPlayerMindControlSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.PlayerMindControlAttackSound, 1);
+        source.PlayOneShot(Instance.PlayerMindControlAttackSound, .5f);
     }
 
     public static void PlayEnemyBurstSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.ExplosionSound, 1);
+        source.PlayOneShot(Instance.ExplosionSound, .5f);
     }
 
     public static void PlayCyberspaceSound(AudioSource source)
@@ -137,6 +139,7 @@ public class SoundManager : MonoBehaviour
         source.clip = Instance.TeleportSound;
         source.timeSamples = source.clip.samples - 1;
         source.pitch = -1;
+        source.volume = .5f;
         source.Play();
     }
 
@@ -145,17 +148,18 @@ public class SoundManager : MonoBehaviour
         source.clip = Instance.TeleportSound;
         source.timeSamples = 0;
         source.pitch = 1;
+        source.volume = .5f;
         source.Play();
     }
 
     public static void PlayInfectionSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.InfectionSound, 1);
+        source.PlayOneShot(Instance.InfectionSound, .5f);
     }
 
     public static void PlayImpactSound(AudioSource source)
     {
-        source.PlayOneShot(Instance.ImpactSound, 1);
+        source.PlayOneShot(Instance.ImpactSound, .5f);
     }
 
     public static void PlayDoorSound(AudioSource source)
